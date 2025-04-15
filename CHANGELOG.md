@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Droni-app/droni-kit/compare/v1.0.0...v1.0.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* public access ([d8b4a99](https://github.com/Droni-app/droni-kit/commit/d8b4a999d620d6f43f386e5d853722893992f8de))
+
 # 1.0.0 (2025-04-15)
 
 
