@@ -1,8 +1,9 @@
 {
   "name": "@dronico/droni-kit",
+  "author": "Gustavo Barragan <dev@droni.co>",
+  "version": "0.0.0-development",
   "private": false,
   "access": "public",
-  "version": "0.0.0",
   "type": "module",
   "main": "dist/droni-kit.umd.js",
   "module": "dist/droni-kit.js",
@@ -44,5 +45,9 @@
     "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.1.1",
     "vue-tsc": "^2.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Droni-app/droni-kit.git"
   }
 }
