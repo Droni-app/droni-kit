@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: './src/main.ts',
+      entry: './src/index.ts',
       name: 'droni-kit',
       fileName: 'droni-kit',
       formats: ['es', 'umd']
