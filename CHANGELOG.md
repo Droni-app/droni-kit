@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Droni-app/droni-kit/compare/v1.0.2...v1.0.3) (2025-04-15)
+
+
+### Bug Fixes
+
+* index file ([eea1072](https://github.com/Droni-app/droni-kit/commit/eea1072638a19026818ff6d6d6a1a33334ab1d24))
+
 ## [1.0.2](https://github.com/Droni-app/droni-kit/compare/v1.0.1...v1.0.2) (2025-04-15)
 
 
