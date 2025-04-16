@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/Droni-app/droni-kit/compare/v1.0.3...v1.1.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* remove component call ([ba7c91b](https://github.com/Droni-app/droni-kit/commit/ba7c91b4fc7ac9121b8ef0f8a867666c95ed5403))
+
+
+### Features
+
+* scaffold ([803354d](https://github.com/Droni-app/droni-kit/commit/803354d6c0b62338966ba7a6e61cd46e2a199afe))
+
 ## [1.0.3](https://github.com/Droni-app/droni-kit/compare/v1.0.2...v1.0.3) (2025-04-15)
 
 
