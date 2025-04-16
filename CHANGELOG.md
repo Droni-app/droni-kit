@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/Droni-app/droni-kit/compare/v1.1.1...v1.1.2) (2025-04-16)
+
+
+### Bug Fixes
+
+* copilot help ([21ba3c2](https://github.com/Droni-app/droni-kit/commit/21ba3c22868ea19f12ff2f011c959980f23db102))
+* options button ([6733ad6](https://github.com/Droni-app/droni-kit/commit/6733ad64a4e3d7df4793589290c11bb8fae4ba23))
+
 ## [1.1.1](https://github.com/Droni-app/droni-kit/compare/v1.1.0...v1.1.1) (2025-04-16)
 
 
