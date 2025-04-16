@@ -11,24 +11,26 @@
     <span v-if="iconRight && !loading" :class="['ml-2', iconRight]"></span>
   </button>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 
 const props = defineProps({
   variant: {
     type: String,
-    default: 'solid', // 'solid', 'outline', 'ghost', 'link'
+    default: 'solid',
+    validator: (value: string) => ['solid', 'outline', 'ghost', 'link'].includes(value),
   },
   color: {
     type: String,
-    default: 'primary', // 'primary', 'secondary', 'danger', etc.
+    default: 'primary',
+    validator: (value: string) => ['primary', 'secondary', 'danger', 'success', 'warning', 'info'].includes(value),
   },
   size: {
-    type: String,
-    default: 'md', // 'sm', 'md', 'lg'
+    type: String as () => 'sm' | 'md' | 'lg',
+    default: 'md',
   },
   type: {
-    type: String,
+    type: String as () => 'button' | 'submit' | 'reset',
     default: 'button',
   },
   disabled: {
@@ -91,13 +93,13 @@ const variantClasses = {
 }
 
 const computedClasses = computed(() => {
-  const variantStyle = variantClasses[props.variant]?.[props.color] || ''
+  const variantStyle = variantClasses[props.variant as keyof typeof variantClasses]?.[props.color as keyof typeof variantClasses['solid']] || ''
   const sizeStyle = sizeClasses[props.size] || ''
   const blockStyle = props.block ? 'w-full' : ''
   return [baseClass, variantStyle, sizeStyle, blockStyle, props.customClass].join(' ')
 })
 
-const handleClick = (e) => {
+const handleClick = (e: any) => {
   if (!props.disabled && !props.loading) emit('click', e)
 }
 </script>
