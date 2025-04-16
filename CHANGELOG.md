@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/Droni-app/droni-kit/compare/v1.1.0...v1.1.1) (2025-04-16)
+
+
+### Bug Fixes
+
+* add taildwind ([3761618](https://github.com/Droni-app/droni-kit/commit/376161812924da91549b3d1eb7682194707c3a8e))
+* button tailwind ([4b20ca7](https://github.com/Droni-app/droni-kit/commit/4b20ca7772dba2c05f30b2d61b5f340b528e9ee3))
+
 # [1.1.0](https://github.com/Droni-app/droni-kit/compare/v1.0.3...v1.1.0) (2025-04-16)
 
 
