@@ -1,4 +1,3 @@
-import ButtonEspecial from './stories/Button.vue'
-import HeaderEspecial from './stories/Header.vue'
+import DuiButton from './stories/Forms/DuiButton.vue'
 
-export { ButtonEspecial, HeaderEspecial }
+export { DuiButton }

@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import './header.css';
-import MyButton from './Button.vue';
+import MyButton from './Forms/DuiButton.vue';
 
 defineProps<{ user: { name: string } | null }>();
 
