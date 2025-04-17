@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Droni-app/droni-kit/compare/v1.1.3...v1.2.0) (2025-04-17)
+
+
+### Features
+
+* Button component ([9030c06](https://github.com/Droni-app/droni-kit/commit/9030c06501c2b492956089debab508d68b497075))
+
 ## [1.1.3](https://github.com/Droni-app/droni-kit/compare/v1.1.2...v1.1.3) (2025-04-16)
 
 
