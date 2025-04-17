@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Button from './DuiButton.vue';
+import DuiButton from './DuiButton.vue';
 import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
   title: 'Forms/Button',
-  component: Button,
+  component: DuiButton,
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
@@ -46,8 +46,12 @@ const meta = {
       options: ['button', 'submit', 'reset'],
       defaultValue: 'button',
     },
+    title: {
+      control: { type: 'text' },
+      defaultValue: undefined,
+    },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof DuiButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

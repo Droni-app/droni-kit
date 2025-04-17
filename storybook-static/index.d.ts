@@ -1,2 +1,3 @@
 import { default as DuiButton } from './stories/Forms/DuiButton.vue';
-export { DuiButton };
+import { default as DuiInput } from './stories/Forms/DuiInput.vue';
+export { DuiButton, DuiInput };

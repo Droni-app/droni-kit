@@ -36,6 +36,10 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         type: BooleanConstructor;
         default: boolean;
     };
+    title: {
+        type: StringConstructor;
+        default: undefined;
+    };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     variant: {
         type: () => "solid" | "outline" | "ghost";
@@ -65,6 +69,10 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         type: BooleanConstructor;
         default: boolean;
     };
+    title: {
+        type: StringConstructor;
+        default: undefined;
+    };
 }>> & Readonly<{}>, {
     variant: "solid" | "outline" | "ghost";
     color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -73,6 +81,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     disabled: boolean;
     loading: boolean;
     block: boolean;
+    title: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLButtonElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

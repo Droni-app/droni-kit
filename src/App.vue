@@ -21,24 +21,73 @@
       <div class="bg-emerald-200 text-zinc-800 p-4 rounded">Success</div>
     </div>
     <h1>Botones</h1>
-    <div class="text-center">
+    <div class="text-center bg-slate-100 p-5 ">
       <DuiButton
         variant="solid"
-        size="lg"
         type="button"
+        color="secondary"
         :disabled="false"
         :loading="false"
         @click="counter++"
       >
         Botón {{ counter }}
       </DuiButton>
+      <DuiInput
+        class="inline-block"
+        type="text"
+        placeholder="hola mundo"
+        />
+        <form class="flex items-between my-4">
+          <DuiInput
+            class="inline-block"
+            rounded="left"
+            type="text"
+            size="lg"
+            placeholder="hola mundddddo"
+            required
+            pattern="[a-z]{1,15}"
+            />
+          <DuiInput
+            rounded="none"
+            class="inline-block"
+            size="lg"
+            type="text"
+            placeholder="hola mundo"
+            />
+            <DuiButton
+              type="submit"
+              color="secondary"
+              size="lg"
+              class="rounded-l-none">
+              <span class="mdi mdi-home"></span>
+              Submit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore reprehenderit dicta blanditiis nihil, impedit magnam voluptatibus sit quidem corporis fugiat in nam alias velit rem corrupti quam. Ad, suscipit quisquam.
+            </DuiButton>
+        </form>
+      <DuiInput
+        id="prueba"
+      label="Nombre"
+        class="inline-block"
+        type="month"
+        placeholder="hola mundo"
+        v-model="mymonth"
+        required
+        />
+        {{ typeof name }}
+
+      <input
+        type="color"
+        placeholder="hola mundo"
+        />
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
 import DuiButton from './stories/Forms/DuiButton.vue'
+import DuiInput from './stories/Forms/DuiInput.vue'
 
 const counter = ref(0)
+const name = ref('hola')
+const mymonth = ref('2023-10')
 
 </script>

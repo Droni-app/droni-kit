@@ -31,6 +31,10 @@ declare const meta: {
                 type: BooleanConstructor;
                 default: boolean;
             };
+            title: {
+                type: StringConstructor;
+                default: undefined;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -39,6 +43,7 @@ declare const meta: {
             disabled: boolean;
             loading: boolean;
             block: boolean;
+            title: string;
         }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLButtonElement, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -75,6 +80,10 @@ declare const meta: {
                 type: BooleanConstructor;
                 default: boolean;
             };
+            title: {
+                type: StringConstructor;
+                default: undefined;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -83,6 +92,7 @@ declare const meta: {
             disabled: boolean;
             loading: boolean;
             block: boolean;
+            title: string;
         }>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -116,6 +126,10 @@ declare const meta: {
             type: BooleanConstructor;
             default: boolean;
         };
+        title: {
+            type: StringConstructor;
+            default: undefined;
+        };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
         variant: "solid" | "outline" | "ghost";
         color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -124,6 +138,7 @@ declare const meta: {
         disabled: boolean;
         loading: boolean;
         block: boolean;
+        title: string;
     }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
             default?(_: {}): any;
@@ -182,6 +197,12 @@ declare const meta: {
             };
             options: string[];
             defaultValue: string;
+        };
+        title: {
+            control: {
+                type: "text";
+            };
+            defaultValue: undefined;
         };
     };
 };
