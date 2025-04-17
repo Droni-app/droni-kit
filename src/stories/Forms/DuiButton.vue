@@ -2,13 +2,9 @@
   <button
     :type="type"
     :class="computedClasses"
-    :disabled="disabled || loading"
-    @click="handleClick"
-  >
-    <span v-if="loading" class="animate-spin mr-2 h-4 w-4 border-2 border-t-transparent rounded-full border-white"></span>
-    <span v-if="iconLeft && !loading" :class="['mr-2', iconLeft]"></span>
-    <slot />
-    <span v-if="iconRight && !loading" :class="['ml-2', iconRight]"></span>
+    :disabled="props.disabled || props.loading">
+    <slot v-if="!loading" />
+    <span v-else>Cargando...</span>
   </button>
 </template>
 <script setup lang="ts">
@@ -16,14 +12,12 @@ import { computed } from 'vue'
 
 const props = defineProps({
   variant: {
-    type: String,
+    type: String as () => 'solid' | 'outline' | 'ghost',
     default: 'solid',
-    validator: (value: string) => ['solid', 'outline', 'ghost', 'link'].includes(value),
   },
   color: {
-    type: String,
-    default: 'primary',
-    validator: (value: string) => ['primary', 'secondary', 'danger', 'success', 'warning', 'info'].includes(value),
+    type: String as () => 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger',
+    default: 'neutral',
   },
   size: {
     type: String as () => 'sm' | 'md' | 'lg',
@@ -45,23 +39,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  iconLeft: {
-    type: String, // Puedes usar un nombre de ícono o un componente en otro enfoque
-    default: null,
-  },
-  iconRight: {
-    type: String,
-    default: null,
-  },
-  customClass: {
-    type: String,
-    default: '',
-  },
 })
 
-const emit = defineEmits(['click'])
-
-const baseClass = 'inline-flex items-center justify-center font-medium transition rounded-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+const baseClass = 'transition rounded disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer hover:shadow-md'
 
 const sizeClasses = {
   sm: 'text-sm px-3 py-1.5',
@@ -71,35 +51,36 @@ const sizeClasses = {
 
 const variantClasses = {
   solid: {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+    neutral: 'bg-zinc-200 text-zinc-800 hover:bg-zinc-300 hover:text-zinc-900 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600 dark:hover:text-zinc-50',
+    primary: 'bg-slate-200 text-slate-800 hover:bg-slate-300 hover:text-slate-900 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 dark:hover:text-slate-100',
+    secondary: 'bg-pink-200 text-pink-800 hover:bg-pink-300 hover:text-pink-900 dark:bg-pink-700 dark:text-pink-200 dark:hover:bg-pink-600 dark:hover:text-pink-100',
+    success: 'bg-emerald-200 text-emerald-800 hover:bg-emerald-300 hover:text-emerald-900 dark:bg-emerald-700 dark:text-emerald-200 dark:hover:bg-emerald-600 dark:hover:text-emerald-100',
+    danger: 'bg-rose-200 text-rose-800 hover:bg-rose-300 hover:text-rose-900 dark:bg-rose-700 dark:text-rose-200 dark:hover:bg-rose-600 dark:hover:text-rose-100',
+    warning: 'bg-amber-200 text-amber-800 hover:bg-amber-300 hover:text-amber-900 dark:bg-amber-700 dark:text-amber-200 dark:hover:bg-amber-600 dark:hover:text-amber-100',
   },
   outline: {
-    primary: 'border border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
-    secondary: 'border border-gray-600 text-gray-600 hover:bg-gray-50 focus:ring-gray-500',
-    danger: 'border border-red-600 text-red-600 hover:bg-red-50 focus:ring-red-500',
+    neutral: 'border border-zinc-600 text-zinc-800 hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-300 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-zinc-50',
+    primary: 'border border-sky-600 text-sky-800 hover:bg-sky-100 hover:text-sky-900 dark:border-sky-300 dark:text-sky-200 dark:hover:bg-sky-800 dark:hover:text-sky-50',
+    secondary: 'border border-pink-600 text-pink-800 hover:bg-pink-100 hover:text-pink-900 dark:border-pink-300 dark:text-pink-200 dark:hover:bg-pink-800 dark:hover:text-pink-50',
+    success: 'border border-green-600 text-green-800 hover:bg-green-100 hover:text-green-900 dark:border-green-300 dark:text-green-200 dark:hover:bg-green-800 dark:hover:text-green-50',
+    danger: 'border border-red-600 text-red-800 hover:bg-red-100 hover:text-red-900 dark:border-red-300 dark:text-red-200 dark:hover:bg-red-800 dark:hover:text-red-50',
+    warning: 'border border-yellow-600 text-yellow-800 hover:bg-yellow-100 hover:text-yellow-900 dark:border-yellow-300 dark:text-yellow-200 dark:hover:bg-yellow-800 dark:hover:text-yellow-50',
   },
   ghost: {
-    primary: 'text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
-    secondary: 'text-gray-600 hover:bg-gray-50 focus:ring-gray-500',
-    danger: 'text-red-600 hover:bg-red-50 focus:ring-red-500',
-  },
-  link: {
-    primary: 'text-blue-600 underline hover:text-blue-800',
-    secondary: 'text-gray-600 underline hover:text-gray-800',
-    danger: 'text-red-600 underline hover:text-red-800',
-  },
+    neutral: 'text-zinc-600 hover:bg-zinc-50 dark:text-zinc-100 dark:hover:bg-zinc-800',
+    primary: 'text-slate-600 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800',
+    secondary: 'text-pink-600 hover:bg-pink-50 dark:text-pink-100 dark:hover:bg-pink-800',
+    success: 'text-emerald-600 hover:bg-emerald-50 dark:text-emerald-100 dark:hover:bg-emerald-800',
+    danger: 'text-rose-600 hover:bg-rose-50 dark:text-rose-100 dark:hover:bg-rose-800',
+    warning: 'text-amber-600 hover:bg-amber-50 dark:text-amber-100 dark:hover:bg-amber-800',
+  }
 }
 
 const computedClasses = computed(() => {
-  const variantStyle = variantClasses[props.variant as keyof typeof variantClasses]?.[props.color as keyof typeof variantClasses['solid']] || ''
+  const variantStyle = variantClasses[props.variant]?.[props.color] || ''
   const sizeStyle = sizeClasses[props.size] || ''
   const blockStyle = props.block ? 'w-full' : ''
-  return [baseClass, variantStyle, sizeStyle, blockStyle, props.customClass].join(' ')
+  return [baseClass, variantStyle, sizeStyle, blockStyle].join(' ')
 })
 
-const handleClick = (e: any) => {
-  if (!props.disabled && !props.loading) emit('click', e)
-}
 </script>

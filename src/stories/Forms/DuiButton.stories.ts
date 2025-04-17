@@ -10,6 +10,10 @@ const meta = {
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
+    default: {
+      control: { type: 'text' },
+      defaultValue: 'Botón simple',
+    },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
@@ -17,13 +21,30 @@ const meta = {
     },
     variant: {
       control: { type: 'select' },
-      options: ['ghost', 'solid'],
+      options: ['solid', 'outline', 'ghost'],
       defaultValue: 'solid',
     },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'tertiary'],
-      defaultValue: 'primary',
+      options: ['neutral', 'primary', 'secondary', 'success', 'warning', 'danger'],
+      defaultValue: 'neutral',
+    },
+    loading: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    block: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['button', 'submit', 'reset'],
+      defaultValue: 'button',
     },
   },
 } satisfies Meta<typeof Button>;
@@ -35,16 +56,15 @@ type Story = StoryObj<typeof meta>;
  * See https://storybook.js.org/docs/api/csf
  * to learn how to use render functions.
  */
-export const Primary: Story = {
+export const Default: Story = {
   args: {
+    default: 'Botón simple',
+    disabled: false,
+    block: false,
     size: 'md',
-    default: () => 'boton base'
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: 'ghost',
-    default: () => 'Boton ghost',
+    variant: 'solid',
+    color: 'neutral',
+    loading: false,
+    type: 'button',
   },
 };
