@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Droni-app/droni-kit/compare/v1.2.0...v1.3.0) (2025-04-17)
+
+
+### Features
+
+* Input component ([d37679c](https://github.com/Droni-app/droni-kit/commit/d37679ce928bca90d8117fc8c315232788d15b51))
+
 # [1.2.0](https://github.com/Droni-app/droni-kit/compare/v1.1.3...v1.2.0) (2025-04-17)
 
 
