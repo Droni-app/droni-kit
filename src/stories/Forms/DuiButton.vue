@@ -46,7 +46,7 @@ const props = defineProps({
   },
 })
 
-const baseClass = 'transition rounded disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer hover:shadow-md overflow-hidden text-ellipsis whitespace-nowrap'
+const baseClass = 'transition rounded disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer hover:shadow-md overflow-hidden text-ellipsis whitespace-nowrap active:scale-95'
 
 const sizeClasses = {
   sm: 'text-sm px-3 py-1.5',

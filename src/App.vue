@@ -79,12 +79,27 @@
         placeholder="hola mundo"
         />
     </div>
+    <!-- Comment box-->
+     <div class="flex flex-col">
+      <DuiTextarea
+        block
+        placeholder="hola mundo"
+        />
+      
+      <DuiButton
+        type="submit"
+        color="secondary"
+        class="rounded-l-none">
+        <span class="mdi mdi-home"></span>
+      </DuiButton>
+     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
 import DuiButton from './stories/Forms/DuiButton.vue'
 import DuiInput from './stories/Forms/DuiInput.vue'
+import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 
 const counter = ref(0)
 const name = ref('hola')
