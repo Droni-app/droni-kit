@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Droni-app/droni-kit/compare/v1.3.0...v1.4.0) (2025-04-21)
+
+
+### Features
+
+* textarea ([31031df](https://github.com/Droni-app/droni-kit/commit/31031dfaa006ae146159310f5f3e63ecc3a0f3b5))
+
 # [1.3.0](https://github.com/Droni-app/droni-kit/compare/v1.2.0...v1.3.0) (2025-04-17)
 
 
