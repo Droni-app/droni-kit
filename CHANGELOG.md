@@ -1,3 +1,10 @@
+## [1.5.11](https://github.com/Droni-app/droni-kit/compare/v1.5.10...v1.5.11) (2025-04-22)
+
+
+### Bug Fixes
+
+* export types in package.json ([03cd643](https://github.com/Droni-app/droni-kit/commit/03cd643527575e34301c41f25525bb2edc267bac))
+
 ## [1.5.10](https://github.com/Droni-app/droni-kit/compare/v1.5.9...v1.5.10) (2025-04-22)
 
 
