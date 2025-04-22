@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Droni-app/droni-kit/compare/v1.4.0...v1.5.0) (2025-04-22)
+
+
+### Features
+
+* action element ([89f0c0f](https://github.com/Droni-app/droni-kit/commit/89f0c0fc7f33cd609811a65e2414c12a3fb4803b))
+
 # [1.4.0](https://github.com/Droni-app/droni-kit/compare/v1.3.0...v1.4.0) (2025-04-21)
 
 
