@@ -4,6 +4,7 @@
     "declarationDir": "dist",
     "emitDeclarationOnly": true,
     "esModuleInterop": true,
+    "typeRoots": ["./types", "./node_modules/@types"],
     "outDir": "dist",
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
