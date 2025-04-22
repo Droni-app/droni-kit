@@ -93,6 +93,39 @@
         <span class="mdi mdi-home"></span>
         hola mundo
       </DuiAction>
+      <DuiSelect
+        class="dk:inline-block"
+        v-model="name"
+        :options="[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' },
+        ]"
+        placeholder="hola mundo"
+        label="Nombre"
+        id="prueba"
+        name="prueba"
+        required
+        /> {{ name }}
+
+        <DuiSelect
+        class="dk:inline-block"
+        v-model="selectName"
+        :options="[
+      { id: 5, name: 'Colombia' },
+      { id: 6, name: 'México' },
+      { id: 7, name: 'España' },
+      { id: 8, name: 'Perú' },
+    ]"
+        placeholder="Seleccione uno"
+        item-label="name"
+        item-value="id"
+        /> {{ selectName }}
+
+        <DuiButton @click="selectName = '7'">
+          <span class="mdi mdi-home"></span>
+          Cambia pais
+        </DuiButton>
      </div>
   </div>
 </template>
@@ -102,9 +135,11 @@ import DuiButton from './stories/Forms/DuiButton.vue'
 import DuiInput from './stories/Forms/DuiInput.vue'
 import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 import DuiAction from './stories/Elements/DuiAction.vue';
+import DuiSelect from './stories/Forms/DuiSelect.vue'
 
 const counter = ref(0)
 const name = ref('hola')
+const selectName = ref('15')
 const mymonth = ref('2023-10')
 
 </script>
