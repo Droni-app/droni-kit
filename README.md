@@ -1,5 +1,10 @@
-# Vue 3 + TypeScript + Vite
+# Droni-kit | Simple Ui for Droni.co sites and apps
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a simple UI for Droni.co sites and apps. It is built with Vue 3, TypeScript, and Vite.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Getting Started
+To get started, just install the library and run the development server.
+
+```bash
+coming soon
+```
