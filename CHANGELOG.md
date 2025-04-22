@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/Droni-app/droni-kit/compare/v1.5.2...v1.5.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* prefix to avoid collisions ([1a993d1](https://github.com/Droni-app/droni-kit/commit/1a993d1a6da2cfbe1705f8315dc507313daaaa66))
+
 ## [1.5.2](https://github.com/Droni-app/droni-kit/compare/v1.5.1...v1.5.2) (2025-04-22)
 
 
