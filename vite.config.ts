@@ -15,7 +15,7 @@ export default defineConfig({
       entry: './src/index.ts',
       name: 'droni-kit',
       fileName: 'droni-kit',
-      formats: ['es', 'umd']
+      formats: ['es', 'cjs', 'umd']
     },
     rollupOptions: {
       external: ['vue'],
