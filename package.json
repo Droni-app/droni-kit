@@ -13,7 +13,7 @@
     "CHANGELOG.md"
   ],
   "type": "module",
-  "main": "dist/droni-kit.umd.js",
+  "main": "dist/droni-kit.umd.cjs",
   "module": "dist/droni-kit.js",
   "types": "dist/index.d.ts",
   "scripts": {
