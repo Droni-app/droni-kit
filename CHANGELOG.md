@@ -1,3 +1,10 @@
+## [1.5.9](https://github.com/Droni-app/droni-kit/compare/v1.5.8...v1.5.9) (2025-04-22)
+
+
+### Bug Fixes
+
+* tsconfig for types ([613393f](https://github.com/Droni-app/droni-kit/commit/613393f45f33bd8b937ec46a8402df6b19c8d5ae))
+
 ## [1.5.8](https://github.com/Droni-app/droni-kit/compare/v1.5.7...v1.5.8) (2025-04-22)
 
 
