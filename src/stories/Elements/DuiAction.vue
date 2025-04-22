@@ -1,12 +1,10 @@
 <template>
-  <a
-    :href="props.href"
-    :target="props.target"
+  <span
     :class="computedClasses"
     :title="props.title">
     <slot v-if="!props.loading" />
     <span v-else>Cargando...</span>
-  </a>
+  </span>
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -33,14 +31,6 @@ const props = defineProps({
     default: false,
   },
   title: {
-    type: String,
-    default: undefined,
-  },
-  href: {
-    type: String,
-    default: undefined,
-  },
-  target: {
     type: String,
     default: undefined,
   },

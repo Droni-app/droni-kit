@@ -14,15 +14,6 @@ const meta = {
       control: { type: 'text' },
       defaultValue: 'Botón simple',
     },
-    href: {
-      control: { type: 'text' },
-      defaultValue: undefined,
-    },
-    target: {
-      control: { type: 'select' },
-      options: ['_blank', '_self', '_parent', '_top'],
-      defaultValue: undefined,
-    },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
@@ -68,8 +59,6 @@ export const Default: Story = {
     variant: 'solid',
     color: 'neutral',
     loading: false,
-    href: 'https://droni.co',
-    target: '_blank',
     title: 'Ir a Droni.co',
   },
 };
