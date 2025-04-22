@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Droni-app/droni-kit/compare/v1.5.11...v1.6.0) (2025-04-22)
+
+
+### Features
+
+* Select component ([2206604](https://github.com/Droni-app/droni-kit/commit/2206604e673401610214f84eb040bff00ab89241))
+
 ## [1.5.11](https://github.com/Droni-app/droni-kit/compare/v1.5.10...v1.5.11) (2025-04-22)
 
 
