@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/Droni-app/droni-kit/compare/v1.5.3...v1.5.4) (2025-04-22)
+
+
+### Bug Fixes
+
+* umd commonjs import ([48a03dd](https://github.com/Droni-app/droni-kit/commit/48a03dd36fcd783381a7fb992a4ffb91bbad6cad))
+
 ## [1.5.3](https://github.com/Droni-app/droni-kit/compare/v1.5.2...v1.5.3) (2025-04-22)
 
 
