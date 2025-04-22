@@ -2,7 +2,6 @@
 
 <template>
   <div class="container mx-auto my-5">
-
     <h1>Color Palete:</h1>
     <div class="grid grid-cols-6 gap-4">
       <div class="bg-zinc-700 text-white p-4 rounded">Neutral: zinc</div>
@@ -80,18 +79,19 @@
         />
     </div>
     <!-- Comment box-->
-     <div class="flex flex-col">
+     <div class="dark p-5 bg-slate-900 dark:text-rose-800">
       <DuiTextarea
         block
         placeholder="hola mundo"
         />
-      
-      <DuiButton
-        type="submit"
-        color="secondary"
-        class="rounded-l-none">
+      <DuiButton  variant="outline">
         <span class="mdi mdi-home"></span>
+        hola mundo
       </DuiButton>
+      <DuiAction  variant="outline" block>
+        <span class="mdi mdi-home"></span>
+        hola mundo
+      </DuiAction>
      </div>
   </div>
 </template>
@@ -100,6 +100,7 @@ import { ref } from 'vue';
 import DuiButton from './stories/Forms/DuiButton.vue'
 import DuiInput from './stories/Forms/DuiInput.vue'
 import DuiTextarea from './stories/Forms/DuiTextarea.vue'
+import DuiAction from './stories/Elements/DuiAction.vue';
 
 const counter = ref(0)
 const name = ref('hola')
