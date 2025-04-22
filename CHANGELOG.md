@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/Droni-app/droni-kit/compare/v1.5.1...v1.5.2) (2025-04-22)
+
+
+### Bug Fixes
+
+* remove anchor from action ([95b0ead](https://github.com/Droni-app/droni-kit/commit/95b0ead5ee96d438f693d41906d23eeb9e668640))
+
 ## [1.5.1](https://github.com/Droni-app/droni-kit/compare/v1.5.0...v1.5.1) (2025-04-22)
 
 
