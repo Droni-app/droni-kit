@@ -1,3 +1,10 @@
+## [1.5.7](https://github.com/Droni-app/droni-kit/compare/v1.5.6...v1.5.7) (2025-04-22)
+
+
+### Bug Fixes
+
+* package.json export css ([0ff4ad4](https://github.com/Droni-app/droni-kit/commit/0ff4ad482fec2eeeb17b3e9f8758e01a084abf74))
+
 ## [1.5.6](https://github.com/Droni-app/droni-kit/compare/v1.5.5...v1.5.6) (2025-04-22)
 
 
