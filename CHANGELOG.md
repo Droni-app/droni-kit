@@ -1,3 +1,10 @@
+## [1.5.10](https://github.com/Droni-app/droni-kit/compare/v1.5.9...v1.5.10) (2025-04-22)
+
+
+### Bug Fixes
+
+* type roots ([e782299](https://github.com/Droni-app/droni-kit/commit/e78229930313db20c6b11369821c349ef7cf9a86))
+
 ## [1.5.9](https://github.com/Droni-app/droni-kit/compare/v1.5.8...v1.5.9) (2025-04-22)
 
 
