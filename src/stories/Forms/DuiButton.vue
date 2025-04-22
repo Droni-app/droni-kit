@@ -45,49 +45,205 @@ const props = defineProps({
     default: undefined,
   },
 })
-
-const baseClass = 'transition rounded disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer hover:shadow-md overflow-hidden text-ellipsis whitespace-nowrap active:scale-95'
+const baseClass = `
+  dk:transition
+  dk:text-center
+  dk:rounded
+  dk:disabled:opacity-50
+  dk:disabled:cursor-not-allowed
+  dk:cursor-pointer
+  dk:hover:shadow-md
+  dk:overflow-hidden
+  dk:text-ellipsis
+  dk:whitespace-nowrap
+  dk:active:scale-95
+  dk:max-w-full`
+  
 
 const sizeClasses = {
-  sm: 'text-sm px-3 py-1.5',
-  md: 'text-base px-4 py-2',
-  lg: 'text-lg px-5 py-3',
+  sm: 'dk:text-sm dk:px-3 dk:py-1.5',
+  md: 'dk:text-base dk:px-4 dk:py-2',
+  lg: 'dk:text-lg dk:px-5 dk:py-3',
 }
 
 const variantClasses = {
   solid: {
-    base: 'border-b',
-    neutral: 'border-zinc-500 dark:border-zinc-600 bg-zinc-200 text-zinc-800 hover:bg-zinc-300 hover:text-zinc-900 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600 dark:hover:text-zinc-50',
-    primary: 'border-slate-500 dark:border-slate-600 bg-slate-200 text-slate-800 hover:bg-slate-300 hover:text-slate-900 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 dark:hover:text-slate-100',
-    secondary: 'border-pink-500 dark:border-pink-600 bg-pink-200 text-pink-800 hover:bg-pink-300 hover:text-pink-900 dark:bg-pink-700 dark:text-pink-200 dark:hover:bg-pink-600 dark:hover:text-pink-100',
-    success: ' border-emerald-500 dark:border-emerald-600 bg-emerald-200 text-emerald-800 hover:bg-emerald-300 hover:text-emerald-900 dark:bg-emerald-700 dark:text-emerald-200 dark:hover:bg-emerald-600 dark:hover:text-emerald-100',
-    danger: 'border-rose-500 dark:border-rose-600 bg-rose-200 text-rose-800 hover:bg-rose-300 hover:text-rose-900 dark:bg-rose-700 dark:text-rose-200 dark:hover:bg-rose-600 dark:hover:text-rose-100',
-    warning: 'border-amber-500 dark:border-amber-600 bg-amber-200 text-amber-800 hover:bg-amber-300 hover:text-amber-900 dark:bg-amber-700 dark:text-amber-200 dark:hover:bg-amber-600 dark:hover:text-amber-100',
+    base: 'dk:border-b',
+    neutral: `
+      dk:border-zinc-500
+      dk:dark:border-zinc-600
+      dk:bg-zinc-200
+      dk:text-zinc-800
+      dk:hover:bg-zinc-300
+      dk:hover:text-zinc-900
+      dk:dark:bg-zinc-700
+      dk:dark:text-zinc-200
+      dk:dark:hover:bg-zinc-600
+      dk:dark:hover:text-zinc-50`,
+    primary: `
+      dk:border-slate-500
+      dk:dark:border-slate-600
+      dk:bg-slate-200
+      dk:text-slate-800
+      dk:hover:bg-slate-300
+      dk:hover:text-slate-900
+      dk:dark:bg-slate-700
+      dk:dark:text-slate-200
+      dk:dark:hover:bg-slate-600
+      dk:dark:hover:text-slate-100`,
+    secondary: `
+      dk:border-pink-500
+      dk:dark:border-pink-600
+      dk:bg-pink-200
+      dk:text-pink-800
+      dk:hover:bg-pink-300
+      dk:hover:text-pink-900
+      dk:dark:bg-pink-700
+      dk:dark:text-pink-200
+      dk:dark:hover:bg-pink-600
+      dk:dark:hover:text-pink-100`,
+    success: `
+      dk:border-emerald-500
+      dk:dark:border-emerald-600
+      dk:bg-emerald-200
+      dk:text-emerald-800
+      dk:hover:bg-emerald-300
+      dk:hover:text-emerald-900
+      dk:dark:bg-emerald-700
+      dk:dark:text-emerald-200
+      dk:dark:hover:bg-emerald-600
+      dk:dark:hover:text-emerald-100`,
+    danger: `
+      dk:border-rose-500
+      dk:dark:border-rose-600
+      dk:bg-rose-200
+      dk:text-rose-800
+      dk:hover:bg-rose-300
+      dk:hover:text-rose-900
+      dk:dark:bg-rose-700
+      dk:dark:text-rose-200
+      dk:dark:hover:bg-rose-600
+      dk:dark:hover:text-rose-100`,
+    warning: `
+      dk:border-amber-500
+      dk:dark:border-amber-600
+      dk:bg-amber-200
+      dk:text-amber-800
+      dk:hover:bg-amber-300
+      dk:hover:text-amber-900
+      dk:dark:bg-amber-700
+      dk:dark:text-amber-200
+      dk:dark:hover:bg-amber-600
+      dk:dark:hover:text-amber-100`,
   },
   outline: {
-    base: 'border',
-    neutral: 'border-zinc-600 text-zinc-800 hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-300 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-zinc-50',
-    primary: 'border-sky-600 text-sky-800 hover:bg-sky-100 hover:text-sky-900 dark:border-sky-300 dark:text-sky-200 dark:hover:bg-sky-800 dark:hover:text-sky-50',
-    secondary: 'border-pink-600 text-pink-800 hover:bg-pink-100 hover:text-pink-900 dark:border-pink-300 dark:text-pink-200 dark:hover:bg-pink-800 dark:hover:text-pink-50',
-    success: 'border-green-600 text-green-800 hover:bg-green-100 hover:text-green-900 dark:border-green-300 dark:text-green-200 dark:hover:bg-green-800 dark:hover:text-green-50',
-    danger: 'border-red-600 text-red-800 hover:bg-red-100 hover:text-red-900 dark:border-red-300 dark:text-red-200 dark:hover:bg-red-800 dark:hover:text-red-50',
-    warning: 'border-yellow-600 text-yellow-800 hover:bg-yellow-100 hover:text-yellow-900 dark:border-yellow-300 dark:text-yellow-200 dark:hover:bg-yellow-800 dark:hover:text-yellow-50',
+    base: 'dk:border',
+    neutral: `
+      dk:border-zinc-500
+      dk:dark:border-zinc-600
+      dk:text-zinc-800
+      dk:hover:bg-zinc-300
+      dk:hover:text-zinc-900
+      dk:dark:text-zinc-200
+      dk:dark:hover:bg-zinc-600
+      dk:dark:hover:text-zinc-100`,
+    primary: `
+      dk:border-slate-500
+      dk:dark:border-slate-600
+      dk:text-slate-800
+      dk:hover:bg-slate-300
+      dk:hover:text-slate-900
+      dk:dark:text-slate-200
+      dk:dark:hover:bg-slate-600
+      dk:dark:hover:text-slate-100`,
+    secondary: `
+      dk:border-pink-500
+      dk:dark:border-pink-600
+      dk:text-pink-800
+      dk:hover:bg-pink-300
+      dk:hover:text-pink-900
+      dk:dark:text-pink-200
+      dk:dark:hover:bg-pink-600
+      dk:dark:hover:text-pink-100`,
+    success: `
+      dk:border-emerald-500
+      dk:dark:border-emerald-600
+      dk:text-emerald-800
+      dk:hover:bg-emerald-300
+      dk:hover:text-emerald-900
+      dk:dark:text-emerald-200
+      dk:dark:hover:bg-emerald-600
+      dk:dark:hover:text-emerald-100`,
+    danger: `
+      dk:border-rose-500
+      dk:dark:border-rose-600
+      dk:text-rose-800
+      dk:hover:bg-rose-300
+      dk:hover:text-rose-900
+      dk:dark:text-rose-200
+      dk:dark:hover:bg-rose-600
+      dk:dark:hover:text-rose-100`,
+    warning: `
+      dk:border-amber-500
+      dk:dark:border-amber-600
+      dk:text-amber-800
+      dk:hover:bg-amber-300
+      dk:hover:text-amber-900
+      dk:dark:text-amber-200
+      dk:dark:hover:bg-amber-600
+      dk:dark:hover:text-amber-100`,
   },
   ghost: {
-    base: 'border-b border-transparent',
-    neutral: 'hover:border-zinc-500 hover:dark:border-zinc-600 text-zinc-600 hover:bg-zinc-50 dark:text-zinc-100 dark:hover:bg-zinc-800',
-    primary: 'hover:border-slate-500 hover:dark:border-slate-600 text-slate-600 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800',
-    secondary: 'hover:border-pink-500 hover:dark:border-pink-600 text-pink-600 hover:bg-pink-50 dark:text-pink-100 dark:hover:bg-pink-800',
-    success: 'hover:border-emerald-500 hover:dark:border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:text-emerald-100 dark:hover:bg-emerald-800',
-    danger: 'hover:border-rose-500 hover:dark:border-rose-600 text-rose-600 hover:bg-rose-50 dark:text-rose-100 dark:hover:bg-rose-800',
-    warning: 'hover:border-amber-500 hover:dark:border-amber-600 text-amber-600 hover:bg-amber-50 dark:text-amber-100 dark:hover:bg-amber-800',
-  }
+    base: 'dk:border-b dk:border-transparent',
+    neutral: `
+      dk:hover:border-zinc-500
+      dk:hover:dark:border-zinc-600
+      dk:text-zinc-600
+      dk:hover:bg-zinc-50
+      dk:dark:text-zinc-100
+      dk:dark:hover:bg-zinc-800`,
+    primary: `
+      dk:hover:border-slate-500
+      dk:hover:dark:border-slate-600
+      dk:text-slate-600
+      dk:hover:bg-slate-50
+      dk:dark:text-slate-100
+      dk:dark:hover:bg-slate-800`,
+    secondary: `
+      dk:hover:border-pink-500
+      dk:hover:dark:border-pink-600
+      dk:text-pink-600
+      dk:hover:bg-pink-50
+      dk:dark:text-pink-100
+      dk:dark:hover:bg-pink-800`,
+    success: `
+      dk:hover:border-emerald-500
+      dk:hover:dark:border-emerald-600
+      dk:text-emerald-600
+      dk:hover:bg-emerald-50
+      dk:dark:text-emerald-100
+      dk:dark:hover:bg-emerald-800`,
+    danger: `
+      dk:hover:border-rose-500
+      dk:hover:dark:border-rose-600
+      dk:text-rose-600
+      dk:hover:bg-rose-50
+      dk:dark:text-rose-100
+      dk:dark:hover:bg-rose-800`,
+    warning: `
+      dk:hover:border-amber-500
+      dk:hover:dark:border-amber-600
+      dk:text-amber-600
+      dk:hover:bg-amber-50
+      dk:dark:text-amber-100
+      dk:dark:hover:bg-amber-800`,
+  },
 }
 
 const computedClasses = computed(() => {
   const variantStyle = (variantClasses[props.variant]?.[props.color] || '') + ' ' + variantClasses[props.variant].base
   const sizeStyle = sizeClasses[props.size] || ''
-  const blockStyle = props.block ? 'w-full' : ''
+  const blockStyle = props.block ? 'dk:w-full' : ''
   return [baseClass, variantStyle, sizeStyle, blockStyle].join(' ')
 })
 

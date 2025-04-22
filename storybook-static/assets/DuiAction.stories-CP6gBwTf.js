@@ -1,42 +1,4 @@
-<template>
-  <span
-    :class="computedClasses"
-    :title="props.title">
-    <slot v-if="!props.loading" />
-    <span v-else>Cargando...</span>
-  </span>
-</template>
-<script setup lang="ts">
-import { computed } from 'vue'
-
-const props = defineProps({
-  variant: {
-    type: String as () => 'solid' | 'outline' | 'ghost',
-    default: 'solid',
-  },
-  color: {
-    type: String as () => 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger',
-    default: 'neutral',
-  },
-  size: {
-    type: String as () => 'sm' | 'md' | 'lg',
-    default: 'md',
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
-  block: {
-    type: Boolean,
-    default: false,
-  },
-  title: {
-    type: String,
-    default: undefined,
-  },
-})
-
-const baseClass =  `
+import{d as p,b as m,e as k,f as h,n as x,o as n}from"./vue.esm-bundler-rD1pBn_I.js";/* empty css              */const f=["title"],y={key:1},z=`
   dk:transition
   dk:text-center
   dk:rounded
@@ -48,18 +10,7 @@ const baseClass =  `
   dk:text-ellipsis
   dk:whitespace-nowrap
   dk:active:scale-95
-  dk:max-w-full`
-
-const sizeClasses = {
-  sm: 'dk:text-sm dk:px-3 dk:py-1.5',
-  md: 'dk:text-base dk:px-4 dk:py-2',
-  lg: 'dk:text-lg dk:px-5 dk:py-3',
-}
-
-const variantClasses = {
-  solid: {
-    base: 'dk:border-b',
-    neutral: `
+  dk:max-w-full`,b=p({__name:"DuiAction",props:{variant:{type:String,default:"solid"},color:{type:String,default:"neutral"},size:{type:String,default:"md"},loading:{type:Boolean,default:!1},block:{type:Boolean,default:!1},title:{type:String,default:void 0}},setup(c){const e=c,g={sm:"dk:text-sm dk:px-3 dk:py-1.5",md:"dk:text-base dk:px-4 dk:py-2",lg:"dk:text-lg dk:px-5 dk:py-3"},t={solid:{base:"dk:border-b",neutral:`
       dk:border-zinc-500
       dk:dark:border-zinc-600
       dk:bg-zinc-200
@@ -69,8 +20,7 @@ const variantClasses = {
       dk:dark:bg-zinc-700
       dk:dark:text-zinc-200
       dk:dark:hover:bg-zinc-600
-      dk:dark:hover:text-zinc-50`,
-    primary: `
+      dk:dark:hover:text-zinc-50`,primary:`
       dk:border-slate-500
       dk:dark:border-slate-600
       dk:bg-slate-200
@@ -80,8 +30,7 @@ const variantClasses = {
       dk:dark:bg-slate-700
       dk:dark:text-slate-200
       dk:dark:hover:bg-slate-600
-      dk:dark:hover:text-slate-100`,
-    secondary: `
+      dk:dark:hover:text-slate-100`,secondary:`
       dk:border-pink-500
       dk:dark:border-pink-600
       dk:bg-pink-200
@@ -91,8 +40,7 @@ const variantClasses = {
       dk:dark:bg-pink-700
       dk:dark:text-pink-200
       dk:dark:hover:bg-pink-600
-      dk:dark:hover:text-pink-100`,
-    success: `
+      dk:dark:hover:text-pink-100`,success:`
       dk:border-emerald-500
       dk:dark:border-emerald-600
       dk:bg-emerald-200
@@ -102,8 +50,7 @@ const variantClasses = {
       dk:dark:bg-emerald-700
       dk:dark:text-emerald-200
       dk:dark:hover:bg-emerald-600
-      dk:dark:hover:text-emerald-100`,
-    danger: `
+      dk:dark:hover:text-emerald-100`,danger:`
       dk:border-rose-500
       dk:dark:border-rose-600
       dk:bg-rose-200
@@ -113,8 +60,7 @@ const variantClasses = {
       dk:dark:bg-rose-700
       dk:dark:text-rose-200
       dk:dark:hover:bg-rose-600
-      dk:dark:hover:text-rose-100`,
-    warning: `
+      dk:dark:hover:text-rose-100`,warning:`
       dk:border-amber-500
       dk:dark:border-amber-600
       dk:bg-amber-200
@@ -124,11 +70,7 @@ const variantClasses = {
       dk:dark:bg-amber-700
       dk:dark:text-amber-200
       dk:dark:hover:bg-amber-600
-      dk:dark:hover:text-amber-100`,
-  },
-  outline: {
-    base: 'dk:border',
-    neutral: `
+      dk:dark:hover:text-amber-100`},outline:{base:"dk:border",neutral:`
       dk:border-zinc-600
       dk:text-zinc-800
       dk:hover:bg-zinc-100
@@ -136,8 +78,7 @@ const variantClasses = {
       dk:dark:border-zinc-300
       dk:dark:text-zinc-200
       dk:dark:hover:bg-zinc-800
-      dk:dark:hover:text-zinc-50`,
-    primary: `
+      dk:dark:hover:text-zinc-50`,primary:`
       dk:border-sky-600
       dk:text-sky-800
       dk:hover:bg-sky-100
@@ -145,8 +86,7 @@ const variantClasses = {
       dk:dark:border-sky-300
       dk:dark:text-sky-200
       dk:dark:hover:bg-sky-800
-      dk:dark:hover:text-sky-50`,
-    secondary: `
+      dk:dark:hover:text-sky-50`,secondary:`
       dk:border-pink-600
       dk:text-pink-800
       dk:hover:bg-pink-100
@@ -154,8 +94,7 @@ const variantClasses = {
       dk:dark:border-pink-300
       dk:dark:text-pink-200
       dk:dark:hover:bg-pink-800
-      dk:dark:hover:text-pink-50`,
-    success: `
+      dk:dark:hover:text-pink-50`,success:`
       dk:border-green-600
       dk:text-green-800
       dk:hover:bg-green-100
@@ -163,8 +102,7 @@ const variantClasses = {
       dk:dark:border-green-300
       dk:dark:text-green-200
       dk:dark:hover:bg-green-800
-      dk:dark:hover:text-green-50`,
-    danger: `
+      dk:dark:hover:text-green-50`,danger:`
       dk:border-red-600
       dk:text-red-800
       dk:hover:bg-red-100
@@ -172,8 +110,7 @@ const variantClasses = {
       dk:dark:border-red-300
       dk:dark:text-red-200
       dk:dark:hover:bg-red-800
-      dk:dark:hover:text-red-50`,
-    warning: `
+      dk:dark:hover:text-red-50`,warning:`
       dk:border-yellow-600
       dk:text-yellow-800
       dk:hover:bg-yellow-100
@@ -181,60 +118,50 @@ const variantClasses = {
       dk:dark:border-yellow-300
       dk:dark:text-yellow-200
       dk:dark:hover:bg-yellow-800
-      dk:dark:hover:text-yellow-50`,
-  },
-  ghost: {
-    base: 'dk:border-b dk:border-transparent',
-    neutral: `
+      dk:dark:hover:text-yellow-50`},ghost:{base:"dk:border-b dk:border-transparent",neutral:`
       dk:hover:border-zinc-500
       dk:hover:dark:border-zinc-600
       dk:text-zinc-600
       dk:hover:bg-zinc-50
       dk:dark:text-zinc-100
-      dk:dark:hover:bg-zinc-800`,
-    primary: `
+      dk:dark:hover:bg-zinc-800`,primary:`
       dk:hover:border-slate-500
       dk:hover:dark:border-slate-600
       dk:text-slate-600
       dk:hover:bg-slate-50
       dk:dark:text-slate-100
-      dk:dark:hover:bg-slate-800`,
-    secondary: `
+      dk:dark:hover:bg-slate-800`,secondary:`
       dk:hover:border-pink-500
       dk:hover:dark:border-pink-600
       dk:text-pink-600
       dk:hover:bg-pink-50
       dk:dark:text-pink-100
-      dk:dark:hover:bg-pink-800`,
-    success: `
+      dk:dark:hover:bg-pink-800`,success:`
       dk:hover:border-emerald-500
       dk:hover:dark:border-emerald-600
       dk:text-emerald-600
       dk:hover:bg-emerald-50
       dk:dark:text-emerald-100
-      dk:dark:hover:bg-emerald-800`,
-    danger: `
+      dk:dark:hover:bg-emerald-800`,danger:`
       dk:hover:border-rose-500
       dk:hover:dark:border-rose-600
       dk:text-rose-600
       dk:hover:bg-rose-50
       dk:dark:text-rose-100
-      dk:dark:hover:bg-rose-800`,
-    warning: `
+      dk:dark:hover:bg-rose-800`,warning:`
       dk:hover:border-amber-500
       dk:hover:dark:border-amber-600
       dk:text-amber-600
       dk:hover:bg-amber-50
       dk:dark:text-amber-100
-      dk:dark:hover:bg-amber-800`,
-  },
-}
-
-const computedClasses = computed(() => {
-  const variantStyle = (variantClasses[props.variant]?.[props.color] || '') + ' ' + variantClasses[props.variant].base
-  const sizeStyle = sizeClasses[props.size] || ''
-  const blockStyle = props.block ? 'dk:block' : 'dk:inline-block'
-  return [baseClass, variantStyle, sizeStyle, blockStyle].join(' ')
-})
-
-</script>
+      dk:dark:hover:bg-amber-800`}},v=m(()=>{var o;const d=(((o=t[e.variant])==null?void 0:o[e.color])||"")+" "+t[e.variant].base,a=g[e.size]||"",u=e.block?"dk:block":"dk:inline-block";return[z,d,a,u].join(" ")});return(d,a)=>(n(),k("span",{class:x(v.value),title:e.title},[e.loading?(n(),k("span",y,"Cargando...")):h(d.$slots,"default",{key:0})],10,f))}});b.__docgenInfo={exportName:"default",displayName:"DuiAction",description:"",tags:{},props:[{name:"variant",type:{name:"String as () => 'solid' | 'outline' | 'ghost'"},defaultValue:{func:!1,value:"'solid'"}},{name:"color",type:{name:"String as () => 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'"},defaultValue:{func:!1,value:"'neutral'"}},{name:"size",type:{name:"String as () => 'sm' | 'md' | 'lg'"},defaultValue:{func:!1,value:"'md'"}},{name:"loading",type:{name:"boolean"},defaultValue:{func:!1,value:"false"}},{name:"block",type:{name:"boolean"},defaultValue:{func:!1,value:"false"}},{name:"title",type:{name:"string"},defaultValue:{func:!1,value:"undefined"}}],slots:[{name:"default"}],sourceFiles:["/home/gustavo/www/Droni.co/Projects/droni-kit/src/stories/Elements/DuiAction.vue"]};const _={title:"Elements/Action",component:b,tags:["autodocs"],argTypes:{default:{control:{type:"text"},defaultValue:"Botón simple"},size:{control:{type:"select"},options:["sm","md","lg"],defaultValue:"md"},variant:{control:{type:"select"},options:["solid","outline","ghost"],defaultValue:"solid"},color:{control:{type:"select"},options:["neutral","primary","secondary","success","warning","danger"],defaultValue:"neutral"},loading:{control:{type:"boolean"},defaultValue:!1},block:{control:{type:"boolean"},defaultValue:!1},title:{control:{type:"text"},defaultValue:void 0}}},r={args:{default:"Acción simple",block:!1,size:"md",variant:"solid",color:"neutral",loading:!1,title:"Ir a Droni.co"}};var l,s,i;r.parameters={...r.parameters,docs:{...(l=r.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  args: {
+    default: 'Acción simple',
+    block: false,
+    size: 'md',
+    variant: 'solid',
+    color: 'neutral',
+    loading: false,
+    title: 'Ir a Droni.co'
+  }
+}`,...(i=(s=r.parameters)==null?void 0:s.docs)==null?void 0:i.source}}};const S=["Default"];export{r as Default,S as __namedExportsOrder,_ as default};
