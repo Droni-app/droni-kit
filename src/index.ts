@@ -1,5 +1,12 @@
-export { default as DuiButton } from './stories/Forms/DuiButton.vue'
-export { default as DuiInput } from './stories/Forms/DuiInput.vue'
-export { default as DuiTextarea } from './stories/Forms/DuiTextarea.vue'
-export { default as DuiAction } from './stories/Elements/DuiAction.vue'
+import DuiButton from './stories/Forms/DuiButton.vue'
+import DuiInput from './stories/Forms/DuiInput.vue'
+import DuiTextarea from './stories/Forms/DuiTextarea.vue'
+import DuiAction from './stories/Elements/DuiAction.vue'
 import './style.css'
+
+export {
+  DuiButton,
+  DuiInput,
+  DuiTextarea,
+  DuiAction
+}

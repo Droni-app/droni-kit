@@ -20,9 +20,10 @@
       "import": "./dist/droni-kit.es.js",
       "require": "./dist/droni-kit.cjs"
     },
-    "./dist/droni-kit.css": "./dist/droni-kit.css"
+    "./dist/droni-kit.css": "./dist/droni-kit.css",
+    "./dist/index.d.ts": "./dist/index.d.ts"
   },
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
