@@ -13,8 +13,14 @@
     "CHANGELOG.md"
   ],
   "type": "module",
-  "main": "dist/droni-kit.umd.cjs",
-  "module": "dist/droni-kit.js",
+  "main": "dist/droni-kit.cjs",
+  "module": "dist/droni-kit.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/droni-kit.es.js",
+      "require": "./dist/droni-kit.cjs"
+    }
+  },
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
