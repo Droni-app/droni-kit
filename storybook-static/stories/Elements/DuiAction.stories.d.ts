@@ -27,14 +27,6 @@ declare const meta: {
                 type: StringConstructor;
                 default: undefined;
             };
-            href: {
-                type: StringConstructor;
-                default: undefined;
-            };
-            target: {
-                type: StringConstructor;
-                default: undefined;
-            };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -42,9 +34,7 @@ declare const meta: {
             loading: boolean;
             block: boolean;
             title: string;
-            href: string;
-            target: string;
-        }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLAnchorElement, import('vue').ComponentProvideOptions, {
+        }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLSpanElement, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
             D: {};
@@ -76,14 +66,6 @@ declare const meta: {
                 type: StringConstructor;
                 default: undefined;
             };
-            href: {
-                type: StringConstructor;
-                default: undefined;
-            };
-            target: {
-                type: StringConstructor;
-                default: undefined;
-            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -91,8 +73,6 @@ declare const meta: {
             loading: boolean;
             block: boolean;
             title: string;
-            href: string;
-            target: string;
         }>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -122,14 +102,6 @@ declare const meta: {
             type: StringConstructor;
             default: undefined;
         };
-        href: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        target: {
-            type: StringConstructor;
-            default: undefined;
-        };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
         variant: "solid" | "outline" | "ghost";
         color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -137,8 +109,6 @@ declare const meta: {
         loading: boolean;
         block: boolean;
         title: string;
-        href: string;
-        target: string;
     }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
             default?(_: {}): any;
@@ -151,19 +121,6 @@ declare const meta: {
                 type: "text";
             };
             defaultValue: string;
-        };
-        href: {
-            control: {
-                type: "text";
-            };
-            defaultValue: undefined;
-        };
-        target: {
-            control: {
-                type: "select";
-            };
-            options: string[];
-            defaultValue: undefined;
         };
         size: {
             control: {

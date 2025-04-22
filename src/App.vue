@@ -1,26 +1,26 @@
 
 
 <template>
-  <div class="container mx-auto my-5">
+  <div class="dk:container dk:mx-auto dk:my-5">
     <h1>Color Palete:</h1>
-    <div class="grid grid-cols-6 gap-4">
-      <div class="bg-zinc-700 text-white p-4 rounded">Neutral: zinc</div>
-      <div class="bg-slate-700 text-white p-4 rounded">Primary: slate</div>
-      <div class="bg-pink-700 text-white p-4 rounded">Secondary: pink</div>
-      <div class="bg-rose-700 text-white p-4 rounded">Danger</div>
-      <div class="bg-amber-700 text-white p-4 rounded">Warning</div>
-      <div class="bg-emerald-700 text-white p-4 rounded">Success</div>
+    <div class="dk:grid dk:grid-cols-6 dk:gap-4">
+      <div class="dk:bg-zinc-700 dk:text-white dk:p-4 dk:rounded">Neutral: zinc</div>
+      <div class="dk:bg-slate-700 text-white p-4 rounded">Primary: slate</div>
+      <div class="dk:bg-pink-700 dk:text-white dk:p-4 dk:rounded">Secondary: pink</div>
+      <div class="dk:bg-rose-700 dk:text-white dk:p-4 dk:rounded">Danger</div>
+      <div class="dk:bg-amber-700 dk:text-white dk:p-4 dk:rounded">Warning</div>
+      <div class="dk:bg-emerald-700 dk:text-white dk:p-4 dk:rounded">Success</div>
     </div>
-    <div class="grid grid-cols-6 gap-4">
-      <div class="bg-zinc-200 text-zinc-800 p-4 rounded">Neutral: zinc</div>
-      <div class="bg-slate-200 text-zinc-800 p-4 rounded">Primary: slate</div>
-      <div class="bg-pink-200 text-zinc-800 p-4 rounded">Secondary: pink</div>
-      <div class="bg-rose-200 text-zinc-800 p-4 rounded">Danger</div>
-      <div class="bg-amber-200 text-zinc-800 p-4 rounded">Warning</div>
-      <div class="bg-emerald-200 text-zinc-800 p-4 rounded">Success</div>
+    <div class="dk:grid dk:grid-cols-6 dk:gap-4">
+      <div class="dk:bg-zinc-200 dk:text-zinc-800 dk:p-4 dk:rounded">Neutral: zinc</div>
+      <div class="dk:bg-slate-200 dk:text-zinc-800 dk:p-4 dk:rounded">Primary: slate</div>
+      <div class="dk:bg-pink-200 dk:text-zinc-800 dk:p-4 dk:rounded">Secondary: pink</div>
+      <div class="dk:bg-rose-200 dk:text-zinc-800 dk:p-4 dk:rounded">Danger</div>
+      <div class="dk:bg-amber-200 dk:text-zinc-800 dk:p-4 dk:rounded">Warning</div>
+      <div class="dk:bg-emerald-200 dk:text-zinc-800 dk:p-4 dk:rounded">Success</div>
     </div>
     <h1>Botones</h1>
-    <div class="text-center bg-slate-100 p-5 ">
+    <div class="dk:text-center dk:bg-slate-100 dk:p-5 ">
       <DuiButton
         variant="solid"
         type="button"
@@ -32,13 +32,13 @@
         Botón {{ counter }}
       </DuiButton>
       <DuiInput
-        class="inline-block"
+        class="dk:inline-block"
         type="text"
         placeholder="hola mundo"
         />
         <form class="flex items-between my-4">
           <DuiInput
-            class="inline-block"
+            class="dk:inline-block"
             rounded="left"
             type="text"
             size="lg"
@@ -48,7 +48,7 @@
             />
           <DuiInput
             rounded="none"
-            class="inline-block"
+            class="dk:inline-block"
             size="lg"
             type="text"
             placeholder="hola mundo"
@@ -56,6 +56,7 @@
             <DuiButton
               type="submit"
               color="secondary"
+              
               size="lg"
               class="rounded-l-none">
               <span class="mdi mdi-home"></span>
@@ -65,7 +66,7 @@
       <DuiInput
         id="prueba"
       label="Nombre"
-        class="inline-block"
+        class="dk:inline-block"
         type="month"
         placeholder="hola mundo"
         v-model="mymonth"
@@ -79,7 +80,7 @@
         />
     </div>
     <!-- Comment box-->
-     <div class="dark p-5 bg-slate-900 dark:text-rose-800">
+     <div class="dark dk:p-5 dk:bg-slate-900 dk:dark:text-rose-800">
       <DuiTextarea
         block
         placeholder="hola mundo"
