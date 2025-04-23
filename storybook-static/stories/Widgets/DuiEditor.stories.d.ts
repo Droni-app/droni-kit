@@ -54,9 +54,7 @@ declare const meta: {
             type: () => "on" | "off" | "relative" | "interval";
             default: string;
         };
-    }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
-        "update:modelValue": (value: string) => any;
-    }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         modelValue: {
             type: StringConstructor;
             default: string;
@@ -109,9 +107,7 @@ declare const meta: {
             type: () => "on" | "off" | "relative" | "interval";
             default: string;
         };
-    }>> & Readonly<{
-        "onUpdate:modelValue"?: ((value: string) => any) | undefined;
-    }>, {
+    }>> & Readonly<{}>, {
         modelValue: string;
         language: string;
         minimap: boolean;
@@ -125,9 +121,7 @@ declare const meta: {
         autoClosingBrackets: "always" | "languageDefined" | "never";
         scrollBeyondLastLine: boolean;
         lineNumbers: "on" | "off" | "relative" | "interval";
-    }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {
-        monacoEl: HTMLDivElement;
-    }, HTMLDivElement>;
+    }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
     tags: string[];
     argTypes: {
         language: {
