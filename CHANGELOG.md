@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Droni-app/droni-kit/compare/v1.6.1...v1.7.0) (2025-04-23)
+
+
+### Features
+
+* Code editor ([fe27015](https://github.com/Droni-app/droni-kit/commit/fe270154ee3b426689db6b33350df2576d034bf4))
+
 ## [1.6.1](https://github.com/Droni-app/droni-kit/compare/v1.6.0...v1.6.1) (2025-04-22)
 
 
