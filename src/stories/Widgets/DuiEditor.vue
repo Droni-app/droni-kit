@@ -5,7 +5,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
-import '../../lib/userWorker'
 
 const props = defineProps({
   modelValue: {
