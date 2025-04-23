@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/Droni-app/droni-kit/compare/v1.7.0...v1.7.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* user Worker ([70e9fb7](https://github.com/Droni-app/droni-kit/commit/70e9fb77a3d41e760ef4f01bcdfcbb53a35e3219))
+
 # [1.7.0](https://github.com/Droni-app/droni-kit/compare/v1.6.1...v1.7.0) (2025-04-23)
 
 
