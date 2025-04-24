@@ -146,21 +146,6 @@
         </DuiButton>
       </div>
     </div>
-    <DuiEditor
-      autoClosingBrackets="languageDefined"
-      autoIndent="brackets"
-      :formatOnPaste="false"
-      :formatOnType="false"
-      language="javascript"
-      lineNumbers="on"
-      minimap
-      renderValidationDecorations="on"
-      scrollBeyondLastLine
-      :tabSize="2"
-      theme="vs-dark"
-      wordWrap="on"
-      v-model="name"
-    />
   </div>
 </template>
 <script setup lang="ts">
@@ -170,7 +155,6 @@ import DuiInput from "./stories/Forms/DuiInput.vue";
 import DuiTextarea from "./stories/Forms/DuiTextarea.vue";
 import DuiAction from "./stories/Elements/DuiAction.vue";
 import DuiSelect from "./stories/Forms/DuiSelect.vue";
-import DuiEditor from "./stories/Widgets/DuiEditor.vue";
 
 const counter = ref(0);
 const name = ref("hola");

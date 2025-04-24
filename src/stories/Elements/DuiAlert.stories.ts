@@ -1,23 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import DuiButton from './DuiButton.vue';
+import DuiAlert from './DuiAlert.vue';
 import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
-  title: 'Forms/Button',
-  component: DuiButton,
+  title: 'Elements/Alert',
+  component: DuiAlert,
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
     default: {
       control: { type: 'text' },
-      defaultValue: 'Botón simple',
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
-      defaultValue: 'md',
+      defaultValue: 'Alert simple',
     },
     variant: {
       control: { type: 'select' },
@@ -29,34 +24,13 @@ const meta = {
       options: ['neutral', 'primary', 'secondary', 'success', 'warning', 'danger'],
       defaultValue: 'neutral',
     },
-    loading: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-    },
-    disabled: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-    },
-    block: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-    },
-    type: {
-      control: { type: 'select' },
-      options: ['button', 'submit', 'reset'],
-      defaultValue: 'button',
-    },
-    title: {
-      control: { type: 'text' },
-      defaultValue: undefined,
-    },
     rounded: {
       control: { type: 'select' },
       options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
       defaultValue: 'all',
-    }
+    },
   },
-} satisfies Meta<typeof DuiButton>;
+} satisfies Meta<typeof DuiAlert>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -67,13 +41,9 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    default: 'Botón simple',
-    disabled: false,
-    block: false,
-    size: 'md',
+    default: 'Alert simple',
     variant: 'solid',
     color: 'neutral',
-    loading: false,
-    type: 'button',
+    rounded: 'all',
   },
 };

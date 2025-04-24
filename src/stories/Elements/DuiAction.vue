@@ -34,12 +34,15 @@ const props = defineProps({
     type: String,
     default: undefined,
   },
+  rounded: {
+    type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
+    default: 'all',
+  },
 })
 
 const baseClass =  `
   dk:transition
   dk:text-center
-  dk:rounded
   dk:disabled:opacity-50
   dk:disabled:cursor-not-allowed
   dk:cursor-pointer
@@ -54,6 +57,15 @@ const sizeClasses = {
   sm: 'dk:text-sm dk:px-3 dk:py-1.5',
   md: 'dk:text-base dk:px-4 dk:py-2',
   lg: 'dk:text-lg dk:px-5 dk:py-3',
+}
+
+const roundedClasses = {
+  all: 'dk:rounded',
+  top: 'dk:rounded-t',
+  bottom: 'dk:rounded-b',
+  left: 'dk:rounded-l',
+  right: 'dk:rounded-r',
+  none: 'dk:rounded-none',
 }
 
 const variantClasses = {
@@ -234,7 +246,8 @@ const computedClasses = computed(() => {
   const variantStyle = (variantClasses[props.variant]?.[props.color] || '') + ' ' + variantClasses[props.variant].base
   const sizeStyle = sizeClasses[props.size] || ''
   const blockStyle = props.block ? 'dk:block' : 'dk:inline-block'
-  return [baseClass, variantStyle, sizeStyle, blockStyle].join(' ')
+  const roundedStyle = roundedClasses[props.rounded] || ''
+  return [baseClass, variantStyle, sizeStyle, blockStyle, roundedStyle].join(' ')
 })
 
 </script>

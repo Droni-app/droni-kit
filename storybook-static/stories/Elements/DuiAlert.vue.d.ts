@@ -4,7 +4,7 @@ declare function __VLS_template(): {
         default?(_: {}): any;
     };
     refs: {};
-    rootEl: HTMLSpanElement;
+    rootEl: HTMLDivElement;
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -15,22 +15,6 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     color: {
         type: () => "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
         default: string;
-    };
-    size: {
-        type: () => "sm" | "md" | "lg";
-        default: string;
-    };
-    loading: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    block: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    title: {
-        type: StringConstructor;
-        default: undefined;
     };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
@@ -45,22 +29,6 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         type: () => "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
         default: string;
     };
-    size: {
-        type: () => "sm" | "md" | "lg";
-        default: string;
-    };
-    loading: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    block: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    title: {
-        type: StringConstructor;
-        default: undefined;
-    };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
         default: string;
@@ -68,12 +36,8 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
 }>> & Readonly<{}>, {
     variant: "solid" | "outline" | "ghost";
     color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
-    size: "sm" | "md" | "lg";
-    loading: boolean;
-    block: boolean;
-    title: string;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLSpanElement>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;
 type __VLS_WithTemplateSlots<T, S> = T & {

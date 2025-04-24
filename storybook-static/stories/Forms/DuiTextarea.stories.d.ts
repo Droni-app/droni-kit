@@ -107,13 +107,13 @@ declare const meta: {
         size: "sm" | "md" | "lg";
         disabled: boolean;
         block: boolean;
+        rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
         label: string;
         modelValue: string;
         placeholder: string;
         name: string;
         id: string;
         required: boolean;
-        rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
         autoheight: boolean;
         resize: "none" | "both" | "horizontal" | "vertical";
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;

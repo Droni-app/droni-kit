@@ -105,6 +105,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     type: "time" | "text" | "email" | "password" | "tel" | "url" | "search" | "date" | "datetime-local" | "month" | "week";
     disabled: boolean;
     block: boolean;
+    rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
     label: string;
     pattern: string;
     modelValue: string;
@@ -112,6 +113,5 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     name: string;
     id: string;
     required: boolean;
-    rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 export default _default;

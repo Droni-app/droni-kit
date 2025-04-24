@@ -41,6 +41,11 @@ const meta = {
       control: { type: 'text' },
       defaultValue: undefined,
     },
+    rounded: {
+      control: { type: 'select' },
+      options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
+      defaultValue: 'all',
+    },
   },
 } satisfies Meta<typeof DuiAction>;
 

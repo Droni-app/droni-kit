@@ -108,6 +108,7 @@ declare const meta: {
         type: "time" | "text" | "email" | "password" | "tel" | "url" | "search" | "date" | "datetime-local" | "month" | "week";
         disabled: boolean;
         block: boolean;
+        rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
         label: string;
         pattern: string;
         modelValue: string;
@@ -115,7 +116,6 @@ declare const meta: {
         name: string;
         id: string;
         required: boolean;
-        rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
     tags: string[];
     argTypes: {

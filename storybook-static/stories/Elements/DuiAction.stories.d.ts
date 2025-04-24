@@ -27,6 +27,10 @@ declare const meta: {
                 type: StringConstructor;
                 default: undefined;
             };
+            rounded: {
+                type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
+                default: string;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -34,6 +38,7 @@ declare const meta: {
             loading: boolean;
             block: boolean;
             title: string;
+            rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
         }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLSpanElement, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -66,6 +71,10 @@ declare const meta: {
                 type: StringConstructor;
                 default: undefined;
             };
+            rounded: {
+                type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
+                default: string;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -73,6 +82,7 @@ declare const meta: {
             loading: boolean;
             block: boolean;
             title: string;
+            rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
         }>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -102,6 +112,10 @@ declare const meta: {
             type: StringConstructor;
             default: undefined;
         };
+        rounded: {
+            type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
+            default: string;
+        };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
         variant: "solid" | "outline" | "ghost";
         color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
@@ -109,6 +123,7 @@ declare const meta: {
         loading: boolean;
         block: boolean;
         title: string;
+        rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
     }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
             default?(_: {}): any;
@@ -160,6 +175,13 @@ declare const meta: {
                 type: "text";
             };
             defaultValue: undefined;
+        };
+        rounded: {
+            control: {
+                type: "select";
+            };
+            options: string[];
+            defaultValue: string;
         };
     };
 };

@@ -1,4 +1,4 @@
-import{d as q,b as r,e as o,g as s,j as C,n as u,k as B,t as D,o as n}from"./vue.esm-bundler-DkrdOEY0.js";/* empty css              */const j=["for"],T={key:0,class:"dk:text-rose-500"},w=["value","disabled","placeholder","required","name","id","aria-label","aria-disabled","aria-required"],N=`
+import{d as q,b as r,e as o,o as n,g as s,j as C,n as u,k as B,t as D}from"./vue.esm-bundler-DkrdOEY0.js";/* empty css              */const j=["for"],T={key:0,class:"dk:text-rose-500"},w=["value","disabled","placeholder","required","name","id","aria-label","aria-disabled","aria-required"],N=`
   dk:border-b
   dk:border-zinc-300
   dk:bg-zinc-50
