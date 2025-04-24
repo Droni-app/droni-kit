@@ -3,4 +3,5 @@ import { default as DuiInput } from './stories/Forms/DuiInput.vue';
 import { default as DuiTextarea } from './stories/Forms/DuiTextarea.vue';
 import { default as DuiAction } from './stories/Elements/DuiAction.vue';
 import { default as DuiSelect } from './stories/Forms/DuiSelect.vue';
-export { DuiButton, DuiInput, DuiTextarea, DuiAction, DuiSelect, };
+import { default as DuiAlert } from './stories/Elements/DuiAlert.vue';
+export { DuiButton, DuiInput, DuiTextarea, DuiAction, DuiSelect, DuiAlert, };
