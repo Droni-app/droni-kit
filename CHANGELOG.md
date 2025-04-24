@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/Droni-app/droni-kit/compare/v1.7.4...v1.7.5) (2025-04-24)
+
+
+### Bug Fixes
+
+* remove monaco editor ([480a89d](https://github.com/Droni-app/droni-kit/commit/480a89de163e4cce0f5b60414bfeaed9e2598d76))
+
 ## [1.7.4](https://github.com/Droni-app/droni-kit/compare/v1.7.3...v1.7.4) (2025-04-23)
 
 
