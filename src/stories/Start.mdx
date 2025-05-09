@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Start" />
+
+# Droni-kit
+
+Droni-kit es un conjunto de componentes de UI usados por el equipo de Droni.co para facilitar la creación de aplicaciones web. Está diseñado para ser utilizado con Vue 3 y Vite, y se puede instalar fácilmente a través de npm.
+
+## Instalación
+
+Para instalar droni-kit, puedes usar npm dentro de tu proyecto de Vue 3. Asegúrate de tener Node.js y npm instalados en tu máquina.
+
+```bash
+npm install @dronico/droni-kit
+```
+
+Luego importa la hoja de estilos de droni-kit en tu archivo principal de JavaScript o TypeScript (por ejemplo, `main.js` o `main.ts`):
+
+```javascript
+import '@dronico/droni-kit/dist/droni-kit.css';
+```
+
+## Uso
+
+Una vez instalado, puedes empezar a usar los componentes de droni-kit en tu aplicación Vue. Aquí tienes un ejemplo básico de cómo usar un componente:
+
+```vue
+<template>
+  <div>
+    <DuiButton color="primary">Bienvenido a Droni-kit</DuiButton>
+  </div>
+</template>
+<script setup lang="ts">
+import { DuiButton } from '@dronico/droni-kit'
+</script>
+```
