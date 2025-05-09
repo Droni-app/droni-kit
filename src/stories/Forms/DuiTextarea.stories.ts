@@ -53,6 +53,10 @@ const meta = {
       options: ['none', 'both', 'horizontal', 'vertical'],
       defaultValue: 'none',
     },
+    readonly: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
   },
   } satisfies Meta<typeof DuiTextarea>;
   
