@@ -1,3 +1,10 @@
+## [1.7.8](https://github.com/Droni-app/droni-kit/compare/v1.7.7...v1.7.8) (2025-05-09)
+
+
+### Bug Fixes
+
+* readonly on textarea ([f72d1e2](https://github.com/Droni-app/droni-kit/commit/f72d1e278e252ccfd7410b23a9dc06fd5210618d))
+
 ## [1.7.7](https://github.com/Droni-app/droni-kit/compare/v1.7.6...v1.7.7) (2025-05-09)
 
 
