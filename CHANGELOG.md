@@ -1,3 +1,10 @@
+## [1.7.7](https://github.com/Droni-app/droni-kit/compare/v1.7.6...v1.7.7) (2025-05-09)
+
+
+### Bug Fixes
+
+* readonly on inputs ([dbe7c11](https://github.com/Droni-app/droni-kit/commit/dbe7c11b48e48ad1f6678391c0582afd314265dc))
+
 ## [1.7.6](https://github.com/Droni-app/droni-kit/compare/v1.7.5...v1.7.6) (2025-04-24)
 
 
