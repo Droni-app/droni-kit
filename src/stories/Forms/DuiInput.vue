@@ -19,6 +19,7 @@
       :name="props.name"
       :id="props.id"
       :pattern="props.pattern"
+      :readonly="props.readonly"
       :aria-label="props.placeholder"
       :aria-disabled="props.disabled"
       :aria-required="props.required"
@@ -73,6 +74,10 @@ const props = defineProps({
   pattern: {
     type: String,
     default: undefined,
+  },
+  readonly: {
+    type: Boolean,
+    default: false,
   },
   rounded: {
     type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',

@@ -42,6 +42,10 @@ declare const meta: {
             type: StringConstructor;
             default: undefined;
         };
+        readonly: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         rounded: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
@@ -97,6 +101,10 @@ declare const meta: {
             type: StringConstructor;
             default: undefined;
         };
+        readonly: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         rounded: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
@@ -122,6 +130,7 @@ declare const meta: {
         name: string;
         id: string;
         required: boolean;
+        readonly: boolean;
         options: Record<string, any>[];
         itemLabel: string;
         itemValue: string;
@@ -186,6 +195,12 @@ declare const meta: {
                 label: string;
                 value: string;
             }[];
+        };
+        readonly: {
+            control: {
+                type: "boolean";
+            };
+            defaultValue: boolean;
         };
     };
 };

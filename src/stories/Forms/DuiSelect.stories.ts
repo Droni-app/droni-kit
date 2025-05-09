@@ -52,6 +52,10 @@ const meta = {
         { label: 'Opción 3', value: 'opcion3' },
         { label: 'Opción 4', value: 'opcion4' },
       ],
+    },
+    readonly: {
+      control: { type: 'boolean' },
+      defaultValue: false,
     }
   },
 } satisfies Meta<typeof DuiSelect>;

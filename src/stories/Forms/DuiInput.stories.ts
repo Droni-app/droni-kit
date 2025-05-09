@@ -52,6 +52,10 @@ const meta = {
       constrol: { type: 'select' },
       options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
       defaultValue: 'all',
+    },
+    readonly: {
+      control: { type: 'boolean' },
+      defaultValue: false,
     }
   },
 } satisfies Meta<typeof DuiInput>;

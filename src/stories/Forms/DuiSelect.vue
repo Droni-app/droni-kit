@@ -16,10 +16,12 @@
       :disabled="props.disabled"
       :required="props.required"
       :class="computedClasses"
+      :readonly="props.readonly"
       :aria-label="props.label || 'select input'"
       :aria-disabled="props.disabled"
       :aria-required="props.required"
       @change="onChange"
+
     >
       <option v-if="props.placeholder" disabled selected hidden>
         {{ props.placeholder }}
@@ -79,6 +81,10 @@ const props = defineProps({
   placeholder: {
     type: String,
     default: undefined,
+  },
+  readonly: {
+    type: Boolean,
+    default: false,
   },
   rounded: {
     type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
