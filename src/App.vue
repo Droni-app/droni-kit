@@ -1,5 +1,5 @@
 <template>
-  <div class="dk:flex dk:h-screen dk:bg-rose-100 dk:dark:bg-slate-900">
+  <div class="dk:flex dk:h-min-screen dk:bg-rose-100 dk:dark:bg-slate-900">
     <div class="dk:w-1/2 dk:mx-auto dk:my-5">
       <h1>Color Palete:</h1>
       <div class="dk:grid dk:grid-cols-6 dk:gap-4">
@@ -37,6 +37,43 @@
         <div class="dk:bg-emerald-200 dk:text-zinc-800 dk:p-4 dk:rounded">
           Success
         </div>
+      </div>
+      <div class="dk:p-2 dark">
+        <DuiTable
+          :columns="[
+            { label: 'Name', name: 'name' },
+            { label: 'Age', name: 'age' },
+            { label: 'Country', name: 'country' },
+            { label: 'Actions', name: 'actions', classes: 'dk:text-right' },
+            { label: 'Actions', name: 'actions2', classes: 'dk:text-rose-500' },
+            { label: 'Actions', name: 'actions3', classes: 'dk:text-right' },
+            { label: 'Actions', name: 'actions4', classes: 'dk:text-right' },
+            { label: 'Actions', name: 'actions5', classes: 'dk:text-right' },
+            { label: 'Actions', name: 'actions6', classes: 'dk:text-right' },
+            ]"
+          :rows="[
+            { name: 'John Doe', age: 30, country: 'USA', actions: 'Edit', actions2: 'Delete', actions3: 'View', actions4: 'Edit', actions5: 'Delete', actions6: 'View' },
+            { name: 'Jane Smith', age: 25, country: 'Canada', actions: 'Edit', actions2: 'Delete', actions3: 'View', actions4: 'Edit', actions5: 'Delete', actions6: 'View' },
+            { name: 'Alice Johnson', age: 28, country: 'UK', actions: 'Edit', actions2: 'Delete', actions3: 'View', actions4: 'Edit', actions5: 'Delete', actions6: 'View' },
+            { name: 'Bob Brown', age: 35, country: 'Australia', actions: 'Edit', actions2: 'Delete', actions3: 'View', actions4: 'Edit', actions5: 'Delete', actions6: 'View' },
+            { name: 'Charlie Black', age: 22, country: 'Germany', actions: 'Edit', actions2: 'Delete', actions3: 'View', actions4: 'Edit', actions5: 'Delete', actions6: 'View' },
+            { name: 'Diana White', age: 27, country: 'France', actions: 'Edit', actions2: 'Delete', actions3: 'View', actions4: 'Edit', actions5: 'Delete', actions6: 'View' },
+            { name: 'Ethan Green', age: 31, country: 'Italy' },
+            { name: 'Jane Smith', age: 25, country: 'Canada' },
+            { name: 'Alice Johnson', age: 28, country: 'UK' },
+            { name: 'Bob Brown', age: 35, country: 'Australia' },
+            { name: 'Charlie Black', age: 22, country: 'Germany' },
+            { name: 'Diana White', age: 27, country: 'France' },
+            { name: 'Ethan Green', age: 31, country: 'Italy' },
+          ]"
+        >
+          <template #age="{ age}">
+            <span class="dk:text-rose-500 dk:font-bold">{{ age }} años</span>
+          </template>
+          <template #country="{ country }" class="dk:text-rose-500 dk:font-bold">
+            <span>{{ country }}</span>
+          </template>
+        </DuiTable>
       </div>
       <h1>Botones</h1>
       <div class="dk:text-center dk:bg-slate-100 dk:p-5">
@@ -155,6 +192,7 @@ import DuiInput from "./stories/Forms/DuiInput.vue";
 import DuiTextarea from "./stories/Forms/DuiTextarea.vue";
 import DuiAction from "./stories/Elements/DuiAction.vue";
 import DuiSelect from "./stories/Forms/DuiSelect.vue";
+import DuiTable from "./stories/Elements/DuiTable.vue";
 
 const counter = ref(0);
 const name = ref("hola");

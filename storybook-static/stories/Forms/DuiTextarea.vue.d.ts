@@ -35,6 +35,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         default: undefined;
     };
+    readonly: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
         default: string;
@@ -86,6 +90,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         default: undefined;
     };
+    readonly: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
         default: string;
@@ -111,6 +119,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     name: string;
     id: string;
     required: boolean;
+    readonly: boolean;
     autoheight: boolean;
     resize: "none" | "both" | "horizontal" | "vertical";
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;

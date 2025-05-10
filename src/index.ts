@@ -4,6 +4,8 @@ import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 import DuiAction from './stories/Elements/DuiAction.vue'
 import DuiSelect from './stories/Forms/DuiSelect.vue'
 import DuiAlert from './stories/Elements/DuiAlert.vue'
+import DuiTable from './stories/Elements/DuiTable.vue'
+
 import './style.css'
 
 export {
@@ -13,4 +15,5 @@ export {
   DuiAction,
   DuiSelect,
   DuiAlert,
+  DuiTable,
 }

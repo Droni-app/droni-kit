@@ -38,6 +38,10 @@ declare const meta: {
             type: StringConstructor;
             default: undefined;
         };
+        readonly: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         rounded: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
@@ -89,6 +93,10 @@ declare const meta: {
             type: StringConstructor;
             default: undefined;
         };
+        readonly: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         rounded: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
@@ -114,6 +122,7 @@ declare const meta: {
         name: string;
         id: string;
         required: boolean;
+        readonly: boolean;
         autoheight: boolean;
         resize: "none" | "both" | "horizontal" | "vertical";
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
@@ -181,6 +190,12 @@ declare const meta: {
             };
             options: string[];
             defaultValue: string;
+        };
+        readonly: {
+            control: {
+                type: "boolean";
+            };
+            defaultValue: boolean;
         };
     };
 };
