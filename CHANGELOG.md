@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Droni-app/droni-kit/compare/v1.7.8...v1.8.0) (2025-05-10)
+
+
+### Features
+
+* DuiTable Component ([cfa59b1](https://github.com/Droni-app/droni-kit/commit/cfa59b1224f9c99714142aed8cdb120a586765e2))
+
 ## [1.7.8](https://github.com/Droni-app/droni-kit/compare/v1.7.7...v1.7.8) (2025-05-09)
 
 
