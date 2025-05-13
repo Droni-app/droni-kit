@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/Droni-app/droni-kit/compare/v1.8.0...v1.8.1) (2025-05-13)
+
+
+### Bug Fixes
+
+* support number on select ([24a50ff](https://github.com/Droni-app/droni-kit/commit/24a50ff648356b0884d213d5192a2e5af9973dcb))
+
 # [1.8.0](https://github.com/Droni-app/droni-kit/compare/v1.7.8...v1.8.0) (2025-05-10)
 
 
