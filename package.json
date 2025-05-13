@@ -20,8 +20,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/droni-kit.es.js",
+      "require": "./dist/droni-kit.cjs"
     },
     "./dist/droni-kit.css": "./dist/droni-kit.css"
   },
