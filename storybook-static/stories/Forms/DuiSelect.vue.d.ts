@@ -1,6 +1,6 @@
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: StringConstructor;
+        type: (StringConstructor | NumberConstructor)[];
         default: string;
     };
     options: {
@@ -56,10 +56,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
-    "update:modelValue": (value: string) => any;
+    "update:modelValue": (value: string | number) => any;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: StringConstructor;
+        type: (StringConstructor | NumberConstructor)[];
         default: string;
     };
     options: {
@@ -115,14 +115,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
 }>> & Readonly<{
-    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string | number) => any) | undefined;
 }>, {
     size: "sm" | "md" | "lg";
     disabled: boolean;
     block: boolean;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
     label: string;
-    modelValue: string;
+    modelValue: string | number;
     placeholder: string;
     name: string;
     id: string;

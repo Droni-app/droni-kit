@@ -43,7 +43,7 @@ import { computed } from 'vue'
 
 const props = defineProps({
   modelValue: {
-    type: String,
+    type: [String, Number],
     default: '',
   },
   options: {
@@ -101,12 +101,23 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: string | number): void
 }>()
 
 function onChange(event: Event) {
   const target = event.target as HTMLSelectElement
-  emit('update:modelValue', target.value)
+  const value = target.value
+  
+  // Intentamos convertir el valor a número si parece numérico
+  const numValue = Number(value)
+  
+  // Si el valor se puede convertir a número sin resultados NaN y no es una cadena vacía,
+  // emitimos el valor como número, de lo contrario como cadena
+  if (!isNaN(numValue) && value !== '') {
+    emit('update:modelValue', numValue)
+  } else {
+    emit('update:modelValue', value)
+  }
 }
 
 const baseClass = `

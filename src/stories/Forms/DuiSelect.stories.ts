@@ -78,7 +78,7 @@ export const Default: Story = {
     placeholder: 'ej. Colombia',
     name: 'pais',
     rounded: 'all',
-    modelValue: '5',
+    modelValue: 6,
     itemLabel: 'name',
     itemValue: 'id',
     options: [

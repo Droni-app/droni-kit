@@ -146,9 +146,10 @@
           <span class="mdi mdi-home"></span>
           hola mundo
         </DuiAction>
+        {{ selectId }}
         <DuiSelect
           class="dk:inline-block"
-          v-model="name"
+          v-model="selectId"
           :options="[
             { value: '1', label: 'Option 1' },
             { value: '2', label: 'Option 2' },
@@ -197,5 +198,6 @@ import DuiTable from "./stories/Elements/DuiTable.vue";
 const counter = ref(0);
 const name = ref("hola");
 const selectName = ref("15");
+const selectId = ref(1);
 const mymonth = ref("2023-10");
 </script>
