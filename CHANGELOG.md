@@ -1,3 +1,11 @@
+## [1.8.2](https://github.com/Droni-app/droni-kit/compare/v1.8.1...v1.8.2) (2025-05-13)
+
+
+### Bug Fixes
+
+* import and export package ([0689ae9](https://github.com/Droni-app/droni-kit/commit/0689ae94614cd2a1e47df42f6038b5df30723631))
+* types loaded folder ([9a4eb46](https://github.com/Droni-app/droni-kit/commit/9a4eb4601786806d7a81ce62caa07db6514111bd))
+
 ## [1.8.1](https://github.com/Droni-app/droni-kit/compare/v1.8.0...v1.8.1) (2025-05-13)
 
 
