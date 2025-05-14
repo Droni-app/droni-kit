@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/Droni-app/droni-kit/compare/v1.8.2...v1.8.3) (2025-05-14)
+
+
+### Bug Fixes
+
+* default block true ([18b7941](https://github.com/Droni-app/droni-kit/commit/18b7941fcd57e0b018e05c19f5b665faf85a918c))
+
 ## [1.8.2](https://github.com/Droni-app/droni-kit/compare/v1.8.1...v1.8.2) (2025-05-13)
 
 
