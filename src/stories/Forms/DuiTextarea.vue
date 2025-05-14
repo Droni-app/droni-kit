@@ -40,7 +40,7 @@ const props = defineProps({
   },
   block: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   disabled: {
     type: Boolean,
@@ -80,7 +80,7 @@ const props = defineProps({
   },
   resize: {
     type: String as () => 'none' | 'both' | 'horizontal' | 'vertical',
-    default: 'none',
+    default: 'vertical',
   },
 })
 
