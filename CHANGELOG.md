@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/Droni-app/droni-kit/compare/v1.8.3...v1.8.4) (2025-05-20)
+
+
+### Bug Fixes
+
+* support to number in input ([6aec6d3](https://github.com/Droni-app/droni-kit/commit/6aec6d32647fb6678e387e1221ae90df720d8343))
+
 ## [1.8.3](https://github.com/Droni-app/droni-kit/compare/v1.8.2...v1.8.3) (2025-05-14)
 
 
