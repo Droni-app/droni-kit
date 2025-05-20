@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     type: {
       control: { type: 'select' },
-      options: ['text', 'email', 'password', 'tel', 'url', 'search', 'date', 'datetime-local', 'month', 'week', 'time'],
+      options: ['text', 'email', 'password', 'tel', 'url', 'search', 'date', 'datetime-local', 'month', 'week', 'time', 'number'],
       defaultValue: 'text',
     },
     block: {
@@ -56,7 +56,19 @@ const meta = {
     readonly: {
       control: { type: 'boolean' },
       defaultValue: false,
-    }
+    },
+    min: {
+      control: { type: 'text' },
+      defaultValue: undefined,
+    },
+    max: {
+      control: { type: 'text' },
+      defaultValue: undefined,
+    },
+    step: {
+      control: { type: 'text' },
+      defaultValue: undefined,
+    },
   },
 } satisfies Meta<typeof DuiInput>;
 

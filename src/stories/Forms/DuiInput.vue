@@ -20,6 +20,9 @@
       :id="props.id"
       :pattern="props.pattern"
       :readonly="props.readonly"
+      :min="props.min"
+      :max="props.max"
+      :step="props.step"
       :aria-label="props.placeholder"
       :aria-disabled="props.disabled"
       :aria-required="props.required"
@@ -32,11 +35,11 @@ import { computed } from 'vue'
 
 const props = defineProps({
   modelValue: {
-    type: String,
+    type: [String, Number],
     default: '',
   },
   type: {
-    type: String as () => 'text' | 'email' | 'password' | 'tel' | 'url' | 'search' | 'date' | 'datetime-local' | 'month' | 'week' | 'time',
+    type: String as () => 'text' | 'email' | 'password' | 'tel' | 'url' | 'search' | 'date' | 'datetime-local' | 'month' | 'week' | 'time' | 'number',
     default: 'text',
   },
   size: {
@@ -82,6 +85,22 @@ const props = defineProps({
   rounded: {
     type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
     default: 'all',
+  },
+  min: {
+    type: [String, Number],
+    default: undefined,
+  },
+  max: {
+    type: [String, Number],
+    default: undefined,
+  },
+  step: {
+    type: [String, Number],
+    default: undefined,
+  },
+  autocomplete: {
+    type: String,
+    default: undefined,
   },
 })
 
