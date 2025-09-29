@@ -1,3 +1,10 @@
+## [1.8.6](https://github.com/Droni-app/droni-kit/compare/v1.8.5...v1.8.6) (2025-09-29)
+
+
+### Bug Fixes
+
+* add support to vue router on action component ([e0e96fd](https://github.com/Droni-app/droni-kit/commit/e0e96fd41378af702cc825c1a41e5d9a32575100))
+
 ## [1.8.5](https://github.com/Droni-app/droni-kit/compare/v1.8.4...v1.8.5) (2025-09-29)
 
 
