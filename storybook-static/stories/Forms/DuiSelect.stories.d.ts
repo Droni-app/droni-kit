@@ -120,6 +120,7 @@ declare const meta: {
     }>> & Readonly<{
         "onUpdate:modelValue"?: ((value: string | number) => any) | undefined;
     }>, {
+        name: string;
         size: "sm" | "md" | "lg";
         disabled: boolean;
         block: boolean;
@@ -127,7 +128,6 @@ declare const meta: {
         label: string;
         modelValue: string | number;
         placeholder: string;
-        name: string;
         id: string;
         required: boolean;
         readonly: boolean;

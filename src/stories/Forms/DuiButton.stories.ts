@@ -54,7 +54,12 @@ const meta = {
       control: { type: 'select' },
       options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
       defaultValue: 'all',
-    }
+    },
+    to: {
+      control: { type: 'text' },
+      defaultValue: undefined,
+      description: 'Router destination. Can be a string path or route object. Works with vue-router and Nuxt router.',
+    },
   },
 } satisfies Meta<typeof DuiButton>;
 
@@ -75,5 +80,96 @@ export const Default: Story = {
     color: 'neutral',
     loading: false,
     type: 'button',
+  },
+};
+
+export const WithRouting: Story = {
+  args: {
+    default: 'Ir a página',
+    to: '/some-route',
+    variant: 'solid',
+    color: 'primary',
+    size: 'md',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón que actúa como enlace de navegación. Detecta automáticamente si vue-router o Nuxt están disponibles y renderiza el componente apropiado.',
+      },
+    },
+  },
+};
+
+export const WithComplexRoute: Story = {
+  args: {
+    default: 'Navegar con parámetros',
+    to: {
+      name: 'user-profile',
+      params: { id: '123' },
+      query: { tab: 'settings' }
+    },
+    variant: 'outline',
+    color: 'secondary',
+    size: 'md',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón con objeto de ruta complejo que incluye nombre, parámetros y query string.',
+      },
+    },
+  },
+};
+
+export const ExternalLink: Story = {
+  args: {
+    default: 'Enlace externo',
+    to: 'https://example.com',
+    variant: 'ghost',
+    color: 'neutral',
+    size: 'md',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Cuando no hay router disponible y se proporciona una URL, el componente renderiza un enlace HTML regular.',
+      },
+    },
+  },
+};
+
+export const LoadingWithRoute: Story = {
+  args: {
+    default: 'Navegando...',
+    to: '/loading-destination',
+    loading: true,
+    variant: 'solid',
+    color: 'primary',
+    size: 'md',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón de navegación en estado de carga.',
+      },
+    },
+  },
+};
+
+export const DisabledWithRoute: Story = {
+  args: {
+    default: 'No disponible',
+    to: '/disabled-route',
+    disabled: true,
+    variant: 'outline',
+    color: 'neutral',
+    size: 'md',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón de navegación deshabilitado.',
+      },
+    },
   },
 };

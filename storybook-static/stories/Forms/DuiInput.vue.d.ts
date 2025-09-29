@@ -141,8 +141,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {
+    name: string;
     size: "sm" | "md" | "lg";
-    type: "number" | "time" | "text" | "email" | "password" | "tel" | "url" | "search" | "date" | "datetime-local" | "month" | "week";
+    type: "number" | "search" | "time" | "text" | "email" | "password" | "tel" | "url" | "date" | "datetime-local" | "month" | "week";
     disabled: boolean;
     block: boolean;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
@@ -150,7 +151,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     pattern: string;
     modelValue: string | number;
     placeholder: string;
-    name: string;
     id: string;
     required: boolean;
     readonly: boolean;

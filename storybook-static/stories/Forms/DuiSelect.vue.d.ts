@@ -117,6 +117,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     "onUpdate:modelValue"?: ((value: string | number) => any) | undefined;
 }>, {
+    name: string;
     size: "sm" | "md" | "lg";
     disabled: boolean;
     block: boolean;
@@ -124,7 +125,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     label: string;
     modelValue: string | number;
     placeholder: string;
-    name: string;
     id: string;
     required: boolean;
     readonly: boolean;

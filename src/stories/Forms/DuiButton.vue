@@ -1,53 +1,116 @@
 <template>
-  <button
-    :type="props.type"
+  <component
+    :is="componentType"
+    v-bind="componentProps"
     :class="computedClasses"
     :title="props.title"
     :disabled="props.disabled || props.loading">
     <slot v-if="!props.loading" />
     <span v-else>Cargando...</span>
-  </button>
+  </component>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
 
-const props = defineProps({
-  variant: {
-    type: String as () => 'solid' | 'outline' | 'ghost',
-    default: 'solid',
-  },
-  color: {
-    type: String as () => 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger',
-    default: 'neutral',
-  },
-  size: {
-    type: String as () => 'sm' | 'md' | 'lg',
-    default: 'md',
-  },
-  type: {
-    type: String as () => 'button' | 'submit' | 'reset',
-    default: 'button',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
-  block: {
-    type: Boolean,
-    default: false,
-  },
-  title: {
-    type: String,
-    default: undefined,
-  },
-  rounded: {
-    type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
-    default: 'all',
-  },
+// Type definitions for routing
+export interface RouteLocationRaw {
+  name?: string;
+  path?: string;
+  params?: Record<string, any>;
+  query?: Record<string, any>;
+  hash?: string;
+  [key: string]: any;
+}
+
+export type RouteTo = string | RouteLocationRaw
+
+export interface DuiButtonProps {
+  variant?: 'solid' | 'outline' | 'ghost'
+  color?: 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
+  type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
+  loading?: boolean
+  block?: boolean
+  title?: string
+  rounded?: 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none'
+  to?: RouteTo
+}
+
+const props = withDefaults(defineProps<DuiButtonProps>(), {
+  variant: 'solid',
+  color: 'neutral',
+  size: 'md',
+  type: 'button',
+  disabled: false,
+  loading: false,
+  block: false,
+  title: undefined,
+  rounded: 'all',
+  to: undefined,
+})
+
+// Detect available routers with better checking
+const instance = getCurrentInstance()
+const app = instance?.appContext.app
+
+const hasVueRouter = computed(() => {
+  // Check for vue-router availability in multiple ways
+  try {
+    return !!(
+      app?.config.globalProperties.$router || 
+      app?.config.globalProperties.$route ||
+      (globalThis as any).VueRouter ||
+      // Check if RouterLink component is globally registered
+      app?.component('RouterLink')
+    )
+  } catch {
+    return false
+  }
+})
+
+const hasNuxtRouter = computed(() => {
+  // Check for Nuxt availability in multiple ways
+  try {
+    return !!(
+      (globalThis as any).$nuxt || 
+      (globalThis as any).useNuxtApp ||
+      (globalThis as any).navigateTo ||
+      (typeof window !== 'undefined' && (window as any).$nuxt) ||
+      // Check if NuxtLink component is globally available
+      app?.component('NuxtLink')
+    )
+  } catch {
+    return false
+  }
+})
+
+// Determine component type based on routing availability and 'to' prop
+const componentType = computed(() => {
+  if (!props.to) return 'button'
+  
+  if (hasNuxtRouter.value) return 'NuxtLink'
+  if (hasVueRouter.value) return 'RouterLink' 
+  
+  // Fallback to regular link if no router is available but 'to' is provided
+  return 'a'
+})
+
+// Determine component props based on component type
+const componentProps = computed(() => {
+  const baseProps: Record<string, any> = {}
+  
+  if (componentType.value === 'button') {
+    baseProps.type = props.type
+  } else if (componentType.value === 'a') {
+    baseProps.href = typeof props.to === 'string' ? props.to : '#'
+    baseProps.role = 'button'
+  } else {
+    // RouterLink or NuxtLink
+    baseProps.to = props.to
+  }
+  
+  return baseProps
 })
 const baseClass = `
   dk:transition
