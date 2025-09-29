@@ -1,4 +1,4 @@
-import{j as e,M as r}from"./index-B_1uvxSe.js";import{useMDXComponents as t}from"./index-CRpA0hkD.js";import"./iframe-C_Gy-l_R.js";import"./index-Bx-go_-4.js";import"./index-DrFu-skq.js";function o(i){const n={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...t(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(r,{title:"Start"}),`
+import{j as e,M as r}from"./index-DckAP8bf.js";import{useMDXComponents as t}from"./index-CvyMKSnb.js";import"./iframe-B6WkZhk4.js";import"./index-Bx-go_-4.js";import"./index-DrFu-skq.js";function o(i){const n={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...t(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(r,{title:"Start"}),`
 `,e.jsx(n.h1,{id:"droni-kit",children:"Droni-kit"}),`
 `,e.jsx(n.p,{children:"Droni-kit es un conjunto de componentes de UI usados por el equipo de Droni.co para facilitar la creación de aplicaciones web. Está diseñado para ser utilizado con Vue 3 y Vite, y se puede instalar fácilmente a través de npm."}),`
 `,e.jsx(n.h2,{id:"instalación",children:"Instalación"}),`

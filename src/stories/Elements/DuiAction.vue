@@ -1,43 +1,89 @@
 <template>
-  <span
+  <component
+    :is="componentType"
+    v-bind="componentProps"
     :class="computedClasses"
     :title="props.title">
     <slot v-if="!props.loading" />
     <span v-else>Cargando...</span>
-  </span>
+  </component>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
+import type { RouteTo } from '../Forms/DuiButton.vue'
 
-const props = defineProps({
-  variant: {
-    type: String as () => 'solid' | 'outline' | 'ghost',
-    default: 'solid',
-  },
-  color: {
-    type: String as () => 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger',
-    default: 'neutral',
-  },
-  size: {
-    type: String as () => 'sm' | 'md' | 'lg',
-    default: 'md',
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
-  block: {
-    type: Boolean,
-    default: false,
-  },
-  title: {
-    type: String,
-    default: undefined,
-  },
-  rounded: {
-    type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
-    default: 'all',
-  },
+export interface DuiActionProps {
+  variant?: 'solid' | 'outline' | 'ghost'
+  color?: 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
+  loading?: boolean
+  block?: boolean
+  title?: string
+  rounded?: 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none'
+  to?: RouteTo
+}
+
+const props = withDefaults(defineProps<DuiActionProps>(), {
+  variant: 'solid',
+  color: 'neutral',
+  size: 'md',
+  loading: false,
+  block: false,
+  title: undefined,
+  rounded: 'all',
+  to: undefined,
+})
+
+const instance = getCurrentInstance()
+const app = instance?.appContext.app
+
+const hasVueRouter = computed(() => {
+  try {
+    return !!(
+      app?.config.globalProperties.$router || 
+      app?.config.globalProperties.$route ||
+      (globalThis as any).VueRouter ||
+      app?.component('RouterLink')
+    )
+  } catch {
+    return false
+  }
+})
+
+const hasNuxtRouter = computed(() => {
+  try {
+    return !!(
+      (globalThis as any).$nuxt || 
+      (globalThis as any).useNuxtApp ||
+      (globalThis as any).navigateTo ||
+      (typeof window !== 'undefined' && (window as any).$nuxt) ||
+      app?.component('NuxtLink')
+    )
+  } catch {
+    return false
+  }
+})
+
+const componentType = computed(() => {
+  if (!props.to) return 'span'
+  
+  if (hasNuxtRouter.value) return 'NuxtLink'
+  if (hasVueRouter.value) return 'RouterLink' 
+  
+  return 'a'
+})
+
+const componentProps = computed(() => {
+  const baseProps: Record<string, any> = {}
+  
+  if (componentType.value === 'a') {
+    baseProps.href = typeof props.to === 'string' ? props.to : '#'
+    baseProps.role = 'button'
+  } else if (componentType.value !== 'span') {
+    baseProps.to = props.to
+  }
+  
+  return baseProps
 })
 
 const baseClass =  `

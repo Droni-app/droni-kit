@@ -46,6 +46,11 @@ const meta = {
       options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
       defaultValue: 'all',
     },
+    to: {
+      control: { type: 'text' },
+      defaultValue: undefined,
+      description: 'Router destination. Can be a string path or route object. Works with vue-router and Nuxt router.',
+    },
   },
 } satisfies Meta<typeof DuiAction>;
 
@@ -65,5 +70,50 @@ export const Default: Story = {
     color: 'neutral',
     loading: false,
     title: 'Ir a Droni.co',
+  },
+};
+
+export const WithRouting: Story = {
+  args: {
+    default: 'Ir a página',
+    to: '/some-route',
+    variant: 'outline',
+    color: 'primary',
+    size: 'md',
+  },
+};
+
+export const WithComplexRoute: Story = {
+  args: {
+    default: 'Navegar con parámetros',
+    to: {
+      name: 'user-profile',
+      params: { id: '123' },
+      query: { tab: 'settings' }
+    },
+    variant: 'ghost',
+    color: 'secondary',
+    size: 'md',
+  },
+};
+
+export const ExternalLink: Story = {
+  args: {
+    default: 'Enlace externo',
+    to: 'https://droni.co',
+    variant: 'solid',
+    color: 'success',
+    size: 'sm',
+  },
+};
+
+export const LoadingWithRoute: Story = {
+  args: {
+    default: 'Navegando...',
+    to: '/loading-destination',
+    loading: true,
+    variant: 'outline',
+    color: 'warning',
+    size: 'md',
   },
 };
