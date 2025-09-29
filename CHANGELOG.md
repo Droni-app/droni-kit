@@ -1,3 +1,10 @@
+## [1.8.5](https://github.com/Droni-app/droni-kit/compare/v1.8.4...v1.8.5) (2025-09-29)
+
+
+### Bug Fixes
+
+* support for vue and nuxt router ([5c34e9c](https://github.com/Droni-app/droni-kit/commit/5c34e9cf8b49a05e6f291e707fb6c798b0f7b1f7))
+
 ## [1.8.4](https://github.com/Droni-app/droni-kit/compare/v1.8.3...v1.8.4) (2025-05-20)
 
 
