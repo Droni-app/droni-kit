@@ -1,3 +1,17 @@
+# [1.9.0](https://github.com/Droni-app/droni-kit/compare/v1.8.6...v1.9.0) (2025-09-30)
+
+
+### Bug Fixes
+
+* darkmode with theme ([3629b11](https://github.com/Droni-app/droni-kit/commit/3629b11da330d31396adb2c46068a764014d2b71))
+* preview content ([1340e0d](https://github.com/Droni-app/droni-kit/commit/1340e0dc28a09d32cbb1100ce402b7c6d1b246dc))
+* readd preview ([398e6f7](https://github.com/Droni-app/droni-kit/commit/398e6f715c43b26eb9c541daf3a4dc802ac30917))
+
+
+### Features
+
+* upgrade storybook ([6be2a48](https://github.com/Droni-app/droni-kit/commit/6be2a487b6d77dca5fe03569c11d9815cf6c201a))
+
 ## [1.8.6](https://github.com/Droni-app/droni-kit/compare/v1.8.5...v1.8.6) (2025-09-29)
 
 
