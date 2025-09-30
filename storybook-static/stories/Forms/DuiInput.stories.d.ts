@@ -1,4 +1,4 @@
-import { StoryObj } from '@storybook/vue3';
+import { StoryObj } from '@storybook/vue3-vite';
 declare const meta: {
     title: string;
     component: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
