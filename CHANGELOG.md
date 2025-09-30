@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/Droni-app/droni-kit/compare/v1.9.0...v1.9.1) (2025-09-30)
+
+
+### Bug Fixes
+
+* security update ([b3d214f](https://github.com/Droni-app/droni-kit/commit/b3d214fcaa2366da82d653621ee8e4287f681746))
+
 # [1.9.0](https://github.com/Droni-app/droni-kit/compare/v1.8.6...v1.9.0) (2025-09-30)
 
 
