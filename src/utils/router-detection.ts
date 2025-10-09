@@ -1,123 +1,56 @@
 /**
- * Utility for detecting router environment in a SSR-safe way
- * This helps prevent hydration mismatches in Nuxt applications
+ * Utility for router component handling with explicit framework selection
  */
 
 import { getCurrentInstance } from 'vue'
 
-interface RouterDetection {
-  hasNuxtRouter: boolean
-  hasVueRouter: boolean
-}
-
 /**
- * Detects if we're in a Nuxt environment using SSR-safe methods
- * This function ensures consistent behavior between server and client
+ * Detects if Vue Router is available (fallback detection)
  */
-export function detectRouterEnvironment(): RouterDetection {
-  const instance = getCurrentInstance()
-  const app = instance?.appContext.app
+function hasVueRouterAvailable(): boolean {
+  try {
+    const instance = getCurrentInstance()
+    const app = instance?.appContext.app
 
-  // Primary detection: Check for Nuxt using import.meta
-  // This is the most reliable way to detect Nuxt in both SSR and client
-  const isNuxtEnvironment = (() => {
-    try {
-      // Check if we're in a Nuxt environment via import.meta
-      if (typeof import.meta !== 'undefined' && import.meta.env) {
-        // Nuxt sets specific environment variables
-        if (import.meta.env.NUXT_ENV_CURRENT_ENV || 
-            (import.meta as any).client !== undefined || 
-            (import.meta as any).server !== undefined) {
-          return true
-        }
-      }
-
-      // Check for Nuxt app context (works in both SSR and client)
-      if (app) {
-        // Check if NuxtLink is globally registered (most reliable)
-        const nuxtLinkComponent = app.component('NuxtLink')
-        if (nuxtLinkComponent) {
-          return true
-        }
-
-        // Check for Nuxt-specific global properties
-        if (app.config.globalProperties.$nuxt ||
-            app.config.globalProperties.nuxtApp ||
-            app.config.globalProperties.$router?.app?.nuxt) {
-          return true
-        }
-      }
-
-      // Fallback: Check process.env only if available (Node.js environment)
-      if (typeof process !== 'undefined' && process.env) {
-        if (process.env.NUXT_ENV_CURRENT_ENV || 
-            process.env.NUXT_PUBLIC_API_BASE ||
-            process.env.__NUXT__) {
-          return true
-        }
-      }
-
-      // Last resort: Check global variables (but be careful with SSR)
-      if (typeof window !== 'undefined') {
-        // Only check window if we're definitely on the client
-        return !!(
-          (window as any).__NUXT__ ||
-          (window as any).$nuxt ||
-          (window as any).useNuxtApp
-        )
-      }
-
-      return false
-    } catch {
-      return false
+    if (app) {
+      return !!(
+        app.config.globalProperties.$router || 
+        app.config.globalProperties.$route ||
+        app.component('RouterLink')
+      )
     }
-  })()
 
-  // Vue Router detection (simpler, usually works consistently)
-  const isVueRouterEnvironment = (() => {
-    try {
-      if (app) {
-        return !!(
-          app.config.globalProperties.$router || 
-          app.config.globalProperties.$route ||
-          app.component('RouterLink')
-        )
-      }
-
-      // Check for global Vue Router
-      if (typeof window !== 'undefined') {
-        return !!((window as any).VueRouter)
-      }
-
-      return false
-    } catch {
-      return false
+    // Check for global Vue Router
+    if (typeof window !== 'undefined') {
+      return !!((window as any).VueRouter)
     }
-  })()
 
-  return {
-    hasNuxtRouter: isNuxtEnvironment,
-    hasVueRouter: !isNuxtEnvironment && isVueRouterEnvironment
+    return false
+  } catch {
+    return false
   }
 }
 
 /**
- * Gets the appropriate component type for routing
- * Returns the component name as string for dynamic component usage
+ * Gets the appropriate component type for routing with explicit framework selection
+ * @param to - The route destination
+ * @param nuxt - Explicitly indicate if this is a Nuxt project
+ * @returns The component name as string for dynamic component usage
  */
-export function getRouterComponentType(to?: string | object): string {
+export function getRouterComponentType(to?: string | object, nuxt: boolean = false): string {
   if (!to) return 'button'
   
-  const { hasNuxtRouter, hasVueRouter } = detectRouterEnvironment()
-  
-  if (hasNuxtRouter) return 'NuxtLink'
-  if (hasVueRouter) return 'RouterLink'
+  if (nuxt) return 'NuxtLink'
+  if (hasVueRouterAvailable()) return 'RouterLink'
   
   return 'a'
 }
 
 /**
  * Gets the appropriate props for the router component
+ * @param to - The route destination
+ * @param componentType - The component type returned by getRouterComponentType
+ * @param additionalProps - Any additional props to merge
  */
 export function getRouterComponentProps(
   to: string | object | undefined, 

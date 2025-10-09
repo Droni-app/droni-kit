@@ -36,6 +36,7 @@ export interface DuiButtonProps {
   title?: string
   rounded?: 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none'
   to?: RouteTo
+  nuxt?: boolean
 }
 
 const props = withDefaults(defineProps<DuiButtonProps>(), {
@@ -49,11 +50,12 @@ const props = withDefaults(defineProps<DuiButtonProps>(), {
   title: undefined,
   rounded: 'all',
   to: undefined,
+  nuxt: false,
 })
 
 // Determine component type based on routing availability and 'to' prop
 const componentType = computed(() => {
-  return getRouterComponentType(props.to)
+  return getRouterComponentType(props.to, props.nuxt)
 })
 
 // Determine component props based on component type

@@ -22,6 +22,7 @@ export interface DuiActionProps {
   title?: string
   rounded?: 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none'
   to?: RouteTo
+  nuxt?: boolean
 }
 
 const props = withDefaults(defineProps<DuiActionProps>(), {
@@ -33,11 +34,12 @@ const props = withDefaults(defineProps<DuiActionProps>(), {
   title: undefined,
   rounded: 'all',
   to: undefined,
+  nuxt: false,
 })
 
 const componentType = computed(() => {
   if (!props.to) return 'span'
-  return getRouterComponentType(props.to)
+  return getRouterComponentType(props.to, props.nuxt)
 })
 
 const componentProps = computed(() => {

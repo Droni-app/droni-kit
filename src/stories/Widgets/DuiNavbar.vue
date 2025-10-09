@@ -182,11 +182,13 @@ export interface NavbarItem {
 export interface DuiNavbarProps {
   items?: NavbarItem[]
   size?: 's' | 'm' | 'l'
+  nuxt?: boolean
 }
 
 const props = withDefaults(defineProps<DuiNavbarProps>(), {
   items: () => [],
-  size: 'm'
+  size: 'm',
+  nuxt: false
 })
 
 const instance = getCurrentInstance()
@@ -194,7 +196,7 @@ const mobileMenuOpen = ref(false)
 const mobileSubmenus = reactive<Record<string, boolean>>({})
 
 const getComponentType = (item: NavbarItem) => {
-  return getRouterComponentType(item.to)
+  return getRouterComponentType(item.to, props.nuxt)
 }
 
 const getComponentProps = (item: NavbarItem) => {
