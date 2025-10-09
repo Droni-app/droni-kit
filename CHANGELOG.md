@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/Droni-app/droni-kit/compare/v1.10.0...v1.11.0) (2025-10-09)
+
+
+### Bug Fixes
+
+* add card to index ([78e498a](https://github.com/Droni-app/droni-kit/commit/78e498a87c0c64745eed9efea2af6f78ca85dcbe))
+
+
+### Features
+
+* Element Card ([58ac67d](https://github.com/Droni-app/droni-kit/commit/58ac67dea660ef03bd0a030425f66aadc90d866d))
+
 # [1.10.0](https://github.com/Droni-app/droni-kit/compare/v1.9.1...v1.10.0) (2025-10-09)
 
 
