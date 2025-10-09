@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <label
-      :for="props.id"
-      :class="computedLabelClasses"
-      class="dk:text-start dk:block dk:text-zinc-700 dk:dark:text-zinc-200 dk:px-0"
-      v-if="props.label"
-      >
-      {{ props.label }}
-      <span v-if="props.required" class="dk:text-rose-500">*</span>
-    </label>
-    <textarea
-      :class="computedClasses"
-      :value="modelValue"
-      :disabled="props.disabled"
-      :placeholder="props.placeholder"
-      :required="props.required"
-      :name="props.name"
-      :id="props.id"
-      :readonly="props.readonly"
-      :aria-label="props.placeholder"
-      :aria-disabled="props.disabled"
-      :aria-required="props.required"
-      @input="onInput"
-    />
-  </div>
+  <textarea
+    v-bind="$attrs"
+    :class="computedClasses"
+    :value="modelValue"
+    @input="onInput"
+  />
 </template>
 <script setup lang="ts">
-import { computed, } from 'vue'
+import { computed } from 'vue'
 
+defineOptions({ inheritAttrs: false })
 
 const props = defineProps({
   modelValue: {
@@ -41,34 +23,6 @@ const props = defineProps({
   block: {
     type: Boolean,
     default: true,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  placeholder: {
-    type: String,
-    default: undefined,
-  },
-  name: {
-    type: String,
-    default: undefined,
-  },
-  id: {
-    type: String,
-    default: undefined,
-  },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-  label: {
-    type: String,
-    default: undefined,
-  },
-  readonly: {
-    type: Boolean,
-    default: false,
   },
   rounded: {
     type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
@@ -93,6 +47,7 @@ function onInput(event: Event) {
   if(props.autoheight) autoResize(target);
   emit('update:modelValue', target.value)
 }
+
 const baseClass = `
   dk:border-b
   dk:border-zinc-300
@@ -122,12 +77,6 @@ const roundedClasses = {
   none: 'dk:rounded-none',
 }
 
-const sizeLabelClasses = {
-  sm: 'dk:text-sm dk:pb-0.5',
-  md: 'dk:text-base dk:pb-1',
-  lg: 'dk:text-lg dk:pb-2',
-}
-
 const resizeClasses = {
   none: 'dk:resize-none',
   both: 'dk:resize',
@@ -141,12 +90,6 @@ const computedClasses = computed(() => {
   const roundedStyle = roundedClasses[props.rounded] || ''
   const resizeStyle = resizeClasses[props.resize] || ''
   return [baseClass, sizeStyle, blockStyle, roundedStyle, resizeStyle].join(' ')
-})
-
-const computedLabelClasses = computed(() => {
-  const sizeStyle = sizeLabelClasses[props.size] || ''
-  const blockStyle = props.block ? 'dk:w-full' : ''
-  return [sizeStyle, blockStyle].join(' ')
 })
 
 const autoResize = (textarea: HTMLTextAreaElement) => {
