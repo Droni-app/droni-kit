@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/Droni-app/droni-kit/compare/v1.12.1...v1.12.2) (2025-10-09)
+
+
+### Bug Fixes
+
+* support to nuxt router ssr ([b297da8](https://github.com/Droni-app/droni-kit/commit/b297da8cb98549550f214e1d6f87adbf8afbc11c))
+
 ## [1.12.1](https://github.com/Droni-app/droni-kit/compare/v1.12.0...v1.12.1) (2025-10-09)
 
 
