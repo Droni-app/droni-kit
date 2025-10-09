@@ -1,3 +1,16 @@
+# [1.12.0](https://github.com/Droni-app/droni-kit/compare/v1.11.0...v1.12.0) (2025-10-09)
+
+
+### Bug Fixes
+
+* remove labels from input and select ([fb3f2df](https://github.com/Droni-app/droni-kit/commit/fb3f2df5fc251c9586ada385e4a0e4afe0aaa45b))
+* simplify textarea form component ([6dedac1](https://github.com/Droni-app/droni-kit/commit/6dedac1cd439b8ce375f37e8a12ae651a5d99c9d))
+
+
+### Features
+
+* label element ([5b003af](https://github.com/Droni-app/droni-kit/commit/5b003afa3910e36c357813ae7621e1b90691b4cb))
+
 # [1.11.0](https://github.com/Droni-app/droni-kit/compare/v1.10.0...v1.11.0) (2025-10-09)
 
 
