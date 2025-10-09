@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/Droni-app/droni-kit/compare/v1.12.0...v1.12.1) (2025-10-09)
+
+
+### Bug Fixes
+
+* animation on image cards ([f5c6b87](https://github.com/Droni-app/droni-kit/commit/f5c6b874a1daeeb64968ea7c8fb2af41f1dca3f4))
+
 # [1.12.0](https://github.com/Droni-app/droni-kit/compare/v1.11.0...v1.12.0) (2025-10-09)
 
 
