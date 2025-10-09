@@ -1,45 +1,27 @@
 <template>
-  <div>
-    <label
-      v-if="props.label"
-      :for="props.id"
-      :class="computedLabelClasses"
-      class="dk:text-start dk:block dk:text-zinc-700 dk:dark:text-zinc-200 dk:px-0"
+  <select
+    v-bind="$attrs"
+    :class="computedClasses"
+    @change="onChange"
+  >
+    <option v-if="placeholder" disabled selected hidden>
+      {{ placeholder }}
+    </option>
+    <option
+      v-for="(option, index) in options"
+      :key="index"
+      :value="option[itemValue] ?? ''"
+      :selected="option[itemValue] == modelValue"
     >
-      {{ props.label }}
-      <span v-if="props.required" class="dk:text-rose-500">*</span>
-    </label>
-
-    <select
-      :id="props.id"
-      :name="props.name"
-      :disabled="props.disabled"
-      :required="props.required"
-      :class="computedClasses"
-      :readonly="props.readonly"
-      :aria-label="props.label || 'select input'"
-      :aria-disabled="props.disabled"
-      :aria-required="props.required"
-      @change="onChange"
-
-    >
-      <option v-if="props.placeholder" disabled selected hidden>
-        {{ props.placeholder }}
-      </option>
-      <option
-        v-for="(option, index) in props.options"
-        :key="index"
-        :value="option[props.itemValue] ?? ''"
-        :selected="option[props.itemValue] == props.modelValue"
-      >
-        {{ option[props.itemLabel] ?? '' }}
-      </option>
-    </select>
-  </div>
+      {{ option[itemLabel] ?? '' }}
+    </option>
+  </select>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+
+defineOptions({ inheritAttrs: false })
 
 const props = defineProps({
   modelValue: {
@@ -58,34 +40,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  name: {
-    type: String,
-    default: undefined,
-  },
-  id: {
-    type: String,
-    default: undefined,
-  },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-  label: {
-    type: String,
-    default: undefined,
-  },
-  placeholder: {
-    type: String,
-    default: undefined,
-  },
-  readonly: {
-    type: Boolean,
-    default: false,
-  },
   rounded: {
     type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
     default: 'all',
@@ -97,6 +51,10 @@ const props = defineProps({
   itemValue: {
     type: String,
     default: 'value',
+  },
+  placeholder: {
+    type: String,
+    default: undefined,
   },
 })
 
@@ -150,22 +108,10 @@ const roundedClasses = {
   none: 'dk:rounded-none',
 }
 
-const sizeLabelClasses = {
-  sm: 'dk:text-sm dk:pb-0.5',
-  md: 'dk:text-base dk:pb-1',
-  lg: 'dk:text-lg dk:pb-2',
-}
-
 const computedClasses = computed(() => {
   const sizeStyle = sizeClasses[props.size] || ''
   const blockStyle = props.block ? 'dk:w-full' : ''
   const roundedStyle = roundedClasses[props.rounded] || ''
   return [baseClass, sizeStyle, blockStyle, roundedStyle].join(' ')
-})
-
-const computedLabelClasses = computed(() => {
-  const sizeStyle = sizeLabelClasses[props.size] || ''
-  const blockStyle = props.block ? 'dk:w-full' : ''
-  return [sizeStyle, blockStyle].join(' ')
 })
 </script>

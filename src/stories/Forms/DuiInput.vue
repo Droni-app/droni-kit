@@ -1,46 +1,22 @@
 <template>
-  <div>
-    <label
-      :for="props.id"
-      :class="computedLabelClasses"
-      class="dk:text-start dk:block dk:text-zinc-700 dk:dark:text-zinc-200 dk:px-0"
-      v-if="props.label"
-      >
-      {{ props.label }}
-      <span v-if="props.required" class="dk:text-rose-500">*</span>
-    </label>
-    <input
-      :type="props.type"
-      :class="computedClasses"
-      :value="modelValue"
-      :disabled="props.disabled"
-      :placeholder="props.placeholder"
-      :required="props.required"
-      :name="props.name"
-      :id="props.id"
-      :pattern="props.pattern"
-      :readonly="props.readonly"
-      :min="props.min"
-      :max="props.max"
-      :step="props.step"
-      :aria-label="props.placeholder"
-      :aria-disabled="props.disabled"
-      :aria-required="props.required"
-      @input="onInput"
-    />
-  </div>
+  <input
+    :class="computedClasses"
+    :value="modelValue"
+    v-bind="$attrs"
+    @input="onInput"
+  />
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
+
+defineOptions({
+  inheritAttrs: false
+})
 
 const props = defineProps({
   modelValue: {
     type: [String, Number],
     default: '',
-  },
-  type: {
-    type: String as () => 'text' | 'email' | 'password' | 'tel' | 'url' | 'search' | 'date' | 'datetime-local' | 'month' | 'week' | 'time' | 'number',
-    default: 'text',
   },
   size: {
     type: String as () => 'sm' | 'md' | 'lg',
@@ -50,57 +26,9 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  placeholder: {
-    type: String,
-    default: undefined,
-  },
-  name: {
-    type: String,
-    default: undefined,
-  },
-  id: {
-    type: String,
-    default: undefined,
-  },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-  label: {
-    type: String,
-    default: undefined,
-  },
-  pattern: {
-    type: String,
-    default: undefined,
-  },
-  readonly: {
-    type: Boolean,
-    default: false,
-  },
   rounded: {
     type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
     default: 'all',
-  },
-  min: {
-    type: [String, Number],
-    default: undefined,
-  },
-  max: {
-    type: [String, Number],
-    default: undefined,
-  },
-  step: {
-    type: [String, Number],
-    default: undefined,
-  },
-  autocomplete: {
-    type: String,
-    default: undefined,
   },
 })
 
@@ -131,6 +59,7 @@ const sizeClasses = {
   md: 'dk:text-base dk:px-4 dk:py-2',
   lg: 'dk:text-lg dk:px-5 dk:py-3',
 }
+
 const roundedClasses = {
   all: 'dk:rounded',
   top: 'dk:rounded-t',
@@ -140,23 +69,10 @@ const roundedClasses = {
   none: 'dk:rounded-none',
 }
 
-const sizeLabelClasses = {
-  sm: 'dk:text-sm dk:pb-0.5',
-  md: 'dk:text-base dk:pb-1',
-  lg: 'dk:text-lg dk:pb-2',
-}
-
-
 const computedClasses = computed(() => {
   const sizeStyle = sizeClasses[props.size] || ''
   const blockStyle = props.block ? 'dk:w-full' : ''
   const roundedStyle = roundedClasses[props.rounded] || ''
   return [baseClass, sizeStyle, blockStyle, roundedStyle].join(' ')
-})
-
-const computedLabelClasses = computed(() => {
-  const sizeStyle = sizeLabelClasses[props.size] || ''
-  const blockStyle = props.block ? 'dk:w-full' : ''
-  return [sizeStyle, blockStyle].join(' ')
 })
 </script>

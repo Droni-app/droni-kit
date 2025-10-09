@@ -10,53 +10,32 @@ const meta = {
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
-    block: {
-      control: { type: 'boolean' },
-      defaultValue: false,
+    modelValue: {
+      control: { type: 'text' },
     },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      defaultValue: 'md',
     },
-    disabled: {
+    block: {
       control: { type: 'boolean' },
-      defaultValue: false,
+    },
+    rounded: {
+      control: { type: 'select' },
+      options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
+    },
+    itemLabel: {
+      control: { type: 'text' },
+    },
+    itemValue: {
+      control: { type: 'text' },
     },
     placeholder: {
       control: { type: 'text' },
-      defaultValue: undefined,
-    },
-    name: {
-      control: { type: 'text' },
-      defaultValue: undefined,
-    },
-    required: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-    },
-    label: {
-      control: { type: 'text' },
-      defaultValue: undefined,
-    },
-    rounded: {
-      constrol: { type: 'select' },
-      options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
-      defaultValue: 'all',
     },
     options: {
       control: { type: 'object' },
-      defaultValue: [
-        { label: 'Opción 1', value: 'opcion1' },
-        { label: 'Opción 2', value: 'opcion2' },
-        { label: 'Opción 3', value: 'opcion3' },
-        { label: 'Opción 4', value: 'opcion4' },
-      ],
     },
-    readonly: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-    }
   },
 } satisfies Meta<typeof DuiSelect>;
 
@@ -69,18 +48,13 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    required: true,
-    disabled: false,
-    block: false,
     size: 'md',
-    label: 'Selecciona un país',
-    id: 'pais',
-    placeholder: 'ej. Colombia',
-    name: 'pais',
+    block: true,
     rounded: 'all',
     modelValue: 6,
     itemLabel: 'name',
     itemValue: 'id',
+    placeholder: 'Selecciona un país',
     options: [
       { id: 5, name: 'Colombia' },
       { id: 6, name: 'México' },
@@ -88,4 +62,119 @@ export const Default: Story = {
       { id: 8, name: 'Perú' },
     ],
   },
+  render: (args) => ({
+    components: { DuiSelect },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="p-4">
+        <label for="pais" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          Selecciona un país <span class="text-red-500">*</span>
+        </label>
+        <DuiSelect 
+          v-bind="args"
+          id="pais"
+          name="pais"
+          required
+        />
+      </div>
+    `,
+  }),
+};
+
+export const Sizes: Story = {
+  render: () => ({
+    components: { DuiSelect },
+    setup() {
+      const countries = [
+        { id: 1, name: 'Colombia' },
+        { id: 2, name: 'México' },
+        { id: 3, name: 'España' },
+      ];
+      return { countries };
+    },
+    template: `
+      <div class="p-4 space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Small
+          </label>
+          <DuiSelect 
+            :options="countries"
+            size="sm"
+            placeholder="Selecciona..."
+            item-label="name"
+            item-value="id"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Medium (default)
+          </label>
+          <DuiSelect 
+            :options="countries"
+            size="md"
+            placeholder="Selecciona..."
+            item-label="name"
+            item-value="id"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Large
+          </label>
+          <DuiSelect 
+            :options="countries"
+            size="lg"
+            placeholder="Selecciona..."
+            item-label="name"
+            item-value="id"
+          />
+        </div>
+      </div>
+    `,
+  }),
+};
+
+export const WithNativeAttributes: Story = {
+  render: () => ({
+    components: { DuiSelect },
+    setup() {
+      const priorities = [
+        { label: 'Baja', value: 'low' },
+        { label: 'Media', value: 'medium' },
+        { label: 'Alta', value: 'high' },
+        { label: 'Crítica', value: 'critical' },
+      ];
+      return { priorities };
+    },
+    template: `
+      <div class="p-4 space-y-4">
+        <div>
+          <label for="priority-disabled" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Deshabilitado
+          </label>
+          <DuiSelect 
+            id="priority-disabled"
+            :options="priorities"
+            placeholder="No disponible"
+            disabled
+          />
+        </div>
+        <div>
+          <label for="priority-required" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Requerido <span class="text-red-500">*</span>
+          </label>
+          <DuiSelect 
+            id="priority-required"
+            :options="priorities"
+            placeholder="Selecciona prioridad"
+            required
+            name="priority"
+          />
+        </div>
+      </div>
+    `,
+  }),
 };
