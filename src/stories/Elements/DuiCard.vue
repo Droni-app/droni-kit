@@ -203,15 +203,17 @@ const titleClasses = computed(() => {
 })
 
 const imageLinkClasses = computed(() => {
-  if (!props.to) {
-    return 'dk:block'
-  }
-  
-  return [
-    'dk:block dk:no-underline',
+  const baseClasses = [
+    'dk:block',
     'dk:transition-transform dk:duration-200',
     'dk:hover:scale-105'
-  ].join(' ')
+  ]
+  
+  if (props.to) {
+    baseClasses.push('dk:no-underline')
+  }
+  
+  return baseClasses.join(' ')
 })
 
 const subtitleClasses = computed(() => {
