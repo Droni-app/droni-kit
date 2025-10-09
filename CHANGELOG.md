@@ -1,3 +1,10 @@
+## [1.12.3](https://github.com/Droni-app/droni-kit/compare/v1.12.2...v1.12.3) (2025-10-09)
+
+
+### Bug Fixes
+
+* direct detection nuxt link ([6ed4335](https://github.com/Droni-app/droni-kit/commit/6ed43351b302af9926c1cb2a5e89b8db76440890))
+
 ## [1.12.2](https://github.com/Droni-app/droni-kit/compare/v1.12.1...v1.12.2) (2025-10-09)
 
 
