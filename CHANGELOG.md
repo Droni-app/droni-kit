@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/Droni-app/droni-kit/compare/v1.9.1...v1.10.0) (2025-10-09)
+
+
+### Features
+
+* init navbar ([b538fa1](https://github.com/Droni-app/droni-kit/commit/b538fa17032d6dd142d6b6a9dc6749874e4d7c4d))
+* Widget Navbar ([75d58b8](https://github.com/Droni-app/droni-kit/commit/75d58b8f96acd1cece8cb0fdaac1f1eb79756054))
+
 ## [1.9.1](https://github.com/Droni-app/droni-kit/compare/v1.9.0...v1.9.1) (2025-09-30)
 
 
