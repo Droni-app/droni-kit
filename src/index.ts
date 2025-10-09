@@ -7,6 +7,7 @@ import DuiSelect from './stories/Forms/DuiSelect.vue'
 import DuiAlert from './stories/Elements/DuiAlert.vue'
 import DuiTable from './stories/Elements/DuiTable.vue'
 import DuiAction from './stories/Elements/DuiAction.vue'
+import DuiCard from './stories/Elements/DuiCard.vue'
 // Widgets
 import DuiNavbar from './stories/Widgets/DuiNavbar.vue'
 
@@ -17,6 +18,7 @@ export {
   DuiInput,
   DuiTextarea,
   DuiAction,
+  DuiCard,
   DuiSelect,
   DuiAlert,
   DuiTable,
