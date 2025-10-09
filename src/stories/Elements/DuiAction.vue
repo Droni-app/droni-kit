@@ -9,7 +9,8 @@
   </component>
 </template>
 <script setup lang="ts">
-import { computed, getCurrentInstance } from 'vue'
+import { computed } from 'vue'
+import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
 import type { RouteTo } from '../Forms/DuiButton.vue'
 
 export interface DuiActionProps {
@@ -34,56 +35,13 @@ const props = withDefaults(defineProps<DuiActionProps>(), {
   to: undefined,
 })
 
-const instance = getCurrentInstance()
-const app = instance?.appContext.app
-
-const hasVueRouter = computed(() => {
-  try {
-    return !!(
-      app?.config.globalProperties.$router || 
-      app?.config.globalProperties.$route ||
-      (globalThis as any).VueRouter ||
-      app?.component('RouterLink')
-    )
-  } catch {
-    return false
-  }
-})
-
-const hasNuxtRouter = computed(() => {
-  try {
-    return !!(
-      (globalThis as any).$nuxt || 
-      (globalThis as any).useNuxtApp ||
-      (globalThis as any).navigateTo ||
-      (typeof window !== 'undefined' && (window as any).$nuxt) ||
-      app?.component('NuxtLink')
-    )
-  } catch {
-    return false
-  }
-})
-
 const componentType = computed(() => {
   if (!props.to) return 'span'
-  
-  if (hasNuxtRouter.value) return 'NuxtLink'
-  if (hasVueRouter.value) return 'RouterLink' 
-  
-  return 'a'
+  return getRouterComponentType(props.to)
 })
 
 const componentProps = computed(() => {
-  const baseProps: Record<string, any> = {}
-  
-  if (componentType.value === 'a') {
-    baseProps.href = typeof props.to === 'string' ? props.to : '#'
-    baseProps.role = 'button'
-  } else if (componentType.value !== 'span') {
-    baseProps.to = props.to
-  }
-  
-  return baseProps
+  return getRouterComponentProps(props.to, componentType.value)
 })
 
 const baseClass =  `

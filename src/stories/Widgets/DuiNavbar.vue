@@ -170,6 +170,7 @@
 
 <script setup lang="ts">
 import { computed, getCurrentInstance, reactive, ref } from 'vue'
+import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
 
 export interface NavbarItem {
   label: string
@@ -189,58 +190,16 @@ const props = withDefaults(defineProps<DuiNavbarProps>(), {
 })
 
 const instance = getCurrentInstance()
-const app = instance?.appContext.app
-
 const mobileMenuOpen = ref(false)
 const mobileSubmenus = reactive<Record<string, boolean>>({})
 
-const hasVueRouter = computed(() => {
-  try {
-    return !!(
-      app?.config.globalProperties.$router || 
-      app?.config.globalProperties.$route ||
-      (globalThis as any).VueRouter ||
-      app?.component('RouterLink')
-    )
-  } catch {
-    return false
-  }
-})
-
-const hasNuxtRouter = computed(() => {
-  try {
-    return !!(
-      (globalThis as any).$nuxt || 
-      (globalThis as any).useNuxtApp ||
-      (globalThis as any).navigateTo ||
-      (typeof window !== 'undefined' && (window as any).$nuxt) ||
-      app?.component('NuxtLink')
-    )
-  } catch {
-    return false
-  }
-})
-
 const getComponentType = (item: NavbarItem) => {
-  if (!item.to) return 'button'
-  
-  if (hasNuxtRouter.value) return 'NuxtLink'
-  if (hasVueRouter.value) return 'RouterLink' 
-  
-  return 'a'
+  return getRouterComponentType(item.to)
 }
 
 const getComponentProps = (item: NavbarItem) => {
-  const baseProps: Record<string, any> = {}
   const componentType = getComponentType(item)
-  
-  if (componentType === 'a') {
-    baseProps.href = typeof item.to === 'string' ? item.to : '#'
-  } else if (componentType !== 'button') {
-    baseProps.to = item.to
-  }
-  
-  return baseProps
+  return getRouterComponentProps(item.to, componentType)
 }
 
 const toggleMobileMenu = () => {

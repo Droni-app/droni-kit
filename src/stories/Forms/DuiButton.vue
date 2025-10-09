@@ -10,7 +10,8 @@
   </component>
 </template>
 <script setup lang="ts">
-import { computed, getCurrentInstance } from 'vue'
+import { computed } from 'vue'
+import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
 
 // Type definitions for routing
 export interface RouteLocationRaw {
@@ -50,67 +51,20 @@ const props = withDefaults(defineProps<DuiButtonProps>(), {
   to: undefined,
 })
 
-// Detect available routers with better checking
-const instance = getCurrentInstance()
-const app = instance?.appContext.app
-
-const hasVueRouter = computed(() => {
-  // Check for vue-router availability in multiple ways
-  try {
-    return !!(
-      app?.config.globalProperties.$router || 
-      app?.config.globalProperties.$route ||
-      (globalThis as any).VueRouter ||
-      // Check if RouterLink component is globally registered
-      app?.component('RouterLink')
-    )
-  } catch {
-    return false
-  }
-})
-
-const hasNuxtRouter = computed(() => {
-  // Check for Nuxt availability in multiple ways
-  try {
-    return !!(
-      (globalThis as any).$nuxt || 
-      (globalThis as any).useNuxtApp ||
-      (globalThis as any).navigateTo ||
-      (typeof window !== 'undefined' && (window as any).$nuxt) ||
-      // Check if NuxtLink component is globally available
-      app?.component('NuxtLink')
-    )
-  } catch {
-    return false
-  }
-})
-
 // Determine component type based on routing availability and 'to' prop
 const componentType = computed(() => {
-  if (!props.to) return 'button'
-  
-  if (hasNuxtRouter.value) return 'NuxtLink'
-  if (hasVueRouter.value) return 'RouterLink' 
-  
-  // Fallback to regular link if no router is available but 'to' is provided
-  return 'a'
+  return getRouterComponentType(props.to)
 })
 
 // Determine component props based on component type
 const componentProps = computed(() => {
-  const baseProps: Record<string, any> = {}
+  const additionalProps: Record<string, any> = {}
   
   if (componentType.value === 'button') {
-    baseProps.type = props.type
-  } else if (componentType.value === 'a') {
-    baseProps.href = typeof props.to === 'string' ? props.to : '#'
-    baseProps.role = 'button'
-  } else {
-    // RouterLink or NuxtLink
-    baseProps.to = props.to
+    additionalProps.type = props.type
   }
   
-  return baseProps
+  return getRouterComponentProps(props.to, componentType.value, additionalProps)
 })
 const baseClass = `
   dk:transition
