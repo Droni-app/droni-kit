@@ -1,3 +1,10 @@
+## [1.12.4](https://github.com/Droni-app/droni-kit/compare/v1.12.3...v1.12.4) (2025-10-29)
+
+
+### Bug Fixes
+
+* link in card ([fc75595](https://github.com/Droni-app/droni-kit/commit/fc755951e9087e5b6f9886a1352f5f5563197aa4))
+
 ## [1.12.3](https://github.com/Droni-app/droni-kit/compare/v1.12.2...v1.12.3) (2025-10-09)
 
 
