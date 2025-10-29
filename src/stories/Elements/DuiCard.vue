@@ -44,7 +44,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance } from 'vue'
+import { computed } from 'vue'
+import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
 
 export interface DuiCardProps {
   size?: 's' | 'm' | 'l'
@@ -52,6 +53,7 @@ export interface DuiCardProps {
   title?: string
   subtitle?: string
   to?: string | object
+  nuxt?: boolean
 }
 
 const props = withDefaults(defineProps<DuiCardProps>(), {
@@ -59,71 +61,23 @@ const props = withDefaults(defineProps<DuiCardProps>(), {
   image: undefined,
   title: undefined,
   subtitle: undefined,
-  to: undefined
-})
-
-const instance = getCurrentInstance()
-const app = instance?.appContext.app
-
-const hasVueRouter = computed(() => {
-  try {
-    return !!(
-      app?.config.globalProperties.$router || 
-      app?.config.globalProperties.$route ||
-      (globalThis as any).VueRouter ||
-      app?.component('RouterLink')
-    )
-  } catch {
-    return false
-  }
-})
-
-const hasNuxtRouter = computed(() => {
-  try {
-    return !!(
-      (globalThis as any).$nuxt || 
-      (globalThis as any).useNuxtApp ||
-      (globalThis as any).navigateTo ||
-      (typeof window !== 'undefined' && (window as any).$nuxt) ||
-      app?.component('NuxtLink')
-    )
-  } catch {
-    return false
-  }
+  to: undefined,
+  nuxt: false
 })
 
 const getImageComponentType = () => {
   if (!props.to) return 'div'
-  
-  if (hasNuxtRouter.value) return 'NuxtLink'
-  if (hasVueRouter.value) return 'RouterLink' 
-  
-  return 'a'
+  return getRouterComponentType(props.to, props.nuxt)
 }
 
 const getTitleComponentType = () => {
   if (!props.to) return 'h3'
-  
-  if (hasNuxtRouter.value) return 'NuxtLink'
-  if (hasVueRouter.value) return 'RouterLink' 
-  
-  return 'a'
+  return getRouterComponentType(props.to, props.nuxt)
 }
 
 const getComponentProps = () => {
-  const baseProps: Record<string, any> = {}
-  
-  if (!props.to) return baseProps
-  
   const componentType = getImageComponentType()
-  
-  if (componentType === 'a') {
-    baseProps.href = typeof props.to === 'string' ? props.to : '#'
-  } else if (componentType === 'RouterLink' || componentType === 'NuxtLink') {
-    baseProps.to = props.to
-  }
-  
-  return baseProps
+  return getRouterComponentProps(props.to, componentType)
 }
 
 // Size configurations
