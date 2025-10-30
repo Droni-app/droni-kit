@@ -105,6 +105,16 @@ const meta = {
     items: {
       control: { type: 'object' },
       description: 'Array of navigation items'
+    },
+    itemsAlignment: {
+      control: { type: 'select' },
+      options: ['left', 'center', 'right'],
+      description: 'Alignment of the menu items'
+    },
+    underlineColor: {
+      control: { type: 'select' },
+      options: ['neutral', 'primary', 'secondary', 'success', 'danger', 'warning'],
+      description: 'Color of the underline on menu items'
     }
   },
   parameters: {
@@ -456,6 +466,354 @@ export const MinimalNavbar: Story = {
               ✨ <strong>Clean & Simple:</strong> No brand logo, no action buttons - just pure navigation.
             </p>
           </div>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Items aligned to the left
+export const ItemsAlignedLeft: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    itemsAlignment: 'left'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Left Aligned
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Left Aligned Items
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+            The navigation items are aligned to the left side of the navbar, next to the brand.
+          </p>
+          <div class="dk:bg-blue-50 dk:dark:bg-blue-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-blue-200 dk:dark:border-blue-800">
+            <p class="dk:text-sm dk:text-blue-800 dk:dark:text-blue-200">
+              💡 <strong>Default:</strong> itemsAlignment="left"
+            </p>
+          </div>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Items aligned to the center
+export const ItemsAlignedCenter: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    itemsAlignment: 'center'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Center Aligned
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Center Aligned Items
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+            The navigation items are centered in the available space on the navbar.
+          </p>
+          <div class="dk:bg-purple-50 dk:dark:bg-purple-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-purple-200 dk:dark:border-purple-800">
+            <p class="dk:text-sm dk:text-purple-800 dk:dark:text-purple-200">
+              💡 <strong>Centered:</strong> itemsAlignment="center"
+            </p>
+          </div>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Items aligned to the right
+export const ItemsAlignedRight: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    itemsAlignment: 'right'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Right Aligned
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Right Aligned Items
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+            The navigation items are aligned to the right side of the navbar, before the actions.
+          </p>
+          <div class="dk:bg-orange-50 dk:dark:bg-orange-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-orange-200 dk:dark:border-orange-800">
+            <p class="dk:text-sm dk:text-orange-800 dk:dark:text-orange-200">
+              💡 <strong>Right Aligned:</strong> itemsAlignment="right"
+            </p>
+          </div>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Underline color - Primary
+export const UnderlineColorPrimary: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    underlineColor: 'primary'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Primary Color
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Primary Underline Color
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            The menu items use a primary slate color for the underline effect.
+          </p>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Underline color - Neutral
+export const UnderlineColorNeutral: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    underlineColor: 'neutral'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Neutral Color
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Neutral Underline Color
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            The menu items use a neutral zinc color for the underline effect.
+          </p>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Underline color - Success
+export const UnderlineColorSuccess: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    underlineColor: 'success'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Success Color
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Success Underline Color
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            The menu items use a green/success color for the underline effect.
+          </p>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Underline color - Danger
+export const UnderlineColorDanger: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    underlineColor: 'danger'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Danger Color
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Danger Underline Color
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            The menu items use a red/danger color for the underline effect.
+          </p>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Underline color - Warning
+export const UnderlineColorWarning: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    underlineColor: 'warning'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Warning Color
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Warning Underline Color
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            The menu items use an amber/warning color for the underline effect.
+          </p>
+        </div>
+      </div>
+    `
+  })
+};
+
+// Underline color - Secondary
+export const UnderlineColorSecondary: Story = {
+  args: {
+    items: simpleItems,
+    size: 'm',
+    underlineColor: 'secondary'
+  },
+  render: (args) => ({
+    components: { DuiNavbar, DuiButton },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+        <DuiNavbar v-bind="args">
+          <template #brand>
+            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              Secondary Color
+            </span>
+          </template>
+          <template #actions>
+            <DuiButton size="sm" variant="outline">Action</DuiButton>
+          </template>
+        </DuiNavbar>
+        <div class="dk:p-6">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+            Secondary Underline Color
+          </h1>
+          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            The menu items use a pink/secondary color for the underline effect.
+          </p>
         </div>
       </div>
     `

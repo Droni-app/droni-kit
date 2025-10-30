@@ -107,18 +107,28 @@ const sizeConfig = {
 
 const cardClasses = computed(() => {
   return [
-    // Base card styles
-    'dk:bg-white dk:rounded-lg dk:shadow-md dk:border dk:border-gray-200',
-    'dk:dark:bg-gray-800 dk:dark:border-gray-700 dk:dark:shadow-gray-900/20',
-    'dk:transition-all dk:duration-200',
-    'dk:hover:shadow-lg dk:dark:hover:shadow-gray-900/40',
-    'dk:overflow-hidden'
+    // Glassmorphism card styles (Windows Vista inspired)
+    'dk:relative dk:bg-gradient-to-br dk:from-white/80 dk:via-white/70 dk:to-gray-50/80',
+    'dk:dark:from-gray-700/60 dk:dark:via-gray-800/60 dk:dark:to-gray-900/60',
+    'dk:backdrop-blur-md dk:backdrop-brightness-110',
+    'dk:rounded-xl dk:border dk:border-white/40 dk:dark:border-white/10',
+    'dk:shadow-xl dk:shadow-black/10 dk:dark:shadow-black/30',
+    'dk:transition-all dk:duration-300',
+    'dk:hover:shadow-2xl dk:hover:shadow-black/15 dk:dark:hover:shadow-black/40',
+    'dk:hover:border-white/50 dk:dark:hover:border-white/20',
+    'dk:hover:backdrop-brightness-125 dk:dark:hover:backdrop-brightness-110',
+    'dk:overflow-hidden',
+    // Borde superior iluminado (highlight Vista)
+    'dk:before:absolute dk:before:top-0 dk:before:left-0 dk:before:right-0 dk:before:h-0.5',
+    'dk:before:bg-gradient-to-r dk:before:from-white/60 dk:before:via-white/40 dk:before:to-transparent',
+    'dk:dark:before:from-white/20 dk:dark:before:via-white/10 dk:dark:before:to-transparent'
   ].join(' ')
 })
 
 const imageClasses = computed(() => {
   return [
-    'dk:w-full dk:h-48 dk:object-cover'
+    'dk:w-full dk:h-48 dk:object-cover',
+    'dk:relative dk:z-10'
   ].join(' ')
 })
 
@@ -126,7 +136,9 @@ const contentWrapperClasses = computed(() => {
   const config = sizeConfig[props.size]
   return [
     config.padding,
-    config.spacing
+    config.spacing,
+    // Glass effect for content wrapper
+    'dk:relative dk:z-10'
   ].join(' ')
 })
 
@@ -159,8 +171,9 @@ const titleClasses = computed(() => {
 const imageLinkClasses = computed(() => {
   const baseClasses = [
     'dk:block',
-    'dk:transition-transform dk:duration-200',
-    'dk:hover:scale-105'
+    'dk:transition-transform dk:duration-300',
+    'dk:hover:scale-105',
+    'dk:relative dk:z-10'
   ]
   
   if (props.to) {
@@ -189,8 +202,9 @@ const contentClasses = computed(() => {
 
 const footerClasses = computed(() => {
   return [
-    'dk:border-t dk:border-gray-200 dk:dark:border-gray-700',
-    'dk:pt-3 dk:mt-3'
+    'dk:border-t dk:border-gray-300/40 dk:dark:border-white/10',
+    'dk:pt-3 dk:mt-3',
+    'dk:relative dk:z-10'
   ].join(' ')
 })
 </script>
