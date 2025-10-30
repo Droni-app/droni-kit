@@ -1,3 +1,10 @@
+## [1.12.6](https://github.com/Droni-app/droni-kit/compare/v1.12.5...v1.12.6) (2025-10-30)
+
+
+### Bug Fixes
+
+* update libs dependabot ([28600f4](https://github.com/Droni-app/droni-kit/commit/28600f4d29842ff5090bc7393421858d8ce1bd5c))
+
 ## [1.12.5](https://github.com/Droni-app/droni-kit/compare/v1.12.4...v1.12.5) (2025-10-30)
 
 
