@@ -1,3 +1,10 @@
+## [1.12.5](https://github.com/Droni-app/droni-kit/compare/v1.12.4...v1.12.5) (2025-10-30)
+
+
+### Bug Fixes
+
+* add cristal styles and fix navbar ([e863108](https://github.com/Droni-app/droni-kit/commit/e863108785c06717cc216bc6e0d2214ce92fa348))
+
 ## [1.12.4](https://github.com/Droni-app/droni-kit/compare/v1.12.3...v1.12.4) (2025-10-29)
 
 
