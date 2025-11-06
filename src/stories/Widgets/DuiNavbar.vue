@@ -33,7 +33,7 @@
             </component>
             
             <!-- Dropdown menu -->
-            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-48 dk:py-2 dk:mt-1 dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:from-gray-700/90 dk:dark:to-gray-800/90 dk:backdrop-blur-md dk:rounded-lg dk:shadow-lg dk:border dk:border-white/40 dk:dark:border-white/10 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50">
+            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:py-2 dk:mt-1 dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:from-gray-700/90 dk:dark:to-gray-800/90 dk:backdrop-blur-md dk:rounded-lg dk:shadow-lg dk:border dk:border-white/40 dk:dark:border-white/10 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50">
               <component
                 v-for="child in item.children"
                 :key="child.label"
@@ -156,6 +156,7 @@ export interface NavbarItem {
   label: string
   to?: string | object
   icon?: string
+  active?: boolean
   children?: NavbarItem[]
 }
 
@@ -201,25 +202,6 @@ const closeMobileMenu = () => {
 
 const toggleMobileSubmenu = (itemLabel: string) => {
   mobileSubmenus[itemLabel] = !mobileSubmenus[itemLabel]
-}
-
-const isItemActive = (item: NavbarItem): boolean => {
-  if (!item.to) return false
-  
-  // Convert item.to to string for comparison
-  const itemPath = typeof item.to === 'string' ? item.to : (item.to as any).path || ''
-  
-  // Try to get current route path from Vue Router or Nuxt Router
-  try {
-    if (typeof window !== 'undefined') {
-      const currentPath = window.location.pathname
-      return currentPath === itemPath || currentPath.startsWith(itemPath + '/')
-    }
-  } catch (e) {
-    // Fallback if window is not available
-  }
-  
-  return false
 }
 
 // Size configurations
@@ -294,7 +276,7 @@ const itemClasses = computed(() => {
   const config = sizeConfig[props.size]
   const underlineColors = getUnderlineColorClasses()
   return (item: NavbarItem, hasDropdown: boolean = true) => {
-    const isActive = isItemActive(item)
+    const isActive = item.active ?? false
     // Reduce left padding by 1 if no dropdown (no chevron)
     const leftPadding = hasDropdown ? 'dk:pl-3' : 'dk:pl-2'
     const rightPadding = 'dk:pr-3'
@@ -331,7 +313,7 @@ const itemClasses = computed(() => {
 
 const dropdownItemClasses = computed(() => {
   return [
-    'dk:block dk:w-full dk:text-left dk:px-4 dk:py-2 dk:text-sm',
+    'dk:block dk:w-full dk:text-left dk:px-4 dk:py-2 dk:text-sm dk:whitespace-nowrap',
     'dk:text-gray-700 dk:hover:text-gray-900 dk:hover:bg-white/50 dk:dark:hover:bg-white/10',
     'dk:dark:text-gray-300 dk:dark:hover:text-gray-100',
     'dk:transition-all dk:duration-200 dk:no-underline',
