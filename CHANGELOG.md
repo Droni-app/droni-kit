@@ -1,3 +1,10 @@
+## [1.12.7](https://github.com/Droni-app/droni-kit/compare/v1.12.6...v1.12.7) (2025-11-06)
+
+
+### Bug Fixes
+
+* hidratation active on navbar ([94c4766](https://github.com/Droni-app/droni-kit/commit/94c4766dbab86f0f05134c15850383861ff0da3d))
+
 ## [1.12.6](https://github.com/Droni-app/droni-kit/compare/v1.12.5...v1.12.6) (2025-10-30)
 
 
