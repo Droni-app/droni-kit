@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/Droni-app/droni-kit/compare/v1.12.7...v1.13.0) (2025-11-07)
+
+
+### Features
+
+* pagination in table ([1c908b2](https://github.com/Droni-app/droni-kit/commit/1c908b2efee5b560b5cfa963dabfe8edf8b9c9b8))
+
 ## [1.12.7](https://github.com/Droni-app/droni-kit/compare/v1.12.6...v1.12.7) (2025-11-06)
 
 
