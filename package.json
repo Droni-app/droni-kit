@@ -47,7 +47,7 @@
     "@storybook/addon-docs": "^10.3.5",
     "@storybook/addon-onboarding": "^10.3.5",
     "@storybook/addon-themes": "^10.3.5",
-    "@storybook/addon-vitest": "10.3.5",
+    "@storybook/addon-vitest": "^10.3.5",
     "@storybook/vue3-vite": "^10.3.5",
     "@types/node": "^22.14.1",
     "@vitejs/plugin-vue": "^5.2.1",
