@@ -2,7 +2,7 @@
 
 ## 1) Prioridad alta (valor inmediato)
 
-- [ ] Modal / Dialog
+- [x] Modal / Dialog
 - [ ] Dropdown / Menu
 - [ ] Tabs
 - [ ] Tooltip
@@ -15,7 +15,7 @@
 
 ## 2) Formularios avanzados
 
-- [ ] Checkbox
+- [x] Checkbox
 - [ ] Radio Group
 - [ ] Switch / Toggle
 - [ ] Date Picker
