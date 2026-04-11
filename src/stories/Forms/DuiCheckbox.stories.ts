@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
+import { expect, userEvent, within } from 'storybook/test';
 
 import DuiCheckbox from './DuiCheckbox.vue';
 import '../../style.css';
@@ -84,6 +85,24 @@ export const Default: Story = {
       </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox', { name: 'Recibir notificaciones' });
+    const label = canvas.getByText('Recibir notificaciones');
+
+    await expect(checkbox).not.toBeChecked();
+    await expect(canvas.getByText('Estado: Inactivo')).toBeInTheDocument();
+
+    await userEvent.click(checkbox);
+
+    await expect(checkbox).toBeChecked();
+    await expect(canvas.getByText('Estado: Activo')).toBeInTheDocument();
+
+    await userEvent.click(label);
+
+    await expect(checkbox).not.toBeChecked();
+    await expect(canvas.getByText('Estado: Inactivo')).toBeInTheDocument();
+  },
 };
 
 export const Colors: Story = {
@@ -112,6 +131,27 @@ export const Colors: Story = {
       </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const cases = [
+      { label: 'Neutral', className: 'dk:peer-checked:bg-zinc-500' },
+      { label: 'Primary', className: 'dk:peer-checked:bg-slate-600' },
+      { label: 'Secondary', className: 'dk:peer-checked:bg-pink-600' },
+      { label: 'Success', className: 'dk:peer-checked:bg-emerald-600' },
+      { label: 'Warning', className: 'dk:peer-checked:bg-amber-500' },
+      { label: 'Danger', className: 'dk:peer-checked:bg-rose-600' },
+    ] as const;
+
+    for (const item of cases) {
+      const checkbox = canvas.getByRole('checkbox', { name: item.label });
+      const track = checkbox.nextElementSibling as HTMLElement | null;
+
+      await expect(checkbox).toBeChecked();
+      await expect(track).not.toBeNull();
+      await expect(track).toHaveClass(item.className);
+    }
+  },
 };
 
 export const SizesAndStates: Story = {
@@ -134,6 +174,23 @@ export const SizesAndStates: Story = {
       </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const activeDisabled = canvas.getByRole('checkbox', { name: 'Disabled activo' });
+    const inactiveDisabled = canvas.getByRole('checkbox', { name: 'Disabled inactivo' });
+
+    await expect(activeDisabled).toBeDisabled();
+    await expect(activeDisabled).toBeChecked();
+
+    await expect(inactiveDisabled).toBeDisabled();
+    await expect(inactiveDisabled).not.toBeChecked();
+
+    await userEvent.click(activeDisabled);
+    await userEvent.click(inactiveDisabled);
+
+    await expect(activeDisabled).toBeChecked();
+    await expect(inactiveDisabled).not.toBeChecked();
+  },
 };
 
 export const LabelPositions: Story = {
