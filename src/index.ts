@@ -4,6 +4,7 @@ import DuiInput from './stories/Forms/DuiInput.vue'
 import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 import DuiSelect from './stories/Forms/DuiSelect.vue'
 import DuiLabel from './stories/Forms/DuiLabel.vue'
+import DuiCheckbox from './stories/Forms/DuiCheckbox.vue'
 // Elements
 import DuiAlert from './stories/Elements/DuiAlert.vue'
 import DuiTable from './stories/Elements/DuiTable.vue'
@@ -22,6 +23,7 @@ export {
   DuiCard,
   DuiSelect,
   DuiLabel,
+  DuiCheckbox,
   DuiAlert,
   DuiTable,
   DuiNavbar
