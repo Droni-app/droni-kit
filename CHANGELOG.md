@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/Droni-app/droni-kit/compare/v1.14.0...v1.15.0) (2026-04-11)
+
+
+### Features
+
+* modal component ([7f7911c](https://github.com/Droni-app/droni-kit/commit/7f7911c8ff073e1393b45cf3e26517dab14afee8))
+
 # [1.14.0](https://github.com/Droni-app/droni-kit/compare/v1.13.0...v1.14.0) (2026-04-11)
 
 
