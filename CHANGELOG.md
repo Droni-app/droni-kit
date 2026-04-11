@@ -1,3 +1,15 @@
+# [1.14.0](https://github.com/Droni-app/droni-kit/compare/v1.13.0...v1.14.0) (2026-04-11)
+
+
+### Bug Fixes
+
+* update libraries ([75b47c2](https://github.com/Droni-app/droni-kit/commit/75b47c257cb6cc870fa1be5ac2fabbfc252b2cfe))
+
+
+### Features
+
+* checkbox component ([e9ecaff](https://github.com/Droni-app/droni-kit/commit/e9ecaff9692d7bdee0ba52c3b4f4665ff9ef4610))
+
 # [1.13.0](https://github.com/Droni-app/droni-kit/compare/v1.12.7...v1.13.0) (2025-11-07)
 
 
