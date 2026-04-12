@@ -1,3 +1,10 @@
+# [1.23.0] (2026-04-12)
+
+
+### Features
+
+* pagination component (DuiPagination con truncado inteligente, variantes y colores)
+
 # [1.22.0] (2026-04-12)
 
 
