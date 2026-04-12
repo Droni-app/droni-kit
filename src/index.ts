@@ -11,6 +11,7 @@ import DuiTable from './stories/Elements/DuiTable.vue'
 import DuiAction from './stories/Elements/DuiAction.vue'
 import DuiCard from './stories/Elements/DuiCard.vue'
 import DuiModal from './stories/Elements/DuiModal.vue'
+import DuiTooltip from './stories/Elements/DuiTooltip.vue'
 // Widgets
 import DuiNavbar from './stories/Widgets/DuiNavbar.vue'
 
@@ -28,5 +29,6 @@ export {
   DuiAlert,
   DuiTable,
   DuiModal,
+  DuiTooltip,
   DuiNavbar
 }
