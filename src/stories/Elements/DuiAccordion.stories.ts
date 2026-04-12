@@ -106,27 +106,30 @@ export const Default: Story = {
 };
 
 export const Multiple: Story = {
+  args: { items: faqItems, modelValue: ['q1'] },
   render: () => ({
     components: { DuiAccordion },
     setup() {
       const open = ref<string[]>(['q1']);
-      return { open };
+      const items = faqItems.slice(0, 3);
+      return { open, items };
     },
     template: `
       <div class="dk:p-4 dk:max-w-xl">
         <p class="dk:text-xs dk:text-zinc-500 dk:mb-3">multiple: true — se pueden abrir varios a la vez</p>
         <DuiAccordion
           v-model="open"
-          :items="${JSON.stringify(faqItems.slice(0, 3))}"
+          :items="items"
           multiple
           color="primary"
         />
       </div>
     `,
   }),
-});
+};
 
 export const Variants: Story = {
+  args: { items: faqItems, modelValue: '' },
   render: () => ({
     components: { DuiAccordion },
     setup() {
@@ -157,6 +160,7 @@ export const Variants: Story = {
 };
 
 export const WithIcons: Story = {
+  args: { items: faqItems, modelValue: '' },
   render: () => ({
     components: { DuiAccordion },
     setup() {
@@ -176,5 +180,3 @@ export const WithIcons: Story = {
   }),
 };
 
-const faqItemsStr = JSON.stringify(faqItems.slice(0, 3));
-Multiple.args = { items: faqItems, multiple: true };

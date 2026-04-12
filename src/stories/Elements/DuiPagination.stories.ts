@@ -102,6 +102,7 @@ export const Default: Story = {
 };
 
 export const Variants: Story = {
+  args: { modelValue: 3, total: 100 },
   render: () => ({
     components: { DuiPagination },
     setup() {
@@ -128,6 +129,7 @@ export const Variants: Story = {
 };
 
 export const Colors: Story = {
+  args: { modelValue: 2, total: 50 },
   render: () => ({
     components: { DuiPagination },
     setup() {
@@ -148,6 +150,7 @@ export const Colors: Story = {
 };
 
 export const LargePagination: Story = {
+  args: { modelValue: 15, total: 500 },
   render: () => ({
     components: { DuiPagination },
     setup() {
@@ -164,6 +167,7 @@ export const LargePagination: Story = {
 };
 
 export const Sizes: Story = {
+  args: { modelValue: 3, total: 50 },
   render: () => ({
     components: { DuiPagination },
     setup() {

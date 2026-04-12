@@ -87,6 +87,7 @@ export const Default: Story = {
 };
 
 export const Horizontal: Story = {
+  args: { modelValue: 'md', options: planOptions },
   render: () => ({
     components: { DuiRadio },
     setup() {
@@ -110,6 +111,7 @@ export const Horizontal: Story = {
 };
 
 export const Colors: Story = {
+  args: { modelValue: 'a', options: planOptions },
   render: () => ({
     components: { DuiRadio },
     setup() {
@@ -129,6 +131,7 @@ export const Colors: Story = {
 };
 
 export const WithDescriptions: Story = {
+  args: { modelValue: 'pro', options: planOptions },
   render: () => ({
     components: { DuiRadio },
     setup() {
@@ -151,6 +154,7 @@ export const WithDescriptions: Story = {
 };
 
 export const Disabled: Story = {
+  args: { modelValue: 'a', options: planOptions },
   render: () => ({
     components: { DuiRadio },
     setup() {

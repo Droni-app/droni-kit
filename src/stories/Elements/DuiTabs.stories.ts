@@ -98,6 +98,7 @@ export const Default: Story = {
 };
 
 export const Pills: Story = {
+  args: { modelValue: 'overview', tabs: sampleTabs },
   render: () => ({
     components: { DuiTabs },
     setup() {
@@ -128,6 +129,7 @@ export const Pills: Story = {
 };
 
 export const Boxed: Story = {
+  args: { modelValue: 'month', tabs: sampleTabs },
   render: () => ({
     components: { DuiTabs },
     setup() {
@@ -158,6 +160,7 @@ export const Boxed: Story = {
 };
 
 export const Colors: Story = {
+  args: { modelValue: 'a', tabs: sampleTabs },
   render: () => ({
     components: { DuiTabs },
     setup() {

@@ -120,14 +120,14 @@ const groupLabelClasses = computed(() => {
   return 'dk:block dk:text-xs dk:font-semibold dk:uppercase dk:tracking-wide dk:text-zinc-500 dk:dark:text-zinc-400 dk:mb-1'
 })
 
-function itemClasses(value: string, optDisabled?: boolean) {
+function itemClasses(_value: string, optDisabled?: boolean) {
   const isDisabled = optDisabled || props.disabled
   const dis = isDisabled ? 'dk:opacity-50 dk:cursor-not-allowed' : 'dk:cursor-pointer'
   const blockStyle = props.block ? 'dk:w-full dk:justify-between' : ''
   return ['dk:inline-flex dk:items-start dk:gap-3 dk:select-none', dis, blockStyle].join(' ')
 }
 
-function radioTrackClasses(value: string) {
+function radioTrackClasses(_value: string) {
   const s = sizeMap[props.size]
   const ringColor = activeRingColorMap[props.color]
   const focusColor = focusRingColorMap[props.color]

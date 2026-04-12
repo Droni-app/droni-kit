@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
-import { expect, within } from 'storybook/test';
+import { expect } from 'storybook/test';
 
 import DuiSkeleton from './DuiSkeleton.vue';
 import '../../style.css';
