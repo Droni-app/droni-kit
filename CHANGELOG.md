@@ -1,3 +1,10 @@
+# [1.22.0] (2026-04-12)
+
+
+### Features
+
+* skeleton loader component (DuiSkeleton con variantes text, circular, rectangular, rounded)
+
 # [1.21.0] (2026-04-12)
 
 
