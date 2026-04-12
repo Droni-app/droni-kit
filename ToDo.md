@@ -3,21 +3,21 @@
 ## 1) Prioridad alta (valor inmediato)
 
 - [x] Modal / Dialog
-- [ ] Dropdown / Menu
-- [ ] Tabs
-- [ ] Tooltip
-- [ ] Toast / Snackbar
-- [ ] Badge / Tag
-- [ ] Accordion
-- [ ] Empty State
-- [ ] Skeleton Loader
-- [ ] Pagination
+- [x] Dropdown / Menu
+- [x] Tabs
+- [x] Tooltip
+- [x] Toast / Snackbar
+- [x] Badge / Tag
+- [x] Accordion
+- [x] Empty State
+- [x] Skeleton Loader
+- [x] Pagination
 
 ## 2) Formularios avanzados
 
 - [x] Checkbox
-- [ ] Radio Group
-- [ ] Switch / Toggle
+- [x] Radio Group
+- [x] Switch / Toggle
 - [ ] Date Picker
 - [ ] File Upload (drag & drop)
 - [ ] Autocomplete / Combobox
@@ -67,5 +67,6 @@
 - [ ] Tabs
 - [ ] Tooltip
 - [ ] Toast
-- [ ] Checkbox / Radio / Switch
+- [ ] Checkbox
+- [ ] Radio
 - [ ] Pagination + DataTable Pro
