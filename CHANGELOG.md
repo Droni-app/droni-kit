@@ -1,3 +1,26 @@
+# [1.17.0](https://github.com/Droni-app/droni-kit/compare/v1.16.0...v1.17.0) (2026-04-12)
+
+
+### Bug Fixes
+
+* final polish pass on all new components ([c9f1fa9](https://github.com/Droni-app/droni-kit/commit/c9f1fa9fa23f4a534e8ebace080dabe0134dc11d))
+* resolve TypeScript build errors in new components ([6857eeb](https://github.com/Droni-app/droni-kit/commit/6857eeb6e56eb8452e2dd34ce958ea7bb6ddbe98))
+
+
+### Features
+
+* accordion component ([236cf63](https://github.com/Droni-app/droni-kit/commit/236cf63d3427fe4f899226eb41a60b545369f32f))
+* badge component ([1833acf](https://github.com/Droni-app/droni-kit/commit/1833acffeb8cc0e03d734dff61d6fff873045996))
+* dropdown component ([0fa4b46](https://github.com/Droni-app/droni-kit/commit/0fa4b46072ba428961e681c1421b8cdd06727d52))
+* empty state component ([605637f](https://github.com/Droni-app/droni-kit/commit/605637f389d35c4736ce87b1bc58aa82dcadf8cb))
+* new components ([db5772b](https://github.com/Droni-app/droni-kit/commit/db5772b1eafeaa093e1ee4d57df70e787b1023ee))
+* pagination component ([7783596](https://github.com/Droni-app/droni-kit/commit/77835967b81a05cd4596064d25483a33dc54174a))
+* radio group component ([8a09bae](https://github.com/Droni-app/droni-kit/commit/8a09baec162aee5b6fd7a91000845f67dbd69627))
+* skeleton loader component ([5222c08](https://github.com/Droni-app/droni-kit/commit/5222c08e24207d6ec9b76fda3c96e934e624cd33))
+* switch component ([cbc79bb](https://github.com/Droni-app/droni-kit/commit/cbc79bb30d6167953f1f5b36b94bd33534348dea))
+* tabs component ([3e46762](https://github.com/Droni-app/droni-kit/commit/3e4676261226e695043de1fbf793dee7bca08303))
+* toast component ([33d1887](https://github.com/Droni-app/droni-kit/commit/33d188782600617278e1c8407af5bcdd59a0d2ac))
+
 # [1.15.0](https://github.com/Droni-app/droni-kit/compare/v1.14.0...v1.15.0) (2026-04-11)
 
 
