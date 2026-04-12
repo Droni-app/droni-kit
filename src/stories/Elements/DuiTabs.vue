@@ -26,6 +26,7 @@
       :id="`panel-${idSuffix}-${tab.value}`"
       :aria-labelledby="`tab-${idSuffix}-${tab.value}`"
       role="tabpanel"
+      :tabindex="modelValue === tab.value ? 0 : -1"
       :hidden="modelValue !== tab.value"
       :class="panelClasses">
       <slot :name="tab.value" />
@@ -150,9 +151,9 @@ function tabClasses(value: string, disabled?: boolean) {
   // boxed
   const active = isActive
     ? `dk:rounded-lg ${activeColorClasses[props.color].boxed}`
-    : 'dk:rounded-lg dk:text-zinc-500 dk:dark:text-zinc-400 dk:hover:text-zinc-700 dk:dark:hover:text-zinc-200'
+    : 'dk:rounded-lg dk:text-zinc-500 dk:dark:text-zinc-400 dk:hover:bg-black/5 dk:dark:hover:bg-white/5 dk:hover:text-zinc-700 dk:dark:hover:text-zinc-200'
 
-  const fullWidth = props.fullWidth ? 'dk:flex-1 dk:justify-center' : ''
+  const fullWidth = props.fullWidth ? 'dk:flex-1 dk:text-center dk:justify-center' : ''
   return [base, size, active, disabledStyle, focusStyle, fullWidth].join(' ')
 }
 

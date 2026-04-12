@@ -13,7 +13,7 @@
       v-if="dismissible"
       type="button"
       :class="dismissClasses"
-      :aria-label="`Quitar ${label}`"
+      :aria-label="label ? `Quitar ${label}` : 'Quitar'"
       @click.prevent="emit('dismiss')">
       ×
     </button>

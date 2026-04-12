@@ -161,7 +161,7 @@ const baseBtn = computed(() => {
   const size = sizeClasses[props.size]
   const rounded = roundedMap[props.rounded]
   return [
-    'dk:inline-flex dk:items-center dk:justify-center dk:font-medium dk:transition-colors dk:duration-150 dk:outline-none dk:select-none dk:cursor-pointer',
+    'dk:inline-flex dk:items-center dk:justify-center dk:font-medium dk:transition-colors dk:duration-150 dk:outline-none dk:select-none dk:cursor-pointer dk:disabled:cursor-not-allowed dk:disabled:pointer-events-none',
     size,
     rounded,
     'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-slate-400',

@@ -124,8 +124,9 @@ const hasLabel = computed(() => Boolean(props.label || slots.default))
 
 const wrapperClasses = computed(() => {
   const blockStyle = props.block ? 'dk:w-full dk:justify-between' : ''
+  const displayStyle = props.block ? 'dk:flex' : 'dk:inline-flex'
   const disabledStyle = props.disabled ? 'dk:opacity-60 dk:cursor-not-allowed' : 'dk:cursor-pointer'
-  return ['dk:inline-flex dk:items-center dk:gap-3 dk:select-none', blockStyle, disabledStyle].join(' ')
+  return [displayStyle, 'dk:items-center dk:gap-3 dk:select-none', blockStyle, disabledStyle].join(' ')
 })
 
 const labelClasses = computed(() => {
@@ -166,9 +167,18 @@ const thumbClasses = computed(() => {
   ].join(' ')
 })
 
+const iconActiveColorMap = {
+  neutral:   'dk:text-zinc-600 dk:dark:text-zinc-400',
+  primary:   'dk:text-slate-600 dk:dark:text-slate-400',
+  secondary: 'dk:text-pink-600 dk:dark:text-pink-400',
+  success:   'dk:text-emerald-600 dk:dark:text-emerald-400',
+  warning:   'dk:text-amber-600 dk:dark:text-amber-400',
+  danger:    'dk:text-rose-600 dk:dark:text-rose-400',
+}
+
 const iconClasses = computed(() => {
   return props.modelValue
-    ? 'dk:text-slate-600 dk:dark:text-slate-400'
+    ? iconActiveColorMap[props.color]
     : 'dk:text-zinc-400 dk:dark:text-zinc-500'
 })
 

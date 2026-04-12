@@ -63,7 +63,7 @@ const itemClasses = computed(() => {
   const size = sizeClasses[props.size]
   const danger = props.danger
     ? 'dk:text-rose-600 dk:dark:text-rose-400 dk:hover:bg-rose-50 dk:dark:hover:bg-rose-900/40 dk:focus-visible:bg-rose-50 dk:dark:focus-visible:bg-rose-900/40'
-    : 'dk:hover:bg-black/5 dk:dark:hover:bg-white/8 dk:focus-visible:bg-black/5 dk:dark:focus-visible:bg-white/8'
+    : 'dk:hover:bg-black/5 dk:dark:hover:bg-white/10 dk:focus-visible:bg-black/5 dk:dark:focus-visible:bg-white/10'
   const disabled = props.disabled ? 'dk:opacity-50 dk:cursor-not-allowed dk:pointer-events-none' : 'dk:cursor-pointer'
   return [base, size, danger, disabled].join(' ')
 })

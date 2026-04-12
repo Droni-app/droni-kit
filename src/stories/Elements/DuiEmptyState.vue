@@ -59,7 +59,8 @@ const rootClasses = computed(() => {
 })
 
 const illustrationClasses = computed(() => {
-  return 'dk:mb-4 dk:flex dk:items-center dk:justify-center'
+  const justify = props.align === 'center' ? 'dk:justify-center' : 'dk:justify-start'
+  return ['dk:mb-4 dk:flex dk:items-center', justify].join(' ')
 })
 
 const illustrationTextClasses = computed(() => sizeClasses[props.size].illustration)
@@ -71,7 +72,8 @@ const titleClasses = computed(() => {
 })
 
 const descriptionClasses = computed(() => {
-  return [sizeClasses[props.size].description, 'dk:text-zinc-500 dk:dark:text-zinc-400 dk:max-w-sm'].join(' ')
+  const align = props.align === 'center' ? 'dk:mx-auto' : ''
+  return [sizeClasses[props.size].description, 'dk:text-zinc-500 dk:dark:text-zinc-400 dk:max-w-sm', align].join(' ')
 })
 
 const actionsClasses = computed(() => {

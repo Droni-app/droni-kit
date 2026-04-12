@@ -9,7 +9,12 @@
       leave-active-class="dk:transition-all dk:duration-100 dk:ease-in"
       enter-from-class="dk:opacity-0 dk:scale-95"
       leave-to-class="dk:opacity-0 dk:scale-95">
-      <div v-if="isOpen" :class="menuClasses" role="menu" :aria-label="ariaLabel">
+      <div
+        v-if="isOpen"
+        :class="menuClasses"
+        :style="menuStyle"
+        role="menu"
+        :aria-label="ariaLabel">
         <slot />
       </div>
     </Transition>
@@ -78,12 +83,12 @@ onMounted(() => document.addEventListener('mousedown', onClickOutside))
 onBeforeUnmount(() => document.removeEventListener('mousedown', onClickOutside))
 
 const placementClasses = {
-  'bottom-start': 'dk:top-full dk:left-0 dk:mt-1',
-  'bottom-end': 'dk:top-full dk:right-0 dk:mt-1',
-  'bottom': 'dk:top-full dk:left-1/2 dk:-translate-x-1/2 dk:mt-1',
-  'top-start': 'dk:bottom-full dk:left-0 dk:mb-1',
-  'top-end': 'dk:bottom-full dk:right-0 dk:mb-1',
-  'top': 'dk:bottom-full dk:left-1/2 dk:-translate-x-1/2 dk:mb-1',
+  'bottom-start': 'dk:top-full dk:left-0 dk:mt-1 dk:origin-top-left',
+  'bottom-end':   'dk:top-full dk:right-0 dk:mt-1 dk:origin-top-right',
+  'bottom':       'dk:top-full dk:left-1/2 dk:-translate-x-1/2 dk:mt-1 dk:origin-top',
+  'top-start':    'dk:bottom-full dk:left-0 dk:mb-1 dk:origin-bottom-left',
+  'top-end':      'dk:bottom-full dk:right-0 dk:mb-1 dk:origin-bottom-right',
+  'top':          'dk:bottom-full dk:left-1/2 dk:-translate-x-1/2 dk:mb-1 dk:origin-bottom',
 }
 
 const roundedClasses = {
@@ -119,10 +124,11 @@ const variantClasses = {
   },
 }
 
+const menuStyle = computed(() => ({ minWidth: props.minWidth }))
+
 const menuClasses = computed(() => {
   return [
     'dk:absolute dk:z-50 dk:shadow-lg dk:py-1',
-    'dk:origin-top-left',
     placementClasses[props.placement],
     roundedClasses[props.rounded],
     variantClasses[props.variant][props.color],

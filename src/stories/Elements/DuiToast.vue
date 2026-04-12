@@ -81,7 +81,7 @@ const colorMap: Record<ToastColor, string> = {
   primary: 'dk:bg-slate-700 dk:dark:bg-slate-700 dk:text-white dk:border-slate-500',
   secondary: 'dk:bg-pink-600 dk:dark:bg-pink-700 dk:text-white dk:border-pink-400',
   success: 'dk:bg-emerald-600 dk:dark:bg-emerald-700 dk:text-white dk:border-emerald-400',
-  warning: 'dk:bg-amber-500 dk:dark:bg-amber-600 dk:text-white dk:border-amber-300',
+  warning: 'dk:bg-amber-600 dk:dark:bg-amber-700 dk:text-white dk:border-amber-400',
   danger: 'dk:bg-rose-600 dk:dark:bg-rose-700 dk:text-white dk:border-rose-400',
 }
 
