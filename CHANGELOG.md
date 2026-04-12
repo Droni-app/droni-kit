@@ -1,3 +1,10 @@
+# [1.21.0] (2026-04-12)
+
+
+### Features
+
+* empty state component (DuiEmptyState con variantes default, bordered, dashed)
+
 # [1.20.0] (2026-04-12)
 
 
