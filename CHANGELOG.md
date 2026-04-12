@@ -1,3 +1,10 @@
+# [1.17.0] (2026-04-12)
+
+
+### Features
+
+* tabs component (DuiTabs con variantes underline, pills, boxed)
+
 # [1.16.0] (2026-04-12)
 
 
