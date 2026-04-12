@@ -1,3 +1,10 @@
+# [1.18.0] (2026-04-12)
+
+
+### Features
+
+* toast component (DuiToast + useToast composable)
+
 # [1.17.0] (2026-04-12)
 
 
