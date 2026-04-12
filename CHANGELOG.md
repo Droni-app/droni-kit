@@ -1,3 +1,10 @@
+# [1.19.0] (2026-04-12)
+
+
+### Features
+
+* badge component (DuiBadge con variantes soft, solid, outline, dot y dismiss)
+
 # [1.18.0] (2026-04-12)
 
 
