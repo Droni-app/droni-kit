@@ -1,9 +1,9 @@
-# [1.16.0](https://github.com/Droni-app/droni-kit/compare/v1.15.0...v1.16.0) (2026-04-12)
+# [1.16.0] (2026-04-12)
 
 
 ### Features
 
-* tooltip component ([e400f92](https://github.com/Droni-app/droni-kit/commit/e400f9296ee8f1d92bf64d7717cb8762e07cb0ff))
+* dropdown component (DuiDropdown + DuiDropdownItem + DuiDropdownSeparator)
 
 # [1.15.0](https://github.com/Droni-app/droni-kit/compare/v1.14.0...v1.15.0) (2026-04-11)
 
