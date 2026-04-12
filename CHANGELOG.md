@@ -1,3 +1,10 @@
+# [1.20.0] (2026-04-12)
+
+
+### Features
+
+* accordion component (DuiAccordion con variantes bordered, separated, ghost y modo multiple)
+
 # [1.19.0] (2026-04-12)
 
 
