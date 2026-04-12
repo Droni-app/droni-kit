@@ -1,38 +1,37 @@
 <template>
   <div :class="rootClasses">
-    <div
+    <details
       v-for="(item, index) in items"
       :key="item.value ?? index"
-      :class="itemClasses">
-      <!-- Trigger -->
-      <button
-        type="button"
-        :id="`acc-trigger-${idSuffix}-${index}`"
-        :aria-controls="`acc-panel-${idSuffix}-${index}`"
-        :aria-expanded="isOpen(item.value ?? String(index))"
-        :disabled="item.disabled"
-        :class="triggerClasses(item.value ?? String(index), item.disabled)"
-        @click="toggle(item.value ?? String(index), item.disabled)">
-        <span v-if="item.icon" aria-hidden="true" class="dk:flex-shrink-0 dk:text-lg">{{ item.icon }}</span>
-        <span class="dk:flex-1 dk:text-left">{{ item.title }}</span>
-        <span :class="chevronClasses(item.value ?? String(index))" aria-hidden="true">
-          <svg class="dk:w-4 dk:h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="4 6 8 10 12 6" />
-          </svg>
-        </span>
-      </button>
+      :open="isOpen(item.value ?? String(index))"
+      :class="detailsClasses"
+      @toggle.prevent>
+      <summary
+        :class="summaryClasses(item.value ?? String(index), item.disabled)"
+        @click.prevent="toggle(item.value ?? String(index), item.disabled)">
+        <span v-if="item.icon" aria-hidden="true" :class="iconClasses">{{ item.icon }}</span>
+        <span class="dui-acc-title">{{ item.title }}</span>
+        <svg
+          :class="chevronClasses(item.value ?? String(index))"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true">
+          <polyline points="4 6 8 10 12 6" />
+        </svg>
+      </summary>
 
-      <!-- Panel -->
-      <div
-        :id="`acc-panel-${idSuffix}-${index}`"
-        :aria-labelledby="`acc-trigger-${idSuffix}-${index}`"
-        role="region"
-        :class="panelWrapperClasses(item.value ?? String(index))">
-        <div :class="panelContentClasses">
-          <slot :name="item.value ?? String(index)">{{ item.content }}</slot>
+      <div class="dui-acc-panel">
+        <div :class="contentClasses">
+          <slot :name="item.value ?? String(index)">
+            <p>{{ item.content }}</p>
+          </slot>
         </div>
       </div>
-    </div>
+    </details>
   </div>
 </template>
 
@@ -71,12 +70,11 @@ const emit = defineEmits<{
   (e: 'change', value: string): void
 }>()
 
-const idSuffix = Math.random().toString(36).slice(2, 8)
 const internalOpen = ref<string[]>([])
 
 function getActive(): string[] {
   if (props.modelValue === undefined) return internalOpen.value
-  return Array.isArray(props.modelValue) ? props.modelValue : [props.modelValue]
+  return Array.isArray(props.modelValue) ? props.modelValue : props.modelValue ? [props.modelValue] : []
 }
 
 function isOpen(value: string): boolean {
@@ -99,85 +97,156 @@ function toggle(value: string, disabled?: boolean) {
   emit('change', value)
 }
 
-const sizeClasses = {
-  sm: { trigger: 'dk:px-3 dk:py-2 dk:text-sm', content: 'dk:px-3 dk:pb-3 dk:text-sm' },
-  md: { trigger: 'dk:px-4 dk:py-3 dk:text-sm', content: 'dk:px-4 dk:pb-4 dk:text-sm' },
-  lg: { trigger: 'dk:px-5 dk:py-4 dk:text-base', content: 'dk:px-5 dk:pb-5 dk:text-base' },
-}
+// ── Sizes ────────────────────────────────────────────────────────────────────
 
-const variantColorMap = {
-  bordered: {
-    neutral: 'dk:border dk:border-zinc-200 dk:dark:border-zinc-700',
-    primary: 'dk:border dk:border-slate-200 dk:dark:border-slate-700',
-    secondary: 'dk:border dk:border-pink-200 dk:dark:border-pink-700',
-    success: 'dk:border dk:border-emerald-200 dk:dark:border-emerald-700',
-    warning: 'dk:border dk:border-amber-200 dk:dark:border-amber-700',
-    danger: 'dk:border dk:border-rose-200 dk:dark:border-rose-700',
+const sizeMap = {
+  sm: {
+    summary: 'dk:px-3 dk:py-2.5 dk:text-sm dk:gap-2',
+    content:  'dk:px-3 dk:pt-0 dk:pb-3 dk:text-sm',
+    icon:     'dk:text-base',
+    chevron:  'dk:w-3.5 dk:h-3.5',
   },
-  separated: {
-    neutral: 'dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl',
-    primary: 'dk:border dk:border-slate-200 dk:dark:border-slate-700 dk:rounded-xl',
-    secondary: 'dk:border dk:border-pink-200 dk:dark:border-pink-700 dk:rounded-xl',
-    success: 'dk:border dk:border-emerald-200 dk:dark:border-emerald-700 dk:rounded-xl',
-    warning: 'dk:border dk:border-amber-200 dk:dark:border-amber-700 dk:rounded-xl',
-    danger: 'dk:border dk:border-rose-200 dk:dark:border-rose-700 dk:rounded-xl',
+  md: {
+    summary: 'dk:px-4 dk:py-3.5 dk:text-sm dk:gap-2.5',
+    content:  'dk:px-4 dk:pt-0 dk:pb-4 dk:text-sm',
+    icon:     'dk:text-lg',
+    chevron:  'dk:w-4 dk:h-4',
   },
-  ghost: {
-    neutral: '',
-    primary: '',
-    secondary: '',
-    success: '',
-    warning: '',
-    danger: '',
+  lg: {
+    summary: 'dk:px-5 dk:py-4 dk:text-base dk:gap-3',
+    content:  'dk:px-5 dk:pt-0 dk:pb-5 dk:text-base',
+    icon:     'dk:text-xl',
+    chevron:  'dk:w-5 dk:h-5',
   },
 }
 
-const activeTriggerColorMap = {
-  neutral: 'dk:text-zinc-900 dk:dark:text-zinc-100',
-  primary: 'dk:text-slate-700 dk:dark:text-slate-200',
-  secondary: 'dk:text-pink-700 dk:dark:text-pink-200',
-  success: 'dk:text-emerald-700 dk:dark:text-emerald-200',
-  warning: 'dk:text-amber-700 dk:dark:text-amber-200',
-  danger: 'dk:text-rose-700 dk:dark:text-rose-200',
+// ── Colors ───────────────────────────────────────────────────────────────────
+
+const openBgMap = {
+  neutral:   'dk:bg-zinc-50 dk:dark:bg-zinc-800/60',
+  primary:   'dk:bg-slate-50 dk:dark:bg-slate-800/60',
+  secondary: 'dk:bg-pink-50 dk:dark:bg-pink-900/30',
+  success:   'dk:bg-emerald-50 dk:dark:bg-emerald-900/30',
+  warning:   'dk:bg-amber-50 dk:dark:bg-amber-900/30',
+  danger:    'dk:bg-rose-50 dk:dark:bg-rose-900/30',
 }
+
+const openTextMap = {
+  neutral:   'dk:text-zinc-900 dk:dark:text-zinc-50',
+  primary:   'dk:text-slate-800 dk:dark:text-slate-100',
+  secondary: 'dk:text-pink-800 dk:dark:text-pink-100',
+  success:   'dk:text-emerald-800 dk:dark:text-emerald-100',
+  warning:   'dk:text-amber-800 dk:dark:text-amber-100',
+  danger:    'dk:text-rose-800 dk:dark:text-rose-100',
+}
+
+const openIconMap = {
+  neutral:   'dk:text-zinc-500 dk:dark:text-zinc-400',
+  primary:   'dk:text-slate-500 dk:dark:text-slate-400',
+  secondary: 'dk:text-pink-500 dk:dark:text-pink-400',
+  success:   'dk:text-emerald-500 dk:dark:text-emerald-400',
+  warning:   'dk:text-amber-500 dk:dark:text-amber-400',
+  danger:    'dk:text-rose-500 dk:dark:text-rose-400',
+}
+
+// ── Root ─────────────────────────────────────────────────────────────────────
 
 const rootClasses = computed(() => {
-  if (props.variant === 'separated') return 'dk:space-y-2'
-  if (props.variant === 'bordered') {
-    return props.flush
-      ? 'dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700'
-      : 'dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700 dk:overflow-hidden'
+  if (props.variant === 'separated') return 'dk:flex dk:flex-col dk:gap-2'
+  if (props.variant === 'ghost') return 'dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700/60'
+  // bordered
+  return props.flush
+    ? 'dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700'
+    : 'dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700 dk:overflow-hidden dk:shadow-sm'
+})
+
+// ── Details ──────────────────────────────────────────────────────────────────
+
+const detailsClasses = computed(() => {
+  if (props.variant === 'separated') {
+    return 'dk:rounded-xl dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:overflow-hidden dk:shadow-sm dk:bg-white dk:dark:bg-zinc-900'
   }
-  return 'dk:divide-y dk:divide-zinc-100 dk:dark:divide-zinc-800'
+  if (props.variant === 'ghost') return ''
+  return 'dk:bg-white dk:dark:bg-zinc-900'
 })
 
-const itemClasses = computed(() => {
-  if (props.variant === 'separated') return variantColorMap.separated[props.color]
-  return ''
-})
+// ── Summary ──────────────────────────────────────────────────────────────────
 
-function triggerClasses(value: string, disabled?: boolean) {
-  const base = 'dk:w-full dk:flex dk:items-center dk:gap-2 dk:font-medium dk:transition-colors dk:duration-150 dk:outline-none'
-  const size = sizeClasses[props.size].trigger
-  const active = isOpen(value) ? activeTriggerColorMap[props.color] : 'dk:text-zinc-700 dk:dark:text-zinc-300'
-  const hover = 'dk:hover:text-zinc-900 dk:dark:hover:text-zinc-100'
+function summaryClasses(value: string, disabled?: boolean) {
+  const s = sizeMap[props.size]
+  const open = isOpen(value)
+
+  const base = [
+    'dk:flex dk:w-full dk:items-center dk:select-none dk:outline-none',
+    'dk:transition-colors dk:duration-150',
+    s.summary,
+  ]
+
+  const color = open
+    ? [openBgMap[props.color], openTextMap[props.color]]
+    : ['dk:text-zinc-700 dk:dark:text-zinc-300', 'dk:hover:bg-zinc-50 dk:dark:hover:bg-zinc-800/50 dk:hover:text-zinc-900 dk:dark:hover:text-zinc-100']
+
   const focus = 'dk:focus-visible:ring-2 dk:focus-visible:ring-inset dk:focus-visible:ring-slate-400 dk:dark:focus-visible:ring-slate-500'
-  const dis = disabled ? 'dk:opacity-40 dk:cursor-not-allowed' : 'dk:cursor-pointer'
-  return [base, size, active, hover, focus, dis].join(' ')
+  const dis   = disabled ? 'dk:opacity-40 dk:cursor-not-allowed dk:pointer-events-none' : 'dk:cursor-pointer'
+
+  return [...base, ...color, focus, dis].join(' ')
 }
 
+// ── Chevron ──────────────────────────────────────────────────────────────────
+
 function chevronClasses(value: string) {
+  const s = sizeMap[props.size]
   return [
-    'dk:flex-shrink-0 dk:transition-transform dk:duration-200',
-    isOpen(value) ? 'dk:rotate-180' : '',
+    'dk:flex-shrink-0 dk:transition-transform dk:duration-250 dk:ease-in-out dk:ml-auto',
+    isOpen(value) ? 'dk:rotate-180 ' + openIconMap[props.color] : 'dk:text-zinc-400 dk:dark:text-zinc-500',
+    s.chevron,
   ].join(' ')
 }
 
-function panelWrapperClasses(value: string) {
-  return isOpen(value) ? 'dk:block' : 'dk:hidden'
-}
+// ── Icon ─────────────────────────────────────────────────────────────────────
 
-const panelContentClasses = computed(() => {
-  return [sizeClasses[props.size].content, 'dk:text-zinc-600 dk:dark:text-zinc-400'].join(' ')
+const iconClasses = computed(() => {
+  return ['dk:flex-shrink-0 dk:leading-none', sizeMap[props.size].icon].join(' ')
+})
+
+// ── Content ──────────────────────────────────────────────────────────────────
+
+const contentClasses = computed(() => {
+  return [
+    sizeMap[props.size].content,
+    'dk:text-zinc-600 dk:dark:text-zinc-400 dk:leading-relaxed',
+  ].join(' ')
 })
 </script>
+
+<style scoped>
+/* Remove native marker */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Animated panel using CSS grid trick */
+.dui-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+details[open] > .dui-acc-panel {
+  grid-template-rows: 1fr;
+}
+
+.dui-acc-panel > div {
+  overflow: hidden;
+}
+
+/* Title takes remaining space */
+.dui-acc-title {
+  flex: 1;
+  text-align: left;
+  font-weight: 500;
+}
+</style>
