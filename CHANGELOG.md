@@ -1,3 +1,10 @@
+# [1.25.0] (2026-04-12)
+
+
+### Features
+
+* switch component (DuiSwitch con iconos internos, descripciones y modo bloque)
+
 # [1.24.0] (2026-04-12)
 
 
