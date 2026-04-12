@@ -1,3 +1,10 @@
+# [1.24.0] (2026-04-12)
+
+
+### Features
+
+* radio group component (DuiRadio con descripciones, orientacion y colores)
+
 # [1.23.0] (2026-04-12)
 
 
