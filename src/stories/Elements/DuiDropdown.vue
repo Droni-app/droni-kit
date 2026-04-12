@@ -64,7 +64,8 @@ function toggleMenu() {
   const next = !isOpen.value
   internalOpen.value = next
   emit('update:modelValue', next)
-  emit(next ? 'open' : 'close')
+  if (next) emit('open')
+  else emit('close')
 }
 
 function closeMenu() {
