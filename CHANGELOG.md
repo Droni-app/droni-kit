@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/Droni-app/droni-kit/compare/v1.18.0...v1.18.1) (2026-05-26)
+
+
+### Bug Fixes
+
+* type button on Tabs ([475072c](https://github.com/Droni-app/droni-kit/commit/475072c678011d9e48b0cfd4b0f73d7b7646fd9d))
+
 # [1.18.0](https://github.com/Droni-app/droni-kit/compare/v1.17.0...v1.18.0) (2026-05-26)
 
 
