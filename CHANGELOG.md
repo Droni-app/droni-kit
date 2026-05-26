@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/Droni-app/droni-kit/compare/v1.17.0...v1.18.0) (2026-05-26)
+
+
+### Features
+
+* new components export ([0296e91](https://github.com/Droni-app/droni-kit/commit/0296e91a40ab4f805ba0439f47d3295b2d8654b2))
+
 # [1.17.0](https://github.com/Droni-app/droni-kit/compare/v1.16.0...v1.17.0) (2026-04-12)
 
 
