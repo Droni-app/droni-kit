@@ -5,6 +5,7 @@
       <button
         v-for="tab in tabs"
         :key="tab.value"
+        type="button"
         :id="`tab-${idSuffix}-${tab.value}`"
         :aria-controls="`panel-${idSuffix}-${tab.value}`"
         :aria-selected="modelValue === tab.value"
