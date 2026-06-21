@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/Droni-app/droni-kit/compare/v1.18.1...v1.18.2) (2026-06-21)
+
+
+### Bug Fixes
+
+* navbar styles and nuxt prop ([54b24c8](https://github.com/Droni-app/droni-kit/commit/54b24c8c1db3f780a830515c21b8075c99830330))
+
 ## [1.18.1](https://github.com/Droni-app/droni-kit/compare/v1.18.0...v1.18.1) (2026-05-26)
 
 
