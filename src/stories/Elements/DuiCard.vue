@@ -53,7 +53,7 @@ export interface DuiCardProps {
   title?: string
   subtitle?: string
   to?: string | object
-  nuxt?: boolean
+
 }
 
 const props = withDefaults(defineProps<DuiCardProps>(), {
@@ -62,17 +62,17 @@ const props = withDefaults(defineProps<DuiCardProps>(), {
   title: undefined,
   subtitle: undefined,
   to: undefined,
-  nuxt: false
+
 })
 
 const getImageComponentType = () => {
   if (!props.to) return 'div'
-  return getRouterComponentType(props.to, props.nuxt)
+  return getRouterComponentType(props.to)
 }
 
 const getTitleComponentType = () => {
   if (!props.to) return 'h3'
-  return getRouterComponentType(props.to, props.nuxt)
+  return getRouterComponentType(props.to)
 }
 
 const getComponentProps = () => {

@@ -32,17 +32,13 @@ function hasVueRouterAvailable(): boolean {
 }
 
 /**
- * Gets the appropriate component type for routing with explicit framework selection
+ * Gets the appropriate component type for routing
  * @param to - The route destination
- * @param nuxt - Explicitly indicate if this is a Nuxt project
  * @returns The component name as string for dynamic component usage
  */
-export function getRouterComponentType(to?: string | object, nuxt: boolean = false): string {
+export function getRouterComponentType(to?: string | object): string {
   if (!to) return 'button'
-  
-  if (nuxt) return 'NuxtLink'
   if (hasVueRouterAvailable()) return 'RouterLink'
-  
   return 'a'
 }
 

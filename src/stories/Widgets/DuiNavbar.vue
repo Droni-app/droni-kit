@@ -33,7 +33,7 @@
             </component>
             
             <!-- Dropdown menu -->
-            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:py-2 dk:mt-1 dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:from-gray-700/90 dk:dark:to-gray-800/90 dk:backdrop-blur-md dk:rounded-lg dk:shadow-lg dk:border dk:border-white/40 dk:dark:border-white/10 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50">
+            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:py-2 dk:mt-1 dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:bg-none dk:dark:bg-zinc-900 dk:backdrop-blur-md dk:shadow-lg dk:border dk:border-white/40 dk:dark:border-zinc-800 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50">
               <component
                 v-for="child in item.children"
                 :key="child.label"
@@ -84,7 +84,7 @@
     <!-- Mobile menu -->
     <div
       v-show="mobileMenuOpen"
-      class="dk:md:hidden dk:absolute dk:top-full dk:left-0 dk:w-full dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:from-gray-700/90 dk:dark:to-gray-800/90 dk:backdrop-blur-md dk:border-t dk:border-white/40 dk:dark:border-white/10 dk:shadow-lg dk:dark:shadow-black/30 dk:z-40">
+      class="dk:md:hidden dk:absolute dk:top-full dk:left-0 dk:w-full dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:bg-none dk:dark:bg-zinc-900 dk:backdrop-blur-md dk:border-t dk:border-white/40 dk:dark:border-zinc-800 dk:shadow-lg dk:dark:shadow-black/30 dk:z-40">
       <div class="dk:px-4 dk:py-3 dk:space-y-2">
         <template v-for="item in items" :key="item.label">
           <!-- Item with children -->
@@ -163,7 +163,7 @@ export interface NavbarItem {
 export interface DuiNavbarProps {
   items?: NavbarItem[]
   size?: 's' | 'm' | 'l'
-  nuxt?: boolean
+
   itemsAlignment?: 'left' | 'center' | 'right'
   underlineColor?: 'neutral' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning'
 }
@@ -171,7 +171,7 @@ export interface DuiNavbarProps {
 const props = withDefaults(defineProps<DuiNavbarProps>(), {
   items: () => [],
   size: 'm',
-  nuxt: false,
+
   itemsAlignment: 'left',
   underlineColor: 'primary'
 })
@@ -180,7 +180,7 @@ const mobileMenuOpen = ref(false)
 const mobileSubmenus = reactive<Record<string, boolean>>({})
 
 const getComponentType = (item: NavbarItem) => {
-  return getRouterComponentType(item.to, props.nuxt)
+  return getRouterComponentType(item.to)
 }
 
 const getComponentProps = (item: NavbarItem) => {
@@ -230,16 +230,16 @@ const navbarClasses = computed(() => {
   const config = sizeConfig[props.size]
   
   return [
-    // Glassmorphism navbar styles (Windows Vista inspired)
-    'dk:relative dk:bg-gradient-to-b dk:from-white/80 dk:via-white/70 dk:to-gray-50/80',
-    'dk:dark:from-gray-700/60 dk:dark:via-gray-800/60 dk:dark:to-gray-900/60',
-    'dk:backdrop-blur-md dk:backdrop-brightness-110',
-    'dk:border-b dk:border-white/40 dk:dark:border-white/10',
+    'dk:relative',
+    'dk:bg-gradient-to-b dk:from-white/80 dk:via-white/70 dk:to-gray-50/80',
+    'dk:dark:bg-none dk:dark:bg-zinc-900',
+    'dk:backdrop-blur-md dk:backdrop-brightness-110 dk:dark:backdrop-filter-none',
+    'dk:border-b dk:border-white/40 dk:dark:border-zinc-800',
     'dk:shadow-lg dk:shadow-black/10 dk:dark:shadow-black/30',
-    // Borde superior iluminado (highlight Vista)
+    // Borde superior iluminado (solo en light)
     'dk:before:absolute dk:before:top-0 dk:before:left-0 dk:before:right-0 dk:before:h-0.5',
     'dk:before:bg-gradient-to-r dk:before:from-white/60 dk:before:via-white/40 dk:before:to-transparent',
-    'dk:dark:before:from-white/20 dk:dark:before:via-white/10 dk:dark:before:to-transparent',
+    'dk:dark:before:hidden',
     'dk:flex dk:items-center dk:w-full dk:gap-4',
     config.height,
     config.padding,
