@@ -1,0 +1,102 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Icons" />
+
+# Iconos MDI (Material Design Icons)
+
+Droni-kit utiliza la librería **Material Design Icons (MDI)** para los iconos. El CDN se carga automáticamente en la aplicación.
+
+## Instalación
+
+Agrega el CDN de MDI en el `<head>` de tu archivo `index.html`:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+/>
+```
+
+## Uso básico
+
+Los iconos se utilizan como clases CSS con el prefijo `mdi`:
+
+```html
+<i class="mdi mdi-home"></i>
+<i class="mdi mdi-account"></i>
+<i class="mdi mdi-email"></i>
+```
+
+## Tamaños
+
+Puedes controlar el tamaño de los iconos con clases de tamaño de fuente:
+
+```html
+<i class="mdi mdi-home mdi-18px"></i>
+<i class="mdi mdi-home mdi-24px"></i>
+<i class="mdi mdi-home mdi-36px"></i>
+<i class="mdi mdi-home mdi-48px"></i>
+```
+
+O con clases de Tailwind CSS:
+
+```html
+<i class="mdi mdi-home text-sm"></i>
+<i class="mdi mdi-home text-base"></i>
+<i class="mdi mdi-home text-xl"></i>
+<i class="mdi mdi-home text-4xl"></i>
+```
+
+## Uso en componentes Droni-kit
+
+Los componentes como `DuiLabel` y `DuiNavbar` aceptan la prop `icon` con el nombre de clase MDI:
+
+```vue
+<DuiLabel title="Email" icon="mdi mdi-email" />
+```
+
+```vue
+<DuiNavbar :items="[{ label: 'Inicio', to: '/', icon: 'mdi mdi-home' }]" />
+```
+
+## Ejemplos de iconos comunes
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '16px', padding: '16px' }}>
+  {[
+    { icon: 'mdi-home', name: 'home' },
+    { icon: 'mdi-account', name: 'account' },
+    { icon: 'mdi-email', name: 'email' },
+    { icon: 'mdi-phone', name: 'phone' },
+    { icon: 'mdi-lock', name: 'lock' },
+    { icon: 'mdi-magnify', name: 'magnify' },
+    { icon: 'mdi-bell', name: 'bell' },
+    { icon: 'mdi-cog', name: 'cog' },
+    { icon: 'mdi-heart', name: 'heart' },
+    { icon: 'mdi-star', name: 'star' },
+    { icon: 'mdi-check', name: 'check' },
+    { icon: 'mdi-close', name: 'close' },
+    { icon: 'mdi-plus', name: 'plus' },
+    { icon: 'mdi-minus', name: 'minus' },
+    { icon: 'mdi-pencil', name: 'pencil' },
+    { icon: 'mdi-delete', name: 'delete' },
+    { icon: 'mdi-download', name: 'download' },
+    { icon: 'mdi-upload', name: 'upload' },
+    { icon: 'mdi-share', name: 'share' },
+    { icon: 'mdi-menu', name: 'menu' },
+    { icon: 'mdi-arrow-left', name: 'arrow-left' },
+    { icon: 'mdi-arrow-right', name: 'arrow-right' },
+    { icon: 'mdi-chevron-down', name: 'chevron-down' },
+    { icon: 'mdi-calendar', name: 'calendar' },
+  ].map(({ icon, name }) => (
+    <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '12px', border: '1px solid #e5e7eb', borderRadius: '8px' }}>
+      <i className={`mdi ${icon}`} style={{ fontSize: '24px' }} />
+      <span style={{ fontSize: '11px', color: '#6b7280', textAlign: 'center' }}>{name}</span>
+    </div>
+  ))}
+</div>
+
+## Catálogo completo
+
+Puedes explorar el catálogo completo de más de 7,000 iconos disponibles en:
+
+- [pictogrammers.com/library/mdi](https://pictogrammers.com/library/mdi/)
