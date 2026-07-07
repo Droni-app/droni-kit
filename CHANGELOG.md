@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/Droni-app/droni-kit/compare/v1.18.2...v1.19.0) (2026-07-07)
+
+
+### Features
+
+* add MDI icons CDN to Storybook and create icons documentation page ([b51e7cf](https://github.com/Droni-app/droni-kit/commit/b51e7cf298981b5cdda210ac056b7df76f531ad2))
+
 ## [1.18.2](https://github.com/Droni-app/droni-kit/compare/v1.18.1...v1.18.2) (2026-06-21)
 
 
