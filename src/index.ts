@@ -7,6 +7,7 @@ import DuiLabel from './stories/Forms/DuiLabel.vue'
 import DuiCheckbox from './stories/Forms/DuiCheckbox.vue'
 import DuiRadio from './stories/Forms/DuiRadio.vue'
 import DuiSwitch from './stories/Forms/DuiSwitch.vue'
+import DuiForm from './stories/Forms/DuiForm.vue'
 // Elements
 import DuiAlert from './stories/Elements/DuiAlert.vue'
 import DuiTable from './stories/Elements/DuiTable.vue'
@@ -39,6 +40,7 @@ export {
   DuiCheckbox,
   DuiRadio,
   DuiSwitch,
+  DuiForm,
   DuiAlert,
   DuiTable,
   DuiModal,
