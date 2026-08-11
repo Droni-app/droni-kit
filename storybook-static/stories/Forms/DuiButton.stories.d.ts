@@ -3,6 +3,7 @@ declare const meta: {
     title: string;
     component: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('./DuiButton.vue').DuiButtonProps> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
+            to: import('./DuiButton.vue').RouteTo;
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
             size: "sm" | "md" | "lg";
@@ -12,7 +13,6 @@ declare const meta: {
             block: boolean;
             title: string;
             rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-            to: import('./DuiButton.vue').RouteTo;
         }, false, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -21,6 +21,7 @@ declare const meta: {
             M: {};
             Defaults: {};
         }, Readonly<import('./DuiButton.vue').DuiButtonProps> & Readonly<{}>, {}, {}, {}, {}, {
+            to: import('./DuiButton.vue').RouteTo;
             variant: "solid" | "outline" | "ghost";
             color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
             size: "sm" | "md" | "lg";
@@ -30,12 +31,12 @@ declare const meta: {
             block: boolean;
             title: string;
             rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-            to: import('./DuiButton.vue').RouteTo;
         }>;
         __isFragment?: never;
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('./DuiButton.vue').DuiButtonProps> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
+        to: import('./DuiButton.vue').RouteTo;
         variant: "solid" | "outline" | "ghost";
         color: "neutral" | "primary" | "secondary" | "success" | "warning" | "danger";
         size: "sm" | "md" | "lg";
@@ -45,7 +46,6 @@ declare const meta: {
         block: boolean;
         title: string;
         rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-        to: import('./DuiButton.vue').RouteTo;
     }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
             default?(_: {}): any;

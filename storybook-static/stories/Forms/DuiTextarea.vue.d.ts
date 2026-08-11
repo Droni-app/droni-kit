@@ -11,34 +11,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    disabled: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    placeholder: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    name: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    id: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    required: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    label: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    readonly: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
         default: string;
@@ -66,34 +38,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    disabled: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    placeholder: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    name: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    id: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    required: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    label: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    readonly: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
         default: string;
@@ -109,18 +53,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {
-    name: string;
     size: "sm" | "md" | "lg";
-    disabled: boolean;
     block: boolean;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-    label: string;
     modelValue: string;
-    placeholder: string;
-    id: string;
-    required: boolean;
-    readonly: boolean;
-    autoheight: boolean;
     resize: "none" | "both" | "horizontal" | "vertical";
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
+    autoheight: boolean;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

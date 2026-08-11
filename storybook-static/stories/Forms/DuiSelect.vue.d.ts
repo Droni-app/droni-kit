@@ -1,6 +1,6 @@
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: (StringConstructor | NumberConstructor)[];
+        type: (NumberConstructor | StringConstructor)[];
         default: string;
     };
     options: {
@@ -15,34 +15,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    disabled: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    name: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    id: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    required: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    label: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    placeholder: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    readonly: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
     rounded: {
         type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
         default: string;
@@ -54,12 +26,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     itemValue: {
         type: StringConstructor;
         default: string;
+    };
+    placeholder: {
+        type: StringConstructor;
+        default: undefined;
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
     "update:modelValue": (value: string | number) => any;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: (StringConstructor | NumberConstructor)[];
+        type: (NumberConstructor | StringConstructor)[];
         default: string;
     };
     options: {
@@ -71,34 +47,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
     block: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    disabled: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    name: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    id: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    required: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    label: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    placeholder: {
-        type: StringConstructor;
-        default: undefined;
-    };
-    readonly: {
         type: BooleanConstructor;
         default: boolean;
     };
@@ -114,22 +62,20 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         default: string;
     };
+    placeholder: {
+        type: StringConstructor;
+        default: undefined;
+    };
 }>> & Readonly<{
     "onUpdate:modelValue"?: ((value: string | number) => any) | undefined;
 }>, {
-    name: string;
     size: "sm" | "md" | "lg";
-    disabled: boolean;
     block: boolean;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-    label: string;
     modelValue: string | number;
     placeholder: string;
-    id: string;
-    required: boolean;
-    readonly: boolean;
     options: Record<string, any>[];
     itemLabel: string;
     itemValue: string;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

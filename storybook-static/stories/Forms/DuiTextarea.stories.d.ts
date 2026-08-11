@@ -14,34 +14,6 @@ declare const meta: {
             type: BooleanConstructor;
             default: boolean;
         };
-        disabled: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placeholder: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        name: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        id: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        required: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        label: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        readonly: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
         rounded: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
@@ -69,34 +41,6 @@ declare const meta: {
             type: BooleanConstructor;
             default: boolean;
         };
-        disabled: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placeholder: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        name: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        id: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        required: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        label: {
-            type: StringConstructor;
-            default: undefined;
-        };
-        readonly: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
         rounded: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
@@ -112,93 +56,54 @@ declare const meta: {
     }>> & Readonly<{
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     }>, {
-        name: string;
         size: "sm" | "md" | "lg";
-        disabled: boolean;
         block: boolean;
         rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-        label: string;
         modelValue: string;
-        placeholder: string;
-        id: string;
-        required: boolean;
-        readonly: boolean;
-        autoheight: boolean;
         resize: "none" | "both" | "horizontal" | "vertical";
-    }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
+        autoheight: boolean;
+    }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     tags: string[];
     argTypes: {
-        block: {
+        modelValue: {
             control: {
-                type: "boolean";
+                type: "text";
             };
-            defaultValue: boolean;
         };
         size: {
             control: {
                 type: "select";
             };
             options: string[];
-            defaultValue: string;
         };
-        disabled: {
+        block: {
             control: {
                 type: "boolean";
             };
-            defaultValue: boolean;
-        };
-        placeholder: {
-            control: {
-                type: "text";
-            };
-            defaultValue: undefined;
-        };
-        name: {
-            control: {
-                type: "text";
-            };
-            defaultValue: undefined;
-        };
-        required: {
-            control: {
-                type: "boolean";
-            };
-            defaultValue: boolean;
-        };
-        label: {
-            control: {
-                type: "text";
-            };
-            defaultValue: undefined;
         };
         rounded: {
-            constrol: {
-                type: string;
+            control: {
+                type: "select";
             };
             options: string[];
-            defaultValue: string;
         };
         autoheight: {
             control: {
                 type: "boolean";
             };
-            defaultValue: boolean;
         };
         resize: {
             control: {
                 type: "select";
             };
             options: string[];
-            defaultValue: string;
-        };
-        readonly: {
-            control: {
-                type: "boolean";
-            };
-            defaultValue: boolean;
         };
     };
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
 export declare const Default: Story;
+export declare const Sizes: Story;
+export declare const ResizeOptions: Story;
+export declare const AutoHeight: Story;
+export declare const WithNativeAttributes: Story;

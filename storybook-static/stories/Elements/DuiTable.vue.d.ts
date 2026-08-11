@@ -3,6 +3,11 @@ export interface TableColumn {
     name: string;
     classes?: string;
 }
+export interface PaginationData {
+    page: number;
+    perPage: number;
+    total: number;
+}
 declare function __VLS_template(): {
     attrs: Partial<{}>;
     slots: Partial<Record<string, (_: any) => any>>;
@@ -45,7 +50,17 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         };
         required: true;
     };
-}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    loading: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    pagination: {
+        type: () => PaginationData | undefined;
+        default: undefined;
+    };
+}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    paginate: (page: number) => any;
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     columns: {
         type: {
             (arrayLength: number): TableColumn[];
@@ -80,7 +95,20 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         };
         required: true;
     };
-}>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
+    loading: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    pagination: {
+        type: () => PaginationData | undefined;
+        default: undefined;
+    };
+}>> & Readonly<{
+    onPaginate?: ((page: number) => any) | undefined;
+}>, {
+    loading: boolean;
+    pagination: PaginationData | undefined;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLDivElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;
 type __VLS_WithTemplateSlots<T, S> = T & {

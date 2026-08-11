@@ -1,5 +1,6 @@
 //Forms 
 import DuiButton from './stories/Forms/DuiButton.vue'
+import DuiFile from './stories/Forms/DuiFile.vue'
 import DuiInput from './stories/Forms/DuiInput.vue'
 import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 import DuiSelect from './stories/Forms/DuiSelect.vue'
@@ -30,6 +31,7 @@ import './style.css'
 
 export {
   DuiButton,
+  DuiFile,
   DuiInput,
   DuiTextarea,
   DuiAction,
