@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/Droni-app/droni-kit/compare/v1.20.0...v1.21.0) (2026-08-12)
+
+
+### Features
+
+* new upload file component ([5f71fa7](https://github.com/Droni-app/droni-kit/commit/5f71fa7b6f33db1e62676b6151801abdc4fff13d))
+
 # [1.20.0](https://github.com/Droni-app/droni-kit/compare/v1.19.0...v1.20.0) (2026-08-11)
 
 
