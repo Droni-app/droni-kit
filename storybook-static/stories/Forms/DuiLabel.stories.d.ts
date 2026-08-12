@@ -30,9 +30,9 @@ declare const meta: {
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
             size: "s" | "m" | "l";
             title: string;
-            error: string;
             icon: string;
             helpText: string;
+            error: string;
             required: boolean;
         }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLLabelElement, import('vue').ComponentProvideOptions, {
             P: {};
@@ -69,9 +69,9 @@ declare const meta: {
         }>> & Readonly<{}>, {}, {}, {}, {}, {
             size: "s" | "m" | "l";
             title: string;
-            error: string;
             icon: string;
             helpText: string;
+            error: string;
             required: boolean;
         }>;
         __isFragment?: never;
@@ -105,9 +105,9 @@ declare const meta: {
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
         size: "s" | "m" | "l";
         title: string;
-        error: string;
         icon: string;
         helpText: string;
+        error: string;
         required: boolean;
     }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {

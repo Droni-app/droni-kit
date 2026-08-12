@@ -6,14 +6,6 @@ declare const meta: {
             type: StringConstructor;
             default: string;
         };
-        explorerUrl: {
-            type: StringConstructor;
-            default: string;
-        };
-        uploadUrl: {
-            type: StringConstructor;
-            default: string;
-        };
         accept: {
             type: StringConstructor;
             default: string;
@@ -30,30 +22,23 @@ declare const meta: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
         };
+        uploadBtn: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        browserBtn: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
-        select: (file: File) => any;
         "update:modelValue": (value: string) => any;
-        "upload-start": (file: File) => any;
-        "upload-success": (payload: {
-            file: File;
-            response: unknown;
-            url: string;
-        }) => any;
-        "upload-error": (error: Error) => any;
-        browse: () => any;
+        "open-browser": () => any;
+        "upload-file": (file: File) => any;
     }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         modelValue: {
             type: StringConstructor;
             default: string;
         };
-        explorerUrl: {
-            type: StringConstructor;
-            default: string;
-        };
-        uploadUrl: {
-            type: StringConstructor;
-            default: string;
-        };
         accept: {
             type: StringConstructor;
             default: string;
@@ -70,41 +55,32 @@ declare const meta: {
             type: () => "all" | "top" | "bottom" | "left" | "right" | "none";
             default: string;
         };
+        uploadBtn: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        browserBtn: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     }>> & Readonly<{
-        onSelect?: ((file: File) => any) | undefined;
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
-        "onUpload-start"?: ((file: File) => any) | undefined;
-        "onUpload-success"?: ((payload: {
-            file: File;
-            response: unknown;
-            url: string;
-        }) => any) | undefined;
-        "onUpload-error"?: ((error: Error) => any) | undefined;
-        onBrowse?: (() => any) | undefined;
+        "onOpen-browser"?: (() => any) | undefined;
+        "onUpload-file"?: ((file: File) => any) | undefined;
     }>, {
         size: "sm" | "md" | "lg";
         block: boolean;
         rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
         modelValue: string;
-        explorerUrl: string;
-        uploadUrl: string;
         accept: string;
+        uploadBtn: boolean;
+        browserBtn: boolean;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {
         fileInputRef: HTMLInputElement;
     }, any>;
     tags: string[];
     argTypes: {
         modelValue: {
-            control: {
-                type: "text";
-            };
-        };
-        explorerUrl: {
-            control: {
-                type: "text";
-            };
-        };
-        uploadUrl: {
             control: {
                 type: "text";
             };
@@ -130,6 +106,16 @@ declare const meta: {
                 type: "select";
             };
             options: string[];
+        };
+        uploadBtn: {
+            control: {
+                type: "boolean";
+            };
+        };
+        browserBtn: {
+            control: {
+                type: "boolean";
+            };
         };
     };
 };

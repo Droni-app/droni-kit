@@ -57,7 +57,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     block: boolean;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
     modelValue: string;
-    resize: "none" | "both" | "horizontal" | "vertical";
     autoheight: boolean;
+    resize: "none" | "both" | "horizontal" | "vertical";
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

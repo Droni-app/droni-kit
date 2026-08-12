@@ -1,6 +1,6 @@
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: (NumberConstructor | StringConstructor)[];
+        type: (StringConstructor | NumberConstructor)[];
         default: string;
     };
     options: {
@@ -35,7 +35,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     "update:modelValue": (value: string | number) => any;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: (NumberConstructor | StringConstructor)[];
+        type: (StringConstructor | NumberConstructor)[];
         default: string;
     };
     options: {

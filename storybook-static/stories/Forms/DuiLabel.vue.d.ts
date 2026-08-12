@@ -60,9 +60,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
 }>> & Readonly<{}>, {
     size: "s" | "m" | "l";
     title: string;
-    error: string;
     icon: string;
     helpText: string;
+    error: string;
     required: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, HTMLLabelElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;

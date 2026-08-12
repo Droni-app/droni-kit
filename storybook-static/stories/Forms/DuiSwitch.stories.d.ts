@@ -52,8 +52,8 @@ declare const meta: {
             block: boolean;
             label: string;
             modelValue: boolean;
-            description: string;
             labelPosition: "left" | "right";
+            description: string;
             showIcons: boolean;
         }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
@@ -109,8 +109,8 @@ declare const meta: {
             block: boolean;
             label: string;
             modelValue: boolean;
-            description: string;
             labelPosition: "left" | "right";
+            description: string;
             showIcons: boolean;
         }>;
         __isFragment?: never;
@@ -166,8 +166,8 @@ declare const meta: {
         block: boolean;
         label: string;
         modelValue: boolean;
-        description: string;
         labelPosition: "left" | "right";
+        description: string;
         showIcons: boolean;
     }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {

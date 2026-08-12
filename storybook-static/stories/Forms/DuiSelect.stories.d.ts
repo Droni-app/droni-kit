@@ -3,7 +3,7 @@ declare const meta: {
     title: string;
     component: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         modelValue: {
-            type: (NumberConstructor | StringConstructor)[];
+            type: (StringConstructor | NumberConstructor)[];
             default: string;
         };
         options: {
@@ -38,7 +38,7 @@ declare const meta: {
         "update:modelValue": (value: string | number) => any;
     }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         modelValue: {
-            type: (NumberConstructor | StringConstructor)[];
+            type: (StringConstructor | NumberConstructor)[];
             default: string;
         };
         options: {
