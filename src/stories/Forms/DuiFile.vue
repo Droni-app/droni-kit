@@ -86,6 +86,7 @@ const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void
   (event: 'open-browser'): void
   (event: 'upload-file', file: File): void
+  (event: 'open-file', value: string): void
 }>()
 
 const fileInputRef = ref<HTMLInputElement | null>(null)
@@ -163,14 +164,8 @@ watch(
 )
 
 function getFileNameFromUrl(url: string) {
-  try {
-    const parsedUrl = new URL(url, typeof window !== 'undefined' ? window.location.origin : 'http://localhost')
-    const cleanPath = parsedUrl.pathname.split('/').filter(Boolean)
-    return decodeURIComponent(cleanPath[cleanPath.length - 1] || url)
-  } catch {
-    const cleanPath = url.split('?')[0].split('#')[0].split('/').filter(Boolean)
-    return decodeURIComponent(cleanPath[cleanPath.length - 1] || url)
-  }
+  const parts = url.split('/')
+  return parts[parts.length - 1]
 }
 
 function emitOpenBrowser() {
