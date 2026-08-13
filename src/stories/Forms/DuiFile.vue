@@ -3,8 +3,11 @@
     <div :class="containerClasses">
       <div :class="contentClasses">
         <p v-if="props.modelValue ?? localFileName" :class="fileNameClasses">
-          <a :href="props.modelValue" target="_blank" class="dk:ml-2 dk:text-pink-500 dk:underline dk:transition-colors dk:hover:text-pink-800 dk:dark:text-pink-400 dk:dark:hover:text-pink-300">
-          {{ displayedFileName }}
+          <a
+            href="#"
+            @click.prevent="emit('open-file', props.modelValue ?? localFileName)"
+            class="dk:ml-2 dk:text-pink-500 dk:underline dk:transition-colors dk:hover:text-pink-800 dk:dark:text-pink-400 dk:dark:hover:text-pink-300">
+            {{ displayedFileName }}
           </a>
         </p>
       </div>
