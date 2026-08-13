@@ -1,3 +1,10 @@
+## [1.21.2](https://github.com/Droni-app/droni-kit/compare/v1.21.1...v1.21.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* open file on link ([66e59e9](https://github.com/Droni-app/droni-kit/commit/66e59e99fcbeb316a27624f23a26f77a1f4d5c1c))
+
 ## [1.21.1](https://github.com/Droni-app/droni-kit/compare/v1.21.0...v1.21.1) (2026-08-12)
 
 
