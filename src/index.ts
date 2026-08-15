@@ -14,6 +14,7 @@ import DuiTable from './stories/Elements/DuiTable.vue'
 import DuiAction from './stories/Elements/DuiAction.vue'
 import DuiCard from './stories/Elements/DuiCard.vue'
 import DuiModal from './stories/Elements/DuiModal.vue'
+import DuiDrawer from './stories/Elements/DuiDrawer.vue'
 import DuiTooltip from './stories/Elements/DuiTooltip.vue'
 import DuiAccordion from './stories/Elements/DuiAccordion.vue'
 import DuiBadge from './stories/Elements/DuiBadge.vue'
@@ -44,6 +45,7 @@ export {
   DuiAlert,
   DuiTable,
   DuiModal,
+  DuiDrawer,
   DuiTooltip,
   DuiAccordion,
   DuiBadge,
