@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/Droni-app/droni-kit/compare/v1.22.0...v1.22.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* z order in modal and drawer ([37ddc77](https://github.com/Droni-app/droni-kit/commit/37ddc77dd4b9a82b8e50a31b3b9fa0eaf7ae3c0f))
+
 # [1.22.0](https://github.com/Droni-app/droni-kit/compare/v1.21.2...v1.22.0) (2026-08-15)
 
 
