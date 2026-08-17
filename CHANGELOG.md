@@ -1,3 +1,10 @@
+## [1.22.2](https://github.com/Droni-app/droni-kit/compare/v1.22.1...v1.22.2) (2026-08-17)
+
+
+### Bug Fixes
+
+* null option in File form ([eb8f244](https://github.com/Droni-app/droni-kit/commit/eb8f24475783ae5c7f01b538713ab1d965c1da6b))
+
 ## [1.22.1](https://github.com/Droni-app/droni-kit/compare/v1.22.0...v1.22.1) (2026-08-17)
 
 
