@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/Droni-app/droni-kit/compare/v1.22.2...v1.23.0) (2026-08-18)
+
+
+### Features
+
+* confirmation widget ([869bd2d](https://github.com/Droni-app/droni-kit/commit/869bd2d58c9ef65a5c775255ff95b2b6d81475dd))
+
 ## [1.22.2](https://github.com/Droni-app/droni-kit/compare/v1.22.1...v1.22.2) (2026-08-17)
 
 
