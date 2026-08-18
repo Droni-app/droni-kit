@@ -1,3 +1,10 @@
+## [1.24.1](https://github.com/Droni-app/droni-kit/compare/v1.24.0...v1.24.1) (2026-08-18)
+
+
+### Bug Fixes
+
+* z index toast ([2eb2576](https://github.com/Droni-app/droni-kit/commit/2eb25767a4e85cca53f0a41251ae5d2d345ffab9))
+
 # [1.24.0](https://github.com/Droni-app/droni-kit/compare/v1.23.0...v1.24.0) (2026-08-18)
 
 
