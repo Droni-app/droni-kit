@@ -1,7 +1,7 @@
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: StringConstructor;
-        default: string;
+        type: () => string | null;
+        default: null;
     };
     accept: {
         type: StringConstructor;
@@ -31,10 +31,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     "update:modelValue": (value: string) => any;
     "open-browser": () => any;
     "upload-file": (file: File) => any;
+    "open-file": (value: string) => any;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     modelValue: {
-        type: StringConstructor;
-        default: string;
+        type: () => string | null;
+        default: null;
     };
     accept: {
         type: StringConstructor;
@@ -64,11 +65,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     "onOpen-browser"?: (() => any) | undefined;
     "onUpload-file"?: ((file: File) => any) | undefined;
+    "onOpen-file"?: ((value: string) => any) | undefined;
 }>, {
     size: "sm" | "md" | "lg";
     block: boolean;
     rounded: "all" | "top" | "bottom" | "left" | "right" | "none";
-    modelValue: string;
+    modelValue: string | null;
     accept: string;
     uploadBtn: boolean;
     browserBtn: boolean;

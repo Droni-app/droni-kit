@@ -26,6 +26,7 @@ import DuiSkeleton from './stories/Elements/DuiSkeleton.vue'
 import DuiTabs from './stories/Elements/DuiTabs.vue'
 import DuiToast from './stories/Elements/DuiToast.vue'
 // Widgets
+import DuiConfirmation from './stories/Widgets/DuiConfirmation.vue'
 import DuiNavbar from './stories/Widgets/DuiNavbar.vue'
 
 import './style.css'
@@ -56,5 +57,6 @@ export {
   DuiSkeleton,
   DuiTabs,
   DuiToast,
+  DuiConfirmation,
   DuiNavbar
 }

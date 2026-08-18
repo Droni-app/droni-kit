@@ -584,6 +584,15 @@
           </template>
         </DuiTabs>
       </section>
+      <DuiConfirmation
+        label="Eliminar proyecto"
+        check-label="Estoy seguro de eliminar este proyecto"
+        confirm-label="Confirmar eliminación"
+        variant="solid"
+        color="danger"
+        size="md"
+        @confirmed="onDeleteConfirmed"
+      />
     </main>
 
     <DuiModal
@@ -631,6 +640,7 @@ import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 import DuiCheckbox from './stories/Forms/DuiCheckbox.vue'
 import DuiSwitch from './stories/Forms/DuiSwitch.vue'
 import DuiRadio from './stories/Forms/DuiRadio.vue'
+import { DuiConfirmation } from './index.ts'
 
 const toast = useToast()
 const isDark = ref(false)
@@ -809,5 +819,9 @@ function resetForm() {
 function confirmModal() {
   openModal.value = false
   toast.success('Modal confirmado')
+}
+
+function onDeleteConfirmed() {
+  toast.success('Proyecto eliminado')
 }
 </script>
