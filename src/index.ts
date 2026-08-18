@@ -29,6 +29,9 @@ import DuiToast from './stories/Elements/DuiToast.vue'
 import DuiConfirmation from './stories/Widgets/DuiConfirmation.vue'
 import DuiNavbar from './stories/Widgets/DuiNavbar.vue'
 
+// composables
+import { useToast } from './stories/Elements/useToast'
+
 import './style.css'
 
 export {
@@ -58,5 +61,6 @@ export {
   DuiTabs,
   DuiToast,
   DuiConfirmation,
-  DuiNavbar
+  DuiNavbar,
+  useToast
 }

@@ -579,7 +579,6 @@
                   </DuiCard>
                 </div>
               </div>
-
             </div>
           </template>
         </DuiTabs>
@@ -593,6 +592,7 @@
         size="md"
         @confirmed="onDeleteConfirmed"
       />
+      <DuiButton @click="showToast('success')">Mostrar toast</DuiButton>
     </main>
 
     <DuiModal
