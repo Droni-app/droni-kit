@@ -25,4 +25,5 @@ import { default as DuiTabs } from './stories/Elements/DuiTabs.vue';
 import { default as DuiToast } from './stories/Elements/DuiToast.vue';
 import { default as DuiConfirmation } from './stories/Widgets/DuiConfirmation.vue';
 import { default as DuiNavbar } from './stories/Widgets/DuiNavbar.vue';
-export { DuiButton, DuiFile, DuiInput, DuiTextarea, DuiAction, DuiCard, DuiSelect, DuiLabel, DuiCheckbox, DuiRadio, DuiSwitch, DuiAlert, DuiTable, DuiModal, DuiDrawer, DuiTooltip, DuiAccordion, DuiBadge, DuiDropdown, DuiDropdownItem, DuiDropdownSeparator, DuiPagination, DuiSkeleton, DuiTabs, DuiToast, DuiConfirmation, DuiNavbar };
+import { useToast } from './stories/Elements/useToast';
+export { DuiButton, DuiFile, DuiInput, DuiTextarea, DuiAction, DuiCard, DuiSelect, DuiLabel, DuiCheckbox, DuiRadio, DuiSwitch, DuiAlert, DuiTable, DuiModal, DuiDrawer, DuiTooltip, DuiAccordion, DuiBadge, DuiDropdown, DuiDropdownItem, DuiDropdownSeparator, DuiPagination, DuiSkeleton, DuiTabs, DuiToast, DuiConfirmation, DuiNavbar, useToast };

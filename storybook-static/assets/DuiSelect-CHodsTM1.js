@@ -1,0 +1,14 @@
+import{f as b,h as d,t as m,j as v,F as V,k as h,m as S,i as z,o as u}from"./iframe-sEkeUlo0.js";const x={key:0,disabled:"",selected:"",hidden:""},N=["value","selected"],C=`
+  dk:border-b
+  dk:border-zinc-300
+  dk:bg-zinc-50
+  dk:text-zinc-800
+  dk:focus:outline-none
+  dk:focus:bg-zinc-100
+  dk:dark:bg-zinc-700
+  dk:dark:border-zinc-600
+  dk:dark:bg-zinc-800
+  dk:dark:text-zinc-100
+  dk:dark:focus:bg-zinc-700
+  dk:dark:[color-scheme:dark]
+`,r=b({inheritAttrs:!1,__name:"DuiSelect",props:{modelValue:{type:[String,Number],default:""},options:{type:Array,default:()=>[]},size:{type:String,default:"md"},block:{type:Boolean,default:!0},rounded:{type:String,default:"all"},itemLabel:{type:String,default:"label"},itemValue:{type:String,default:"value"},placeholder:{type:String,default:void 0}},emits:["update:modelValue"],setup(t,{emit:c}){const o=t;function s(n,l){const e=l.split(".").reduce((a,y)=>{if(!(a===null||typeof a!="object"))return a[y]},n);return typeof e=="string"||typeof e=="number"?e:void 0}const i=c;function f(n){const e=n.target.value,a=Number(e);!isNaN(a)&&e!==""?i("update:modelValue",a):i("update:modelValue",e)}const p={sm:"dk:text-sm dk:px-3 dk:py-1.5",md:"dk:text-base dk:px-4 dk:py-2",lg:"dk:text-lg dk:px-5 dk:py-3"},k={all:"dk:rounded",top:"dk:rounded-t",bottom:"dk:rounded-b",left:"dk:rounded-l",right:"dk:rounded-r",none:"dk:rounded-none"},g=z(()=>{const n=p[o.size]||"",l=o.block?"dk:w-full":"",e=k[o.rounded]||"";return[C,n,l,e].join(" ")});return(n,l)=>(u(),d("select",S(n.$attrs,{class:g.value,onChange:f}),[t.placeholder?(u(),d("option",x,m(t.placeholder),1)):v("",!0),(u(!0),d(V,null,h(t.options,(e,a)=>(u(),d("option",{key:a,value:s(e,t.itemValue)??"",selected:s(e,t.itemValue)==t.modelValue},m(s(e,t.itemLabel)??""),9,N))),128))],16))}});r.__docgenInfo=Object.assign({displayName:r.name??r.__name},{exportName:"default",displayName:"DuiSelect",description:"",tags:{},props:[{name:"modelValue",type:{name:"string|number"},defaultValue:{func:!1,value:"''"}},{name:"options",type:{name:"Array as () => Array<Record<string, any>>"},defaultValue:{func:!0,value:"() => []"}},{name:"size",type:{name:"String as () => 'sm' | 'md' | 'lg'"},defaultValue:{func:!1,value:"'md'"}},{name:"block",type:{name:"boolean"},defaultValue:{func:!1,value:"true"}},{name:"rounded",type:{name:"String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none'"},defaultValue:{func:!1,value:"'all'"}},{name:"itemLabel",type:{name:"string"},defaultValue:{func:!1,value:"'label'"}},{name:"itemValue",type:{name:"string"},defaultValue:{func:!1,value:"'value'"}},{name:"placeholder",type:{name:"string"},defaultValue:{func:!1,value:"undefined"}}],events:[{name:"update:modelValue",type:{names:["union"],elements:[{name:"string"},{name:"number"}]}}],sourceFiles:["/home/gustavob/www/droni-kit/src/stories/Forms/DuiSelect.vue"]});export{r as _};
