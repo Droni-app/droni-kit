@@ -1,3 +1,10 @@
+## [1.24.3](https://github.com/Droni-app/droni-kit/compare/v1.24.2...v1.24.3) (2026-08-28)
+
+
+### Bug Fixes
+
+* null type on select and input ([4c3e6fc](https://github.com/Droni-app/droni-kit/commit/4c3e6fcfd95b709547e4df8b4a8f4643b61cdfbe))
+
 ## [1.24.2](https://github.com/Droni-app/droni-kit/compare/v1.24.1...v1.24.2) (2026-08-28)
 
 
