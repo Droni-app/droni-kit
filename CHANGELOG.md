@@ -1,3 +1,10 @@
+## [1.24.2](https://github.com/Droni-app/droni-kit/compare/v1.24.1...v1.24.2) (2026-08-28)
+
+
+### Bug Fixes
+
+* select with child options ([3e25c4c](https://github.com/Droni-app/droni-kit/commit/3e25c4cc1cbe543e7c0c283d78a9e90bce9071f3))
+
 ## [1.24.1](https://github.com/Droni-app/droni-kit/compare/v1.24.0...v1.24.1) (2026-08-18)
 
 
