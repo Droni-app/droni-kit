@@ -25,7 +25,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = defineProps({
   modelValue: {
-    type: [String, Number],
+    type: [String, Number, null],
     default: '',
   },
   options: {
