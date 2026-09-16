@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/Droni-app/droni-kit/compare/v1.24.3...v1.25.0) (2026-09-16)
+
+
+### Features
+
+* add DuiForm component with loading state, slots, and Nuxt compatibility ([97416a4](https://github.com/Droni-app/droni-kit/commit/97416a4efc80f8ef2d2765f3e0ab7e2b17366ecb))
+
 ## [1.24.3](https://github.com/Droni-app/droni-kit/compare/v1.24.2...v1.24.3) (2026-08-28)
 
 
