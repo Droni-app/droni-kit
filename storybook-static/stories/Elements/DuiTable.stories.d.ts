@@ -37,7 +37,22 @@ declare const meta: {
                 };
                 required: true;
             };
-        }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLDivElement, import('vue').ComponentProvideOptions, {
+            loading: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            pagination: {
+                type: () => import('./DuiTable.vue').PaginationData | undefined;
+                default: undefined;
+            };
+        }>> & Readonly<{
+            onPaginate?: ((page: number) => any) | undefined;
+        }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+            paginate: (page: number) => any;
+        }, import('vue').PublicProps, {
+            loading: boolean;
+            pagination: import('./DuiTable.vue').PaginationData | undefined;
+        }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, HTMLDivElement, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
             D: {};
@@ -79,7 +94,20 @@ declare const meta: {
                 };
                 required: true;
             };
-        }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
+            loading: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            pagination: {
+                type: () => import('./DuiTable.vue').PaginationData | undefined;
+                default: undefined;
+            };
+        }>> & Readonly<{
+            onPaginate?: ((page: number) => any) | undefined;
+        }>, {}, {}, {}, {}, {
+            loading: boolean;
+            pagination: import('./DuiTable.vue').PaginationData | undefined;
+        }>;
         __isFragment?: never;
         __isTeleport?: never;
         __isSuspense?: never;
@@ -118,7 +146,22 @@ declare const meta: {
             };
             required: true;
         };
-    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+        loading: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        pagination: {
+            type: () => import('./DuiTable.vue').PaginationData | undefined;
+            default: undefined;
+        };
+    }>> & Readonly<{
+        onPaginate?: ((page: number) => any) | undefined;
+    }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+        paginate: (page: number) => any;
+    }, string, {
+        loading: boolean;
+        pagination: import('./DuiTable.vue').PaginationData | undefined;
+    }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: Partial<Record<string, (_: any) => any>>;
     });
     tags: string[];
@@ -144,8 +187,25 @@ declare const meta: {
                 country: string;
             }[];
         };
+        loading: {
+            control: {
+                type: "boolean";
+            };
+            description: string;
+            defaultValue: boolean;
+        };
+        pagination: {
+            control: {
+                type: "object";
+            };
+            description: string;
+            defaultValue: undefined;
+        };
     };
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
 export declare const Default: Story;
+export declare const Loading: Story;
+export declare const WithPagination: Story;
+export declare const LoadingWithPagination: Story;

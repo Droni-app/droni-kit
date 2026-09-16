@@ -36,7 +36,6 @@ export interface DuiButtonProps {
   title?: string
   rounded?: 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none'
   to?: RouteTo
-
 }
 
 const props = withDefaults(defineProps<DuiButtonProps>(), {
@@ -50,7 +49,6 @@ const props = withDefaults(defineProps<DuiButtonProps>(), {
   title: undefined,
   rounded: 'all',
   to: undefined,
-
 })
 
 // Determine component type based on routing availability and 'to' prop

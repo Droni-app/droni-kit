@@ -90,7 +90,8 @@ const props = withDefaults(defineProps<DuiModalProps>(), {
   centered: true,
   scrollable: true,
   blurBackdrop: true,
-  zIndex: 50,
+  // Keep modal above Drawer defaults (Drawer panel uses zIndex + 1).
+  zIndex: 60,
 })
 
 const emit = defineEmits<{

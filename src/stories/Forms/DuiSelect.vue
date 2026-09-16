@@ -10,10 +10,10 @@
     <option
       v-for="(option, index) in options"
       :key="index"
-      :value="option[itemValue] ?? ''"
-      :selected="option[itemValue] == modelValue"
+      :value="getOptionValue(option, itemValue) ?? ''"
+      :selected="getOptionValue(option, itemValue) == modelValue"
     >
-      {{ option[itemLabel] ?? '' }}
+      {{ getOptionValue(option, itemLabel) ?? '' }}
     </option>
   </select>
 </template>
@@ -25,7 +25,7 @@ defineOptions({ inheritAttrs: false })
 
 const props = defineProps({
   modelValue: {
-    type: [String, Number],
+    type: [String, Number, null],
     default: '',
   },
   options: {
@@ -57,6 +57,21 @@ const props = defineProps({
     default: undefined,
   },
 })
+
+function getOptionValue(
+  option: Record<string, any>,
+  path: string,
+): string | number | undefined {
+  const value = path.split('.').reduce((currentValue, key) => {
+    if (currentValue === null || typeof currentValue !== 'object') {
+      return undefined
+    }
+
+    return currentValue[key]
+  }, option as any)
+
+  return typeof value === 'string' || typeof value === 'number' ? value : undefined
+}
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string | number): void

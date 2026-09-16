@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <div :class="containerClasses" aria-live="polite" aria-atomic="false">
+    <div :class="containerClasses" :style="containerStyles" aria-live="polite" aria-atomic="false">
       <TransitionGroup
         tag="div"
         :class="listClasses"
@@ -26,7 +26,7 @@
             :class="closeClasses"
             aria-label="Cerrar notificacion"
             @click="remove(toast.id)">
-            ×
+            <i class="mdi mdi-close" aria-hidden="true" />
           </button>
         </div>
       </TransitionGroup>
@@ -68,8 +68,13 @@ const containerClasses = computed(() => {
   return [
     'dk:fixed dk:pointer-events-none',
     positionClasses[props.position],
-    `dk:z-[${props.zIndex}]`,
   ].join(' ')
+})
+
+const containerStyles = computed(() => {
+  return {
+    zIndex: String(props.zIndex),
+  }
 })
 
 const listClasses = computed(() => {

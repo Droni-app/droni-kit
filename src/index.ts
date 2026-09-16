@@ -1,5 +1,6 @@
 //Forms 
 import DuiButton from './stories/Forms/DuiButton.vue'
+import DuiFile from './stories/Forms/DuiFile.vue'
 import DuiInput from './stories/Forms/DuiInput.vue'
 import DuiTextarea from './stories/Forms/DuiTextarea.vue'
 import DuiSelect from './stories/Forms/DuiSelect.vue'
@@ -14,6 +15,7 @@ import DuiTable from './stories/Elements/DuiTable.vue'
 import DuiAction from './stories/Elements/DuiAction.vue'
 import DuiCard from './stories/Elements/DuiCard.vue'
 import DuiModal from './stories/Elements/DuiModal.vue'
+import DuiDrawer from './stories/Elements/DuiDrawer.vue'
 import DuiTooltip from './stories/Elements/DuiTooltip.vue'
 import DuiAccordion from './stories/Elements/DuiAccordion.vue'
 import DuiBadge from './stories/Elements/DuiBadge.vue'
@@ -25,12 +27,17 @@ import DuiSkeleton from './stories/Elements/DuiSkeleton.vue'
 import DuiTabs from './stories/Elements/DuiTabs.vue'
 import DuiToast from './stories/Elements/DuiToast.vue'
 // Widgets
+import DuiConfirmation from './stories/Widgets/DuiConfirmation.vue'
 import DuiNavbar from './stories/Widgets/DuiNavbar.vue'
+
+// composables
+import { useToast } from './stories/Elements/useToast'
 
 import './style.css'
 
 export {
   DuiButton,
+  DuiFile,
   DuiInput,
   DuiTextarea,
   DuiAction,
@@ -44,6 +51,7 @@ export {
   DuiAlert,
   DuiTable,
   DuiModal,
+  DuiDrawer,
   DuiTooltip,
   DuiAccordion,
   DuiBadge,
@@ -54,5 +62,7 @@ export {
   DuiSkeleton,
   DuiTabs,
   DuiToast,
-  DuiNavbar
+  DuiConfirmation,
+  DuiNavbar,
+  useToast
 }

@@ -1,3 +1,87 @@
+## [1.24.3](https://github.com/Droni-app/droni-kit/compare/v1.24.2...v1.24.3) (2026-08-28)
+
+
+### Bug Fixes
+
+* null type on select and input ([4c3e6fc](https://github.com/Droni-app/droni-kit/commit/4c3e6fcfd95b709547e4df8b4a8f4643b61cdfbe))
+
+## [1.24.2](https://github.com/Droni-app/droni-kit/compare/v1.24.1...v1.24.2) (2026-08-28)
+
+
+### Bug Fixes
+
+* select with child options ([3e25c4c](https://github.com/Droni-app/droni-kit/commit/3e25c4cc1cbe543e7c0c283d78a9e90bce9071f3))
+
+## [1.24.1](https://github.com/Droni-app/droni-kit/compare/v1.24.0...v1.24.1) (2026-08-18)
+
+
+### Bug Fixes
+
+* z index toast ([2eb2576](https://github.com/Droni-app/droni-kit/commit/2eb25767a4e85cca53f0a41251ae5d2d345ffab9))
+
+# [1.24.0](https://github.com/Droni-app/droni-kit/compare/v1.23.0...v1.24.0) (2026-08-18)
+
+
+### Features
+
+* export toast ([c506595](https://github.com/Droni-app/droni-kit/commit/c506595f1544d507caac58676beb44653583891d))
+
+# [1.23.0](https://github.com/Droni-app/droni-kit/compare/v1.22.2...v1.23.0) (2026-08-18)
+
+
+### Features
+
+* confirmation widget ([869bd2d](https://github.com/Droni-app/droni-kit/commit/869bd2d58c9ef65a5c775255ff95b2b6d81475dd))
+
+## [1.22.2](https://github.com/Droni-app/droni-kit/compare/v1.22.1...v1.22.2) (2026-08-17)
+
+
+### Bug Fixes
+
+* null option in File form ([eb8f244](https://github.com/Droni-app/droni-kit/commit/eb8f24475783ae5c7f01b538713ab1d965c1da6b))
+
+## [1.22.1](https://github.com/Droni-app/droni-kit/compare/v1.22.0...v1.22.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* z order in modal and drawer ([37ddc77](https://github.com/Droni-app/droni-kit/commit/37ddc77dd4b9a82b8e50a31b3b9fa0eaf7ae3c0f))
+
+# [1.22.0](https://github.com/Droni-app/droni-kit/compare/v1.21.2...v1.22.0) (2026-08-15)
+
+
+### Features
+
+* Drawer Component ([87650b5](https://github.com/Droni-app/droni-kit/commit/87650b5da023f3f5da806619d9c08798f2f1d768))
+
+## [1.21.2](https://github.com/Droni-app/droni-kit/compare/v1.21.1...v1.21.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* open file on link ([66e59e9](https://github.com/Droni-app/droni-kit/commit/66e59e99fcbeb316a27624f23a26f77a1f4d5c1c))
+
+## [1.21.1](https://github.com/Droni-app/droni-kit/compare/v1.21.0...v1.21.1) (2026-08-12)
+
+
+### Bug Fixes
+
+* open file and name in bar ([c7b4093](https://github.com/Droni-app/droni-kit/commit/c7b4093c2749f05ba0a92a3c39729755a0c380c6))
+
+# [1.21.0](https://github.com/Droni-app/droni-kit/compare/v1.20.0...v1.21.0) (2026-08-12)
+
+
+### Features
+
+* new upload file component ([5f71fa7](https://github.com/Droni-app/droni-kit/commit/5f71fa7b6f33db1e62676b6151801abdc4fff13d))
+
+# [1.20.0](https://github.com/Droni-app/droni-kit/compare/v1.19.0...v1.20.0) (2026-08-11)
+
+
+### Features
+
+* File Component ([7890e50](https://github.com/Droni-app/droni-kit/commit/7890e50c458dd0de6c388d90252c6c66d292d122))
+
 # [1.19.0](https://github.com/Droni-app/droni-kit/compare/v1.18.2...v1.19.0) (2026-07-07)
 
 

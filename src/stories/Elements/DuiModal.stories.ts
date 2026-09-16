@@ -73,7 +73,7 @@ const meta = {
     },
     zIndex: {
       control: { type: 'number' },
-      defaultValue: 50,
+      defaultValue: 60,
     },
   },
 } satisfies Meta<typeof DuiModal>;
@@ -137,7 +137,7 @@ export const Default: Story = {
     centered: true,
     scrollable: true,
     blurBackdrop: true,
-    zIndex: 50,
+    zIndex: 60,
   },
   render: modalRender,
   play: async ({ canvasElement }) => {
