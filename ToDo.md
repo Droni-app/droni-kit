@@ -22,7 +22,8 @@
 - [ ] File Upload (drag & drop)
 - [ ] Autocomplete / Combobox
 - [ ] Input con mascara (telefono, moneda, etc.)
-- [ ] Form Field wrapper (label + help + error + hint)
+- [x] Form Field wrapper (label + help + error + hint)
+- [x] Form container (submit, loading, disabled, slots)
 
 ## 3) Navegacion y estructura
 

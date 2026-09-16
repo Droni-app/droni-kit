@@ -130,6 +130,29 @@ Selector desplegable con opciones personalizables.
 />
 ```
 
+#### **DuiForm**
+Contenedor de formulario con gestión de estado de carga/deshabilitado, slots para cabecera y acciones, y compatibilidad con Nuxt.
+```vue
+<DuiForm :loading="isSubmitting" @submit="handleSubmit" @reset="handleReset">
+  <template #header>
+    <h2>Registro</h2>
+  </template>
+
+  <DuiLabel title="Nombre" required>
+    <DuiInput v-model="form.name" name="name" required />
+  </DuiLabel>
+
+  <DuiLabel title="Email" required>
+    <DuiInput v-model="form.email" name="email" type="email" required />
+  </DuiLabel>
+
+  <template #footer>
+    <DuiButton type="submit" color="primary">Enviar</DuiButton>
+    <DuiButton type="reset" variant="outline" color="neutral">Limpiar</DuiButton>
+  </template>
+</DuiForm>
+```
+
 ## 🎨 Sistema de Design
 
 ### Variantes
