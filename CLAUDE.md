@@ -14,7 +14,7 @@ npm run build             # vue-tsc -b (typecheck + .d.ts) then vite build -> di
 npm run preview           # Preview the production build
 npm run storybook         # Storybook dev server on port 6006
 npm run build-storybook   # Static Storybook build -> storybook-static/
-npm run test              # Vitest (runs the vitest.workspace.ts projects, incl. Storybook browser tests via Playwright)
+npm run test              # Vitest (runs the vitest.config.ts projects, incl. Storybook browser tests via Playwright)
 npm run release           # semantic-release (CI only; do not run locally)
 ```
 
@@ -22,7 +22,7 @@ There is no separate lint script; type safety is enforced via `vue-tsc -b` durin
 
 ### Tests
 
-Tests are driven by `vitest.workspace.ts`, which wires up **Storybook's Vitest addon**: every `*.stories.ts` file is executed as a browser test (Playwright + Chromium, headless) rather than there being hand-written `*.spec.ts` files. Component behavior is verified through stories, not a separate test suite. To run/filter a single component's tests, target its story file, e.g.:
+Tests are driven by `vitest.config.ts`, which wires up **Storybook's Vitest addon**: every `*.stories.ts` file is executed as a browser test (Playwright + Chromium, headless) rather than there being hand-written `*.spec.ts` files. Component behavior is verified through stories, not a separate test suite. To run/filter a single component's tests, target its story file, e.g.:
 
 ```bash
 npx vitest run -t "DuiButton"
