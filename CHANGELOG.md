@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/Droni-app/droni-kit/compare/v1.25.0...v1.25.1) (2026-09-19)
+
+
+### Bug Fixes
+
+* update dephs ([cf2d99c](https://github.com/Droni-app/droni-kit/commit/cf2d99c1c8dc791cd22c7b8abe7e1ff718acd1a7))
+
 # [1.25.0](https://github.com/Droni-app/droni-kit/compare/v1.24.3...v1.25.0) (2026-09-16)
 
 
