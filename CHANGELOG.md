@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/Droni-app/droni-kit/compare/v1.25.1...v1.26.0) (2026-09-19)
+
+
+### Features
+
+* array select in checkbox ([2374889](https://github.com/Droni-app/droni-kit/commit/2374889b8cc34461fbafb5f4fcc2432a857dcd4f))
+
 ## [1.25.1](https://github.com/Droni-app/droni-kit/compare/v1.25.0...v1.25.1) (2026-09-19)
 
 
