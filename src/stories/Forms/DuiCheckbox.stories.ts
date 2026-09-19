@@ -11,8 +11,12 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     modelValue: {
-      control: { type: 'boolean' },
-      description: 'Valor del switch (v-model)',
+      control: { type: 'object' },
+      description: 'Valor booleano o lista de valores seleccionados (v-model)',
+    },
+    value: {
+      control: { type: 'text' },
+      description: 'Valor que se agrega o elimina cuando v-model es una lista',
     },
     label: {
       control: { type: 'text' },
@@ -36,11 +40,6 @@ const meta = {
     block: {
       control: { type: 'boolean' },
       description: 'Ancho completo con espacio entre label y switch',
-    },
-    rounded: {
-      control: { type: 'select' },
-      options: ['all', 'top', 'bottom', 'left', 'right', 'none'],
-      description: 'Bordes del track',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -67,7 +66,6 @@ export const Default: Story = {
     color: 'primary',
     size: 'md',
     block: false,
-    rounded: 'all',
     disabled: false,
   },
   render: (args) => ({
@@ -151,6 +149,43 @@ export const Colors: Story = {
       await expect(track).not.toBeNull();
       await expect(track).toHaveClass(item.className);
     }
+  },
+};
+
+export const MultipleValues: Story = {
+  render: () => ({
+    components: { DuiCheckbox },
+    setup() {
+      const owners = ref(['primero'])
+      return { owners }
+    },
+    template: `
+      <div class="dk:p-4 dk:space-y-4">
+        <DuiCheckbox v-model="owners" value="primero">Primero</DuiCheckbox>
+        <DuiCheckbox v-model="owners" value="segundo">Segundo</DuiCheckbox>
+        <pre>{{ owners }}</pre>
+      </div>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const first = canvas.getByRole('checkbox', { name: 'Primero' })
+    const second = canvas.getByRole('checkbox', { name: 'Segundo' })
+
+    await expect(first).toBeChecked()
+    await expect(second).not.toBeChecked()
+
+    await userEvent.click(second)
+    await expect(second).toBeChecked()
+    const output = canvasElement.querySelector('pre')
+    await expect(output).not.toBeNull()
+    await expect(output).toHaveTextContent('primero')
+    await expect(output).toHaveTextContent('segundo')
+
+    await userEvent.click(first)
+    await expect(first).not.toBeChecked()
+    await expect(output).not.toHaveTextContent('primero')
+    await expect(output).toHaveTextContent('segundo')
   },
 };
 

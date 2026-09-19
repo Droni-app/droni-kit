@@ -8,7 +8,7 @@
       <input
         type="checkbox"
         class="dk:sr-only dk:peer"
-        :checked="modelValue"
+        :checked="isChecked"
         :disabled="disabled"
         v-bind="$attrs"
         @change="onChange"
@@ -25,14 +25,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, useSlots, type PropType } from 'vue'
 
 defineOptions({ inheritAttrs: false })
 
 const props = defineProps({
   modelValue: {
-    type: Boolean,
+    type: [Boolean, Array] as PropType<boolean | unknown[]>,
     default: false,
+  },
+  value: {
+    type: null as unknown as PropType<unknown>,
   },
   label: {
     type: String,
@@ -54,10 +57,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  rounded: {
-    type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
-    default: 'all',
-  },
   disabled: {
     type: Boolean,
     default: false,
@@ -65,10 +64,14 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void
+  (e: 'update:modelValue', value: boolean | unknown[]): void
 }>()
 
 const slots = useSlots()
+
+const isChecked = computed(() => {
+  return Array.isArray(props.modelValue) ? props.modelValue.includes(props.value) : props.modelValue
+})
 
 const sizeClasses = {
   sm: {
@@ -86,15 +89,6 @@ const sizeClasses = {
     thumb: 'dk:w-5 dk:h-5',
     translate: 'dk:peer-checked:translate-x-7',
   },
-}
-
-const roundedClasses = {
-  all: 'dk:rounded-full',
-  top: 'dk:rounded-t-full',
-  bottom: 'dk:rounded-b-full',
-  left: 'dk:rounded-l-full',
-  right: 'dk:rounded-r-full',
-  none: 'dk:rounded-none',
 }
 
 const checkedColorClasses = {
@@ -123,16 +117,14 @@ const labelClasses = computed(() => {
 
 const trackClasses = computed(() => {
   const sizeStyle = sizeClasses[props.size] || sizeClasses.md
-  const roundedStyle = roundedClasses[props.rounded] || roundedClasses.all
   const checkedStyle = checkedColorClasses[props.color] || checkedColorClasses.primary
 
   return [
-    'dk:inline-flex dk:items-center dk:transition-colors dk:duration-200',
+    'dk:inline-flex dk:items-center dk:rounded-full dk:transition-colors dk:duration-200',
     'dk:bg-zinc-300 dk:dark:bg-zinc-700',
     'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-slate-400 dk:dark:peer-focus-visible:ring-slate-500',
     'dk:peer-disabled:opacity-70',
     sizeStyle.track,
-    roundedStyle,
     checkedStyle,
   ].join(' ')
 })
@@ -151,6 +143,14 @@ const thumbClasses = computed(() => {
 
 function onChange(event: Event) {
   const target = event.target as HTMLInputElement
+
+  if (Array.isArray(props.modelValue)) {
+    const values: unknown[] = props.modelValue.filter((item) => item !== props.value)
+    if (target.checked) values.push(props.value as unknown)
+    emit('update:modelValue', values)
+    return
+  }
+
   emit('update:modelValue', target.checked)
 }
 </script>

@@ -27,6 +27,7 @@
 
     <main class="dk:max-w-7xl dk:mx-auto dk:px-4 dk:py-6 dk:space-y-6">
       <section class="dk:rounded-2xl dk:border dk:border-zinc-200 dk:dark:border-zinc-800 dk:bg-white dk:dark:bg-zinc-900 dk:p-6 dk:space-y-5">
+        <TestCheckBox />
         <div class="dk:flex dk:flex-wrap dk:items-start dk:justify-between dk:gap-4">
           <div class="dk:space-y-2">
             <h1 class="dk:text-2xl dk:font-bold">Visual de componentes</h1>
@@ -641,6 +642,7 @@ import DuiCheckbox from './stories/Forms/DuiCheckbox.vue'
 import DuiSwitch from './stories/Forms/DuiSwitch.vue'
 import DuiRadio from './stories/Forms/DuiRadio.vue'
 import { DuiConfirmation } from './index.ts'
+import TestCheckBox from './components/TestCheckBox.vue'
 
 const toast = useToast()
 const isDark = ref(false)
