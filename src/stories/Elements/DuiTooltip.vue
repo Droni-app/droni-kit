@@ -166,7 +166,7 @@ const variantClasses = {
   solid: {
     base: 'dk:border dk:shadow-lg',
     neutral: 'dk:bg-zinc-900 dk:text-zinc-100 dk:border-zinc-700 dk:dark:bg-zinc-200 dk:dark:text-zinc-900 dk:dark:border-zinc-300',
-    primary: 'dk:bg-slate-900 dk:text-slate-100 dk:border-slate-700 dk:dark:bg-slate-200 dk:dark:text-slate-900 dk:dark:border-slate-300',
+    primary: 'dk:bg-indigo-900 dk:text-indigo-100 dk:border-indigo-700 dk:dark:bg-indigo-200 dk:dark:text-indigo-900 dk:dark:border-indigo-300',
     secondary: 'dk:bg-pink-900 dk:text-pink-100 dk:border-pink-700 dk:dark:bg-pink-200 dk:dark:text-pink-900 dk:dark:border-pink-300',
     success: 'dk:bg-emerald-900 dk:text-emerald-100 dk:border-emerald-700 dk:dark:bg-emerald-200 dk:dark:text-emerald-900 dk:dark:border-emerald-300',
     warning: 'dk:bg-amber-900 dk:text-amber-100 dk:border-amber-700 dk:dark:bg-amber-200 dk:dark:text-amber-900 dk:dark:border-amber-300',
@@ -175,7 +175,7 @@ const variantClasses = {
   outline: {
     base: 'dk:border dk:shadow-md dk:bg-white/95 dk:dark:bg-zinc-900/95',
     neutral: 'dk:text-zinc-900 dk:border-zinc-300 dk:dark:text-zinc-100 dk:dark:border-zinc-600',
-    primary: 'dk:text-slate-900 dk:border-slate-400 dk:dark:text-slate-100 dk:dark:border-slate-500',
+    primary: 'dk:text-indigo-900 dk:border-indigo-400 dk:dark:text-indigo-100 dk:dark:border-indigo-500',
     secondary: 'dk:text-pink-900 dk:border-pink-400 dk:dark:text-pink-100 dk:dark:border-pink-500',
     success: 'dk:text-emerald-900 dk:border-emerald-400 dk:dark:text-emerald-100 dk:dark:border-emerald-500',
     warning: 'dk:text-amber-900 dk:border-amber-400 dk:dark:text-amber-100 dk:dark:border-amber-500',
@@ -222,16 +222,16 @@ const arrowClasses = computed(() => {
   const placement = resolvedPlacement.value
 
   const positionMap: Record<string, string> = {
-    top: 'dk:-bottom-1.5 dk:left-1/2 dk:-translate-x-1/2 dk:rotate-45',
+    top: 'dk:-bottom-1.5 dk:left-1/2 dk:-tranindigo-x-1/2 dk:rotate-45',
     'top-start': 'dk:-bottom-1.5 dk:left-3 dk:rotate-45',
     'top-end': 'dk:-bottom-1.5 dk:right-3 dk:rotate-45',
-    bottom: 'dk:-top-1.5 dk:left-1/2 dk:-translate-x-1/2 dk:rotate-45',
+    bottom: 'dk:-top-1.5 dk:left-1/2 dk:-tranindigo-x-1/2 dk:rotate-45',
     'bottom-start': 'dk:-top-1.5 dk:left-3 dk:rotate-45',
     'bottom-end': 'dk:-top-1.5 dk:right-3 dk:rotate-45',
-    left: 'dk:-right-1.5 dk:top-1/2 dk:-translate-y-1/2 dk:rotate-45',
+    left: 'dk:-right-1.5 dk:top-1/2 dk:-tranindigo-y-1/2 dk:rotate-45',
     'left-start': 'dk:-right-1.5 dk:top-3 dk:rotate-45',
     'left-end': 'dk:-right-1.5 dk:bottom-3 dk:rotate-45',
-    right: 'dk:-left-1.5 dk:top-1/2 dk:-translate-y-1/2 dk:rotate-45',
+    right: 'dk:-left-1.5 dk:top-1/2 dk:-tranindigo-y-1/2 dk:rotate-45',
     'right-start': 'dk:-left-1.5 dk:top-3 dk:rotate-45',
     'right-end': 'dk:-left-1.5 dk:bottom-3 dk:rotate-45',
   }

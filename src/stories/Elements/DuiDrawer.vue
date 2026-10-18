@@ -136,10 +136,10 @@ const positionClasses = {
 
 const transitionClasses = computed(() => {
   const offscreen = {
-    left: 'dk:-translate-x-full',
-    right: 'dk:translate-x-full',
-    top: 'dk:-translate-y-full',
-    bottom: 'dk:translate-y-full',
+    left: 'dk:-tranindigo-x-full',
+    right: 'dk:tranindigo-x-full',
+    top: 'dk:-tranindigo-y-full',
+    bottom: 'dk:tranindigo-y-full',
   }[props.position]
 
   return {
@@ -153,7 +153,7 @@ const variantClasses = {
   solid: {
     base: 'dk:border dk:shadow-xl',
     neutral: 'dk:bg-white dk:text-zinc-900 dk:border-zinc-200 dk:dark:bg-zinc-900 dk:dark:text-zinc-100 dk:dark:border-zinc-700',
-    primary: 'dk:bg-slate-50 dk:text-slate-900 dk:border-slate-200 dk:dark:bg-slate-900 dk:dark:text-slate-100 dk:dark:border-slate-700',
+    primary: 'dk:bg-indigo-50 dk:text-indigo-900 dk:border-indigo-200 dk:dark:bg-indigo-900 dk:dark:text-indigo-100 dk:dark:border-indigo-700',
     secondary: 'dk:bg-pink-50 dk:text-pink-900 dk:border-pink-200 dk:dark:bg-pink-900 dk:dark:text-pink-100 dk:dark:border-pink-700',
     success: 'dk:bg-emerald-50 dk:text-emerald-900 dk:border-emerald-200 dk:dark:bg-emerald-900 dk:dark:text-emerald-100 dk:dark:border-emerald-700',
     warning: 'dk:bg-amber-50 dk:text-amber-900 dk:border-amber-200 dk:dark:bg-amber-900 dk:dark:text-amber-100 dk:dark:border-amber-700',
@@ -162,7 +162,7 @@ const variantClasses = {
   outline: {
     base: 'dk:border-2 dk:shadow-lg dk:bg-white/95 dk:dark:bg-zinc-900/95',
     neutral: 'dk:text-zinc-900 dk:border-zinc-300 dk:dark:text-zinc-100 dk:dark:border-zinc-600',
-    primary: 'dk:text-slate-900 dk:border-slate-400 dk:dark:text-slate-100 dk:dark:border-slate-500',
+    primary: 'dk:text-indigo-900 dk:border-indigo-400 dk:dark:text-indigo-100 dk:dark:border-indigo-500',
     secondary: 'dk:text-pink-900 dk:border-pink-400 dk:dark:text-pink-100 dk:dark:border-pink-500',
     success: 'dk:text-emerald-900 dk:border-emerald-400 dk:dark:text-emerald-100 dk:dark:border-emerald-500',
     warning: 'dk:text-amber-900 dk:border-amber-400 dk:dark:text-amber-100 dk:dark:border-amber-500',
@@ -171,7 +171,7 @@ const variantClasses = {
   ghost: {
     base: 'dk:border dk:shadow-xl dk:backdrop-blur-md',
     neutral: 'dk:bg-white/85 dk:text-zinc-900 dk:border-zinc-300/70 dk:dark:bg-zinc-900/75 dk:dark:text-zinc-100 dk:dark:border-zinc-600/60',
-    primary: 'dk:bg-slate-100/85 dk:text-slate-900 dk:border-slate-300/70 dk:dark:bg-slate-900/70 dk:dark:text-slate-100 dk:dark:border-slate-600/60',
+    primary: 'dk:bg-indigo-100/85 dk:text-indigo-900 dk:border-indigo-300/70 dk:dark:bg-indigo-900/70 dk:dark:text-indigo-100 dk:dark:border-indigo-600/60',
     secondary: 'dk:bg-pink-100/85 dk:text-pink-900 dk:border-pink-300/70 dk:dark:bg-pink-900/70 dk:dark:text-pink-100 dk:dark:border-pink-600/60',
     success: 'dk:bg-emerald-100/85 dk:text-emerald-900 dk:border-emerald-300/70 dk:dark:bg-emerald-900/70 dk:dark:text-emerald-100 dk:dark:border-emerald-600/60',
     warning: 'dk:bg-amber-100/85 dk:text-amber-900 dk:border-amber-300/70 dk:dark:bg-amber-900/70 dk:dark:text-amber-100 dk:dark:border-amber-600/60',

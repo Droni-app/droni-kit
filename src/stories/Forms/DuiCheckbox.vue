@@ -13,9 +13,16 @@
         v-bind="$attrs"
         @change="onChange"
       />
-
-      <span :class="trackClasses" />
-      <span :class="thumbClasses" />
+      <span :class="boxClasses">
+        <svg
+          v-if="isChecked"
+          viewBox="0 0 12 12"
+          fill="none"
+          aria-hidden="true"
+          class="dk:h-full dk:w-full dk:text-white dk:pointer-events-none">
+          <path d="M2.5 6.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
     </span>
 
     <span v-if="hasLabel && labelPosition === 'right'" :class="labelClasses">
@@ -25,42 +32,33 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useSlots, type PropType } from 'vue'
+import { computed, useSlots } from 'vue'
+import { cn } from '../../utils/cn'
+import { peerCheckedAccent } from '../../theme/tokens'
+import type { DuiColor, DuiSize } from '../../theme/tokens'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps({
-  modelValue: {
-    type: [Boolean, Array] as PropType<boolean | unknown[]>,
-    default: false,
-  },
-  value: {
-    type: null as unknown as PropType<unknown>,
-  },
-  label: {
-    type: String,
-    default: '',
-  },
-  labelPosition: {
-    type: String as () => 'left' | 'right',
-    default: 'right',
-  },
-  color: {
-    type: String as () => 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger',
-    default: 'primary',
-  },
-  size: {
-    type: String as () => 'sm' | 'md' | 'lg',
-    default: 'md',
-  },
-  block: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+export interface DuiCheckboxProps {
+  modelValue?: boolean | unknown[]
+  value?: unknown
+  label?: string
+  labelPosition?: 'left' | 'right'
+  color?: DuiColor
+  size?: DuiSize
+  block?: boolean
+  disabled?: boolean
+}
+
+const props = withDefaults(defineProps<DuiCheckboxProps>(), {
+  modelValue: false,
+  value: undefined,
+  label: '',
+  labelPosition: 'right',
+  color: 'primary',
+  size: 'md',
+  block: false,
+  disabled: false,
 })
 
 const emit = defineEmits<{
@@ -73,31 +71,10 @@ const isChecked = computed(() => {
   return Array.isArray(props.modelValue) ? props.modelValue.includes(props.value) : props.modelValue
 })
 
-const sizeClasses = {
-  sm: {
-    track: 'dk:w-9 dk:h-5',
-    thumb: 'dk:w-3.5 dk:h-3.5',
-    translate: 'dk:peer-checked:translate-x-[14px]',
-  },
-  md: {
-    track: 'dk:w-11 dk:h-6',
-    thumb: 'dk:w-4 dk:h-4',
-    translate: 'dk:peer-checked:translate-x-5',
-  },
-  lg: {
-    track: 'dk:w-14 dk:h-7',
-    thumb: 'dk:w-5 dk:h-5',
-    translate: 'dk:peer-checked:translate-x-7',
-  },
-}
-
-const checkedColorClasses = {
-  neutral: 'dk:peer-checked:bg-zinc-500 dk:peer-checked:dark:bg-zinc-500',
-  primary: 'dk:peer-checked:bg-slate-600 dk:peer-checked:dark:bg-slate-500',
-  secondary: 'dk:peer-checked:bg-pink-600 dk:peer-checked:dark:bg-pink-500',
-  success: 'dk:peer-checked:bg-emerald-600 dk:peer-checked:dark:bg-emerald-500',
-  warning: 'dk:peer-checked:bg-amber-500 dk:peer-checked:dark:bg-amber-400',
-  danger: 'dk:peer-checked:bg-rose-600 dk:peer-checked:dark:bg-rose-500',
+const sizeClasses: Record<DuiSize, { box: string; label: string }> = {
+  sm: { box: 'dk:w-4 dk:h-4', label: 'dk:text-sm' },
+  md: { box: 'dk:w-5 dk:h-5', label: 'dk:text-sm' },
+  lg: { box: 'dk:w-6 dk:h-6', label: 'dk:text-base' },
 }
 
 const hasLabel = computed(() => Boolean(props.label || slots.default))
@@ -105,52 +82,40 @@ const hasLabel = computed(() => Boolean(props.label || slots.default))
 const wrapperClasses = computed(() => {
   const blockStyle = props.block ? 'dk:w-full dk:justify-between' : ''
   const disabledStyle = props.disabled ? 'dk:opacity-60 dk:cursor-not-allowed' : 'dk:cursor-pointer'
-  return ['dk:inline-flex dk:items-center dk:gap-3 dk:select-none', blockStyle, disabledStyle].join(' ')
+  return cn('dk:inline-flex dk:items-center dk:gap-2.5 dk:select-none', blockStyle, disabledStyle)
 })
 
 const labelClasses = computed(() => {
-  return [
-    'dk:text-sm dk:leading-none dk:text-zinc-700 dk:dark:text-zinc-200',
+  return cn(
+    'dk:leading-none dk:text-zinc-700 dk:dark:text-zinc-200',
+    sizeClasses[props.size].label,
     props.disabled ? 'dk:cursor-not-allowed' : 'dk:cursor-pointer',
-  ].join(' ')
+  )
 })
 
-const trackClasses = computed(() => {
-  const sizeStyle = sizeClasses[props.size] || sizeClasses.md
-  const checkedStyle = checkedColorClasses[props.color] || checkedColorClasses.primary
-
-  return [
-    'dk:inline-flex dk:items-center dk:rounded-full dk:transition-colors dk:duration-200',
-    'dk:bg-zinc-300 dk:dark:bg-zinc-700',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-slate-400 dk:dark:peer-focus-visible:ring-slate-500',
+const boxClasses = computed(() => {
+  const size = sizeClasses[props.size].box
+  const accent = peerCheckedAccent[props.color] || peerCheckedAccent.primary
+  return cn(
+    'dk:inline-flex dk:items-center dk:justify-center dk:rounded dk:border',
+    'dk:border-zinc-300 dk:bg-white dk:dark:border-zinc-600 dk:dark:bg-zinc-900',
+    'dk:transition-colors dk:duration-150',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-indigo-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
     'dk:peer-disabled:opacity-70',
-    sizeStyle.track,
-    checkedStyle,
-  ].join(' ')
-})
-
-const thumbClasses = computed(() => {
-  const sizeStyle = sizeClasses[props.size] || sizeClasses.md
-  return [
-    'dk:absolute dk:left-1 dk:top-1/2 dk:-translate-y-1/2',
-    'dk:bg-white dk:dark:bg-zinc-100',
-    'dk:rounded-full dk:shadow-sm dk:transition-transform dk:duration-200',
-    'dk:pointer-events-none',
-    sizeStyle.thumb,
-    sizeStyle.translate,
-  ].join(' ')
+    size,
+    accent,
+  )
 })
 
 function onChange(event: Event) {
   const target = event.target as HTMLInputElement
-
   if (Array.isArray(props.modelValue)) {
     const values: unknown[] = props.modelValue.filter((item) => item !== props.value)
     if (target.checked) values.push(props.value as unknown)
     emit('update:modelValue', values)
     return
   }
-
   emit('update:modelValue', target.checked)
 }
 </script>
+

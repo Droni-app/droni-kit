@@ -6,7 +6,7 @@
         :class="listClasses"
         enter-active-class="dk:transition-all dk:duration-300 dk:ease-out"
         leave-active-class="dk:transition-all dk:duration-200 dk:ease-in dk:absolute dk:w-full"
-        enter-from-class="dk:opacity-0 dk:translate-y-2 dk:scale-95"
+        enter-from-class="dk:opacity-0 dk:tranindigo-y-2 dk:scale-95"
         leave-to-class="dk:opacity-0 dk:scale-95"
         move-class="dk:transition-all dk:duration-300">
         <div
@@ -58,10 +58,10 @@ const toasts = computed(() => allToasts.slice(0, props.maxToasts))
 const positionClasses: Record<ToastPosition, string> = {
   'top-right': 'dk:top-4 dk:right-4 dk:items-end',
   'top-left': 'dk:top-4 dk:left-4 dk:items-start',
-  'top-center': 'dk:top-4 dk:left-1/2 dk:-translate-x-1/2 dk:items-center',
+  'top-center': 'dk:top-4 dk:left-1/2 dk:-tranindigo-x-1/2 dk:items-center',
   'bottom-right': 'dk:bottom-4 dk:right-4 dk:items-end',
   'bottom-left': 'dk:bottom-4 dk:left-4 dk:items-start',
-  'bottom-center': 'dk:bottom-4 dk:left-1/2 dk:-translate-x-1/2 dk:items-center',
+  'bottom-center': 'dk:bottom-4 dk:left-1/2 dk:-tranindigo-x-1/2 dk:items-center',
 }
 
 const containerClasses = computed(() => {
@@ -83,7 +83,7 @@ const listClasses = computed(() => {
 
 const colorMap: Record<ToastColor, string> = {
   neutral: 'dk:bg-zinc-800 dk:dark:bg-zinc-700 dk:text-white dk:border-zinc-600',
-  primary: 'dk:bg-slate-700 dk:dark:bg-slate-700 dk:text-white dk:border-slate-500',
+  primary: 'dk:bg-indigo-700 dk:dark:bg-indigo-700 dk:text-white dk:border-indigo-500',
   secondary: 'dk:bg-pink-600 dk:dark:bg-pink-700 dk:text-white dk:border-pink-400',
   success: 'dk:bg-emerald-600 dk:dark:bg-emerald-700 dk:text-white dk:border-emerald-400',
   warning: 'dk:bg-amber-600 dk:dark:bg-amber-700 dk:text-white dk:border-amber-400',
@@ -92,7 +92,7 @@ const colorMap: Record<ToastColor, string> = {
 
 const dotMap: Record<ToastColor, string> = {
   neutral: 'dk:bg-zinc-300',
-  primary: 'dk:bg-slate-300',
+  primary: 'dk:bg-indigo-300',
   secondary: 'dk:bg-pink-200',
   success: 'dk:bg-emerald-200',
   warning: 'dk:bg-amber-200',

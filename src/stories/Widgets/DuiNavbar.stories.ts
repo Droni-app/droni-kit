@@ -627,7 +627,7 @@ export const UnderlineColorPrimary: Story = {
             Primary Underline Color
           </h1>
           <p class="dk:text-gray-600 dk:dark:text-gray-400">
-            The menu items use a primary slate color for the underline effect.
+            The menu items use a primary indigo color for the underline effect.
           </p>
         </div>
       </div>

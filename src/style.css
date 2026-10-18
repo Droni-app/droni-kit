@@ -5,3 +5,8 @@
 .mdi {
   font-size: 0.9em;
 }
+/* ── Keyframes globales DroniKit (Skeleton shimmer) ─────────────────────── */
+@keyframes dui-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}

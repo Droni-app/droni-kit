@@ -66,3 +66,11 @@ export {
   DuiNavbar,
   useToast
 }
+// ── Tipos compartidos (v2) ────────────────────────────────────────────────
+export type {
+  DuiColor,
+  DuiVariant,
+  DuiSize,
+} from './theme/tokens'
+export { normalizeSize, radiusClasses, controlSizeClasses } from './theme/tokens'
+export type { DuiRounded, RouteTo, RouteLocationRaw } from './types'

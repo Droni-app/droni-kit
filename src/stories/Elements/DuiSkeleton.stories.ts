@@ -154,7 +154,7 @@ export const LoadingToggle: Story = {
     template: `
       <div class="dk:p-4 dk:max-w-sm dk:space-y-4">
         <button
-          class="dk:px-3 dk:py-1.5 dk:text-sm dk:rounded-lg dk:bg-slate-600 dk:text-white dk:hover:bg-slate-700 dk:transition-colors"
+          class="dk:px-3 dk:py-1.5 dk:text-sm dk:rounded-lg dk:bg-indigo-600 dk:text-white dk:hover:bg-indigo-700 dk:transition-colors"
           @click="loading = !loading">
           {{ loading ? 'Mostrar contenido' : 'Mostrar skeleton' }}
         </button>
@@ -165,7 +165,7 @@ export const LoadingToggle: Story = {
           <DuiSkeleton variant="text" width="70%" />
         </div>
         <div v-else class="dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:p-4 dk:space-y-2">
-          <div class="dk:bg-slate-100 dk:dark:bg-slate-800 dk:rounded-lg dk:h-[120px] dk:flex dk:items-center dk:justify-center dk:text-zinc-400">
+          <div class="dk:bg-zinc-100 dk:dark:bg-zinc-800 dk:rounded-lg dk:h-[120px] dk:flex dk:items-center dk:justify-center dk:text-zinc-400">
             Imagen del producto
           </div>
           <p class="dk:text-sm dk:font-semibold dk:text-zinc-900 dk:dark:text-zinc-100">Producto Premium</p>

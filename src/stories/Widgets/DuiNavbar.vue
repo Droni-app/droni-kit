@@ -1,18 +1,15 @@
 <template>
   <nav :class="navbarClasses">
-    <!-- Brand/Logo -->
     <div v-if="$slots.brand" class="dk:flex dk:items-center dk:gap-4 dk:flex-shrink-0">
       <slot name="brand"></slot>
     </div>
 
-    <!-- Desktop menu wrapper -->
     <div class="dk:hidden dk:md:flex dk:items-center dk:flex-1">
       <div :class="desktopMenuClasses">
         <template v-for="item in items" :key="item.label">
           <div
             v-if="item.children && item.children.length > 0"
             class="dk:relative dk:group">
-            <!-- Item with dropdown -->
             <component
               :is="getComponentType(item)"
               v-bind="getComponentProps(item)"
@@ -24,16 +21,11 @@
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </component>
-            
-            <!-- Dropdown menu -->
-            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:py-2 dk:mt-1 dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:bg-none dk:dark:bg-zinc-900 dk:backdrop-blur-md dk:shadow-lg dk:border dk:border-white/40 dk:dark:border-zinc-800 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50">
+
+            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:py-2 dk:mt-1 dk:bg-white dk:dark:bg-zinc-900 dk:shadow-lg dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50 dk:rounded-lg">
               <component
                 v-for="child in item.children"
                 :key="child.label"
@@ -45,8 +37,7 @@
               </component>
             </div>
           </div>
-          
-          <!-- Regular item -->
+
           <component
             v-else
             :is="getComponentType(item)"
@@ -59,18 +50,16 @@
       </div>
     </div>
 
-    <!-- Actions slot -->
     <div v-if="$slots.actions" class="dk:hidden dk:md:flex dk:items-center dk:gap-2 dk:flex-shrink-0">
       <slot name="actions"></slot>
     </div>
 
-    <!-- Mobile hamburger menu button -->
     <button
       type="button"
       @click="toggleMobileMenu"
-      class="dk:md:hidden dk:ml-auto dk:flex-shrink-0 dk:p-2 dk:rounded-md dk:hover:bg-gray-100 dk:dark:hover:bg-gray-700 dk:transition-colors">
+      class="dk:md:hidden dk:ml-auto dk:flex-shrink-0 dk:p-2 dk:rounded-md dk:hover:bg-zinc-100 dk:dark:hover:bg-zinc-800 dk:transition-colors">
       <svg
-        class="dk:w-6 dk:h-6 dk:stroke-gray-900 dk:dark:stroke-white"
+        class="dk:w-6 dk:h-6 dk:stroke-zinc-900 dk:dark:stroke-white"
         fill="none"
         viewBox="0 0 24 24">
         <path
@@ -81,13 +70,11 @@
       </svg>
     </button>
 
-    <!-- Mobile menu -->
     <div
       v-show="mobileMenuOpen"
-      class="dk:md:hidden dk:absolute dk:top-full dk:left-0 dk:w-full dk:bg-gradient-to-b dk:from-white/95 dk:to-gray-50/95 dk:dark:bg-none dk:dark:bg-zinc-900 dk:backdrop-blur-md dk:border-t dk:border-white/40 dk:dark:border-zinc-800 dk:shadow-lg dk:dark:shadow-black/30 dk:z-40">
+      class="dk:md:hidden dk:absolute dk:top-full dk:left-0 dk:w-full dk:bg-white dk:dark:bg-zinc-900 dk:border-t dk:border-zinc-200 dk:dark:border-zinc-800 dk:shadow-lg dk:z-40">
       <div class="dk:px-4 dk:py-3 dk:space-y-2">
         <template v-for="item in items" :key="item.label">
-          <!-- Item with children -->
           <div v-if="item.children && item.children.length > 0">
             <button
               type="button"
@@ -102,18 +89,11 @@
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            
-            <!-- Mobile submenu -->
-            <div
-              v-show="mobileSubmenus[item.label]"
-              class="dk:ml-4 dk:mt-2 dk:space-y-1">
+
+            <div v-show="mobileSubmenus[item.label]" class="dk:ml-4 dk:mt-2 dk:space-y-1">
               <component
                 v-for="child in item.children"
                 :key="child.label"
@@ -126,8 +106,7 @@
               </component>
             </div>
           </div>
-          
-          <!-- Regular mobile item -->
+
           <component
             v-else
             :is="getComponentType(item)"
@@ -138,9 +117,8 @@
             {{ item.label }}
           </component>
         </template>
-        
-        <!-- Mobile actions -->
-        <div v-if="$slots.actions" class="dk:pt-3 dk:border-t dk:border-white/20 dk:dark:border-white/10">
+
+        <div v-if="$slots.actions" class="dk:pt-3 dk:border-t dk:border-zinc-200 dk:dark:border-zinc-800">
           <slot name="actions"></slot>
         </div>
       </div>
@@ -151,6 +129,10 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
+import { cn } from '../../utils/cn'
+import { normalizeSize } from '../../theme/tokens'
+import type { DuiSize } from '../../theme/tokens'
+import type { DuiColor } from '../../theme/tokens'
 
 export interface NavbarItem {
   label: string
@@ -162,183 +144,110 @@ export interface NavbarItem {
 
 export interface DuiNavbarProps {
   items?: NavbarItem[]
-  size?: 's' | 'm' | 'l'
-
+  /** Acepta sm|md|lg y los alias legacy s|m|l */
+  size?: DuiSize | 's' | 'm' | 'l'
   itemsAlignment?: 'left' | 'center' | 'right'
-  underlineColor?: 'neutral' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning'
+  underlineColor?: DuiColor
 }
 
 const props = withDefaults(defineProps<DuiNavbarProps>(), {
   items: () => [],
-  size: 'm',
-
+  size: 'md',
   itemsAlignment: 'left',
-  underlineColor: 'primary'
+  underlineColor: 'primary',
 })
 
 const mobileMenuOpen = ref(false)
 const mobileSubmenus = reactive<Record<string, boolean>>({})
 
-const getComponentType = (item: NavbarItem) => {
-  return getRouterComponentType(item.to)
-}
+const normalizedSize = computed(() => normalizeSize(props.size))
 
+const getComponentType = (item: NavbarItem) => getRouterComponentType(item.to)
 const getComponentProps = (item: NavbarItem) => {
   const componentType = getComponentType(item)
   return getRouterComponentProps(item.to, componentType)
 }
 
-const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value
-}
-
+const toggleMobileMenu = () => { mobileMenuOpen.value = !mobileMenuOpen.value }
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false
-  // Reset submenus
-  Object.keys(mobileSubmenus).forEach(key => {
-    mobileSubmenus[key] = false
-  })
+  Object.keys(mobileSubmenus).forEach(key => { mobileSubmenus[key] = false })
 }
+const toggleMobileSubmenu = (itemLabel: string) => { mobileSubmenus[itemLabel] = !mobileSubmenus[itemLabel] }
 
-const toggleMobileSubmenu = (itemLabel: string) => {
-  mobileSubmenus[itemLabel] = !mobileSubmenus[itemLabel]
-}
-
-// Size configurations
-const sizeConfig = {
-  s: {
-    height: 'dk:h-12',
-    padding: 'dk:px-3',
-    text: 'dk:text-sm',
-    itemPadding: 'dk:px-2 dk:py-1.5'
-  },
-  m: {
-    height: 'dk:h-16',
-    padding: 'dk:px-4',
-    text: 'dk:text-base',
-    itemPadding: 'dk:px-3 dk:py-2'
-  },
-  l: {
-    height: 'dk:h-20',
-    padding: 'dk:px-6',
-    text: 'dk:text-lg',
-    itemPadding: 'dk:px-4 dk:py-3'
-  }
+const sizeConfig: Record<DuiSize, { height: string; padding: string; text: string; itemPadding: string }> = {
+  sm: { height: 'dk:h-12', padding: 'dk:px-3', text: 'dk:text-sm', itemPadding: 'dk:px-2 dk:py-1.5' },
+  md: { height: 'dk:h-16', padding: 'dk:px-4', text: 'dk:text-base', itemPadding: 'dk:px-3 dk:py-2' },
+  lg: { height: 'dk:h-20', padding: 'dk:px-6', text: 'dk:text-lg', itemPadding: 'dk:px-4 dk:py-3' },
 }
 
 const navbarClasses = computed(() => {
-  const config = sizeConfig[props.size]
-  
-  return [
-    'dk:relative',
-    'dk:bg-gradient-to-b dk:from-white/80 dk:via-white/70 dk:to-gray-50/80',
-    'dk:dark:bg-none dk:dark:bg-zinc-900',
-    'dk:backdrop-blur-md dk:backdrop-brightness-110 dk:dark:backdrop-filter-none',
-    'dk:border-b dk:border-white/40 dk:dark:border-zinc-800',
-    'dk:shadow-lg dk:shadow-black/10 dk:dark:shadow-black/30',
-    // Borde superior iluminado (solo en light)
-    'dk:before:absolute dk:before:top-0 dk:before:left-0 dk:before:right-0 dk:before:h-0.5',
-    'dk:before:bg-gradient-to-r dk:before:from-white/60 dk:before:via-white/40 dk:before:to-transparent',
-    'dk:dark:before:hidden',
-    'dk:flex dk:items-center dk:w-full dk:gap-4',
+  const config = sizeConfig[normalizedSize.value]
+  return cn(
+    'dk:relative dk:flex dk:items-center dk:w-full dk:gap-4',
+    'dk:bg-white/80 dk:dark:bg-zinc-900/80 dk:backdrop-blur-md',
+    'dk:border-b dk:border-zinc-200 dk:dark:border-zinc-800',
     config.height,
     config.padding,
-    config.text
-  ].join(' ')
+    config.text,
+  )
 })
 
 const desktopMenuClasses = computed(() => {
-  const alignmentClasses = {
-    left: 'dk:justify-start',
-    center: 'dk:justify-center',
-    right: 'dk:justify-end'
-  }
-  
-  return [
-    'dk:flex dk:items-center dk:space-x-1 dk:flex-1',
-    alignmentClasses[props.itemsAlignment]
-  ].join(' ')
+  const alignmentClasses = { left: 'dk:justify-start', center: 'dk:justify-center', right: 'dk:justify-end' }
+  return cn('dk:flex dk:items-center dk:space-x-1 dk:flex-1', alignmentClasses[props.itemsAlignment])
 })
 
-const getUnderlineColorClasses = () => {
-  const colorMap = {
-    neutral: 'dk:before:from-zinc-500 dk:before:to-zinc-600 dk:dark:before:from-zinc-400 dk:dark:before:to-zinc-500',
-    primary: 'dk:before:from-slate-600 dk:before:to-slate-700 dk:dark:before:from-slate-400 dk:dark:before:to-slate-500',
-    secondary: 'dk:before:from-pink-500 dk:before:to-pink-600 dk:dark:before:from-pink-400 dk:dark:before:to-pink-500',
-    success: 'dk:before:from-emerald-500 dk:before:to-emerald-600 dk:dark:before:from-emerald-400 dk:dark:before:to-emerald-500',
-    danger: 'dk:before:from-rose-500 dk:before:to-rose-600 dk:dark:before:from-rose-400 dk:dark:before:to-rose-500',
-    warning: 'dk:before:from-amber-500 dk:before:to-amber-600 dk:dark:before:from-amber-400 dk:dark:before:to-amber-500'
-  }
-  return colorMap[props.underlineColor] || colorMap.primary
+const underlineColors: Record<DuiColor, string> = {
+  neutral: 'dk:before:from-zinc-500 dk:before:to-zinc-600 dk:dark:before:from-zinc-400 dk:dark:before:to-zinc-500',
+  primary: 'dk:before:from-indigo-600 dk:before:to-indigo-700 dk:dark:before:from-indigo-400 dk:dark:before:to-indigo-500',
+  secondary: 'dk:before:from-pink-500 dk:before:to-pink-600 dk:dark:before:from-pink-400 dk:dark:before:to-pink-500',
+  success: 'dk:before:from-emerald-500 dk:before:to-emerald-600 dk:dark:before:from-emerald-400 dk:dark:before:to-emerald-500',
+  danger: 'dk:before:from-rose-500 dk:before:to-rose-600 dk:dark:before:from-rose-400 dk:dark:before:to-rose-500',
+  warning: 'dk:before:from-amber-500 dk:before:to-amber-600 dk:dark:before:from-amber-400 dk:dark:before:to-amber-500',
 }
 
-const itemClasses = computed(() => {
-  const config = sizeConfig[props.size]
-  const underlineColors = getUnderlineColorClasses()
-  return (item: NavbarItem, hasDropdown: boolean = true) => {
-    const isActive = item.active ?? false
-    // Reduce left padding by 1 if no dropdown (no chevron)
-    const leftPadding = hasDropdown ? 'dk:pl-3' : 'dk:pl-2'
-    const rightPadding = 'dk:pr-3'
-    const smallLeftPadding = hasDropdown ? 'dk:pl-2' : 'dk:pl-1'
-    const smallRightPadding = 'dk:pr-2'
-    const largeLeftPadding = hasDropdown ? 'dk:pl-4' : 'dk:pl-3'
-    const largeRightPadding = 'dk:pr-4'
-    
-    let paddingClasses = ''
-    if (config.itemPadding.includes('px-2')) {
-      paddingClasses = `${smallLeftPadding} ${smallRightPadding} dk:py-1.5`
-    } else if (config.itemPadding.includes('px-4')) {
-      paddingClasses = `${largeLeftPadding} ${largeRightPadding} dk:py-3`
-    } else {
-      paddingClasses = `${leftPadding} ${rightPadding} dk:py-2`
-    }
-    
-    return [
-      // Block style with animated underline
-      'dk:flex dk:items-center dk:relative dk:transition-all dk:duration-300',
-      'dk:text-gray-700 dk:hover:text-gray-900 dk:dark:text-gray-300 dk:dark:hover:text-gray-100',
-      'dk:focus:outline-none dk:focus:ring-2 dk:focus:ring-blue-400 dk:focus:ring-opacity-50 dk:dark:focus:ring-blue-300',
-      'dk:no-underline',
-      // Animated underline effect
-      'dk:before:absolute dk:before:bottom-0 dk:before:left-0 dk:before:h-0.5',
-      'dk:before:bg-gradient-to-r',
-      underlineColors,
-      'dk:before:transition-all dk:before:duration-300',
-      isActive ? 'dk:before:w-full dk:text-gray-900 dk:dark:text-gray-100' : 'dk:before:w-0 dk:hover:before:w-full',
-      paddingClasses
-    ].join(' ')
-  }
-})
+function itemClasses(item: NavbarItem, hasDropdown: boolean = true) {
+  const config = sizeConfig[normalizedSize.value]
+  const underlineColorsStr = underlineColors[props.underlineColor] || underlineColors.primary
+  const isActive = item.active ?? false
+  const padding = hasDropdown ? 'dk:pl-3 dk:pr-3' : 'dk:pl-2 dk:pr-2'
+  return cn(
+    'dk:flex dk:items-center dk:relative dk:transition-all dk:duration-200',
+    'dk:text-zinc-600 dk:hover:text-zinc-900 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100',
+    'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-indigo-500/50',
+    'dk:no-underline',
+    'dk:before:absolute dk:before:bottom-0 dk:before:left-0 dk:before:h-0.5 dk:before:bg-gradient-to-r',
+    underlineColorsStr,
+    'dk:before:transition-all dk:before:duration-200',
+    isActive ? 'dk:before:w-full dk:text-zinc-900 dk:dark:text-zinc-100' : 'dk:before:w-0 dk:hover:before:w-full',
+    config.itemPadding,
+    padding,
+  )
+}
 
 const dropdownItemClasses = computed(() => {
-  return [
+  return cn(
     'dk:block dk:w-full dk:text-left dk:px-4 dk:py-2 dk:text-sm dk:whitespace-nowrap',
-    'dk:text-gray-700 dk:hover:text-gray-900 dk:hover:bg-white/50 dk:dark:hover:bg-white/10',
-    'dk:dark:text-gray-300 dk:dark:hover:text-gray-100',
-    'dk:transition-all dk:duration-200 dk:no-underline',
-    'dk:border-l-2 dk:border-transparent dk:hover:border-blue-500'
-  ].join(' ')
+    'dk:text-zinc-700 dk:hover:text-zinc-900 dk:hover:bg-zinc-100 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100 dk:dark:hover:bg-zinc-800',
+    'dk:transition-all dk:duration-150 dk:no-underline',
+  )
 })
 
 const mobileItemClasses = computed(() => {
-  return [
-    'dk:flex dk:items-center dk:justify-start dk:w-full dk:text-left dk:px-3 dk:py-2',
-    'dk:text-gray-700 dk:hover:text-gray-900 dk:rounded-lg',
-    'dk:bg-white/10 dk:hover:bg-white/25 dk:dark:bg-white/5 dk:dark:hover:bg-white/15',
-    'dk:dark:text-gray-300 dk:dark:hover:text-gray-100',
-    'dk:border dk:border-white/20 dk:dark:border-white/10 dk:hover:border-white/40 dk:dark:hover:border-white/20',
-    'dk:transition-all dk:duration-200 dk:no-underline'
-  ].join(' ')
+  return cn(
+    'dk:flex dk:items-center dk:justify-start dk:w-full dk:text-left dk:px-3 dk:py-2 dk:rounded-lg',
+    'dk:text-zinc-700 dk:hover:text-zinc-900 dk:hover:bg-zinc-100 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100 dk:dark:hover:bg-zinc-800',
+    'dk:transition-all dk:duration-150 dk:no-underline',
+  )
 })
 
 const mobileSubItemClasses = computed(() => {
-  return [
+  return cn(
     'dk:block dk:w-full dk:text-left dk:px-3 dk:py-2 dk:text-sm dk:rounded-lg',
-    'dk:text-gray-600 dk:hover:text-gray-800 dk:hover:bg-white/30 dk:dark:hover:bg-white/10',
-    'dk:dark:text-gray-400 dk:dark:hover:text-gray-200',
-    'dk:border-l-2 dk:border-transparent dk:hover:border-blue-500',
-    'dk:transition-all dk:duration-200 dk:no-underline'
-  ].join(' ')
+    'dk:text-zinc-600 dk:hover:text-zinc-800 dk:hover:bg-zinc-100 dk:dark:text-zinc-400 dk:dark:hover:text-zinc-200 dk:dark:hover:bg-zinc-800',
+    'dk:transition-all dk:duration-150 dk:no-underline',
+  )
 })
 </script>
+

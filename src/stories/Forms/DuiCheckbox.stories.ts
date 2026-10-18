@@ -30,12 +30,12 @@ const meta = {
     color: {
       control: { type: 'select' },
       options: ['neutral', 'primary', 'secondary', 'success', 'warning', 'danger'],
-      description: 'Color del switch cuando esta activo',
+      description: 'Color del checkbox cuando esta activo',
     },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      description: 'Tamano del switch',
+      description: 'Tamano del checkbox',
     },
     block: {
       control: { type: 'boolean' },
@@ -49,7 +49,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Checkbox tipo switch con soporte de modo oscuro, tamanos y variaciones de color.',
+        component: 'Checkbox real con soporte de modo oscuro, tamanos y variaciones de color.',
       },
     },
   },
@@ -133,8 +133,8 @@ export const Colors: Story = {
     const canvas = within(canvasElement);
 
     const cases = [
-      { label: 'Neutral', className: 'dk:peer-checked:bg-zinc-500' },
-      { label: 'Primary', className: 'dk:peer-checked:bg-slate-600' },
+      { label: 'Neutral', className: 'dk:peer-checked:bg-zinc-600' },
+      { label: 'Primary', className: 'dk:peer-checked:bg-indigo-600' },
       { label: 'Secondary', className: 'dk:peer-checked:bg-pink-600' },
       { label: 'Success', className: 'dk:peer-checked:bg-emerald-600' },
       { label: 'Warning', className: 'dk:peer-checked:bg-amber-500' },
