@@ -56,7 +56,7 @@ const baseClass = [
   'dk:cursor-pointer dk:select-none',
   'dk:whitespace-nowrap dk:overflow-hidden dk:text-ellipsis',
   'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-offset-2',
-  'dk:focus-visible:ring-indigo-500/50 dk:dark:focus-visible:ring-indigo-400/50',
+  'dk:focus-visible:ring-teal-500/50 dk:dark:focus-visible:ring-teal-400/50',
   'dk:active:scale-[0.98]',
   'dk:max-w-full',
 ].join(' ')

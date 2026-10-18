@@ -5,7 +5,7 @@
     <DuiNavbar :items="navbarItems" size="m" items-alignment="center" underline-color="secondary">
       <template #brand>
         <div class="dk:flex dk:items-center dk:gap-3">
-          <div class="dk:h-9 dk:w-9 dk:rounded-xl dk:bg-pink-600 dk:text-white dk:flex dk:items-center dk:justify-center dk:font-semibold">
+          <div class="dk:h-9 dk:w-9 dk:rounded-xl dk:bg-slate-600 dk:text-white dk:flex dk:items-center dk:justify-center dk:font-semibold">
             DK
           </div>
           <div>

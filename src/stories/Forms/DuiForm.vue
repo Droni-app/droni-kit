@@ -110,7 +110,7 @@ const loadingOverlayClasses = computed(() => {
 const spinnerClasses = computed(() => {
   return cn(
     'dk:w-6 dk:h-6 dk:border-2 dk:border-zinc-300 dk:dark:border-zinc-600',
-    'dk:border-t-indigo-600 dk:dark:border-t-indigo-400 dk:rounded-full dk:animate-spin',
+    'dk:border-t-teal-600 dk:dark:border-t-teal-400 dk:rounded-full dk:animate-spin',
   )
 })
 </script>

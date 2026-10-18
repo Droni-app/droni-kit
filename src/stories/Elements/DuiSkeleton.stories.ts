@@ -154,7 +154,7 @@ export const LoadingToggle: Story = {
     template: `
       <div class="dk:p-4 dk:max-w-sm dk:space-y-4">
         <button
-          class="dk:px-3 dk:py-1.5 dk:text-sm dk:rounded-lg dk:bg-indigo-600 dk:text-white dk:hover:bg-indigo-700 dk:transition-colors"
+          class="dk:px-3 dk:py-1.5 dk:text-sm dk:rounded-lg dk:bg-teal-600 dk:text-white dk:hover:bg-teal-700 dk:transition-colors"
           @click="loading = !loading">
           {{ loading ? 'Mostrar contenido' : 'Mostrar skeleton' }}
         </button>

@@ -53,7 +53,7 @@
                   @click="emitPaginate(pageNum)"
                   :class="['dk:min-w-9 dk:h-9 dk:px-2 dk:rounded-lg dk:text-sm dk:transition-colors dk:cursor-pointer',
                     pageNum === props.pagination.page
-                      ? 'dk:bg-indigo-600 dk:text-white dk:hover:bg-indigo-500'
+                      ? 'dk:bg-teal-600 dk:text-white dk:hover:bg-teal-500'
                       : 'dk:text-zinc-600 dk:dark:text-zinc-300 dk:hover:bg-zinc-200 dk:dark:hover:bg-zinc-700']">
                   {{ pageNum }}
                 </button>

@@ -200,8 +200,8 @@ const desktopMenuClasses = computed(() => {
 
 const underlineColors: Record<DuiColor, string> = {
   neutral: 'dk:before:from-zinc-500 dk:before:to-zinc-600 dk:dark:before:from-zinc-400 dk:dark:before:to-zinc-500',
-  primary: 'dk:before:from-indigo-600 dk:before:to-indigo-700 dk:dark:before:from-indigo-400 dk:dark:before:to-indigo-500',
-  secondary: 'dk:before:from-pink-500 dk:before:to-pink-600 dk:dark:before:from-pink-400 dk:dark:before:to-pink-500',
+  primary: 'dk:before:from-teal-600 dk:before:to-teal-700 dk:dark:before:from-teal-400 dk:dark:before:to-teal-500',
+  secondary: 'dk:before:from-slate-500 dk:before:to-slate-600 dk:dark:before:from-slate-400 dk:dark:before:to-slate-500',
   success: 'dk:before:from-emerald-500 dk:before:to-emerald-600 dk:dark:before:from-emerald-400 dk:dark:before:to-emerald-500',
   danger: 'dk:before:from-rose-500 dk:before:to-rose-600 dk:dark:before:from-rose-400 dk:dark:before:to-rose-500',
   warning: 'dk:before:from-amber-500 dk:before:to-amber-600 dk:dark:before:from-amber-400 dk:dark:before:to-amber-500',
@@ -215,7 +215,7 @@ function itemClasses(item: NavbarItem, hasDropdown: boolean = true) {
   return cn(
     'dk:flex dk:items-center dk:relative dk:transition-all dk:duration-200',
     'dk:text-zinc-600 dk:hover:text-zinc-900 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100',
-    'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-indigo-500/50',
+    'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-teal-500/50',
     'dk:no-underline',
     'dk:before:absolute dk:before:bottom-0 dk:before:left-0 dk:before:h-0.5 dk:before:bg-gradient-to-r',
     underlineColorsStr,

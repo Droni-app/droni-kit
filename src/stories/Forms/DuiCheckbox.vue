@@ -100,7 +100,7 @@ const boxClasses = computed(() => {
     'dk:inline-flex dk:items-center dk:justify-center dk:rounded dk:border',
     'dk:border-zinc-300 dk:bg-white dk:dark:border-zinc-600 dk:dark:bg-zinc-900',
     'dk:transition-colors dk:duration-150',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-indigo-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-teal-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
     'dk:peer-disabled:opacity-70',
     size,
     accent,

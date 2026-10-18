@@ -108,8 +108,8 @@ const sizeClasses = {
 
 const activeColorClasses = {
   neutral: { underline: 'dk:border-zinc-600 dk:text-zinc-700 dk:dark:border-zinc-400 dk:dark:text-zinc-200', pills: 'dk:bg-zinc-600 dk:text-white dk:dark:bg-zinc-500', boxed: 'dk:bg-white dk:text-zinc-700 dk:dark:bg-zinc-800 dk:dark:text-zinc-200 dk:shadow-sm' },
-  primary: { underline: 'dk:border-indigo-600 dk:text-indigo-700 dk:dark:border-indigo-400 dk:dark:text-indigo-200', pills: 'dk:bg-indigo-600 dk:text-white dk:dark:bg-indigo-500', boxed: 'dk:bg-white dk:text-indigo-700 dk:dark:bg-zinc-800 dk:dark:text-indigo-200 dk:shadow-sm' },
-  secondary: { underline: 'dk:border-pink-600 dk:text-pink-700 dk:dark:border-pink-400 dk:dark:text-pink-200', pills: 'dk:bg-pink-600 dk:text-white dk:dark:bg-pink-500', boxed: 'dk:bg-white dk:text-pink-700 dk:dark:bg-zinc-800 dk:dark:text-pink-200 dk:shadow-sm' },
+  primary: { underline: 'dk:border-teal-600 dk:text-teal-700 dk:dark:border-teal-400 dk:dark:text-teal-200', pills: 'dk:bg-teal-600 dk:text-white dk:dark:bg-teal-500', boxed: 'dk:bg-white dk:text-teal-700 dk:dark:bg-zinc-800 dk:dark:text-teal-200 dk:shadow-sm' },
+  secondary: { underline: 'dk:border-slate-600 dk:text-slate-700 dk:dark:border-slate-400 dk:dark:text-slate-200', pills: 'dk:bg-slate-600 dk:text-white dk:dark:bg-slate-500', boxed: 'dk:bg-white dk:text-slate-700 dk:dark:bg-zinc-800 dk:dark:text-slate-200 dk:shadow-sm' },
   success: { underline: 'dk:border-emerald-600 dk:text-emerald-700 dk:dark:border-emerald-400 dk:dark:text-emerald-200', pills: 'dk:bg-emerald-600 dk:text-white dk:dark:bg-emerald-500', boxed: 'dk:bg-white dk:text-emerald-700 dk:dark:bg-zinc-800 dk:dark:text-emerald-200 dk:shadow-sm' },
   warning: { underline: 'dk:border-amber-500 dk:text-amber-700 dk:dark:border-amber-400 dk:dark:text-amber-200', pills: 'dk:bg-amber-500 dk:text-white dk:dark:bg-amber-400', boxed: 'dk:bg-white dk:text-amber-700 dk:dark:bg-zinc-800 dk:dark:text-amber-200 dk:shadow-sm' },
   danger: { underline: 'dk:border-rose-600 dk:text-rose-700 dk:dark:border-rose-400 dk:dark:text-rose-200', pills: 'dk:bg-rose-600 dk:text-white dk:dark:bg-rose-500', boxed: 'dk:bg-white dk:text-rose-700 dk:dark:bg-zinc-800 dk:dark:text-rose-200 dk:shadow-sm' },
@@ -133,7 +133,7 @@ function tabClasses(value: string, disabled?: boolean) {
   const size = sizeClasses[props.size]
   const isActive = props.modelValue === value
   const disabledStyle = disabled ? 'dk:opacity-40 dk:cursor-not-allowed' : 'dk:cursor-pointer'
-  const focusStyle = 'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-indigo-400 dk:dark:focus-visible:ring-indigo-500'
+  const focusStyle = 'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-teal-400 dk:dark:focus-visible:ring-teal-500'
 
   if (props.variant === 'underline') {
     const active = isActive

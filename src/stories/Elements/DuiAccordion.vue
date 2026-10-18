@@ -124,8 +124,8 @@ const sizeMap = {
 
 const openBgMap = {
   neutral:   'dk:bg-zinc-50 dk:dark:bg-zinc-800/60',
-  primary:   'dk:bg-indigo-50 dk:dark:bg-indigo-800/60',
-  secondary: 'dk:bg-pink-50 dk:dark:bg-pink-900/30',
+  primary:   'dk:bg-teal-50 dk:dark:bg-teal-800/60',
+  secondary: 'dk:bg-slate-50 dk:dark:bg-slate-900/30',
   success:   'dk:bg-emerald-50 dk:dark:bg-emerald-900/30',
   warning:   'dk:bg-amber-50 dk:dark:bg-amber-900/30',
   danger:    'dk:bg-rose-50 dk:dark:bg-rose-900/30',
@@ -133,8 +133,8 @@ const openBgMap = {
 
 const openTextMap = {
   neutral:   'dk:text-zinc-900 dk:dark:text-zinc-50',
-  primary:   'dk:text-indigo-800 dk:dark:text-indigo-100',
-  secondary: 'dk:text-pink-800 dk:dark:text-pink-100',
+  primary:   'dk:text-teal-800 dk:dark:text-teal-100',
+  secondary: 'dk:text-slate-800 dk:dark:text-slate-100',
   success:   'dk:text-emerald-800 dk:dark:text-emerald-100',
   warning:   'dk:text-amber-800 dk:dark:text-amber-100',
   danger:    'dk:text-rose-800 dk:dark:text-rose-100',
@@ -142,8 +142,8 @@ const openTextMap = {
 
 const openIconMap = {
   neutral:   'dk:text-zinc-500 dk:dark:text-zinc-400',
-  primary:   'dk:text-indigo-500 dk:dark:text-indigo-400',
-  secondary: 'dk:text-pink-500 dk:dark:text-pink-400',
+  primary:   'dk:text-teal-500 dk:dark:text-teal-400',
+  secondary: 'dk:text-slate-500 dk:dark:text-slate-400',
   success:   'dk:text-emerald-500 dk:dark:text-emerald-400',
   warning:   'dk:text-amber-500 dk:dark:text-amber-400',
   danger:    'dk:text-rose-500 dk:dark:text-rose-400',
@@ -186,7 +186,7 @@ function summaryClasses(value: string, disabled?: boolean) {
     ? [openBgMap[props.color], openTextMap[props.color]]
     : ['dk:text-zinc-700 dk:dark:text-zinc-300', 'dk:hover:bg-zinc-50 dk:dark:hover:bg-zinc-800/50 dk:hover:text-zinc-900 dk:dark:hover:text-zinc-100']
 
-  const focus = 'dk:focus-visible:ring-2 dk:focus-visible:ring-inset dk:focus-visible:ring-indigo-400 dk:dark:focus-visible:ring-indigo-500'
+  const focus = 'dk:focus-visible:ring-2 dk:focus-visible:ring-inset dk:focus-visible:ring-teal-400 dk:dark:focus-visible:ring-teal-500'
   const dis   = disabled ? 'dk:opacity-40 dk:cursor-not-allowed dk:pointer-events-none' : 'dk:cursor-pointer'
 
   return [...base, ...color, focus, dis].join(' ')

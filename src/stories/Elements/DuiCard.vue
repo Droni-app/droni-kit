@@ -137,7 +137,7 @@ const titleClasses = computed(() => {
   if (props.to) {
     baseClasses.push(
       'dk:no-underline dk:hover:underline dk:transition-colors',
-      'dk:hover:text-indigo-600 dk:dark:hover:text-indigo-400',
+      'dk:hover:text-teal-600 dk:dark:hover:text-teal-400',
     )
   }
   return cn(...baseClasses)

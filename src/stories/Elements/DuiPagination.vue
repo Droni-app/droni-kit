@@ -131,24 +131,24 @@ const roundedMap = {
 const activeColorMap = {
   solid: {
     neutral: 'dk:bg-zinc-700 dk:text-white dk:dark:bg-zinc-500',
-    primary: 'dk:bg-indigo-600 dk:text-white dk:dark:bg-indigo-500',
-    secondary: 'dk:bg-pink-600 dk:text-white dk:dark:bg-pink-500',
+    primary: 'dk:bg-teal-600 dk:text-white dk:dark:bg-teal-500',
+    secondary: 'dk:bg-slate-600 dk:text-white dk:dark:bg-slate-500',
     success: 'dk:bg-emerald-600 dk:text-white dk:dark:bg-emerald-500',
     warning: 'dk:bg-amber-500 dk:text-white dk:dark:bg-amber-400',
     danger: 'dk:bg-rose-600 dk:text-white dk:dark:bg-rose-500',
   },
   outline: {
     neutral: 'dk:border-2 dk:border-zinc-600 dk:text-zinc-700 dk:dark:border-zinc-400 dk:dark:text-zinc-200',
-    primary: 'dk:border-2 dk:border-indigo-600 dk:text-indigo-700 dk:dark:border-indigo-400 dk:dark:text-indigo-200',
-    secondary: 'dk:border-2 dk:border-pink-600 dk:text-pink-700 dk:dark:border-pink-400 dk:dark:text-pink-200',
+    primary: 'dk:border-2 dk:border-teal-600 dk:text-teal-700 dk:dark:border-teal-400 dk:dark:text-teal-200',
+    secondary: 'dk:border-2 dk:border-slate-600 dk:text-slate-700 dk:dark:border-slate-400 dk:dark:text-slate-200',
     success: 'dk:border-2 dk:border-emerald-600 dk:text-emerald-700 dk:dark:border-emerald-400 dk:dark:text-emerald-200',
     warning: 'dk:border-2 dk:border-amber-500 dk:text-amber-700 dk:dark:border-amber-400 dk:dark:text-amber-200',
     danger: 'dk:border-2 dk:border-rose-600 dk:text-rose-700 dk:dark:border-rose-400 dk:dark:text-rose-200',
   },
   ghost: {
     neutral: 'dk:bg-zinc-100 dk:text-zinc-800 dk:dark:bg-zinc-700 dk:dark:text-zinc-100',
-    primary: 'dk:bg-indigo-100 dk:text-indigo-800 dk:dark:bg-indigo-700 dk:dark:text-indigo-100',
-    secondary: 'dk:bg-pink-100 dk:text-pink-800 dk:dark:bg-pink-800 dk:dark:text-pink-100',
+    primary: 'dk:bg-teal-100 dk:text-teal-800 dk:dark:bg-teal-700 dk:dark:text-teal-100',
+    secondary: 'dk:bg-slate-100 dk:text-slate-800 dk:dark:bg-slate-800 dk:dark:text-slate-100',
     success: 'dk:bg-emerald-100 dk:text-emerald-800 dk:dark:bg-emerald-800 dk:dark:text-emerald-100',
     warning: 'dk:bg-amber-100 dk:text-amber-800 dk:dark:bg-amber-700 dk:dark:text-amber-100',
     danger: 'dk:bg-rose-100 dk:text-rose-800 dk:dark:bg-rose-800 dk:dark:text-rose-100',
@@ -164,7 +164,7 @@ const baseBtn = computed(() => {
     'dk:inline-flex dk:items-center dk:justify-center dk:font-medium dk:transition-colors dk:duration-150 dk:outline-none dk:select-none dk:cursor-pointer dk:disabled:cursor-not-allowed dk:disabled:pointer-events-none',
     size,
     rounded,
-    'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-indigo-400',
+    'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-teal-400',
   ].join(' ')
 })
 

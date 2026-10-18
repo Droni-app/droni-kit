@@ -106,7 +106,7 @@ const trackClasses = computed(() => {
   return cn(
     'dk:inline-flex dk:items-center dk:transition-colors dk:duration-200 dk:rounded-full',
     'dk:bg-zinc-300 dk:dark:bg-zinc-600',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-indigo-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-teal-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
     'dk:peer-disabled:opacity-70',
     size.track,
     accent,

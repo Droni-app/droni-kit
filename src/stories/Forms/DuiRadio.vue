@@ -86,8 +86,8 @@ const sizeMap: Record<DuiSize, { radio: string; dot: string; label: string; desc
 
 const ringColorMap: Record<DuiColor, string> = {
   neutral: 'dk:peer-checked:border-zinc-600 dk:dark:peer-checked:border-zinc-400',
-  primary: 'dk:peer-checked:border-indigo-600 dk:dark:peer-checked:border-indigo-400',
-  secondary: 'dk:peer-checked:border-pink-600 dk:dark:peer-checked:border-pink-400',
+  primary: 'dk:peer-checked:border-teal-600 dk:dark:peer-checked:border-teal-400',
+  secondary: 'dk:peer-checked:border-slate-600 dk:dark:peer-checked:border-slate-400',
   success: 'dk:peer-checked:border-emerald-600 dk:dark:peer-checked:border-emerald-400',
   warning: 'dk:peer-checked:border-amber-500 dk:dark:peer-checked:border-amber-400',
   danger: 'dk:peer-checked:border-rose-600 dk:dark:peer-checked:border-rose-400',
@@ -95,8 +95,8 @@ const ringColorMap: Record<DuiColor, string> = {
 
 const dotColorMap: Record<DuiColor, string> = {
   neutral: 'dk:peer-checked:bg-zinc-600 dk:dark:peer-checked:bg-zinc-400',
-  primary: 'dk:peer-checked:bg-indigo-600 dk:dark:peer-checked:bg-indigo-400',
-  secondary: 'dk:peer-checked:bg-pink-600 dk:dark:peer-checked:bg-pink-400',
+  primary: 'dk:peer-checked:bg-teal-600 dk:dark:peer-checked:bg-teal-400',
+  secondary: 'dk:peer-checked:bg-slate-600 dk:dark:peer-checked:bg-slate-400',
   success: 'dk:peer-checked:bg-emerald-600 dk:dark:peer-checked:bg-emerald-400',
   warning: 'dk:peer-checked:bg-amber-500 dk:dark:peer-checked:bg-amber-400',
   danger: 'dk:peer-checked:bg-rose-600 dk:dark:peer-checked:bg-rose-400',
@@ -124,7 +124,7 @@ function radioTrackClasses(_value: string) {
   return cn(
     'dk:rounded-full dk:border-2 dk:transition-colors dk:duration-150',
     'dk:border-zinc-300 dk:dark:border-zinc-600',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-indigo-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-teal-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
     'dk:bg-white dk:dark:bg-zinc-900',
     s.radio,
     ringColor,

@@ -134,8 +134,8 @@ export const Colors: Story = {
 
     const cases = [
       { label: 'Neutral', className: 'dk:peer-checked:bg-zinc-600' },
-      { label: 'Primary', className: 'dk:peer-checked:bg-indigo-600' },
-      { label: 'Secondary', className: 'dk:peer-checked:bg-pink-600' },
+      { label: 'Primary', className: 'dk:peer-checked:bg-teal-600' },
+      { label: 'Secondary', className: 'dk:peer-checked:bg-slate-600' },
       { label: 'Success', className: 'dk:peer-checked:bg-emerald-600' },
       { label: 'Warning', className: 'dk:peer-checked:bg-amber-500' },
       { label: 'Danger', className: 'dk:peer-checked:bg-rose-600' },

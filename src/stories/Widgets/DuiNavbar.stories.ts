@@ -299,7 +299,7 @@ export const DarkMode: Story = {
         <DuiNavbar v-bind="args">
           <template #brand>
             <div class="dk:flex dk:items-center dk:gap-2">
-              <div class="dk:w-8 dk:h-8 dk:bg-indigo-600 dk:rounded-lg dk:flex dk:items-center dk:justify-center">
+              <div class="dk:w-8 dk:h-8 dk:bg-teal-600 dk:rounded-lg dk:flex dk:items-center dk:justify-center">
                 <span class="dk:text-white dk:text-sm dk:font-bold">🌙</span>
               </div>
               <span class="dk:text-lg dk:font-semibold dk:text-gray-100">
@@ -627,7 +627,7 @@ export const UnderlineColorPrimary: Story = {
             Primary Underline Color
           </h1>
           <p class="dk:text-gray-600 dk:dark:text-gray-400">
-            The menu items use a primary indigo color for the underline effect.
+            The menu items use a primary teal color for the underline effect.
           </p>
         </div>
       </div>
@@ -812,7 +812,7 @@ export const UnderlineColorSecondary: Story = {
             Secondary Underline Color
           </h1>
           <p class="dk:text-gray-600 dk:dark:text-gray-400">
-            The menu items use a pink/secondary color for the underline effect.
+            The menu items use a slate/secondary color for the underline effect.
           </p>
         </div>
       </div>

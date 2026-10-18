@@ -6,7 +6,7 @@
           <a
             href="#"
             @click.prevent="emit('open-file', props.modelValue ?? localFileName)"
-            class="dk:ml-2 dk:text-pink-600 dk:underline dk:transition-colors dk:hover:text-pink-700 dk:dark:text-pink-400 dk:dark:hover:text-pink-300">
+            class="dk:ml-2 dk:text-slate-600 dk:underline dk:transition-colors dk:hover:text-slate-700 dk:dark:text-slate-400 dk:dark:hover:text-slate-300">
             {{ displayedFileName }}
           </a>
         </p>
