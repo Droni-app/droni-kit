@@ -26,3 +26,5 @@ dist-ssr
 *storybook.log
 
 .env
+# Build artifact de Storybook (se genera en Docker)
+storybook-static

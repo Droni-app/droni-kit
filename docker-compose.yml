@@ -1,0 +1,16 @@
+services:
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      # nginx-proxy + acme-companion
+      VIRTUAL_HOST: ${DOMAIN}
+      LETSENCRYPT_HOST: ${DOMAIN}
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true
