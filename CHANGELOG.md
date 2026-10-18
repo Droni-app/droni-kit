@@ -1,3 +1,13 @@
+# [2.0.0-beta.1](https://github.com/Droni-app/droni-kit/compare/v1.26.0...v2.0.0-beta.1) (2026-10-18)
+
+
+* feat!: DroniKit v2.0 — sistema de tokens y API unificada ([2966445](https://github.com/Droni-app/droni-kit/commit/296644587fc5057eaa9d660592f61f2ae0e9fc2b))
+
+
+### BREAKING CHANGES
+
+* reescritura visual completa y reorganización del sistema de clases (dk:*). La API de props/emits/slots se mantiene, pero los colores y paradigmas de estilos cambian.
+
 # [1.26.0](https://github.com/Droni-app/droni-kit/compare/v1.25.1...v1.26.0) (2026-09-19)
 
 
