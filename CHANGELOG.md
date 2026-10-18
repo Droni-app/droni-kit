@@ -1,3 +1,10 @@
+# [2.0.0-beta.2](https://github.com/Droni-app/droni-kit/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2026-10-18)
+
+
+### Bug Fixes
+
+* paleta Apple-style — primary teal, secondary slate ([b907d57](https://github.com/Droni-app/droni-kit/commit/b907d570e518d6e250bc7a7670b477fc786002fd))
+
 # [2.0.0-beta.1](https://github.com/Droni-app/droni-kit/compare/v1.26.0...v2.0.0-beta.1) (2026-10-18)
 
 
