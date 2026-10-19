@@ -1,3 +1,10 @@
+# [2.0.0-beta.3](https://github.com/Droni-app/droni-kit/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2026-10-19)
+
+
+### Features
+
+* tema Neon Noir, tokens CSS y guía de migración ([09c48e3](https://github.com/Droni-app/droni-kit/commit/09c48e3662111a5b990254354c19ff9678547851))
+
 # [2.0.0-beta.2](https://github.com/Droni-app/droni-kit/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2026-10-18)
 
 
