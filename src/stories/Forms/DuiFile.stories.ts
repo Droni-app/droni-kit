@@ -2,7 +2,6 @@ import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import DuiFile from './DuiFile.vue'
-import '../../style.css'
 
 const meta = {
   title: 'Forms/File',
@@ -71,7 +70,7 @@ export const Default: Story = {
     },
     template: `
       <div class="p-4 space-y-3">
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">
+        <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200">
           Adjuntar archivo
         </label>
         <DuiFile
@@ -80,10 +79,10 @@ export const Default: Story = {
           @open-browser="handleOpenBrowser"
           @upload-file="handleUploadFile"
         />
-        <p class="text-xs text-gray-500 dark:text-gray-400">
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
           {{ activity }}
         </p>
-        <p class="text-xs text-gray-500 dark:text-gray-400">
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
           Valor actual del modelo: {{ currentFileUrl || 'Sin archivo' }}
         </p>
       </div>
@@ -130,7 +129,7 @@ export const Compact: Story = {
           @open-browser="handleOpenBrowser"
           @upload-file="handleUploadFile"
         />
-        <p class="text-xs text-gray-500 dark:text-gray-400">
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
           {{ activity }}
         </p>
       </div>

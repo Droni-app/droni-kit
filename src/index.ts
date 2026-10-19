@@ -66,3 +66,41 @@ export {
   DuiNavbar,
   useToast
 }
+// ── Tipos compartidos (v2) ────────────────────────────────────────────────
+export type {
+  DuiColor,
+  DuiVariant,
+  DuiSize,
+} from './theme/tokens'
+export { normalizeSize, radiusClasses, controlSizeClasses } from './theme/tokens'
+export type { DuiRounded, RouteTo, RouteLocationRaw } from './types'
+
+// ── Tipos de props por componente (para wrappers y tipado en apps) ──────────
+export type { DuiButtonProps } from './stories/Forms/DuiButton.vue'
+export type { DuiFileProps } from './stories/Forms/DuiFile.vue'
+export type { DuiInputProps } from './stories/Forms/DuiInput.vue'
+export type { DuiTextareaProps } from './stories/Forms/DuiTextarea.vue'
+export type { DuiSelectProps } from './stories/Forms/DuiSelect.vue'
+export type { DuiLabelProps } from './stories/Forms/DuiLabel.vue'
+export type { DuiCheckboxProps } from './stories/Forms/DuiCheckbox.vue'
+export type { DuiRadioProps, DuiRadioOption } from './stories/Forms/DuiRadio.vue'
+export type { DuiSwitchProps } from './stories/Forms/DuiSwitch.vue'
+export type { DuiFormProps } from './stories/Forms/DuiForm.vue'
+export type { DuiAlertProps } from './stories/Elements/DuiAlert.vue'
+export type { DuiTableProps, TableColumn, PaginationData } from './stories/Elements/DuiTable.vue'
+export type { DuiActionProps } from './stories/Elements/DuiAction.vue'
+export type { DuiCardProps } from './stories/Elements/DuiCard.vue'
+export type { DuiModalProps } from './stories/Elements/DuiModal.vue'
+export type { DuiDrawerProps } from './stories/Elements/DuiDrawer.vue'
+export type { DuiTooltipProps, TooltipPlacement, TooltipTrigger } from './stories/Elements/DuiTooltip.vue'
+export type { DuiAccordionProps, DuiAccordionItem } from './stories/Elements/DuiAccordion.vue'
+export type { DuiBadgeProps } from './stories/Elements/DuiBadge.vue'
+export type { DuiDropdownProps } from './stories/Elements/DuiDropdown.vue'
+export type { DuiDropdownItemProps } from './stories/Elements/DuiDropdownItem.vue'
+export type { DuiPaginationProps } from './stories/Elements/DuiPagination.vue'
+export type { DuiSkeletonProps } from './stories/Elements/DuiSkeleton.vue'
+export type { DuiTabsProps, DuiTab } from './stories/Elements/DuiTabs.vue'
+export type { DuiToastProps } from './stories/Elements/DuiToast.vue'
+export type { ToastOptions, ToastItem, ToastColor, ToastPosition } from './stories/Elements/useToast'
+export type { DuiConfirmationProps } from './stories/Widgets/DuiConfirmation.vue'
+export type { DuiNavbarProps, NavbarItem } from './stories/Widgets/DuiNavbar.vue'

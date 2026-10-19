@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 
 import DuiConfirmation from './DuiConfirmation.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Widgets/Confirmation',
@@ -72,8 +71,8 @@ const confirmationRender = (args: any) => ({
   template: `
     <div class="dk:p-4 dk:space-y-3">
       <DuiConfirmation v-bind="args" @confirmed="handleConfirmed" />
-      <p class="dk:text-sm dk:text-zinc-500">Confirmaciones emitidas: {{ confirmedCount }}</p>
-      <p class="dk:text-xs dk:text-zinc-400">Nota: el estado de confirmacion se reinicia automaticamente tras 10 segundos.</p>
+      <p class="dk:text-sm dk:text-neutral-500">Confirmaciones emitidas: {{ confirmedCount }}</p>
+      <p class="dk:text-xs dk:text-neutral-400">Nota: el estado de confirmacion se reinicia automaticamente tras 10 segundos.</p>
     </div>
   `,
 });

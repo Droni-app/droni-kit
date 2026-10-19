@@ -8,24 +8,20 @@
     @submit.prevent="onSubmit"
     @reset.prevent="onReset"
   >
-    <!-- Header slot -->
     <div v-if="$slots.header" :class="headerClasses">
       <slot name="header" />
     </div>
 
-    <!-- Main content -->
     <fieldset :disabled="loading || disabled" class="dk:border-0 dk:p-0 dk:m-0 dk:min-w-0">
       <div :class="contentClasses">
         <slot />
       </div>
     </fieldset>
 
-    <!-- Footer / actions slot -->
     <div v-if="$slots.footer" :class="footerClasses">
       <slot name="footer" />
     </div>
 
-    <!-- Loading overlay -->
     <div v-if="loading" :class="loadingOverlayClasses" aria-hidden="true">
       <span :class="spinnerClasses" />
     </div>
@@ -34,19 +30,14 @@
 
 <script setup lang="ts">
 import { computed, provide } from 'vue'
+import { cn } from '../../utils/cn'
 
 export interface DuiFormProps {
-  /** Disable native browser form validation (useful for custom validation) */
   novalidate?: boolean
-  /** Show loading overlay and disable all fields */
   loading?: boolean
-  /** Visually disable all form fields */
   disabled?: boolean
-  /** Native form method */
   method?: 'get' | 'post'
-  /** Native form action URL */
   action?: string
-  /** Gap between form fields */
   gap?: 'sm' | 'md' | 'lg'
 }
 
@@ -66,7 +57,6 @@ const emit = defineEmits<{
 
 const DUI_FORM_KEY = Symbol('DuiForm')
 
-// Provide form context so child components can react to loading/disabled state
 provide(DUI_FORM_KEY, {
   loading: computed(() => props.loading),
   disabled: computed(() => props.disabled),
@@ -89,20 +79,14 @@ const gapClasses = {
 }
 
 const computedFormClasses = computed(() => {
-  return [
+  return cn(
     'dk:relative',
     props.disabled && !props.loading ? 'dk:opacity-60 dk:pointer-events-none' : '',
-  ]
-    .filter(Boolean)
-    .join(' ')
+  )
 })
 
 const headerClasses = computed(() => {
-  return [
-    'dk:mb-5',
-    'dk:pb-4',
-    'dk:border-b dk:border-zinc-200 dk:dark:border-zinc-700',
-  ].join(' ')
+  return cn('dk:mb-5 dk:pb-4 dk:border-b dk:border-neutral-200 dk:dark:border-white/10')
 })
 
 const contentClasses = computed(() => {
@@ -110,31 +94,24 @@ const contentClasses = computed(() => {
 })
 
 const footerClasses = computed(() => {
-  return [
-    'dk:mt-6',
-    'dk:pt-4',
-    'dk:border-t dk:border-zinc-200 dk:dark:border-zinc-700',
+  return cn(
+    'dk:mt-6 dk:pt-4 dk:border-t dk:border-neutral-200 dk:dark:border-white/10',
     'dk:flex dk:items-center dk:gap-3',
-  ].join(' ')
+  )
 })
 
 const loadingOverlayClasses = computed(() => {
-  return [
-    'dk:absolute dk:inset-0',
-    'dk:flex dk:items-center dk:justify-center',
-    'dk:bg-white/60 dk:dark:bg-zinc-900/60',
-    'dk:rounded',
-    'dk:z-10',
-  ].join(' ')
+  return cn(
+    'dk:absolute dk:inset-0 dk:flex dk:items-center dk:justify-center',
+    'dk:bg-white/60 dk:dark:bg-neutral-950/60 dk:backdrop-blur-[2px] dk:rounded-lg dk:z-10',
+  )
 })
 
 const spinnerClasses = computed(() => {
-  return [
-    'dk:w-6 dk:h-6',
-    'dk:border-2 dk:border-zinc-300 dk:dark:border-zinc-600',
-    'dk:border-t-zinc-700 dk:dark:border-t-zinc-200',
-    'dk:rounded-full',
-    'dk:animate-spin',
-  ].join(' ')
+  return cn(
+    'dk:w-6 dk:h-6 dk:border-2 dk:border-neutral-300 dk:dark:border-white/15',
+    'dk:border-t-primary-600 dk:dark:border-t-primary-400 dk:rounded-full dk:animate-spin',
+  )
 })
 </script>
+

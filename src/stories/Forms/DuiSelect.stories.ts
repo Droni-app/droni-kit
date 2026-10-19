@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import DuiSelect from './DuiSelect.vue';
-import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -69,7 +68,7 @@ export const Default: Story = {
     },
     template: `
       <div class="p-4">
-        <label for="pais" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+        <label for="pais" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
           Selecciona un país <span class="text-red-500">*</span>
         </label>
         <DuiSelect 
@@ -97,7 +96,7 @@ export const Sizes: Story = {
     template: `
       <div class="p-4 space-y-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
             Small
           </label>
           <DuiSelect 
@@ -109,7 +108,7 @@ export const Sizes: Story = {
           />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
             Medium (default)
           </label>
           <DuiSelect 
@@ -121,7 +120,7 @@ export const Sizes: Story = {
           />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
             Large
           </label>
           <DuiSelect 
@@ -152,7 +151,7 @@ export const WithNativeAttributes: Story = {
     template: `
       <div class="p-4 space-y-4">
         <div>
-          <label for="priority-disabled" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          <label for="priority-disabled" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
             Deshabilitado
           </label>
           <DuiSelect 
@@ -163,7 +162,7 @@ export const WithNativeAttributes: Story = {
           />
         </div>
         <div>
-          <label for="priority-required" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          <label for="priority-required" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
             Requerido <span class="text-red-500">*</span>
           </label>
           <DuiSelect 

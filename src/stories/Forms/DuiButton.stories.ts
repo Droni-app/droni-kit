@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import DuiButton from './DuiButton.vue';
-import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -21,7 +20,7 @@ const meta = {
     },
     variant: {
       control: { type: 'select' },
-      options: ['solid', 'outline', 'ghost'],
+      options: ['solid', 'soft', 'outline', 'ghost'],
       defaultValue: 'solid',
     },
     color: {
@@ -169,6 +168,41 @@ export const DisabledWithRoute: Story = {
     docs: {
       description: {
         story: 'Botón de navegación deshabilitado.',
+      },
+    },
+  },
+};
+export const Showcase: Story = {
+  render: () => ({
+    components: { DuiButton },
+    setup() {
+      const variants = ['solid', 'soft', 'outline', 'ghost'] as const
+      const colors = ['neutral', 'primary', 'secondary', 'success', 'warning', 'danger'] as const
+      return { variants, colors }
+    },
+    template: `
+      <div class="dk:space-y-4">
+        <div v-for="variant in variants" :key="variant" class="dk:flex dk:flex-wrap dk:items-center dk:gap-3">
+          <span class="dk:w-16 dk:text-xs dk:font-medium dk:uppercase dk:tracking-wider dk:text-neutral-500 dk:dark:text-neutral-400">{{ variant }}</span>
+          <DuiButton v-for="color in colors" :key="color" :variant="variant" :color="color">
+            {{ color }}
+          </DuiButton>
+        </div>
+        <div class="dk:flex dk:flex-wrap dk:items-center dk:gap-3 dk:pt-2">
+          <span class="dk:w-16 dk:text-xs dk:font-medium dk:uppercase dk:tracking-wider dk:text-neutral-500 dk:dark:text-neutral-400">size</span>
+          <DuiButton color="primary" size="sm"><i class="mdi mdi-rocket-launch-outline" /> Small</DuiButton>
+          <DuiButton color="primary" size="md"><i class="mdi mdi-rocket-launch-outline" /> Medium</DuiButton>
+          <DuiButton color="primary" size="lg"><i class="mdi mdi-rocket-launch-outline" /> Large</DuiButton>
+          <DuiButton color="primary" loading>Cargando</DuiButton>
+          <DuiButton color="primary" disabled>Deshabilitado</DuiButton>
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Matriz de variantes × colores. Cambia a dark mode en la barra superior para ver el glow neón.',
       },
     },
   },

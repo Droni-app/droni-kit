@@ -20,42 +20,33 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { cn } from '../../utils/cn'
+import { fieldBaseClasses, controlSizeClasses, roundedCornerClasses } from '../../theme/tokens'
+import type { DuiSize } from '../../theme/tokens'
+import type { DuiRounded } from '../../types'
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, null],
-    default: '',
-  },
-  options: {
-    type: Array as () => Array<Record<string, any>>,
-    default: () => [],
-  },
-  size: {
-    type: String as () => 'sm' | 'md' | 'lg',
-    default: 'md',
-  },
-  block: {
-    type: Boolean,
-    default: true,
-  },
-  rounded: {
-    type: String as () => 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none',
-    default: 'all',
-  },
-  itemLabel: {
-    type: String,
-    default: 'label',
-  },
-  itemValue: {
-    type: String,
-    default: 'value',
-  },
-  placeholder: {
-    type: String,
-    default: undefined,
-  },
+export interface DuiSelectProps {
+  modelValue?: string | number
+  options?: Array<Record<string, any>>
+  size?: DuiSize
+  block?: boolean
+  rounded?: DuiRounded
+  itemLabel?: string
+  itemValue?: string
+  placeholder?: string
+}
+
+const props = withDefaults(defineProps<DuiSelectProps>(), {
+  modelValue: '',
+  options: () => [],
+  size: 'md',
+  block: true,
+  rounded: 'all',
+  itemLabel: 'label',
+  itemValue: 'value',
+  placeholder: undefined,
 })
 
 function getOptionValue(
@@ -66,7 +57,6 @@ function getOptionValue(
     if (currentValue === null || typeof currentValue !== 'object') {
       return undefined
     }
-
     return currentValue[key]
   }, option as any)
 
@@ -80,12 +70,8 @@ const emit = defineEmits<{
 function onChange(event: Event) {
   const target = event.target as HTMLSelectElement
   const value = target.value
-  
-  // Intentamos convertir el valor a número si parece numérico
   const numValue = Number(value)
-  
-  // Si el valor se puede convertir a número sin resultados NaN y no es una cadena vacía,
-  // emitimos el valor como número, de lo contrario como cadena
+
   if (!isNaN(numValue) && value !== '') {
     emit('update:modelValue', numValue)
   } else {
@@ -93,40 +79,17 @@ function onChange(event: Event) {
   }
 }
 
-const baseClass = `
-  dk:border-b
-  dk:border-zinc-300
-  dk:bg-zinc-50
-  dk:text-zinc-800
-  dk:focus:outline-none
-  dk:focus:bg-zinc-100
-  dk:dark:bg-zinc-700
-  dk:dark:border-zinc-600
-  dk:dark:bg-zinc-800
-  dk:dark:text-zinc-100
-  dk:dark:focus:bg-zinc-700
-  dk:dark:[color-scheme:dark]
-`
-
-const sizeClasses = {
-  sm: 'dk:text-sm dk:px-3 dk:py-1.5',
-  md: 'dk:text-base dk:px-4 dk:py-2',
-  lg: 'dk:text-lg dk:px-5 dk:py-3',
-}
-
-const roundedClasses = {
-  all: 'dk:rounded',
-  top: 'dk:rounded-t',
-  bottom: 'dk:rounded-b',
-  left: 'dk:rounded-l',
-  right: 'dk:rounded-r',
-  none: 'dk:rounded-none',
-}
+const chevronClasses = [
+  'dk:cursor-pointer dk:appearance-none dk:pr-10',
+  'dk:bg-no-repeat dk:bg-[length:1rem] dk:bg-[position:right_0.75rem_center]',
+  'dk:bg-(image:--dk-select-chevron)',
+].join(' ')
 
 const computedClasses = computed(() => {
-  const sizeStyle = sizeClasses[props.size] || ''
-  const blockStyle = props.block ? 'dk:w-full' : ''
-  const roundedStyle = roundedClasses[props.rounded] || ''
-  return [baseClass, sizeStyle, blockStyle, roundedStyle].join(' ')
+  const size = controlSizeClasses[props.size] || controlSizeClasses.md
+  const block = props.block ? 'dk:w-full' : ''
+  const rounded = roundedCornerClasses[props.rounded] ?? roundedCornerClasses.all
+  return cn(fieldBaseClasses, size, block, rounded, chevronClasses)
 })
 </script>
+

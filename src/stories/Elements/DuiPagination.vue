@@ -130,28 +130,28 @@ const roundedMap = {
 
 const activeColorMap = {
   solid: {
-    neutral: 'dk:bg-zinc-700 dk:text-white dk:dark:bg-zinc-500',
-    primary: 'dk:bg-slate-600 dk:text-white dk:dark:bg-slate-500',
-    secondary: 'dk:bg-pink-600 dk:text-white dk:dark:bg-pink-500',
-    success: 'dk:bg-emerald-600 dk:text-white dk:dark:bg-emerald-500',
-    warning: 'dk:bg-amber-500 dk:text-white dk:dark:bg-amber-400',
-    danger: 'dk:bg-rose-600 dk:text-white dk:dark:bg-rose-500',
+    neutral: 'dk:bg-neutral-900 dk:text-white dk:dark:bg-neutral-100 dk:dark:text-neutral-950',
+    primary: 'dk:bg-primary-600 dk:text-white dk:dark:bg-primary-500 dk:dark:shadow-glow-primary',
+    secondary: 'dk:bg-secondary-600 dk:text-white dk:dark:bg-secondary-500 dk:dark:shadow-glow-secondary',
+    success: 'dk:bg-success-600 dk:text-white dk:dark:bg-success-500 dk:dark:shadow-glow-success',
+    warning: 'dk:bg-warning-400 dk:text-neutral-950 dk:dark:shadow-glow-warning',
+    danger: 'dk:bg-danger-600 dk:text-white dk:dark:bg-danger-500 dk:dark:shadow-glow-danger',
   },
   outline: {
-    neutral: 'dk:border-2 dk:border-zinc-600 dk:text-zinc-700 dk:dark:border-zinc-400 dk:dark:text-zinc-200',
-    primary: 'dk:border-2 dk:border-slate-600 dk:text-slate-700 dk:dark:border-slate-400 dk:dark:text-slate-200',
-    secondary: 'dk:border-2 dk:border-pink-600 dk:text-pink-700 dk:dark:border-pink-400 dk:dark:text-pink-200',
-    success: 'dk:border-2 dk:border-emerald-600 dk:text-emerald-700 dk:dark:border-emerald-400 dk:dark:text-emerald-200',
-    warning: 'dk:border-2 dk:border-amber-500 dk:text-amber-700 dk:dark:border-amber-400 dk:dark:text-amber-200',
-    danger: 'dk:border-2 dk:border-rose-600 dk:text-rose-700 dk:dark:border-rose-400 dk:dark:text-rose-200',
+    neutral: 'dk:border dk:border-neutral-400 dk:text-neutral-900 dk:dark:border-white/30 dk:dark:text-white',
+    primary: 'dk:border dk:border-primary-500 dk:text-primary-700 dk:bg-primary-50 dk:dark:border-primary-400/70 dk:dark:bg-primary-500/10 dk:dark:text-primary-200',
+    secondary: 'dk:border dk:border-secondary-500 dk:text-secondary-700 dk:bg-secondary-50 dk:dark:border-secondary-400/70 dk:dark:bg-secondary-500/10 dk:dark:text-secondary-200',
+    success: 'dk:border dk:border-success-500 dk:text-success-700 dk:bg-success-50 dk:dark:border-success-400/70 dk:dark:bg-success-500/10 dk:dark:text-success-200',
+    warning: 'dk:border dk:border-warning-500 dk:text-warning-800 dk:bg-warning-50 dk:dark:border-warning-400/70 dk:dark:bg-warning-500/10 dk:dark:text-warning-200',
+    danger: 'dk:border dk:border-danger-500 dk:text-danger-700 dk:bg-danger-50 dk:dark:border-danger-400/70 dk:dark:bg-danger-500/10 dk:dark:text-danger-200',
   },
   ghost: {
-    neutral: 'dk:bg-zinc-100 dk:text-zinc-800 dk:dark:bg-zinc-700 dk:dark:text-zinc-100',
-    primary: 'dk:bg-slate-100 dk:text-slate-800 dk:dark:bg-slate-700 dk:dark:text-slate-100',
-    secondary: 'dk:bg-pink-100 dk:text-pink-800 dk:dark:bg-pink-800 dk:dark:text-pink-100',
-    success: 'dk:bg-emerald-100 dk:text-emerald-800 dk:dark:bg-emerald-800 dk:dark:text-emerald-100',
-    warning: 'dk:bg-amber-100 dk:text-amber-800 dk:dark:bg-amber-700 dk:dark:text-amber-100',
-    danger: 'dk:bg-rose-100 dk:text-rose-800 dk:dark:bg-rose-800 dk:dark:text-rose-100',
+    neutral: 'dk:bg-neutral-100 dk:text-neutral-900 dk:dark:bg-white/10 dk:dark:text-white',
+    primary: 'dk:bg-primary-50 dk:text-primary-700 dk:ring-1 dk:ring-inset dk:ring-primary-200 dk:dark:bg-primary-500/15 dk:dark:text-primary-200 dk:dark:ring-primary-400/30',
+    secondary: 'dk:bg-secondary-50 dk:text-secondary-700 dk:ring-1 dk:ring-inset dk:ring-secondary-200 dk:dark:bg-secondary-500/15 dk:dark:text-secondary-200 dk:dark:ring-secondary-400/30',
+    success: 'dk:bg-success-50 dk:text-success-700 dk:ring-1 dk:ring-inset dk:ring-success-200 dk:dark:bg-success-500/15 dk:dark:text-success-200 dk:dark:ring-success-400/30',
+    warning: 'dk:bg-warning-50 dk:text-warning-800 dk:ring-1 dk:ring-inset dk:ring-warning-200 dk:dark:bg-warning-500/15 dk:dark:text-warning-200 dk:dark:ring-warning-400/30',
+    danger: 'dk:bg-danger-50 dk:text-danger-700 dk:ring-1 dk:ring-inset dk:ring-danger-200 dk:dark:bg-danger-500/15 dk:dark:text-danger-200 dk:dark:ring-danger-400/30',
   },
 }
 
@@ -164,16 +164,16 @@ const baseBtn = computed(() => {
     'dk:inline-flex dk:items-center dk:justify-center dk:font-medium dk:transition-colors dk:duration-150 dk:outline-none dk:select-none dk:cursor-pointer dk:disabled:cursor-not-allowed dk:disabled:pointer-events-none',
     size,
     rounded,
-    'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-slate-400',
+    'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-accent-500/70 dk:dark:focus-visible:ring-accent-400/80 dk:dark:focus-visible:ring-offset-neutral-950',
   ].join(' ')
 })
 
 const navBtnClasses = computed(() => {
   return [
     baseBtn.value,
-    'dk:text-zinc-600 dk:dark:text-zinc-400',
-    'dk:hover:bg-zinc-100 dk:dark:hover:bg-zinc-700',
-    'dk:hover:text-zinc-900 dk:dark:hover:text-zinc-100',
+    'dk:text-neutral-600 dk:dark:text-neutral-400',
+    'dk:hover:bg-neutral-100 dk:dark:hover:bg-white/5',
+    'dk:hover:text-neutral-900 dk:dark:hover:text-neutral-100',
   ].join(' ')
 })
 
@@ -184,12 +184,12 @@ function pageClasses(page: number) {
   }
   return [
     baseBtn.value,
-    'dk:text-zinc-600 dk:dark:text-zinc-400 dk:hover:bg-zinc-100 dk:dark:hover:bg-zinc-700 dk:hover:text-zinc-900 dk:dark:hover:text-zinc-100',
+    'dk:text-neutral-600 dk:dark:text-neutral-400 dk:hover:bg-neutral-100 dk:dark:hover:bg-white/5 dk:hover:text-neutral-900 dk:dark:hover:text-neutral-100',
   ].join(' ')
 }
 
 const ellipsisClasses = computed(() => {
   const size = sizeClasses[props.size]
-  return ['dk:inline-flex dk:items-center dk:justify-center dk:text-zinc-400 dk:select-none', size].join(' ')
+  return ['dk:inline-flex dk:items-center dk:justify-center dk:text-neutral-400 dk:dark:text-neutral-500 dk:select-none', size].join(' ')
 })
 </script>

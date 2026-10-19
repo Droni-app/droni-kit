@@ -23,6 +23,8 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { cn } from '../../utils/cn'
+import { panelVariantClasses } from '../../theme/tokens'
 
 export interface DuiDropdownProps {
   modelValue?: boolean
@@ -98,41 +100,17 @@ const roundedClasses = {
   none: 'dk:rounded-none',
 }
 
-const variantClasses = {
-  solid: {
-    neutral: 'dk:bg-white dk:dark:bg-zinc-900 dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:text-zinc-800 dk:dark:text-zinc-200',
-    primary: 'dk:bg-slate-50 dk:dark:bg-slate-900 dk:border dk:border-slate-200 dk:dark:border-slate-700 dk:text-slate-800 dk:dark:text-slate-200',
-    secondary: 'dk:bg-pink-50 dk:dark:bg-pink-900 dk:border dk:border-pink-200 dk:dark:border-pink-700 dk:text-pink-800 dk:dark:text-pink-200',
-    success: 'dk:bg-emerald-50 dk:dark:bg-emerald-900 dk:border dk:border-emerald-200 dk:dark:border-emerald-700 dk:text-emerald-800 dk:dark:text-emerald-200',
-    warning: 'dk:bg-amber-50 dk:dark:bg-amber-900 dk:border dk:border-amber-200 dk:dark:border-amber-700 dk:text-amber-800 dk:dark:text-amber-200',
-    danger: 'dk:bg-rose-50 dk:dark:bg-rose-900 dk:border dk:border-rose-200 dk:dark:border-rose-700 dk:text-rose-800 dk:dark:text-rose-200',
-  },
-  outline: {
-    neutral: 'dk:bg-white/95 dk:dark:bg-zinc-900/95 dk:border-2 dk:border-zinc-300 dk:dark:border-zinc-600 dk:text-zinc-800 dk:dark:text-zinc-200',
-    primary: 'dk:bg-white/95 dk:dark:bg-zinc-900/95 dk:border-2 dk:border-slate-400 dk:dark:border-slate-500 dk:text-slate-800 dk:dark:text-slate-200',
-    secondary: 'dk:bg-white/95 dk:dark:bg-zinc-900/95 dk:border-2 dk:border-pink-400 dk:dark:border-pink-500 dk:text-pink-800 dk:dark:text-pink-200',
-    success: 'dk:bg-white/95 dk:dark:bg-zinc-900/95 dk:border-2 dk:border-emerald-400 dk:dark:border-emerald-500 dk:text-emerald-800 dk:dark:text-emerald-200',
-    warning: 'dk:bg-white/95 dk:dark:bg-zinc-900/95 dk:border-2 dk:border-amber-400 dk:dark:border-amber-500 dk:text-amber-800 dk:dark:text-amber-200',
-    danger: 'dk:bg-white/95 dk:dark:bg-zinc-900/95 dk:border-2 dk:border-rose-400 dk:dark:border-rose-500 dk:text-rose-800 dk:dark:text-rose-200',
-  },
-  ghost: {
-    neutral: 'dk:bg-white/85 dk:dark:bg-zinc-900/75 dk:backdrop-blur-md dk:border dk:border-zinc-300/70 dk:dark:border-zinc-600/60 dk:text-zinc-800 dk:dark:text-zinc-200',
-    primary: 'dk:bg-slate-100/85 dk:dark:bg-slate-900/70 dk:backdrop-blur-md dk:border dk:border-slate-300/70 dk:dark:border-slate-600/60 dk:text-slate-800 dk:dark:text-slate-200',
-    secondary: 'dk:bg-pink-100/85 dk:dark:bg-pink-900/70 dk:backdrop-blur-md dk:border dk:border-pink-300/70 dk:dark:border-pink-600/60 dk:text-pink-800 dk:dark:text-pink-200',
-    success: 'dk:bg-emerald-100/85 dk:dark:bg-emerald-900/70 dk:backdrop-blur-md dk:border dk:border-emerald-300/70 dk:dark:border-emerald-600/60 dk:text-emerald-800 dk:dark:text-emerald-200',
-    warning: 'dk:bg-amber-100/85 dk:dark:bg-amber-900/70 dk:backdrop-blur-md dk:border dk:border-amber-300/70 dk:dark:border-amber-600/60 dk:text-amber-800 dk:dark:text-amber-200',
-    danger: 'dk:bg-rose-100/85 dk:dark:bg-rose-900/70 dk:backdrop-blur-md dk:border dk:border-rose-300/70 dk:dark:border-rose-600/60 dk:text-rose-800 dk:dark:text-rose-200',
-  },
-}
 
 const menuStyle = computed(() => ({ minWidth: props.minWidth }))
 
 const menuClasses = computed(() => {
-  return [
-    'dk:absolute dk:z-50 dk:shadow-lg dk:py-1',
+  const variant = panelVariantClasses[props.variant]
+  return cn(
+    'dk:absolute dk:z-50 dk:p-1',
     placementClasses[props.placement],
     roundedClasses[props.rounded],
-    variantClasses[props.variant][props.color],
-  ].join(' ')
+    variant.base,
+    variant[props.color],
+  )
 })
 </script>

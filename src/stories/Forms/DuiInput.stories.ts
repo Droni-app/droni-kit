@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 
 import DuiInput from './DuiInput.vue';
-import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -57,7 +56,7 @@ export const Default: Story = {
     },
     template: `
       <div class="dk:p-4">
-        <label for="default-input" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+        <label for="default-input" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
           Default Input
         </label>
         <DuiInput 
@@ -67,7 +66,7 @@ export const Default: Story = {
           placeholder="Enter text..."
           v-bind="args" 
         />
-        <p class="dk:mt-2 dk:text-sm dk:text-gray-600 dk:dark:text-gray-400">
+        <p class="dk:mt-2 dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
           Value: {{ inputValue }}
         </p>
       </div>
@@ -88,7 +87,7 @@ export const Sizes: Story = {
     template: `
       <div class="dk:space-y-6 dk:p-4">
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Small Input
           </label>
           <DuiInput 
@@ -98,7 +97,7 @@ export const Sizes: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Medium Input (Default)
           </label>
           <DuiInput 
@@ -108,7 +107,7 @@ export const Sizes: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Large Input
           </label>
           <DuiInput 
@@ -137,7 +136,7 @@ export const InputTypes: Story = {
     template: `
       <div class="dk:space-y-6 dk:p-4">
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Text Input
           </label>
           <DuiInput 
@@ -147,7 +146,7 @@ export const InputTypes: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Email Input
           </label>
           <DuiInput 
@@ -157,7 +156,7 @@ export const InputTypes: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Password Input
           </label>
           <DuiInput 
@@ -167,7 +166,7 @@ export const InputTypes: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Number Input
           </label>
           <DuiInput 
@@ -179,7 +178,7 @@ export const InputTypes: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Date Input
           </label>
           <DuiInput 
@@ -206,7 +205,7 @@ export const States: Story = {
     template: `
       <div class="dk:space-y-6 dk:p-4">
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Normal Input
           </label>
           <DuiInput 
@@ -215,7 +214,7 @@ export const States: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Disabled Input
           </label>
           <DuiInput 
@@ -225,7 +224,7 @@ export const States: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Readonly Input
           </label>
           <DuiInput 
@@ -234,7 +233,7 @@ export const States: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Required Input <span class="dk:text-red-500">*</span>
           </label>
           <DuiInput 
@@ -266,7 +265,7 @@ export const RoundedVariations: Story = {
     template: `
       <div class="dk:space-y-6 dk:p-4">
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             All Rounded (Default)
           </label>
           <DuiInput 
@@ -276,7 +275,7 @@ export const RoundedVariations: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Top Rounded
           </label>
           <DuiInput 
@@ -286,7 +285,7 @@ export const RoundedVariations: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Bottom Rounded
           </label>
           <DuiInput 
@@ -296,7 +295,7 @@ export const RoundedVariations: Story = {
           />
         </div>
         <div>
-          <label class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             No Rounded
           </label>
           <DuiInput 
@@ -333,12 +332,12 @@ export const FormExample: Story = {
     },
     template: `
       <form @submit.prevent="handleSubmit" class="dk:max-w-md dk:mx-auto dk:p-6 dk:space-y-6">
-        <h2 class="dk:text-xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-6">
+        <h2 class="dk:text-xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-6">
           Registration Form
         </h2>
         
         <div>
-          <label for="name" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label for="name" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Full Name <span class="dk:text-red-500">*</span>
           </label>
           <DuiInput 
@@ -351,7 +350,7 @@ export const FormExample: Story = {
         </div>
         
         <div>
-          <label for="email" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label for="email" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Email Address <span class="dk:text-red-500">*</span>
           </label>
           <DuiInput 
@@ -364,7 +363,7 @@ export const FormExample: Story = {
         </div>
         
         <div>
-          <label for="phone" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label for="phone" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Phone Number
           </label>
           <DuiInput 
@@ -376,7 +375,7 @@ export const FormExample: Story = {
         </div>
         
         <div>
-          <label for="website" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label for="website" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Website
           </label>
           <DuiInput 
@@ -388,7 +387,7 @@ export const FormExample: Story = {
         </div>
         
         <div>
-          <label for="password" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label for="password" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Password <span class="dk:text-red-500">*</span>
           </label>
           <DuiInput 
@@ -402,7 +401,7 @@ export const FormExample: Story = {
         </div>
         
         <div>
-          <label for="confirm-password" class="dk:block dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">
+          <label for="confirm-password" class="dk:block dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">
             Confirm Password <span class="dk:text-red-500">*</span>
           </label>
           <DuiInput 
@@ -421,9 +420,9 @@ export const FormExample: Story = {
           Register
         </button>
         
-        <div class="dk:mt-4 dk:p-4 dk:bg-gray-100 dk:dark:bg-gray-800 dk:rounded">
-          <h3 class="dk:text-sm dk:font-medium dk:text-gray-700 dk:dark:text-gray-300 dk:mb-2">Form Data:</h3>
-          <pre class="dk:text-xs dk:text-gray-600 dk:dark:text-gray-400">{{ JSON.stringify(formData, null, 2) }}</pre>
+        <div class="dk:mt-4 dk:p-4 dk:bg-neutral-100 dk:dark:bg-neutral-800 dk:rounded">
+          <h3 class="dk:text-sm dk:font-medium dk:text-neutral-700 dk:dark:text-neutral-300 dk:mb-2">Form Data:</h3>
+          <pre class="dk:text-xs dk:text-neutral-600 dk:dark:text-neutral-400">{{ JSON.stringify(formData, null, 2) }}</pre>
         </div>
       </form>
     `

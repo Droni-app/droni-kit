@@ -4,7 +4,6 @@ import { expect, userEvent, within } from 'storybook/test';
 import DuiToast from './DuiToast.vue';
 import DuiButton from '../Forms/DuiButton.vue';
 import { useToast } from './useToast';
-import '../../style.css';
 
 const meta = {
   title: 'Elements/Toast',
@@ -114,7 +113,7 @@ export const Persistent: Story = {
       <div class="dk:p-6">
         <DuiToast v-bind="args" />
         <DuiButton @click="showPersistent">Mostrar toast persistente</DuiButton>
-        <p class="dk:mt-2 dk:text-xs dk:text-zinc-500">duration: 0 = no se cierra automaticamente</p>
+        <p class="dk:mt-2 dk:text-xs dk:text-neutral-500">duration: 0 = no se cierra automaticamente</p>
       </div>
     `,
   }),

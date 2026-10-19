@@ -1,7 +1,7 @@
 {
   "name": "@dronico/droni-kit",
   "author": "Gustavo Barragan <dev@droni.co>",
-  "version": "1.26.0",
+  "version": "2.0.0-beta.3",
   "private": false,
   "access": "public",
   "publishConfig": {
@@ -17,13 +17,17 @@
   "main": "dist/droni-kit.cjs",
   "module": "dist/droni-kit.es.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/droni-kit.es.js",
       "require": "./dist/droni-kit.cjs"
     },
-    "./dist/droni-kit.css": "./dist/droni-kit.css"
+    "./dist/droni-kit.css": "./dist/droni-kit.css",
+    "./style.css": "./dist/droni-kit.css"
   },
   "scripts": {
     "dev": "vite",

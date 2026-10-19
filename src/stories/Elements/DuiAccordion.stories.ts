@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect, userEvent, within } from 'storybook/test';
 
 import DuiAccordion from './DuiAccordion.vue';
-import '../../style.css';
 
 const faqItems = [
   {
@@ -116,7 +115,7 @@ export const Multiple: Story = {
     },
     template: `
       <div class="dk:p-4 dk:max-w-xl">
-        <p class="dk:text-xs dk:text-zinc-500 dk:mb-3">multiple: true — se pueden abrir varios a la vez</p>
+        <p class="dk:text-xs dk:text-neutral-500 dk:mb-3">multiple: true — se pueden abrir varios a la vez</p>
         <DuiAccordion
           v-model="open"
           :items="items"
@@ -143,15 +142,15 @@ export const Variants: Story = {
     template: `
       <div class="dk:p-4 dk:space-y-6 dk:max-w-lg">
         <div>
-          <p class="dk:text-xs dk:font-semibold dk:text-zinc-500 dk:mb-2">Bordered</p>
+          <p class="dk:text-xs dk:font-semibold dk:text-neutral-500 dk:mb-2">Bordered</p>
           <DuiAccordion v-model="o1" :items="items" variant="bordered" />
         </div>
         <div>
-          <p class="dk:text-xs dk:font-semibold dk:text-zinc-500 dk:mb-2">Separated</p>
+          <p class="dk:text-xs dk:font-semibold dk:text-neutral-500 dk:mb-2">Separated</p>
           <DuiAccordion v-model="o2" :items="items" variant="separated" color="primary" />
         </div>
         <div>
-          <p class="dk:text-xs dk:font-semibold dk:text-zinc-500 dk:mb-2">Ghost</p>
+          <p class="dk:text-xs dk:font-semibold dk:text-neutral-500 dk:mb-2">Ghost</p>
           <DuiAccordion v-model="o3" :items="items" variant="ghost" />
         </div>
       </div>

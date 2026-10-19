@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect, userEvent, within } from 'storybook/test';
 
 import DuiSwitch from './DuiSwitch.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Forms/Switch',
@@ -83,7 +82,7 @@ export const Default: Story = {
     template: `
       <div class="dk:p-4">
         <DuiSwitch v-bind="args" v-model="enabled" />
-        <p class="dk:mt-3 dk:text-sm dk:text-zinc-500">Estado: {{ enabled ? 'Activado' : 'Desactivado' }}</p>
+        <p class="dk:mt-3 dk:text-sm dk:text-neutral-500">Estado: {{ enabled ? 'Activado' : 'Desactivado' }}</p>
       </div>
     `,
   }),
@@ -109,7 +108,7 @@ export const Colors: Story = {
       return { vals };
     },
     template: `
-      <div class="dk:p-4 dk:space-y-3">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-3">
         <DuiSwitch v-model="vals.neutral" color="neutral" label="Neutral" />
         <DuiSwitch v-model="vals.primary" color="primary" label="Primary" />
         <DuiSwitch v-model="vals.secondary" color="secondary" label="Secondary" />
@@ -129,7 +128,7 @@ export const Sizes: Story = {
       return { sm, md, lg };
     },
     template: `
-      <div class="dk:p-4 dk:space-y-4">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-4">
         <DuiSwitch v-model="sm" size="sm" label="Small" />
         <DuiSwitch v-model="md" size="md" label="Medium" />
         <DuiSwitch v-model="lg" size="lg" label="Large" />
@@ -146,7 +145,7 @@ export const WithIcons: Story = {
       return { v1, v2, v3 };
     },
     template: `
-      <div class="dk:p-4 dk:space-y-3">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-3">
         <DuiSwitch v-model="v1" label="Notificaciones push" show-icons />
         <DuiSwitch v-model="v2" label="Marketing emails" show-icons />
         <DuiSwitch v-model="v3" label="Autenticacion de dos factores" description="Recomendado para mayor seguridad" show-icons color="success" />
@@ -169,7 +168,7 @@ export const SettingsList: Story = {
       return { settings };
     },
     template: `
-      <div class="dk:p-4 dk:max-w-sm dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:divide-y dk:divide-zinc-100 dk:dark:divide-zinc-800">
+      <div class="dk:p-4 dk:max-w-sm dk:border dk:border-neutral-200 dk:dark:border-neutral-700 dk:rounded-xl dk:divide-y dk:divide-neutral-100 dk:dark:divide-neutral-800">
         <div class="dk:px-4 dk:py-3">
           <DuiSwitch v-model="settings.darkMode" label="Modo oscuro" description="Cambia el tema de la aplicacion" block label-position="left" />
         </div>

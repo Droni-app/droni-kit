@@ -18,7 +18,7 @@
           <span v-else :class="dotClasses(toast.color)" aria-hidden="true" />
           <div class="dk:flex-1 dk:min-w-0">
             <p v-if="toast.title" class="dk:text-sm dk:font-semibold dk:leading-snug">{{ toast.title }}</p>
-            <p class="dk:text-sm dk:leading-snug" :class="{ 'dk:opacity-80': toast.title }">{{ toast.message }}</p>
+            <p class="dk:text-sm dk:leading-snug" :class="{ 'dk:text-neutral-600 dk:dark:text-neutral-400': toast.title }">{{ toast.message }}</p>
           </div>
           <button
             v-if="toast.closable"
@@ -36,6 +36,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { cn } from '../../utils/cn'
+import { elevatedSurfaceClasses, dotColorClasses, focusRingClasses } from '../../theme/tokens'
 import { useToast } from './useToast'
 import type { ToastColor, ToastPosition } from './useToast'
 
@@ -65,10 +67,7 @@ const positionClasses: Record<ToastPosition, string> = {
 }
 
 const containerClasses = computed(() => {
-  return [
-    'dk:fixed dk:pointer-events-none',
-    positionClasses[props.position],
-  ].join(' ')
+  return cn('dk:fixed dk:pointer-events-none dk:flex dk:flex-col', positionClasses[props.position])
 })
 
 const containerStyles = computed(() => {
@@ -81,36 +80,32 @@ const listClasses = computed(() => {
   return 'dk:relative dk:flex dk:flex-col dk:gap-2 dk:w-80 dk:max-w-[calc(100vw-2rem)]'
 })
 
-const colorMap: Record<ToastColor, string> = {
-  neutral: 'dk:bg-zinc-800 dk:dark:bg-zinc-700 dk:text-white dk:border-zinc-600',
-  primary: 'dk:bg-slate-700 dk:dark:bg-slate-700 dk:text-white dk:border-slate-500',
-  secondary: 'dk:bg-pink-600 dk:dark:bg-pink-700 dk:text-white dk:border-pink-400',
-  success: 'dk:bg-emerald-600 dk:dark:bg-emerald-700 dk:text-white dk:border-emerald-400',
-  warning: 'dk:bg-amber-600 dk:dark:bg-amber-700 dk:text-white dk:border-amber-400',
-  danger: 'dk:bg-rose-600 dk:dark:bg-rose-700 dk:text-white dk:border-rose-400',
-}
-
-const dotMap: Record<ToastColor, string> = {
-  neutral: 'dk:bg-zinc-300',
-  primary: 'dk:bg-slate-300',
-  secondary: 'dk:bg-pink-200',
-  success: 'dk:bg-emerald-200',
-  warning: 'dk:bg-amber-200',
-  danger: 'dk:bg-rose-200',
+// Borde izquierdo de color: identifica el tono sin saturar la superficie
+const accentMap: Record<ToastColor, string> = {
+  neutral: 'dk:border-l-neutral-400 dk:dark:border-l-neutral-500',
+  primary: 'dk:border-l-primary-500 dk:dark:border-l-primary-400',
+  secondary: 'dk:border-l-secondary-500 dk:dark:border-l-secondary-400',
+  success: 'dk:border-l-success-500 dk:dark:border-l-success-400',
+  warning: 'dk:border-l-warning-500 dk:dark:border-l-warning-400',
+  danger: 'dk:border-l-danger-500 dk:dark:border-l-danger-400',
 }
 
 function toastClasses(color: ToastColor) {
-  return [
+  return cn(
     'dk:pointer-events-auto dk:flex dk:items-start dk:gap-3',
-    'dk:rounded-xl dk:border dk:px-4 dk:py-3 dk:shadow-xl',
-    colorMap[color],
-  ].join(' ')
+    'dk:rounded-xl dk:border-l-[3px] dk:px-4 dk:py-3 dk:backdrop-blur',
+    elevatedSurfaceClasses,
+    accentMap[color],
+  )
 }
 
 function dotClasses(color: ToastColor) {
-  return ['dk:flex-shrink-0 dk:w-2 dk:h-2 dk:rounded-full dk:mt-1', dotMap[color]].join(' ')
+  return cn('dk:flex-shrink-0 dk:w-2 dk:h-2 dk:rounded-full dk:mt-1.5', dotColorClasses[color])
 }
 
-const closeClasses =
-  'dk:flex-shrink-0 dk:flex dk:items-center dk:justify-center dk:w-5 dk:h-5 dk:rounded dk:text-current dk:opacity-70 dk:hover:opacity-100 dk:transition-opacity dk:text-base dk:leading-none dk:outline-none dk:ring-1 dk:ring-current/30 dk:focus-visible:ring-2'
+const closeClasses = cn(
+  'dk:flex-shrink-0 dk:flex dk:items-center dk:justify-center dk:w-6 dk:h-6 dk:-mr-1 dk:rounded-md dk:text-base dk:leading-none',
+  'dk:text-neutral-400 dk:hover:text-neutral-700 dk:hover:bg-neutral-100 dk:dark:hover:text-neutral-100 dk:dark:hover:bg-white/10 dk:transition-colors',
+  focusRingClasses,
+)
 </script>

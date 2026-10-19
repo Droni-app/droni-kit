@@ -1,7 +1,165 @@
-@import "tailwindcss";
+/* =============================================================================
+   DroniKit v2 — Hoja de estilos principal
+   Las @import url() deben ir antes que cualquier otra regla.
+   ============================================================================= */
+
+/* Tipografía (Inter) e iconos (Material Design Icons) vía CDN.
+   Se distribuyen dentro de dist/droni-kit.css: el consumidor no necesita
+   agregar nada a su index.html. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css");
+
+@import "tailwindcss" source(none);
 @custom-variant dark (&:where(.dark, .dark *));
-@import "tailwindcss" prefix(dk);
+@import "tailwindcss" prefix(dk) source(none);
+
+/* Solo los componentes generan CSS publicado. Stories y playground tienen su
+   propia hoja (.storybook/preview.css, src/playground.css) que añade sus fuentes. */
+@source "./stories/**/*.vue";
+@source "./theme";
+@source "./utils";
+
+/* -----------------------------------------------------------------------------
+   Tokens de color semánticos — paleta "Neon Noir"
+   Tailwind los emite como variables CSS con el prefijo dk, p.ej.
+   --dk-color-primary-500. Re-temear = sobrescribir esas variables en :root.
+   ----------------------------------------------------------------------------- */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* primary — violeta eléctrico */
+  --color-primary-50: #f5f1ff;
+  --color-primary-100: #ece4ff;
+  --color-primary-200: #dbccff;
+  --color-primary-300: #c0a5ff;
+  --color-primary-400: #a175fd;
+  --color-primary-500: #8a4cf7;
+  --color-primary-600: #7130eb;
+  --color-primary-700: #5f21cf;
+  --color-primary-800: #4e1ca9;
+  --color-primary-900: #401a88;
+  --color-primary-950: #270b5c;
+
+  /* secondary — magenta neón */
+  --color-secondary-50: #fff0f6;
+  --color-secondary-100: #ffe3ef;
+  --color-secondary-200: #ffc7df;
+  --color-secondary-300: #ff9ac4;
+  --color-secondary-400: #fb5d9f;
+  --color-secondary-500: #f23282;
+  --color-secondary-600: #df1a6c;
+  --color-secondary-700: #bc0f56;
+  --color-secondary-800: #9b104a;
+  --color-secondary-900: #821242;
+  --color-secondary-950: #4f0423;
+
+  /* accent — cian (focus, enlaces, detalles neón) */
+  --color-accent-50: #ecfdff;
+  --color-accent-100: #cff8fe;
+  --color-accent-200: #a5effc;
+  --color-accent-300: #67e2f9;
+  --color-accent-400: #22cdee;
+  --color-accent-500: #06b1d4;
+  --color-accent-600: #088db2;
+  --color-accent-700: #0e7190;
+  --color-accent-800: #155b75;
+  --color-accent-900: #164c63;
+  --color-accent-950: #083244;
+
+  /* neutral — gris con tinte navy; 900/950 son las superficies del dark mode */
+  --color-neutral-50: #f7f8fc;
+  --color-neutral-100: #eef0f7;
+  --color-neutral-200: #dfe2ee;
+  --color-neutral-300: #c3c8da;
+  --color-neutral-400: #9298b3;
+  --color-neutral-500: #676e8c;
+  --color-neutral-600: #4c5270;
+  --color-neutral-700: #31364f;
+  --color-neutral-800: #1f2338;
+  --color-neutral-900: #11142a;
+  --color-neutral-950: #080a18;
+
+  /* success — esmeralda */
+  --color-success-50: #ecfdf6;
+  --color-success-100: #d1faea;
+  --color-success-200: #a7f3d6;
+  --color-success-300: #6ee7bd;
+  --color-success-400: #34d39f;
+  --color-success-500: #10b985;
+  --color-success-600: #05966b;
+  --color-success-700: #047858;
+  --color-success-800: #065f47;
+  --color-success-900: #064e3b;
+  --color-success-950: #022c22;
+
+  /* warning — ámbar */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+
+  /* danger — rojo (separado del magenta de secondary) */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+  --color-danger-950: #450a0a;
+
+  /* Glow neón: sutil, pensado sobre todo para dark mode (dk:dark:shadow-glow-*) */
+  --shadow-glow-neutral: 0 0 0 1px rgb(146 152 179 / 0.18), 0 6px 20px -6px rgb(146 152 179 / 0.35);
+  --shadow-glow-primary: 0 0 0 1px rgb(138 76 247 / 0.35), 0 6px 22px -4px rgb(138 76 247 / 0.55);
+  --shadow-glow-secondary: 0 0 0 1px rgb(242 50 130 / 0.35), 0 6px 22px -4px rgb(242 50 130 / 0.55);
+  --shadow-glow-accent: 0 0 0 1px rgb(6 177 212 / 0.35), 0 6px 22px -4px rgb(6 177 212 / 0.5);
+  --shadow-glow-success: 0 0 0 1px rgb(16 185 133 / 0.3), 0 6px 22px -4px rgb(16 185 133 / 0.45);
+  --shadow-glow-warning: 0 0 0 1px rgb(245 158 11 / 0.3), 0 6px 22px -4px rgb(245 158 11 / 0.45);
+  --shadow-glow-danger: 0 0 0 1px rgb(239 68 68 / 0.3), 0 6px 22px -4px rgb(239 68 68 / 0.45);
+  /* Sombra de superficies elevadas (modal, drawer, dropdown, toast) */
+  --shadow-elevated: 0 1px 2px rgb(8 10 24 / 0.06), 0 12px 32px -8px rgb(8 10 24 / 0.18);
+  --shadow-elevated-dark: 0 0 0 1px rgb(255 255 255 / 0.06), 0 16px 48px -12px rgb(0 0 0 / 0.7), 0 0 40px -20px rgb(138 76 247 / 0.45);
+
+  --animate-dui-shimmer: dui-shimmer 1.6s linear infinite;
+}
+
+/* Inter solo dentro de los componentes: no altera la tipografía de la app host. */
+@layer base {
+  [class*="dk:"] {
+    font-family: var(--dk-font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Chevron del DuiSelect (data URI con espacios: no cabe en una clase arbitraria) */
+:root {
+  --dk-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239298b3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
 
 .mdi {
   font-size: 0.9em;
+}
+
+/* ── Keyframes globales DroniKit (Skeleton shimmer) ─────────────────────── */
+@keyframes dui-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* Accesibilidad: respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  [class*="dk:"] {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

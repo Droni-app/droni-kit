@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect } from 'storybook/test';
 
 import DuiSkeleton from './DuiSkeleton.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Elements/Skeleton',
@@ -64,19 +63,19 @@ export const Variants: Story = {
     template: `
       <div class="dk:p-4 dk:space-y-4 dk:max-w-sm">
         <div>
-          <p class="dk:text-xs dk:text-zinc-400 dk:mb-1">Text</p>
+          <p class="dk:text-xs dk:text-neutral-400 dk:mb-1">Text</p>
           <DuiSkeleton variant="text" />
         </div>
         <div>
-          <p class="dk:text-xs dk:text-zinc-400 dk:mb-1">Circular</p>
+          <p class="dk:text-xs dk:text-neutral-400 dk:mb-1">Circular</p>
           <DuiSkeleton variant="circular" width="48" height="48" />
         </div>
         <div>
-          <p class="dk:text-xs dk:text-zinc-400 dk:mb-1">Rectangular</p>
+          <p class="dk:text-xs dk:text-neutral-400 dk:mb-1">Rectangular</p>
           <DuiSkeleton variant="rectangular" height="80" />
         </div>
         <div>
-          <p class="dk:text-xs dk:text-zinc-400 dk:mb-1">Rounded</p>
+          <p class="dk:text-xs dk:text-neutral-400 dk:mb-1">Rounded</p>
           <DuiSkeleton variant="rounded" height="80" />
         </div>
       </div>
@@ -89,7 +88,7 @@ export const CardSkeleton: Story = {
     components: { DuiSkeleton },
     template: `
       <div class="dk:p-4 dk:max-w-sm">
-        <div class="dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:p-4 dk:space-y-4">
+        <div class="dk:border dk:border-neutral-200 dk:dark:border-neutral-700 dk:rounded-xl dk:p-4 dk:space-y-4">
           <DuiSkeleton variant="rounded" height="160" />
           <div class="dk:flex dk:items-center dk:gap-3">
             <DuiSkeleton variant="circular" width="40" height="40" />
@@ -131,11 +130,11 @@ export const TableSkeleton: Story = {
     components: { DuiSkeleton },
     template: `
       <div class="dk:p-4 dk:max-w-2xl">
-        <div class="dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:overflow-hidden">
-          <div class="dk:grid dk:grid-cols-4 dk:gap-4 dk:p-3 dk:border-b dk:border-zinc-200 dk:dark:border-zinc-700">
+        <div class="dk:border dk:border-neutral-200 dk:dark:border-neutral-700 dk:rounded-xl dk:overflow-hidden">
+          <div class="dk:grid dk:grid-cols-4 dk:gap-4 dk:p-3 dk:border-b dk:border-neutral-200 dk:dark:border-neutral-700">
             <DuiSkeleton v-for="i in 4" :key="i" variant="text" height="12" />
           </div>
-          <div v-for="row in 5" :key="row" class="dk:grid dk:grid-cols-4 dk:gap-4 dk:p-3 dk:border-b dk:border-zinc-100 dk:dark:border-zinc-800 last:border-0">
+          <div v-for="row in 5" :key="row" class="dk:grid dk:grid-cols-4 dk:gap-4 dk:p-3 dk:border-b dk:border-neutral-100 dk:dark:border-neutral-800 last:border-0">
             <DuiSkeleton v-for="col in 4" :key="col" variant="text" :width="col === 1 ? '80%' : '60%'" />
           </div>
         </div>
@@ -154,7 +153,7 @@ export const LoadingToggle: Story = {
     template: `
       <div class="dk:p-4 dk:max-w-sm dk:space-y-4">
         <button
-          class="dk:px-3 dk:py-1.5 dk:text-sm dk:rounded-lg dk:bg-slate-600 dk:text-white dk:hover:bg-slate-700 dk:transition-colors"
+          class="dk:px-3 dk:py-1.5 dk:text-sm dk:rounded-lg dk:bg-primary-600 dk:text-white dk:hover:bg-primary-700 dk:transition-colors"
           @click="loading = !loading">
           {{ loading ? 'Mostrar contenido' : 'Mostrar skeleton' }}
         </button>
@@ -164,12 +163,12 @@ export const LoadingToggle: Story = {
           <DuiSkeleton variant="text" />
           <DuiSkeleton variant="text" width="70%" />
         </div>
-        <div v-else class="dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:p-4 dk:space-y-2">
-          <div class="dk:bg-slate-100 dk:dark:bg-slate-800 dk:rounded-lg dk:h-[120px] dk:flex dk:items-center dk:justify-center dk:text-zinc-400">
+        <div v-else class="dk:border dk:border-neutral-200 dk:dark:border-neutral-700 dk:rounded-xl dk:p-4 dk:space-y-2">
+          <div class="dk:bg-neutral-100 dk:dark:bg-neutral-800 dk:rounded-lg dk:h-[120px] dk:flex dk:items-center dk:justify-center dk:text-neutral-400">
             Imagen del producto
           </div>
-          <p class="dk:text-sm dk:font-semibold dk:text-zinc-900 dk:dark:text-zinc-100">Producto Premium</p>
-          <p class="dk:text-xs dk:text-zinc-500">Descripcion breve del producto seleccionado.</p>
+          <p class="dk:text-sm dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">Producto Premium</p>
+          <p class="dk:text-xs dk:text-neutral-500">Descripcion breve del producto seleccionado.</p>
         </div>
       </div>
     `,

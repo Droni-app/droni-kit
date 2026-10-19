@@ -1,3 +1,27 @@
+# [2.0.0-beta.3](https://github.com/Droni-app/droni-kit/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2026-10-19)
+
+
+### Features
+
+* tema Neon Noir, tokens CSS y guía de migración ([09c48e3](https://github.com/Droni-app/droni-kit/commit/09c48e3662111a5b990254354c19ff9678547851))
+
+# [2.0.0-beta.2](https://github.com/Droni-app/droni-kit/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2026-10-18)
+
+
+### Bug Fixes
+
+* paleta Apple-style — primary teal, secondary slate ([b907d57](https://github.com/Droni-app/droni-kit/commit/b907d570e518d6e250bc7a7670b477fc786002fd))
+
+# [2.0.0-beta.1](https://github.com/Droni-app/droni-kit/compare/v1.26.0...v2.0.0-beta.1) (2026-10-18)
+
+
+* feat!: DroniKit v2.0 — sistema de tokens y API unificada ([2966445](https://github.com/Droni-app/droni-kit/commit/296644587fc5057eaa9d660592f61f2ae0e9fc2b))
+
+
+### BREAKING CHANGES
+
+* reescritura visual completa y reorganización del sistema de clases (dk:*). La API de props/emits/slots se mantiene, pero los colores y paradigmas de estilos cambian.
+
 # [1.26.0](https://github.com/Droni-app/droni-kit/compare/v1.25.1...v1.26.0) (2026-09-19)
 
 

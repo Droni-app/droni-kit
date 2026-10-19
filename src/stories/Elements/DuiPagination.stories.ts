@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect, userEvent, within } from 'storybook/test';
 
 import DuiPagination from './DuiPagination.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Elements/Pagination',
@@ -84,7 +83,7 @@ export const Default: Story = {
     template: `
       <div class="dk:p-4 dk:space-y-2">
         <DuiPagination v-bind="args" v-model="page" />
-        <p class="dk:text-xs dk:text-zinc-500">Pagina {{ page }} de {{ Math.ceil(args.total / args.perPage) }}</p>
+        <p class="dk:text-xs dk:text-neutral-500">Pagina {{ page }} de {{ Math.ceil(args.total / args.perPage) }}</p>
       </div>
     `,
   }),
@@ -112,15 +111,15 @@ export const Variants: Story = {
     template: `
       <div class="dk:p-4 dk:space-y-5">
         <div class="dk:space-y-1">
-          <p class="dk:text-xs dk:text-zinc-400">Solid</p>
+          <p class="dk:text-xs dk:text-neutral-400">Solid</p>
           <DuiPagination v-model="p1" :total="100" variant="solid" color="primary" />
         </div>
         <div class="dk:space-y-1">
-          <p class="dk:text-xs dk:text-zinc-400">Outline</p>
+          <p class="dk:text-xs dk:text-neutral-400">Outline</p>
           <DuiPagination v-model="p2" :total="100" variant="outline" color="primary" />
         </div>
         <div class="dk:space-y-1">
-          <p class="dk:text-xs dk:text-zinc-400">Ghost</p>
+          <p class="dk:text-xs dk:text-neutral-400">Ghost</p>
           <DuiPagination v-model="p3" :total="100" variant="ghost" color="primary" />
         </div>
       </div>
@@ -160,7 +159,7 @@ export const LargePagination: Story = {
     template: `
       <div class="dk:p-4 dk:space-y-2">
         <DuiPagination v-model="page" :total="500" :per-page="10" :sibling-count="2" color="primary" show-labels />
-        <p class="dk:text-xs dk:text-zinc-500">Pagina {{ page }} de 50</p>
+        <p class="dk:text-xs dk:text-neutral-500">Pagina {{ page }} de 50</p>
       </div>
     `,
   }),

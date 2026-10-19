@@ -1,0 +1,75 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+<Meta title="Tokens" />
+
+# Design tokens
+
+La paleta **Neon Noir** se inspira en el triángulo de la identidad Droni: violeta y magenta que se funden sobre un fondo navy, con un destello cian. Cada color es una variable CSS (`--dk-color-<rol>-<tono>`) que puedes sobrescribir en tu app. La guía de **Migración v2** explica cómo.
+
+## Colores semánticos
+
+<ColorPalette>
+  <ColorItem
+    title="primary"
+    subtitle="Violeta eléctrico · acción principal"
+    colors={{ 50: '#f5f1ff', 100: '#ece4ff', 200: '#dbccff', 300: '#c0a5ff', 400: '#a175fd', 500: '#8a4cf7', 600: '#7130eb', 700: '#5f21cf', 800: '#4e1ca9', 900: '#401a88', 950: '#270b5c' }}
+  />
+  <ColorItem
+    title="secondary"
+    subtitle="Magenta neón · acento de marca"
+    colors={{ 50: '#fff0f6', 100: '#ffe3ef', 200: '#ffc7df', 300: '#ff9ac4', 400: '#fb5d9f', 500: '#f23282', 600: '#df1a6c', 700: '#bc0f56', 800: '#9b104a', 900: '#821242', 950: '#4f0423' }}
+  />
+  <ColorItem
+    title="accent"
+    subtitle="Cian · focus, enlaces, detalles"
+    colors={{ 50: '#ecfdff', 100: '#cff8fe', 200: '#a5effc', 300: '#67e2f9', 400: '#22cdee', 500: '#06b1d4', 600: '#088db2', 700: '#0e7190', 800: '#155b75', 900: '#164c63', 950: '#083244' }}
+  />
+  <ColorItem
+    title="neutral"
+    subtitle="Gris navy · texto y superficies (900/950 = dark mode)"
+    colors={{ 50: '#f7f8fc', 100: '#eef0f7', 200: '#dfe2ee', 300: '#c3c8da', 400: '#9298b3', 500: '#676e8c', 600: '#4c5270', 700: '#31364f', 800: '#1f2338', 900: '#11142a', 950: '#080a18' }}
+  />
+  <ColorItem
+    title="success"
+    subtitle="Esmeralda"
+    colors={{ 50: '#ecfdf6', 100: '#d1faea', 200: '#a7f3d6', 300: '#6ee7bd', 400: '#34d39f', 500: '#10b985', 600: '#05966b', 700: '#047858', 800: '#065f47', 900: '#064e3b', 950: '#022c22' }}
+  />
+  <ColorItem
+    title="warning"
+    subtitle="Ámbar"
+    colors={{ 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f', 950: '#451a03' }}
+  />
+  <ColorItem
+    title="danger"
+    subtitle="Rojo"
+    colors={{ 50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#fca5a5', 400: '#f87171', 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c', 800: '#991b1b', 900: '#7f1d1d', 950: '#450a0a' }}
+  />
+</ColorPalette>
+
+## Principios
+
+| Principio | Cómo se aplica |
+| --- | --- |
+| **Serio primero** | Superficies sobrias, tipografía Inter, bordes de 1 px y sombras suaves. El color se reserva para la acción y el estado. |
+| **Neón con intención** | El glow (`--dk-shadow-glow-*`) aparece sobre todo en dark mode: botones `solid`, elementos activos, LEDs de estado y el halo de los paneles. |
+| **Focus cian** | Un único anillo de focus `accent` en toda la librería; se ve igual en light y en dark. |
+| **Light y dark al mismo nivel** | Cada componente define los dos modos. El dark se activa con la clase `.dark` en un ancestro. |
+
+## Otros tokens
+
+| Variable | Uso |
+| --- | --- |
+| `--dk-font-sans` | Tipografía de los componentes (Inter por defecto). |
+| `--dk-shadow-glow-{color}` | Halo neón de botones, switches y paginación en dark mode. |
+| `--dk-shadow-elevated` / `--dk-shadow-elevated-dark` | Sombra de modales, drawers, dropdowns, tooltips y toasts. |
+| `--dk-select-chevron` | Icono de flecha de `DuiSelect` (data URI SVG). |
+
+## Uso en tu app
+
+```css
+/* después de importar @dronico/droni-kit/dist/droni-kit.css */
+:root {
+  --dk-color-primary-600: #2c47df;
+  --dk-font-sans: "Geist", system-ui, sans-serif;
+}
+```

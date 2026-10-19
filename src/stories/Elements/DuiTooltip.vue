@@ -164,23 +164,33 @@ function isPresetMaxWidth(value: unknown): value is keyof typeof maxWidthClasses
 
 const variantClasses = {
   solid: {
-    base: 'dk:border dk:shadow-lg',
-    neutral: 'dk:bg-zinc-900 dk:text-zinc-100 dk:border-zinc-700 dk:dark:bg-zinc-200 dk:dark:text-zinc-900 dk:dark:border-zinc-300',
-    primary: 'dk:bg-slate-900 dk:text-slate-100 dk:border-slate-700 dk:dark:bg-slate-200 dk:dark:text-slate-900 dk:dark:border-slate-300',
-    secondary: 'dk:bg-pink-900 dk:text-pink-100 dk:border-pink-700 dk:dark:bg-pink-200 dk:dark:text-pink-900 dk:dark:border-pink-300',
-    success: 'dk:bg-emerald-900 dk:text-emerald-100 dk:border-emerald-700 dk:dark:bg-emerald-200 dk:dark:text-emerald-900 dk:dark:border-emerald-300',
-    warning: 'dk:bg-amber-900 dk:text-amber-100 dk:border-amber-700 dk:dark:bg-amber-200 dk:dark:text-amber-900 dk:dark:border-amber-300',
-    danger: 'dk:bg-rose-900 dk:text-rose-100 dk:border-rose-700 dk:dark:bg-rose-200 dk:dark:text-rose-900 dk:dark:border-rose-300',
+    base: 'dk:border dk:shadow-elevated',
+    neutral: 'dk:bg-neutral-900 dk:text-white dk:border-neutral-900 dk:dark:bg-neutral-800 dk:dark:text-neutral-100 dk:dark:border-white/10',
+    primary: 'dk:bg-primary-600 dk:text-white dk:border-primary-600 dk:dark:bg-primary-500 dk:dark:border-primary-400 dk:dark:shadow-glow-primary',
+    secondary: 'dk:bg-secondary-600 dk:text-white dk:border-secondary-600 dk:dark:bg-secondary-500 dk:dark:border-secondary-400 dk:dark:shadow-glow-secondary',
+    success: 'dk:bg-success-600 dk:text-white dk:border-success-600 dk:dark:bg-success-500 dk:dark:border-success-400 dk:dark:shadow-glow-success',
+    warning: 'dk:bg-warning-400 dk:text-neutral-950 dk:border-warning-400 dk:dark:shadow-glow-warning',
+    danger: 'dk:bg-danger-600 dk:text-white dk:border-danger-600 dk:dark:bg-danger-500 dk:dark:border-danger-400 dk:dark:shadow-glow-danger',
   },
   outline: {
-    base: 'dk:border dk:shadow-md dk:bg-white/95 dk:dark:bg-zinc-900/95',
-    neutral: 'dk:text-zinc-900 dk:border-zinc-300 dk:dark:text-zinc-100 dk:dark:border-zinc-600',
-    primary: 'dk:text-slate-900 dk:border-slate-400 dk:dark:text-slate-100 dk:dark:border-slate-500',
-    secondary: 'dk:text-pink-900 dk:border-pink-400 dk:dark:text-pink-100 dk:dark:border-pink-500',
-    success: 'dk:text-emerald-900 dk:border-emerald-400 dk:dark:text-emerald-100 dk:dark:border-emerald-500',
-    warning: 'dk:text-amber-900 dk:border-amber-400 dk:dark:text-amber-100 dk:dark:border-amber-500',
-    danger: 'dk:text-rose-900 dk:border-rose-400 dk:dark:text-rose-100 dk:dark:border-rose-500',
+    base: 'dk:border dk:shadow-elevated dk:bg-white dk:dark:bg-neutral-900 dk:dark:shadow-elevated-dark',
+    neutral: 'dk:text-neutral-900 dk:border-neutral-300 dk:dark:text-neutral-100 dk:dark:border-white/15',
+    primary: 'dk:text-neutral-900 dk:border-primary-400 dk:dark:text-neutral-100 dk:dark:border-primary-400/70',
+    secondary: 'dk:text-neutral-900 dk:border-secondary-400 dk:dark:text-neutral-100 dk:dark:border-secondary-400/70',
+    success: 'dk:text-neutral-900 dk:border-success-400 dk:dark:text-neutral-100 dk:dark:border-success-400/70',
+    warning: 'dk:text-neutral-900 dk:border-warning-400 dk:dark:text-neutral-100 dk:dark:border-warning-400/70',
+    danger: 'dk:text-neutral-900 dk:border-danger-400 dk:dark:text-neutral-100 dk:dark:border-danger-400/70',
   },
+}
+
+// La flecha comparte color y fondo con el globo, pero sin sombras (se verían cuadradas)
+function arrowColorClasses() {
+  const variant = variantClasses[props.variant]
+  return [props.variant === 'outline' ? 'dk:bg-white dk:dark:bg-neutral-900' : '', variant[props.color]]
+    .join(' ')
+    .split(' ')
+    .filter((cls) => !cls.includes('shadow'))
+    .join(' ')
 }
 
 const tooltipClasses = computed(() => {
@@ -218,7 +228,7 @@ const tooltipStyle = computed(() => {
 })
 
 const arrowClasses = computed(() => {
-  const colorClass = variantClasses[props.variant][props.color]
+  const colorClass = arrowColorClasses()
   const placement = resolvedPlacement.value
 
   const positionMap: Record<string, string> = {

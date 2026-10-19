@@ -1,0 +1,5 @@
+/* Storybook: estilos de la librería + clases usadas solo en stories/docs */
+@import "../src/style.css";
+@source "../src/**/*.stories.ts";
+@source "../src/**/*.mdx";
+@source "./";
