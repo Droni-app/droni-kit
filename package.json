@@ -1,7 +1,7 @@
 {
   "name": "@dronico/droni-kit",
   "author": "Gustavo Barragan <dev@droni.co>",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0",
   "private": false,
   "access": "public",
   "publishConfig": {
