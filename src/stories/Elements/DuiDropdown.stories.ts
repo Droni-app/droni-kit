@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import DuiDropdown from './DuiDropdown.vue';
 import DuiDropdownItem from './DuiDropdownItem.vue';
 import DuiDropdownSeparator from './DuiDropdownSeparator.vue';
 import DuiButton from '../Forms/DuiButton.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Elements/Dropdown',
@@ -99,7 +98,8 @@ export const Default: Story = {
     await expect(items.length).toBeGreaterThan(0);
 
     await userEvent.click(trigger);
-    await expect(canvasElement.querySelector('[role="menu"]')).toBeNull();
+    // El menú sale con una transición: esperar a que termine
+    await waitFor(() => expect(canvasElement.querySelector('[role="menu"]')).toBeNull());
   },
 };
 

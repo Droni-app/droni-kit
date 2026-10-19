@@ -22,6 +22,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { cn } from '../../utils/cn'
+import { dotColorClasses, focusRingClasses } from '../../theme/tokens'
 
 defineOptions({ inheritAttrs: false })
 
@@ -66,52 +68,43 @@ const roundedMap = {
 
 const colorMap = {
   soft: {
-    neutral: 'dk:bg-zinc-100 dk:text-zinc-700 dk:dark:bg-zinc-800 dk:dark:text-zinc-300',
-    primary: 'dk:bg-teal-100 dk:text-teal-700 dk:dark:bg-teal-800 dk:dark:text-teal-300',
-    secondary: 'dk:bg-slate-100 dk:text-slate-700 dk:dark:bg-slate-900/50 dk:dark:text-slate-300',
-    success: 'dk:bg-emerald-100 dk:text-emerald-700 dk:dark:bg-emerald-900/50 dk:dark:text-emerald-300',
-    warning: 'dk:bg-amber-100 dk:text-amber-700 dk:dark:bg-amber-900/50 dk:dark:text-amber-300',
-    danger: 'dk:bg-rose-100 dk:text-rose-700 dk:dark:bg-rose-900/50 dk:dark:text-rose-300',
+    neutral: 'dk:bg-neutral-100 dk:text-neutral-700 dk:ring-1 dk:ring-inset dk:ring-neutral-200 dk:dark:bg-white/5 dk:dark:text-neutral-300 dk:dark:ring-white/10',
+    primary: 'dk:bg-primary-50 dk:text-primary-700 dk:ring-1 dk:ring-inset dk:ring-primary-200 dk:dark:bg-primary-500/15 dk:dark:text-primary-300 dk:dark:ring-primary-400/30',
+    secondary: 'dk:bg-secondary-50 dk:text-secondary-700 dk:ring-1 dk:ring-inset dk:ring-secondary-200 dk:dark:bg-secondary-500/15 dk:dark:text-secondary-300 dk:dark:ring-secondary-400/30',
+    success: 'dk:bg-success-50 dk:text-success-700 dk:ring-1 dk:ring-inset dk:ring-success-200 dk:dark:bg-success-500/15 dk:dark:text-success-300 dk:dark:ring-success-400/30',
+    warning: 'dk:bg-warning-50 dk:text-warning-800 dk:ring-1 dk:ring-inset dk:ring-warning-200 dk:dark:bg-warning-500/15 dk:dark:text-warning-300 dk:dark:ring-warning-400/30',
+    danger: 'dk:bg-danger-50 dk:text-danger-700 dk:ring-1 dk:ring-inset dk:ring-danger-200 dk:dark:bg-danger-500/15 dk:dark:text-danger-300 dk:dark:ring-danger-400/30',
   },
   solid: {
-    neutral: 'dk:bg-zinc-600 dk:text-white dk:dark:bg-zinc-500',
-    primary: 'dk:bg-teal-600 dk:text-white dk:dark:bg-teal-500',
-    secondary: 'dk:bg-slate-600 dk:text-white dk:dark:bg-slate-500',
-    success: 'dk:bg-emerald-600 dk:text-white dk:dark:bg-emerald-500',
-    warning: 'dk:bg-amber-500 dk:text-white dk:dark:bg-amber-400',
-    danger: 'dk:bg-rose-600 dk:text-white dk:dark:bg-rose-500',
+    neutral: 'dk:bg-neutral-900 dk:text-white dk:dark:bg-neutral-100 dk:dark:text-neutral-950',
+    primary: 'dk:bg-primary-600 dk:text-white dk:dark:bg-primary-500 dk:dark:shadow-[0_0_12px_-2px_var(--dk-color-primary-500)]',
+    secondary: 'dk:bg-secondary-600 dk:text-white dk:dark:bg-secondary-500 dk:dark:shadow-[0_0_12px_-2px_var(--dk-color-secondary-500)]',
+    success: 'dk:bg-success-600 dk:text-white dk:dark:bg-success-500 dk:dark:text-neutral-950 dk:dark:shadow-[0_0_12px_-2px_var(--dk-color-success-500)]',
+    warning: 'dk:bg-warning-400 dk:text-neutral-950 dk:dark:shadow-[0_0_12px_-2px_var(--dk-color-warning-400)]',
+    danger: 'dk:bg-danger-600 dk:text-white dk:dark:bg-danger-500 dk:dark:shadow-[0_0_12px_-2px_var(--dk-color-danger-500)]',
   },
   outline: {
-    neutral: 'dk:border dk:border-zinc-400 dk:text-zinc-700 dk:dark:border-zinc-500 dk:dark:text-zinc-300',
-    primary: 'dk:border dk:border-teal-400 dk:text-teal-700 dk:dark:border-teal-500 dk:dark:text-teal-300',
-    secondary: 'dk:border dk:border-slate-400 dk:text-slate-700 dk:dark:border-slate-500 dk:dark:text-slate-300',
-    success: 'dk:border dk:border-emerald-400 dk:text-emerald-700 dk:dark:border-emerald-500 dk:dark:text-emerald-300',
-    warning: 'dk:border dk:border-amber-400 dk:text-amber-700 dk:dark:border-amber-500 dk:dark:text-amber-300',
-    danger: 'dk:border dk:border-rose-400 dk:text-rose-700 dk:dark:border-rose-500 dk:dark:text-rose-300',
+    neutral: 'dk:border dk:border-neutral-300 dk:text-neutral-700 dk:dark:border-white/20 dk:dark:text-neutral-300',
+    primary: 'dk:border dk:border-primary-400 dk:text-primary-700 dk:dark:border-primary-400/70 dk:dark:text-primary-300',
+    secondary: 'dk:border dk:border-secondary-400 dk:text-secondary-700 dk:dark:border-secondary-400/70 dk:dark:text-secondary-300',
+    success: 'dk:border dk:border-success-400 dk:text-success-700 dk:dark:border-success-400/70 dk:dark:text-success-300',
+    warning: 'dk:border dk:border-warning-400 dk:text-warning-700 dk:dark:border-warning-400/70 dk:dark:text-warning-300',
+    danger: 'dk:border dk:border-danger-400 dk:text-danger-700 dk:dark:border-danger-400/70 dk:dark:text-danger-300',
   },
-}
-
-const dotColorMap = {
-  neutral: 'dk:bg-zinc-500 dk:dark:bg-zinc-400',
-  primary: 'dk:bg-teal-500 dk:dark:bg-teal-400',
-  secondary: 'dk:bg-slate-500 dk:dark:bg-slate-400',
-  success: 'dk:bg-emerald-500 dk:dark:bg-emerald-400',
-  warning: 'dk:bg-amber-500 dk:dark:bg-amber-400',
-  danger: 'dk:bg-rose-500 dk:dark:bg-rose-400',
 }
 
 const badgeClasses = computed(() => {
-  const base = 'dk:inline-flex dk:items-center dk:font-medium dk:whitespace-nowrap dk:select-none'
+  const base = 'dk:inline-flex dk:items-center dk:font-medium dk:tracking-wide dk:whitespace-nowrap dk:select-none'
   const size = sizeClasses[props.size]
   const rounded = roundedMap[props.rounded]
   const color = colorMap[props.variant][props.color]
-  const interactive = props.href ? 'dk:cursor-pointer dk:hover:opacity-80 dk:transition-opacity' : ''
-  return [base, size, rounded, color, interactive].join(' ')
+  const interactive = props.href ? cn('dk:cursor-pointer dk:hover:opacity-80 dk:transition-opacity', focusRingClasses) : ''
+  return cn(base, size, rounded, color, interactive)
 })
 
 const dotClasses = computed(() => {
   const sizeDot = { xs: 'dk:w-1.5 dk:h-1.5', sm: 'dk:w-2 dk:h-2', md: 'dk:w-2 dk:h-2', lg: 'dk:w-2.5 dk:h-2.5' }[props.size]
-  return ['dk:rounded-full dk:flex-shrink-0', sizeDot, dotColorMap[props.color]].join(' ')
+  return cn('dk:rounded-full dk:flex-shrink-0', sizeDot, dotColorClasses[props.color])
 })
 
 const leadingClasses = computed(() => 'dk:flex-shrink-0 dk:flex dk:items-center')

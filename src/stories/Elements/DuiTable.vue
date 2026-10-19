@@ -1,12 +1,12 @@
 <template>
-  <div class="dk:relative dk:overflow-x-auto dk:rounded-lg dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:shadow-sm">
-    <table class="dk:w-full dk:text-sm dk:text-left dk:text-zinc-700 dk:dark:text-zinc-300">
-      <thead class="dk:text-xs dk:uppercase dk:tracking-wide dk:bg-zinc-50 dk:dark:bg-zinc-800 dk:text-zinc-500 dk:dark:text-zinc-400">
+  <div class="dk:relative dk:overflow-x-auto dk:rounded-xl dk:border dk:border-neutral-200 dk:bg-white dk:shadow-xs dk:dark:border-white/10 dk:dark:bg-neutral-900">
+    <table class="dk:w-full dk:text-sm dk:text-left dk:text-neutral-700 dk:dark:text-neutral-300">
+      <thead class="dk:text-xs dk:uppercase dk:tracking-wide dk:bg-neutral-50 dk:dark:bg-white/[0.03] dk:text-neutral-500 dk:dark:text-neutral-400 dk:border-b dk:border-neutral-200 dk:dark:border-white/10">
         <tr>
           <th
             v-for="column in props.columns"
             :key="column.name"
-            :class="['dk:px-6 dk:py-3 dk:font-semibold', column.classes]">
+            :class="['dk:px-4 dk:sm:px-6 dk:py-3 dk:font-semibold dk:whitespace-nowrap', column.classes]">
             {{ column.label }}
           </th>
         </tr>
@@ -15,27 +15,27 @@
         <tr
           v-for="(item, index) in props.rows"
           :key="index"
-          class="dk:bg-white dk:border-b dk:border-zinc-200 dk:dark:bg-zinc-900 dk:dark:border-zinc-700 dk:hover:bg-zinc-50 dk:dark:hover:bg-zinc-800/60 dk:transition-colors">
+          class="dk:border-b dk:border-neutral-100 dk:last:border-b-0 dk:dark:border-white/5 dk:hover:bg-neutral-50 dk:dark:hover:bg-primary-500/[0.04] dk:transition-colors">
           <td
             v-for="column in props.columns"
             :key="column.name"
-            class="dk:px-6 dk:py-4 dk:text-zinc-900 dk:dark:text-zinc-100">
+            class="dk:px-4 dk:sm:px-6 dk:py-3.5 dk:text-neutral-900 dk:dark:text-neutral-100">
             <slot :name="column.name" v-bind="item">
               {{ (item as any)[column.name] }}
             </slot>
           </td>
         </tr>
         <tr v-if="!props.loading && props.rows.length === 0">
-          <td :colspan="props.columns.length" class="dk:px-6 dk:py-10 dk:text-center dk:text-zinc-400 dk:dark:text-zinc-500">
+          <td :colspan="props.columns.length" class="dk:px-4 dk:sm:px-6 dk:py-10 dk:text-center dk:text-neutral-400 dk:dark:text-neutral-500">
             <slot name="empty">Sin registros</slot>
           </td>
         </tr>
       </tbody>
-      <tfoot v-if="props.pagination" class="dk:bg-zinc-50 dk:dark:bg-zinc-800 dk:border-t dk:border-zinc-200 dk:dark:border-zinc-700">
+      <tfoot v-if="props.pagination" class="dk:bg-neutral-50 dk:dark:bg-white/[0.03] dk:border-t dk:border-neutral-200 dk:dark:border-white/10">
         <tr>
-          <td :colspan="props.columns.length" class="dk:px-6 dk:py-4">
+          <td :colspan="props.columns.length" class="dk:px-4 dk:sm:px-6 dk:py-3">
             <div class="dk:flex dk:items-center dk:justify-between dk:gap-4 dk:flex-wrap">
-              <div class="dk:text-sm dk:text-zinc-500 dk:dark:text-zinc-400">
+              <div class="dk:text-sm dk:text-neutral-500 dk:dark:text-neutral-400">
                 Página {{ props.pagination.page }} de {{ totalPages }} · {{ props.pagination.total }} registros
               </div>
               <div class="dk:flex dk:items-center dk:gap-1 dk:flex-wrap">
@@ -53,8 +53,8 @@
                   @click="emitPaginate(pageNum)"
                   :class="['dk:min-w-9 dk:h-9 dk:px-2 dk:rounded-lg dk:text-sm dk:transition-colors dk:cursor-pointer',
                     pageNum === props.pagination.page
-                      ? 'dk:bg-teal-600 dk:text-white dk:hover:bg-teal-500'
-                      : 'dk:text-zinc-600 dk:dark:text-zinc-300 dk:hover:bg-zinc-200 dk:dark:hover:bg-zinc-700']">
+                      ? 'dk:bg-primary-600 dk:text-white dk:hover:bg-primary-500 dk:dark:bg-primary-500 dk:dark:shadow-glow-primary'
+                      : 'dk:text-neutral-600 dk:dark:text-neutral-300 dk:hover:bg-neutral-200 dk:dark:hover:bg-white/5']">
                   {{ pageNum }}
                 </button>
                 <DuiButton

@@ -10,7 +10,6 @@ import DuiButton from './DuiButton.vue';
 import DuiCheckbox from './DuiCheckbox.vue';
 import DuiSwitch from './DuiSwitch.vue';
 import DuiRadio from './DuiRadio.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Forms/Form',
@@ -79,8 +78,8 @@ export const Default: Story = {
       <div class="dk:p-6 dk:max-w-md">
         <DuiForm v-bind="args" @submit="onSubmit">
           <template #header>
-            <h2 class="dk:text-lg dk:font-semibold dk:text-zinc-800 dk:dark:text-zinc-100">Formulario básico</h2>
-            <p class="dk:text-sm dk:text-zinc-500 dk:dark:text-zinc-400 dk:mt-1">Completa los campos para continuar.</p>
+            <h2 class="dk:text-lg dk:font-semibold dk:text-neutral-800 dk:dark:text-neutral-100">Formulario básico</h2>
+            <p class="dk:text-sm dk:text-neutral-500 dk:dark:text-neutral-400 dk:mt-1">Completa los campos para continuar.</p>
           </template>
 
           <DuiLabel title="Nombre completo" required>
@@ -97,7 +96,7 @@ export const Default: Story = {
           </template>
         </DuiForm>
 
-        <div v-if="lastSubmit" class="dk:mt-4 dk:p-3 dk:bg-zinc-100 dk:dark:bg-zinc-800 dk:rounded dk:text-xs dk:text-zinc-600 dk:dark:text-zinc-400">
+        <div v-if="lastSubmit" class="dk:mt-4 dk:p-3 dk:bg-neutral-100 dk:dark:bg-neutral-800 dk:rounded dk:text-xs dk:text-neutral-600 dk:dark:text-neutral-400">
           <strong class="dk:block dk:mb-1">Último envío:</strong>
           <pre>{{ JSON.stringify(lastSubmit, null, 2) }}</pre>
         </div>
@@ -122,7 +121,7 @@ export const Loading: Story = {
       <div class="dk:p-6 dk:max-w-md">
         <DuiForm v-bind="args">
           <template #header>
-            <h2 class="dk:text-lg dk:font-semibold dk:text-zinc-800 dk:dark:text-zinc-100">Estado de carga</h2>
+            <h2 class="dk:text-lg dk:font-semibold dk:text-neutral-800 dk:dark:text-neutral-100">Estado de carga</h2>
           </template>
 
           <DuiLabel title="Nombre completo">
@@ -158,7 +157,7 @@ export const Disabled: Story = {
       <div class="dk:p-6 dk:max-w-md">
         <DuiForm v-bind="args">
           <template #header>
-            <h2 class="dk:text-lg dk:font-semibold dk:text-zinc-800 dk:dark:text-zinc-100">Formulario deshabilitado</h2>
+            <h2 class="dk:text-lg dk:font-semibold dk:text-neutral-800 dk:dark:text-neutral-100">Formulario deshabilitado</h2>
           </template>
 
           <DuiLabel title="Nombre completo">
@@ -189,7 +188,7 @@ export const GapVariants: Story = {
     template: `
       <div class="dk:p-6 dk:space-y-10 dk:max-w-md">
         <div>
-          <p class="dk:text-sm dk:font-medium dk:text-zinc-500 dk:mb-3">gap="sm"</p>
+          <p class="dk:text-sm dk:font-medium dk:text-neutral-500 dk:mb-3">gap="sm"</p>
           <DuiForm gap="sm">
             <DuiLabel title="Nombre"><DuiInput v-model="form.name" placeholder="Juan Pérez" /></DuiLabel>
             <DuiLabel title="Email"><DuiInput v-model="form.email" type="email" placeholder="juan@ejemplo.com" /></DuiLabel>
@@ -197,7 +196,7 @@ export const GapVariants: Story = {
         </div>
 
         <div>
-          <p class="dk:text-sm dk:font-medium dk:text-zinc-500 dk:mb-3">gap="md" (por defecto)</p>
+          <p class="dk:text-sm dk:font-medium dk:text-neutral-500 dk:mb-3">gap="md" (por defecto)</p>
           <DuiForm gap="md">
             <DuiLabel title="Nombre"><DuiInput v-model="form.name" placeholder="Juan Pérez" /></DuiLabel>
             <DuiLabel title="Email"><DuiInput v-model="form.email" type="email" placeholder="juan@ejemplo.com" /></DuiLabel>
@@ -205,7 +204,7 @@ export const GapVariants: Story = {
         </div>
 
         <div>
-          <p class="dk:text-sm dk:font-medium dk:text-zinc-500 dk:mb-3">gap="lg"</p>
+          <p class="dk:text-sm dk:font-medium dk:text-neutral-500 dk:mb-3">gap="lg"</p>
           <DuiForm gap="lg">
             <DuiLabel title="Nombre"><DuiInput v-model="form.name" placeholder="Juan Pérez" /></DuiLabel>
             <DuiLabel title="Email"><DuiInput v-model="form.email" type="email" placeholder="juan@ejemplo.com" /></DuiLabel>
@@ -275,8 +274,8 @@ export const FullFormExample: Story = {
       <div class="dk:p-6 dk:max-w-lg">
         <DuiForm :loading="loading" @submit="onSubmit" @reset="onReset">
           <template #header>
-            <h2 class="dk:text-xl dk:font-bold dk:text-zinc-900 dk:dark:text-zinc-100">Registro de cuenta</h2>
-            <p class="dk:text-sm dk:text-zinc-500 dk:dark:text-zinc-400 dk:mt-1">
+            <h2 class="dk:text-xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100">Registro de cuenta</h2>
+            <p class="dk:text-sm dk:text-neutral-500 dk:dark:text-neutral-400 dk:mt-1">
               Completa todos los campos requeridos para crear tu cuenta.
             </p>
           </template>
@@ -319,7 +318,7 @@ export const FullFormExample: Story = {
           </template>
         </DuiForm>
 
-        <div v-if="lastSubmit" class="dk:mt-6 dk:p-4 dk:bg-zinc-100 dk:dark:bg-zinc-800 dk:rounded dk:text-xs dk:text-zinc-600 dk:dark:text-zinc-400">
+        <div v-if="lastSubmit" class="dk:mt-6 dk:p-4 dk:bg-neutral-100 dk:dark:bg-neutral-800 dk:rounded dk:text-xs dk:text-neutral-600 dk:dark:text-neutral-400">
           <strong class="dk:block dk:mb-2 dk:text-sm">✅ Formulario enviado:</strong>
           <pre>{{ JSON.stringify(lastSubmit, null, 2) }}</pre>
         </div>

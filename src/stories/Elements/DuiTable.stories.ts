@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import DuiTable from './DuiTable.vue';
-import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {

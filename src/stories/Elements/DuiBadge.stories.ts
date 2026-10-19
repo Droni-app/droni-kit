@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect, within } from 'storybook/test';
 
 import DuiBadge from './DuiBadge.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Elements/Badge',
@@ -168,7 +167,7 @@ export const Dismissible: Story = {
             @dismiss="tags = tags.filter(t => t !== tag)"
           />
         </div>
-        <p v-if="tags.length === 0" class="dk:mt-2 dk:text-sm dk:text-zinc-400">Sin etiquetas</p>
+        <p v-if="tags.length === 0" class="dk:mt-2 dk:text-sm dk:text-neutral-400">Sin etiquetas</p>
       </div>
     `,
   }),

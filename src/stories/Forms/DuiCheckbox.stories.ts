@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect, userEvent, within } from 'storybook/test';
 
 import DuiCheckbox from './DuiCheckbox.vue';
-import '../../style.css';
 
 const meta = {
   title: 'Forms/Checkbox',
@@ -77,7 +76,7 @@ export const Default: Story = {
     template: `
       <div class="dk:p-4">
         <DuiCheckbox v-bind="args" v-model="enabled" />
-        <p class="dk:mt-3 dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+        <p class="dk:mt-3 dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
           Estado: {{ enabled ? 'Activo' : 'Inactivo' }}
         </p>
       </div>
@@ -119,7 +118,7 @@ export const Colors: Story = {
       return { values };
     },
     template: `
-      <div class="dk:p-4 dk:space-y-4">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-4">
         <DuiCheckbox v-model="values.neutral" color="neutral" label="Neutral" />
         <DuiCheckbox v-model="values.primary" color="primary" label="Primary" />
         <DuiCheckbox v-model="values.secondary" color="secondary" label="Secondary" />
@@ -133,12 +132,12 @@ export const Colors: Story = {
     const canvas = within(canvasElement);
 
     const cases = [
-      { label: 'Neutral', className: 'dk:peer-checked:bg-zinc-600' },
-      { label: 'Primary', className: 'dk:peer-checked:bg-teal-600' },
-      { label: 'Secondary', className: 'dk:peer-checked:bg-slate-600' },
-      { label: 'Success', className: 'dk:peer-checked:bg-emerald-600' },
-      { label: 'Warning', className: 'dk:peer-checked:bg-amber-500' },
-      { label: 'Danger', className: 'dk:peer-checked:bg-rose-600' },
+      { label: 'Neutral', className: 'dk:peer-checked:bg-neutral-900' },
+      { label: 'Primary', className: 'dk:peer-checked:bg-primary-600' },
+      { label: 'Secondary', className: 'dk:peer-checked:bg-secondary-600' },
+      { label: 'Success', className: 'dk:peer-checked:bg-success-600' },
+      { label: 'Warning', className: 'dk:peer-checked:bg-warning-500' },
+      { label: 'Danger', className: 'dk:peer-checked:bg-danger-600' },
     ] as const;
 
     for (const item of cases) {
@@ -160,7 +159,7 @@ export const MultipleValues: Story = {
       return { owners }
     },
     template: `
-      <div class="dk:p-4 dk:space-y-4">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-4">
         <DuiCheckbox v-model="owners" value="primero">Primero</DuiCheckbox>
         <DuiCheckbox v-model="owners" value="segundo">Segundo</DuiCheckbox>
         <pre>{{ owners }}</pre>
@@ -200,7 +199,7 @@ export const SizesAndStates: Story = {
       return { small, medium, large };
     },
     template: `
-      <div class="dk:p-4 dk:space-y-5">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-5">
         <DuiCheckbox v-model="small" size="sm" label="Small" />
         <DuiCheckbox v-model="medium" size="md" label="Medium" />
         <DuiCheckbox v-model="large" size="lg" label="Large" />
@@ -237,7 +236,7 @@ export const LabelPositions: Story = {
       return { left, right };
     },
     template: `
-      <div class="dk:p-4 dk:space-y-4">
+      <div class="dk:p-4 dk:flex dk:flex-col dk:items-start dk:gap-4">
         <DuiCheckbox v-model="right" label="Etiqueta a la derecha" label-position="right" />
         <DuiCheckbox v-model="left" label="Etiqueta a la izquierda" label-position="left" />
       </div>

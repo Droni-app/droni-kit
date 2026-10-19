@@ -59,11 +59,11 @@ const sizeClasses = {
 }
 
 const itemClasses = computed(() => {
-  const base = 'dk:flex dk:w-full dk:items-center dk:gap-2 dk:transition-colors dk:duration-100 dk:outline-none dk:text-left dk:select-none'
+  const base = 'dk:flex dk:w-full dk:items-center dk:gap-2 dk:rounded-md dk:transition-colors dk:duration-100 dk:outline-none dk:text-left dk:select-none'
   const size = sizeClasses[props.size]
   const danger = props.danger
-    ? 'dk:text-rose-600 dk:dark:text-rose-400 dk:hover:bg-rose-50 dk:dark:hover:bg-rose-900/40 dk:focus-visible:bg-rose-50 dk:dark:focus-visible:bg-rose-900/40'
-    : 'dk:hover:bg-black/5 dk:dark:hover:bg-white/10 dk:focus-visible:bg-black/5 dk:dark:focus-visible:bg-white/10'
+    ? 'dk:text-danger-600 dk:dark:text-danger-400 dk:hover:bg-danger-50 dk:dark:hover:bg-danger-500/10 dk:focus-visible:bg-danger-50 dk:dark:focus-visible:bg-danger-500/10'
+    : 'dk:hover:bg-black/5 dk:dark:hover:bg-white/[0.07] dk:focus-visible:bg-black/5 dk:dark:focus-visible:bg-white/[0.07] dk:focus-visible:ring-1 dk:focus-visible:ring-inset dk:focus-visible:ring-accent-500/50'
   const disabled = props.disabled ? 'dk:opacity-50 dk:cursor-not-allowed dk:pointer-events-none' : 'dk:cursor-pointer'
   return [base, size, danger, disabled].join(' ')
 })

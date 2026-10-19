@@ -19,7 +19,7 @@
           viewBox="0 0 12 12"
           fill="none"
           aria-hidden="true"
-          class="dk:h-full dk:w-full dk:text-white dk:pointer-events-none">
+          :class="checkIconClasses">
           <path d="M2.5 6.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
@@ -77,6 +77,18 @@ const sizeClasses: Record<DuiSize, { box: string; label: string }> = {
   lg: { box: 'dk:w-6 dk:h-6', label: 'dk:text-base' },
 }
 
+// El check debe contrastar con el fondo "checked" de cada color
+const checkColorClasses: Record<DuiColor, string> = {
+  neutral: 'dk:text-white dk:dark:text-neutral-950',
+  primary: 'dk:text-white',
+  secondary: 'dk:text-white',
+  success: 'dk:text-white',
+  warning: 'dk:text-neutral-950',
+  danger: 'dk:text-white',
+}
+
+const checkIconClasses = computed(() => cn('dk:h-full dk:w-full dk:pointer-events-none', checkColorClasses[props.color]))
+
 const hasLabel = computed(() => Boolean(props.label || slots.default))
 
 const wrapperClasses = computed(() => {
@@ -87,7 +99,7 @@ const wrapperClasses = computed(() => {
 
 const labelClasses = computed(() => {
   return cn(
-    'dk:leading-none dk:text-zinc-700 dk:dark:text-zinc-200',
+    'dk:leading-none dk:text-neutral-700 dk:dark:text-neutral-200',
     sizeClasses[props.size].label,
     props.disabled ? 'dk:cursor-not-allowed' : 'dk:cursor-pointer',
   )
@@ -97,10 +109,10 @@ const boxClasses = computed(() => {
   const size = sizeClasses[props.size].box
   const accent = peerCheckedAccent[props.color] || peerCheckedAccent.primary
   return cn(
-    'dk:inline-flex dk:items-center dk:justify-center dk:rounded dk:border',
-    'dk:border-zinc-300 dk:bg-white dk:dark:border-zinc-600 dk:dark:bg-zinc-900',
-    'dk:transition-colors dk:duration-150',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-teal-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
+    'dk:inline-flex dk:items-center dk:justify-center dk:rounded-[5px] dk:border dk:shadow-xs',
+    'dk:border-neutral-300 dk:bg-white dk:dark:border-white/20 dk:dark:bg-neutral-900',
+    'dk:transition-[background-color,border-color,box-shadow] dk:duration-150',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-accent-500/70 dk:peer-focus-visible:ring-offset-white dk:dark:peer-focus-visible:ring-accent-400/80 dk:dark:peer-focus-visible:ring-offset-neutral-950',
     'dk:peer-disabled:opacity-70',
     size,
     accent,

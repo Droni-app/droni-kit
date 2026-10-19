@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import DuiTextarea from './DuiTextarea.vue';
-import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -57,7 +56,7 @@ const meta = {
       },
       template: `
         <div class="p-4 max-w-md">
-          <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          <label for="description" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
             Descripción <span class="text-red-500">*</span>
           </label>
           <DuiTextarea 
@@ -79,7 +78,7 @@ const meta = {
       template: `
         <div class="p-4 space-y-4 max-w-md">
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Small
             </label>
             <DuiTextarea 
@@ -89,7 +88,7 @@ const meta = {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Medium (default)
             </label>
             <DuiTextarea 
@@ -99,7 +98,7 @@ const meta = {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Large
             </label>
             <DuiTextarea 
@@ -119,7 +118,7 @@ const meta = {
       template: `
         <div class="p-4 space-y-4 max-w-md">
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Sin redimensionar
             </label>
             <DuiTextarea 
@@ -129,7 +128,7 @@ const meta = {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Redimensionar vertical
             </label>
             <DuiTextarea 
@@ -139,7 +138,7 @@ const meta = {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Redimensionar horizontal
             </label>
             <DuiTextarea 
@@ -149,7 +148,7 @@ const meta = {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Redimensionar ambos
             </label>
             <DuiTextarea 
@@ -169,7 +168,7 @@ const meta = {
       template: `
         <div class="p-4 space-y-4 max-w-md">
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Con auto-height (escribe varias líneas)
             </label>
             <DuiTextarea 
@@ -179,7 +178,7 @@ const meta = {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Sin auto-height (altura fija)
             </label>
             <DuiTextarea 
@@ -199,7 +198,7 @@ const meta = {
       template: `
         <div class="p-4 space-y-4 max-w-md">
           <div>
-            <label for="disabled-textarea" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label for="disabled-textarea" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Deshabilitado
             </label>
             <DuiTextarea 
@@ -210,7 +209,7 @@ const meta = {
             />
           </div>
           <div>
-            <label for="readonly-textarea" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label for="readonly-textarea" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Solo lectura
             </label>
             <DuiTextarea 
@@ -221,7 +220,7 @@ const meta = {
             />
           </div>
           <div>
-            <label for="required-textarea" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            <label for="required-textarea" class="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2">
               Requerido <span class="text-red-500">*</span>
             </label>
             <DuiTextarea 

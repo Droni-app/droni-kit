@@ -105,11 +105,15 @@ const sizeConfig: Record<DuiSize, { padding: string; spacing: string; titleSize:
 
 const cardClasses = computed(() => {
   return cn(
-    'dk:relative dk:rounded-xl dk:border dk:border-zinc-200 dk:dark:border-zinc-700',
-    'dk:bg-white dk:dark:bg-zinc-900',
-    'dk:shadow-sm dk:transition-all dk:duration-200',
-    'dk:hover:shadow-md dk:hover:border-zinc-300 dk:dark:hover:border-zinc-600',
+    'dk:relative dk:rounded-xl dk:border dk:border-neutral-200 dk:dark:border-white/10',
+    'dk:bg-white dk:dark:bg-neutral-900',
+    'dk:shadow-xs dk:transition-[box-shadow,border-color] dk:duration-200',
+    'dk:hover:shadow-md dk:hover:border-neutral-300',
+    'dk:dark:hover:border-primary-400/30 dk:dark:hover:shadow-[0_0_40px_-16px_var(--dk-color-primary-500)]',
     'dk:overflow-hidden',
+    // Hairline neón en el borde superior (solo dark)
+    'dk:dark:before:pointer-events-none dk:dark:before:absolute dk:dark:before:inset-x-0 dk:dark:before:top-0 dk:dark:before:z-10 dk:dark:before:h-px',
+    'dk:dark:before:bg-linear-to-r dk:dark:before:from-transparent dk:dark:before:via-primary-400/60 dk:dark:before:to-transparent',
   )
 })
 
@@ -131,13 +135,13 @@ const titleClasses = computed(() => {
   const config = sizeConfig[normalizedSize.value]
   const baseClasses = [
     config.titleSize,
-    'dk:font-semibold dk:text-zinc-900 dk:dark:text-zinc-100',
+    'dk:font-semibold dk:tracking-tight dk:text-neutral-900 dk:dark:text-white',
     'dk:line-clamp-2',
   ]
   if (props.to) {
     baseClasses.push(
       'dk:no-underline dk:hover:underline dk:transition-colors',
-      'dk:hover:text-teal-600 dk:dark:hover:text-teal-400',
+      'dk:hover:text-primary-600 dk:dark:hover:text-primary-400',
     )
   }
   return cn(...baseClasses)
@@ -151,16 +155,16 @@ const imageLinkClasses = computed(() => {
 
 const subtitleClasses = computed(() => {
   const config = sizeConfig[normalizedSize.value]
-  return cn(config.subtitleSize, 'dk:text-zinc-600 dk:dark:text-zinc-400', 'dk:line-clamp-3')
+  return cn(config.subtitleSize, 'dk:text-neutral-600 dk:dark:text-neutral-400', 'dk:line-clamp-3')
 })
 
 const contentClasses = computed(() => {
   const config = sizeConfig[normalizedSize.value]
-  return cn(config.contentSize, 'dk:text-zinc-700 dk:dark:text-zinc-300')
+  return cn(config.contentSize, 'dk:text-neutral-700 dk:dark:text-neutral-300')
 })
 
 const footerClasses = computed(() => {
-  return cn('dk:border-t dk:border-zinc-200 dk:dark:border-zinc-700', 'dk:pt-3 dk:mt-3')
+  return cn('dk:border-t dk:border-neutral-200 dk:dark:border-white/10', 'dk:pt-3 dk:mt-3')
 })
 </script>
 

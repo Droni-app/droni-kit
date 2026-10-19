@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import DuiCard from './DuiCard.vue';
 import DuiButton from '../Forms/DuiButton.vue';
-import '../../style.css';
 
 // Mock data
 const sampleImage = 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=200&fit=crop&q=80';
@@ -64,13 +63,13 @@ export const Default: Story = {
     template: `
       <div class="dk:max-w-sm dk:mx-auto">
         <DuiCard v-bind="args">
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             This is the main content area of the card. You can add any content here using the default slot.
             Perfect for descriptions, features, or any other information.
           </p>
           <template #footer>
             <div class="dk:flex dk:justify-between dk:items-center">
-              <span class="dk:text-lg dk:font-bold dk:text-gray-900 dk:dark:text-gray-100">$99.99</span>
+              <span class="dk:text-lg dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100">$99.99</span>
               <DuiButton size="sm" color="primary">Add to Cart</DuiButton>
             </div>
           </template>
@@ -96,7 +95,7 @@ export const SmallSize: Story = {
     template: `
       <div class="dk:max-w-xs dk:mx-auto">
         <DuiCard v-bind="args">
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             Smaller card perfect for compact layouts and minimal information display.
           </p>
           <template #footer>
@@ -124,11 +123,11 @@ export const LargeSize: Story = {
     template: `
       <div class="dk:max-w-lg dk:mx-auto">
         <DuiCard v-bind="args">
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             Large cards provide more space for detailed content and complex layouts. 
             Ideal for featured items, detailed product descriptions, or important announcements.
           </p>
-          <ul class="dk:list-disc dk:list-inside dk:text-gray-600 dk:dark:text-gray-400 dk:space-y-1">
+          <ul class="dk:list-disc dk:list-inside dk:text-neutral-600 dk:dark:text-neutral-400 dk:space-y-1">
             <li>Enhanced spacing and typography</li>
             <li>Perfect for detailed content</li>
             <li>Premium presentation</li>
@@ -160,7 +159,7 @@ export const WithoutImage: Story = {
     template: `
       <div class="dk:max-w-sm dk:mx-auto">
         <DuiCard v-bind="args">
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             Sometimes you don't need an image. This card focuses on the textual content 
             and maintains a clean, professional appearance.
           </p>
@@ -194,10 +193,10 @@ export const MinimalCard: Story = {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-2">
+            <h3 class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-2">
               Quick Action
             </h3>
-            <p class="dk:text-gray-600 dk:dark:text-gray-400">
+            <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
               Minimal card with just content. No title, subtitle, or footer.
             </p>
           </div>
@@ -221,7 +220,7 @@ export const TitleOnly: Story = {
     template: `
       <div class="dk:max-w-sm dk:mx-auto">
         <DuiCard v-bind="args">
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             This card has only a title and content. Perfect for simple information cards
             or when you want to keep things minimal but structured.
           </p>
@@ -248,16 +247,16 @@ export const DarkMode: Story = {
       return { args };
     },
     template: `
-      <div class="dark dk:min-h-screen dk:bg-gray-900 dk:p-8">
+      <div class="dark dk:min-h-screen dk:bg-neutral-900 dk:p-8">
         <div class="dk:max-w-sm dk:mx-auto">
           <DuiCard v-bind="args">
-            <p class="dk:text-gray-400 dk:mb-4">
+            <p class="dk:text-neutral-400 dk:mb-4">
               Cards automatically adapt to dark mode with appropriate colors and contrast.
               All text, borders, and backgrounds adjust seamlessly.
             </p>
             <template #footer>
               <div class="dk:flex dk:justify-between dk:items-center">
-                <span class="dk:text-emerald-400 dk:font-semibold">Available</span>
+                <span class="dk:text-success-400 dk:font-semibold">Available</span>
                 <DuiButton size="sm" color="primary">Select</DuiButton>
               </div>
             </template>
@@ -305,12 +304,12 @@ export const CardGrid: Story = {
           :subtitle="card.subtitle"
           size="m"
         >
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
           </p>
           <template #footer>
             <div class="dk:flex dk:justify-between dk:items-center">
-              <span class="dk:text-xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100">{{ card.price }}</span>
+              <span class="dk:text-xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100">{{ card.price }}</span>
               <DuiButton size="sm" color="primary">Choose Plan</DuiButton>
             </div>
           </template>
@@ -367,12 +366,12 @@ export const ClickableCards: Story = {
             :to="product.to"
             size="m"
           >
-            <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+            <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
               Click the image or title to navigate to the product page. The entire card becomes interactive when a 'to' prop is provided.
             </p>
             <template #footer>
               <div class="dk:flex dk:justify-between dk:items-center">
-                <span class="dk:text-lg dk:font-bold dk:text-gray-900 dk:dark:text-gray-100">{{ product.price }}</span>
+                <span class="dk:text-lg dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100">{{ product.price }}</span>
                 <DuiButton size="sm" color="primary" @click.stop>Add to Cart</DuiButton>
               </div>
             </template>

@@ -4,7 +4,6 @@ import { expect, userEvent, waitFor, within } from 'storybook/test'
 
 import DuiTooltip from './DuiTooltip.vue'
 import DuiButton from '../Forms/DuiButton.vue'
-import '../../style.css'
 
 const meta = {
   title: 'Elements/Tooltip',

@@ -93,20 +93,20 @@ const wrapperClasses = computed(() => {
 
 const labelClasses = computed(() => {
   return cn(
-    'dk:flex dk:flex-col dk:text-sm dk:leading-snug dk:text-zinc-700 dk:dark:text-zinc-200',
+    'dk:flex dk:flex-col dk:text-sm dk:leading-snug dk:text-neutral-700 dk:dark:text-neutral-200',
     props.disabled ? 'dk:cursor-not-allowed' : 'dk:cursor-pointer',
   )
 })
 
-const descriptionClasses = computed(() => 'dk:text-xs dk:text-zinc-500 dk:dark:text-zinc-400 dk:mt-0.5')
+const descriptionClasses = computed(() => 'dk:text-xs dk:text-neutral-500 dk:dark:text-neutral-400 dk:mt-0.5')
 
 const trackClasses = computed(() => {
   const size = sizeClasses[props.size]
   const accent = peerCheckedAccent[props.color] || peerCheckedAccent.primary
   return cn(
     'dk:inline-flex dk:items-center dk:transition-colors dk:duration-200 dk:rounded-full',
-    'dk:bg-zinc-300 dk:dark:bg-zinc-600',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-teal-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
+    'dk:bg-neutral-300 dk:dark:bg-white/15',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-accent-500/70 dk:peer-focus-visible:ring-offset-white dk:dark:peer-focus-visible:ring-accent-400/80 dk:dark:peer-focus-visible:ring-offset-neutral-950',
     'dk:peer-disabled:opacity-70',
     size.track,
     accent,
@@ -117,16 +117,18 @@ const thumbClasses = computed(() => {
   const size = sizeClasses[props.size]
   return cn(
     'dk:absolute dk:left-0.5 dk:top-1/2 dk:-translate-y-1/2',
-    'dk:bg-white dk:dark:bg-zinc-100',
+    'dk:bg-white',
     'dk:rounded-full dk:shadow-sm dk:transition-all dk:duration-200',
     'dk:pointer-events-none dk:flex dk:items-center dk:justify-center',
+    // neutral en dark: el track activo es claro, el thumb debe oscurecerse para contrastar
+    props.color === 'neutral' ? 'dk:dark:peer-checked:bg-neutral-950' : '',
     size.thumb,
     size.translate,
   )
 })
 
 const iconClasses = computed(() => {
-  return props.modelValue ? textColorClasses[props.color] : 'dk:text-zinc-400 dk:dark:text-zinc-500'
+  return props.modelValue ? textColorClasses[props.color] : 'dk:text-neutral-400 dk:dark:text-neutral-500'
 })
 
 function onChange(event: Event) {

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import DuiNavbar from './DuiNavbar.vue';
 import DuiButton from '../Forms/DuiButton.vue';
-import '../../style.css';
 
 // Mock data for navbar items
 const mockItems = [
@@ -141,14 +140,14 @@ export const Default: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
             <div class="dk:flex dk:items-center dk:gap-2">
               <div class="dk:w-8 dk:h-8 dk:bg-blue-600 dk:rounded-lg dk:flex dk:items-center dk:justify-center">
                 <span class="dk:text-white dk:text-sm dk:font-bold">DK</span>
               </div>
-              <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+              <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
                 DroniKit
               </span>
             </div>
@@ -175,10 +174,10 @@ export const SmallSize: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-sm dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-sm dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Small Navbar
             </span>
           </template>
@@ -187,10 +186,10 @@ export const SmallSize: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Small Size Navbar
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             This navbar uses the small size variant with reduced padding and font sizes.
           </p>
         </div>
@@ -211,14 +210,14 @@ export const LargeSize: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
             <div class="dk:flex dk:items-center dk:gap-3">
               <div class="dk:w-10 dk:h-10 dk:bg-purple-600 dk:rounded-xl dk:flex dk:items-center dk:justify-center">
                 <span class="dk:text-white dk:text-lg dk:font-bold">L</span>
               </div>
-              <span class="dk:text-xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100">
+              <span class="dk:text-xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100">
                 Large Brand
               </span>
             </div>
@@ -229,10 +228,10 @@ export const LargeSize: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-3xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-3xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Large Size Navbar
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             This navbar uses the large size variant with increased padding and font sizes.
           </p>
         </div>
@@ -253,10 +252,10 @@ export const SimpleNavbar: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Simple Nav
             </span>
           </template>
@@ -268,10 +267,10 @@ export const SimpleNavbar: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Simple Navigation
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             A simple navbar without dropdown menus, perfect for basic navigation needs.
           </p>
         </div>
@@ -295,14 +294,14 @@ export const DarkMode: Story = {
       return { args };
     },
     template: `
-      <div class="dark dk:min-h-screen dk:bg-gray-900">
+      <div class="dark dk:min-h-screen dk:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
             <div class="dk:flex dk:items-center dk:gap-2">
-              <div class="dk:w-8 dk:h-8 dk:bg-teal-600 dk:rounded-lg dk:flex dk:items-center dk:justify-center">
+              <div class="dk:w-8 dk:h-8 dk:bg-primary-600 dk:rounded-lg dk:flex dk:items-center dk:justify-center">
                 <span class="dk:text-white dk:text-sm dk:font-bold">🌙</span>
               </div>
-              <span class="dk:text-lg dk:font-semibold dk:text-gray-100">
+              <span class="dk:text-lg dk:font-semibold dk:text-neutral-100">
                 Dark Mode
               </span>
             </div>
@@ -313,10 +312,10 @@ export const DarkMode: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-100 dk:mb-4">
             Dark Mode Navigation
           </h1>
-          <p class="dk:text-gray-400">
+          <p class="dk:text-neutral-400">
             The navbar automatically adapts to dark mode using Tailwind's dark mode classes.
             All hover states and dropdown menus work seamlessly in dark mode.
           </p>
@@ -343,10 +342,10 @@ export const MobileView: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Mobile
             </span>
           </template>
@@ -355,10 +354,10 @@ export const MobileView: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-4">
-          <h1 class="dk:text-xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Mobile Navigation
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             On mobile devices, the navbar shows a hamburger menu button. Click it to see the mobile menu with collapsible submenus.
           </p>
           <div class="dk:bg-blue-50 dk:dark:bg-blue-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-blue-200 dk:dark:border-blue-800">
@@ -415,10 +414,10 @@ export const WithoutIcons: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Text Only
             </span>
           </template>
@@ -427,10 +426,10 @@ export const WithoutIcons: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Text-Only Navigation
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             This navbar doesn't use icons, showing a cleaner text-only approach to navigation.
           </p>
         </div>
@@ -451,13 +450,13 @@ export const MinimalNavbar: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args" />
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Minimal Navigation
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             This is the most minimal version of the navbar - only navigation items without brand or action slots.
             Perfect for simple applications or when you want maximum focus on the navigation links.
           </p>
@@ -485,10 +484,10 @@ export const ItemsAlignedLeft: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Left Aligned
             </span>
           </template>
@@ -497,10 +496,10 @@ export const ItemsAlignedLeft: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Left Aligned Items
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             The navigation items are aligned to the left side of the navbar, next to the brand.
           </p>
           <div class="dk:bg-blue-50 dk:dark:bg-blue-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-blue-200 dk:dark:border-blue-800">
@@ -527,10 +526,10 @@ export const ItemsAlignedCenter: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Center Aligned
             </span>
           </template>
@@ -539,10 +538,10 @@ export const ItemsAlignedCenter: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Center Aligned Items
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             The navigation items are centered in the available space on the navbar.
           </p>
           <div class="dk:bg-purple-50 dk:dark:bg-purple-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-purple-200 dk:dark:border-purple-800">
@@ -569,10 +568,10 @@ export const ItemsAlignedRight: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Right Aligned
             </span>
           </template>
@@ -581,10 +580,10 @@ export const ItemsAlignedRight: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Right Aligned Items
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400 dk:mb-4">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400 dk:mb-4">
             The navigation items are aligned to the right side of the navbar, before the actions.
           </p>
           <div class="dk:bg-orange-50 dk:dark:bg-orange-900/20 dk:p-4 dk:rounded-lg dk:border dk:border-orange-200 dk:dark:border-orange-800">
@@ -611,10 +610,10 @@ export const UnderlineColorPrimary: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Primary Color
             </span>
           </template>
@@ -623,10 +622,10 @@ export const UnderlineColorPrimary: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Primary Underline Color
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             The menu items use a primary teal color for the underline effect.
           </p>
         </div>
@@ -648,10 +647,10 @@ export const UnderlineColorNeutral: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Neutral Color
             </span>
           </template>
@@ -660,10 +659,10 @@ export const UnderlineColorNeutral: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Neutral Underline Color
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             The menu items use a neutral zinc color for the underline effect.
           </p>
         </div>
@@ -685,10 +684,10 @@ export const UnderlineColorSuccess: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Success Color
             </span>
           </template>
@@ -697,10 +696,10 @@ export const UnderlineColorSuccess: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Success Underline Color
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             The menu items use a green/success color for the underline effect.
           </p>
         </div>
@@ -722,10 +721,10 @@ export const UnderlineColorDanger: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Danger Color
             </span>
           </template>
@@ -734,10 +733,10 @@ export const UnderlineColorDanger: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Danger Underline Color
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             The menu items use a red/danger color for the underline effect.
           </p>
         </div>
@@ -759,10 +758,10 @@ export const UnderlineColorWarning: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Warning Color
             </span>
           </template>
@@ -771,10 +770,10 @@ export const UnderlineColorWarning: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Warning Underline Color
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             The menu items use an amber/warning color for the underline effect.
           </p>
         </div>
@@ -796,10 +795,10 @@ export const UnderlineColorSecondary: Story = {
       return { args };
     },
     template: `
-      <div class="dk:min-h-screen dk:bg-gray-50 dk:dark:bg-gray-900">
+      <div class="dk:min-h-screen dk:bg-neutral-50 dk:dark:bg-neutral-900">
         <DuiNavbar v-bind="args">
           <template #brand>
-            <span class="dk:text-lg dk:font-semibold dk:text-gray-900 dk:dark:text-gray-100">
+            <span class="dk:text-lg dk:font-semibold dk:text-neutral-900 dk:dark:text-neutral-100">
               Secondary Color
             </span>
           </template>
@@ -808,10 +807,10 @@ export const UnderlineColorSecondary: Story = {
           </template>
         </DuiNavbar>
         <div class="dk:p-6">
-          <h1 class="dk:text-2xl dk:font-bold dk:text-gray-900 dk:dark:text-gray-100 dk:mb-4">
+          <h1 class="dk:text-2xl dk:font-bold dk:text-neutral-900 dk:dark:text-neutral-100 dk:mb-4">
             Secondary Underline Color
           </h1>
-          <p class="dk:text-gray-600 dk:dark:text-gray-400">
+          <p class="dk:text-neutral-600 dk:dark:text-neutral-400">
             The menu items use a slate/secondary color for the underline effect.
           </p>
         </div>

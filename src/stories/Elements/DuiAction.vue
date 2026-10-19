@@ -15,7 +15,7 @@
 import { computed } from 'vue'
 import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
 import { cn } from '../../utils/cn'
-import { variantColorClasses, controlSizeClasses, roundedCornerClasses } from '../../theme/tokens'
+import { variantColorClasses, controlSizeClasses, roundedCornerClasses, focusRingClasses } from '../../theme/tokens'
 import type { DuiColor, DuiVariant, DuiSize } from '../../theme/tokens'
 import type { RouteTo, DuiRounded } from '../../types'
 
@@ -55,8 +55,7 @@ const baseClass = [
   'dk:transition-all dk:duration-150',
   'dk:cursor-pointer dk:select-none',
   'dk:whitespace-nowrap dk:overflow-hidden dk:text-ellipsis',
-  'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-offset-2',
-  'dk:focus-visible:ring-teal-500/50 dk:dark:focus-visible:ring-teal-400/50',
+  focusRingClasses,
   'dk:active:scale-[0.98]',
   'dk:max-w-full',
 ].join(' ')
@@ -64,7 +63,7 @@ const baseClass = [
 const computedClasses = computed(() => {
   const variant = variantColorClasses[props.variant]?.[props.color] || ''
   const size = controlSizeClasses[props.size] || controlSizeClasses.md
-  const block = props.block ? 'dk:block dk:w-full' : 'dk:inline-block'
+  const block = props.block ? 'dk:flex dk:w-full' : ''
   const rounded = roundedCornerClasses[props.rounded] ?? roundedCornerClasses.all
   return cn(baseClass, variant, size, block, rounded)
 })

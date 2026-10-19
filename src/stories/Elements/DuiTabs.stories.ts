@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { expect, within } from 'storybook/test';
 
 import DuiTabs from './DuiTabs.vue';
-import '../../style.css';
 
 const sampleTabs = [
   { value: 'overview', label: 'Resumen' },
@@ -68,17 +67,17 @@ export const Default: Story = {
       <div class="dk:p-4 dk:max-w-xl">
         <DuiTabs v-bind="args" v-model="active">
           <template #overview>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
               Contenido del panel <strong>Resumen</strong>. Aqui va informacion general del recurso.
             </p>
           </template>
           <template #activity>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
               Historial de <strong>Actividad</strong> reciente del usuario o proyecto.
             </p>
           </template>
           <template #settings>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
               Panel de <strong>Configuracion</strong> con opciones avanzadas.
             </p>
           </template>
@@ -114,13 +113,13 @@ export const Pills: Story = {
       <div class="dk:p-4 dk:max-w-xl">
         <DuiTabs v-model="active" :tabs="tabs" variant="pills" color="secondary">
           <template #overview>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Vista de resumen con graficos y metricas.</p>
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Vista de resumen con graficos y metricas.</p>
           </template>
           <template #team>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Lista de miembros del equipo.</p>
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Lista de miembros del equipo.</p>
           </template>
           <template #docs>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Documentos y archivos adjuntos.</p>
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Documentos y archivos adjuntos.</p>
           </template>
         </DuiTabs>
       </div>
@@ -145,13 +144,13 @@ export const Boxed: Story = {
       <div class="dk:p-4 dk:max-w-sm">
         <DuiTabs v-model="active" :tabs="tabs" variant="boxed" color="neutral" :full-width="true">
           <template #week>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Datos de la semana actual.</p>
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Datos de la semana actual.</p>
           </template>
           <template #month>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Datos del mes actual.</p>
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Datos del mes actual.</p>
           </template>
           <template #year>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Datos del ano completo.</p>
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Datos del ano completo.</p>
           </template>
         </DuiTabs>
       </div>

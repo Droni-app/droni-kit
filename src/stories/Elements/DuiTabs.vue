@@ -107,52 +107,52 @@ const sizeClasses = {
 }
 
 const activeColorClasses = {
-  neutral: { underline: 'dk:border-zinc-600 dk:text-zinc-700 dk:dark:border-zinc-400 dk:dark:text-zinc-200', pills: 'dk:bg-zinc-600 dk:text-white dk:dark:bg-zinc-500', boxed: 'dk:bg-white dk:text-zinc-700 dk:dark:bg-zinc-800 dk:dark:text-zinc-200 dk:shadow-sm' },
-  primary: { underline: 'dk:border-teal-600 dk:text-teal-700 dk:dark:border-teal-400 dk:dark:text-teal-200', pills: 'dk:bg-teal-600 dk:text-white dk:dark:bg-teal-500', boxed: 'dk:bg-white dk:text-teal-700 dk:dark:bg-zinc-800 dk:dark:text-teal-200 dk:shadow-sm' },
-  secondary: { underline: 'dk:border-slate-600 dk:text-slate-700 dk:dark:border-slate-400 dk:dark:text-slate-200', pills: 'dk:bg-slate-600 dk:text-white dk:dark:bg-slate-500', boxed: 'dk:bg-white dk:text-slate-700 dk:dark:bg-zinc-800 dk:dark:text-slate-200 dk:shadow-sm' },
-  success: { underline: 'dk:border-emerald-600 dk:text-emerald-700 dk:dark:border-emerald-400 dk:dark:text-emerald-200', pills: 'dk:bg-emerald-600 dk:text-white dk:dark:bg-emerald-500', boxed: 'dk:bg-white dk:text-emerald-700 dk:dark:bg-zinc-800 dk:dark:text-emerald-200 dk:shadow-sm' },
-  warning: { underline: 'dk:border-amber-500 dk:text-amber-700 dk:dark:border-amber-400 dk:dark:text-amber-200', pills: 'dk:bg-amber-500 dk:text-white dk:dark:bg-amber-400', boxed: 'dk:bg-white dk:text-amber-700 dk:dark:bg-zinc-800 dk:dark:text-amber-200 dk:shadow-sm' },
-  danger: { underline: 'dk:border-rose-600 dk:text-rose-700 dk:dark:border-rose-400 dk:dark:text-rose-200', pills: 'dk:bg-rose-600 dk:text-white dk:dark:bg-rose-500', boxed: 'dk:bg-white dk:text-rose-700 dk:dark:bg-zinc-800 dk:dark:text-rose-200 dk:shadow-sm' },
+  neutral: { underline: 'dk:border-neutral-900 dk:text-neutral-900 dk:dark:border-white dk:dark:text-white', pills: 'dk:bg-neutral-900 dk:text-white dk:dark:bg-neutral-100 dk:dark:text-neutral-950', boxed: 'dk:bg-white dk:text-neutral-700 dk:dark:bg-white/10 dk:dark:text-neutral-200 dk:shadow-sm' },
+  primary: { underline: 'dk:border-primary-600 dk:text-primary-700 dk:dark:border-primary-400 dk:dark:text-primary-200', pills: 'dk:bg-primary-600 dk:text-white dk:dark:bg-primary-500 dk:dark:shadow-glow-primary', boxed: 'dk:bg-white dk:text-primary-700 dk:dark:bg-white/10 dk:dark:text-primary-200 dk:shadow-sm' },
+  secondary: { underline: 'dk:border-secondary-600 dk:text-secondary-700 dk:dark:border-secondary-400 dk:dark:text-secondary-200', pills: 'dk:bg-secondary-600 dk:text-white dk:dark:bg-secondary-500 dk:dark:shadow-glow-secondary', boxed: 'dk:bg-white dk:text-secondary-700 dk:dark:bg-white/10 dk:dark:text-secondary-200 dk:shadow-sm' },
+  success: { underline: 'dk:border-success-600 dk:text-success-700 dk:dark:border-success-400 dk:dark:text-success-200', pills: 'dk:bg-success-600 dk:text-white dk:dark:bg-success-500 dk:dark:shadow-glow-success', boxed: 'dk:bg-white dk:text-success-700 dk:dark:bg-white/10 dk:dark:text-success-200 dk:shadow-sm' },
+  warning: { underline: 'dk:border-warning-500 dk:text-warning-700 dk:dark:border-warning-400 dk:dark:text-warning-200', pills: 'dk:bg-warning-400 dk:text-neutral-950 dk:dark:shadow-glow-warning', boxed: 'dk:bg-white dk:text-warning-700 dk:dark:bg-white/10 dk:dark:text-warning-200 dk:shadow-sm' },
+  danger: { underline: 'dk:border-danger-600 dk:text-danger-700 dk:dark:border-danger-400 dk:dark:text-danger-200', pills: 'dk:bg-danger-600 dk:text-white dk:dark:bg-danger-500 dk:dark:shadow-glow-danger', boxed: 'dk:bg-white dk:text-danger-700 dk:dark:bg-white/10 dk:dark:text-danger-200 dk:shadow-sm' },
 }
 
 const rootClasses = computed(() => 'dk:w-full')
 
 const listClasses = computed(() => {
-  const base = 'dk:flex dk:items-center dk:gap-0.5'
+  const base = 'dk:flex dk:items-center dk:gap-0.5 dk:max-w-full dk:overflow-x-auto dk:[scrollbar-width:none]'
   const width = props.fullWidth ? 'dk:w-full' : ''
   const variant = {
-    underline: 'dk:border-b dk:border-zinc-200 dk:dark:border-zinc-700',
+    underline: 'dk:border-b dk:border-neutral-200 dk:dark:border-white/10',
     pills: 'dk:gap-1',
-    boxed: 'dk:bg-zinc-100 dk:dark:bg-zinc-800 dk:p-1 dk:rounded-xl dk:gap-1',
+    boxed: 'dk:bg-neutral-100 dk:dark:bg-white/5 dk:dark:ring-1 dk:dark:ring-inset dk:dark:ring-white/10 dk:p-1 dk:rounded-xl dk:gap-1',
   }[props.variant]
   return [base, width, variant].join(' ')
 })
 
 function tabClasses(value: string, disabled?: boolean) {
-  const base = 'dk:inline-flex dk:items-center dk:gap-1.5 dk:font-medium dk:transition-all dk:duration-150 dk:outline-none dk:select-none dk:rounded-t'
+  const base = 'dk:inline-flex dk:items-center dk:gap-1.5 dk:font-medium dk:transition-all dk:duration-150 dk:outline-none dk:select-none dk:whitespace-nowrap dk:shrink-0 dk:rounded-t'
   const size = sizeClasses[props.size]
   const isActive = props.modelValue === value
   const disabledStyle = disabled ? 'dk:opacity-40 dk:cursor-not-allowed' : 'dk:cursor-pointer'
-  const focusStyle = 'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-teal-400 dk:dark:focus-visible:ring-teal-500'
+  const focusStyle = 'dk:focus-visible:ring-2 dk:focus-visible:ring-offset-1 dk:focus-visible:ring-accent-500/70 dk:dark:focus-visible:ring-accent-400/80 dk:dark:focus-visible:ring-offset-neutral-950'
 
   if (props.variant === 'underline') {
     const active = isActive
       ? `dk:border-b-2 ${activeColorClasses[props.color].underline}`
-      : 'dk:border-b-2 dk:border-transparent dk:text-zinc-500 dk:dark:text-zinc-400 dk:hover:text-zinc-700 dk:dark:hover:text-zinc-200 dk:hover:border-zinc-300 dk:dark:hover:border-zinc-600'
+      : 'dk:border-b-2 dk:border-transparent dk:text-neutral-500 dk:dark:text-neutral-400 dk:hover:text-neutral-700 dk:dark:hover:text-neutral-200 dk:hover:border-neutral-300 dk:dark:hover:border-white/20'
     return [base, size, active, disabledStyle, focusStyle].join(' ')
   }
 
   if (props.variant === 'pills') {
     const active = isActive
       ? `dk:rounded-lg ${activeColorClasses[props.color].pills}`
-      : 'dk:rounded-lg dk:text-zinc-500 dk:dark:text-zinc-400 dk:hover:bg-zinc-100 dk:dark:hover:bg-zinc-700 dk:hover:text-zinc-700 dk:dark:hover:text-zinc-200'
+      : 'dk:rounded-lg dk:text-neutral-500 dk:dark:text-neutral-400 dk:hover:bg-neutral-100 dk:dark:hover:bg-white/5 dk:hover:text-neutral-700 dk:dark:hover:text-neutral-200'
     return [base, size, active, disabledStyle, focusStyle].join(' ')
   }
 
   // boxed
   const active = isActive
     ? `dk:rounded-lg ${activeColorClasses[props.color].boxed}`
-    : 'dk:rounded-lg dk:text-zinc-500 dk:dark:text-zinc-400 dk:hover:bg-black/5 dk:dark:hover:bg-white/5 dk:hover:text-zinc-700 dk:dark:hover:text-zinc-200'
+    : 'dk:rounded-lg dk:text-neutral-500 dk:dark:text-neutral-400 dk:hover:bg-black/5 dk:dark:hover:bg-white/5 dk:hover:text-neutral-700 dk:dark:hover:text-neutral-200'
 
   const fullWidth = props.fullWidth ? 'dk:flex-1 dk:text-center dk:justify-center' : ''
   return [base, size, active, disabledStyle, focusStyle, fullWidth].join(' ')

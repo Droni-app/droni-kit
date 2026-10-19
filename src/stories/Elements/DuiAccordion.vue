@@ -7,6 +7,9 @@
       :class="detailsClasses"
       @toggle.prevent>
       <summary
+        role="button"
+        :aria-expanded="isOpen(item.value ?? String(index))"
+        :aria-disabled="item.disabled || undefined"
         :class="summaryClasses(item.value ?? String(index), item.disabled)"
         @click.prevent="toggle(item.value ?? String(index), item.disabled)">
         <span v-if="item.icon" aria-hidden="true" :class="iconClasses">{{ item.icon }}</span>
@@ -123,51 +126,51 @@ const sizeMap = {
 // ── Colors ───────────────────────────────────────────────────────────────────
 
 const openBgMap = {
-  neutral:   'dk:bg-zinc-50 dk:dark:bg-zinc-800/60',
-  primary:   'dk:bg-teal-50 dk:dark:bg-teal-800/60',
-  secondary: 'dk:bg-slate-50 dk:dark:bg-slate-900/30',
-  success:   'dk:bg-emerald-50 dk:dark:bg-emerald-900/30',
-  warning:   'dk:bg-amber-50 dk:dark:bg-amber-900/30',
-  danger:    'dk:bg-rose-50 dk:dark:bg-rose-900/30',
+  neutral:   'dk:bg-neutral-50 dk:dark:bg-white/5',
+  primary:   'dk:bg-primary-50/70 dk:dark:bg-primary-500/10',
+  secondary: 'dk:bg-secondary-50/70 dk:dark:bg-secondary-500/10',
+  success:   'dk:bg-success-50/70 dk:dark:bg-success-500/10',
+  warning:   'dk:bg-warning-50/70 dk:dark:bg-warning-500/10',
+  danger:    'dk:bg-danger-50/70 dk:dark:bg-danger-500/10',
 }
 
 const openTextMap = {
-  neutral:   'dk:text-zinc-900 dk:dark:text-zinc-50',
-  primary:   'dk:text-teal-800 dk:dark:text-teal-100',
-  secondary: 'dk:text-slate-800 dk:dark:text-slate-100',
-  success:   'dk:text-emerald-800 dk:dark:text-emerald-100',
-  warning:   'dk:text-amber-800 dk:dark:text-amber-100',
-  danger:    'dk:text-rose-800 dk:dark:text-rose-100',
+  neutral:   'dk:text-neutral-900 dk:dark:text-white',
+  primary:   'dk:text-primary-800 dk:dark:text-primary-100',
+  secondary: 'dk:text-secondary-800 dk:dark:text-secondary-100',
+  success:   'dk:text-success-800 dk:dark:text-success-100',
+  warning:   'dk:text-warning-800 dk:dark:text-warning-100',
+  danger:    'dk:text-danger-800 dk:dark:text-danger-100',
 }
 
 const openIconMap = {
-  neutral:   'dk:text-zinc-500 dk:dark:text-zinc-400',
-  primary:   'dk:text-teal-500 dk:dark:text-teal-400',
-  secondary: 'dk:text-slate-500 dk:dark:text-slate-400',
-  success:   'dk:text-emerald-500 dk:dark:text-emerald-400',
-  warning:   'dk:text-amber-500 dk:dark:text-amber-400',
-  danger:    'dk:text-rose-500 dk:dark:text-rose-400',
+  neutral:   'dk:text-neutral-500 dk:dark:text-neutral-400',
+  primary:   'dk:text-primary-500 dk:dark:text-primary-400',
+  secondary: 'dk:text-secondary-500 dk:dark:text-secondary-400',
+  success:   'dk:text-success-500 dk:dark:text-success-400',
+  warning:   'dk:text-warning-500 dk:dark:text-warning-400',
+  danger:    'dk:text-danger-500 dk:dark:text-danger-400',
 }
 
 // ── Root ─────────────────────────────────────────────────────────────────────
 
 const rootClasses = computed(() => {
   if (props.variant === 'separated') return 'dk:flex dk:flex-col dk:gap-2'
-  if (props.variant === 'ghost') return 'dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700/60'
+  if (props.variant === 'ghost') return 'dk:divide-y dk:divide-neutral-200 dk:dark:divide-white/10'
   // bordered
   return props.flush
-    ? 'dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700'
-    : 'dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:rounded-xl dk:divide-y dk:divide-zinc-200 dk:dark:divide-zinc-700 dk:overflow-hidden dk:shadow-sm'
+    ? 'dk:divide-y dk:divide-neutral-200 dk:dark:divide-white/10'
+    : 'dk:border dk:border-neutral-200 dk:dark:border-white/10 dk:rounded-xl dk:divide-y dk:divide-neutral-200 dk:dark:divide-white/10 dk:overflow-hidden dk:shadow-xs'
 })
 
 // ── Details ──────────────────────────────────────────────────────────────────
 
 const detailsClasses = computed(() => {
   if (props.variant === 'separated') {
-    return 'dk:rounded-xl dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:overflow-hidden dk:shadow-sm dk:bg-white dk:dark:bg-zinc-900'
+    return 'dk:rounded-xl dk:border dk:border-neutral-200 dk:dark:border-white/10 dk:overflow-hidden dk:shadow-xs dk:bg-white dk:dark:bg-neutral-900'
   }
   if (props.variant === 'ghost') return ''
-  return 'dk:bg-white dk:dark:bg-zinc-900'
+  return 'dk:bg-white dk:dark:bg-neutral-900'
 })
 
 // ── Summary ──────────────────────────────────────────────────────────────────
@@ -177,16 +180,16 @@ function summaryClasses(value: string, disabled?: boolean) {
   const open = isOpen(value)
 
   const base = [
-    'dk:flex dk:w-full dk:items-center dk:select-none dk:outline-none',
+    'dk:flex dk:w-full dk:items-center dk:font-medium dk:select-none dk:outline-none',
     'dk:transition-colors dk:duration-150',
     s.summary,
   ]
 
   const color = open
     ? [openBgMap[props.color], openTextMap[props.color]]
-    : ['dk:text-zinc-700 dk:dark:text-zinc-300', 'dk:hover:bg-zinc-50 dk:dark:hover:bg-zinc-800/50 dk:hover:text-zinc-900 dk:dark:hover:text-zinc-100']
+    : ['dk:text-neutral-700 dk:dark:text-neutral-300', 'dk:hover:bg-neutral-50 dk:dark:hover:bg-white/[0.03] dk:hover:text-neutral-900 dk:dark:hover:text-white']
 
-  const focus = 'dk:focus-visible:ring-2 dk:focus-visible:ring-inset dk:focus-visible:ring-teal-400 dk:dark:focus-visible:ring-teal-500'
+  const focus = 'dk:focus-visible:ring-2 dk:focus-visible:ring-inset dk:focus-visible:ring-accent-500/70 dk:dark:focus-visible:ring-accent-400/80 dk:dark:focus-visible:ring-offset-neutral-950'
   const dis   = disabled ? 'dk:opacity-40 dk:cursor-not-allowed dk:pointer-events-none' : 'dk:cursor-pointer'
 
   return [...base, ...color, focus, dis].join(' ')
@@ -198,7 +201,7 @@ function chevronClasses(value: string) {
   const s = sizeMap[props.size]
   return [
     'dk:flex-shrink-0 dk:transition-transform dk:duration-250 dk:ease-in-out dk:ml-auto',
-    isOpen(value) ? 'dk:rotate-180 ' + openIconMap[props.color] : 'dk:text-zinc-400 dk:dark:text-zinc-500',
+    isOpen(value) ? 'dk:rotate-180 ' + openIconMap[props.color] : 'dk:text-neutral-400 dk:dark:text-neutral-500',
     s.chevron,
   ].join(' ')
 }
@@ -214,7 +217,7 @@ const iconClasses = computed(() => {
 const contentClasses = computed(() => {
   return [
     sizeMap[props.size].content,
-    'dk:text-zinc-600 dk:dark:text-zinc-400 dk:leading-relaxed',
+    'dk:text-neutral-600 dk:dark:text-neutral-400 dk:leading-relaxed',
   ].join(' ')
 })
 </script>

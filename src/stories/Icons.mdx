@@ -4,18 +4,17 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Iconos MDI (Material Design Icons)
 
-Droni-kit utiliza la librería **Material Design Icons (MDI)** para los iconos. El CDN se carga automáticamente en la aplicación.
+Droni-kit utiliza la librería **Material Design Icons (MDI) 7.4.47** para los iconos.
 
 ## Instalación
 
-Agrega el CDN de MDI en el `<head>` de tu archivo `index.html`:
+**No hace falta instalar nada.** Desde v2, `droni-kit.css` carga MDI desde jsDelivr, así que basta con el import habitual:
 
-```html
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
-/>
+```javascript
+import '@dronico/droni-kit/dist/droni-kit.css';
 ```
+
+> Si tu `index.html` ya tenía el `<link>` de MDI de v1, puedes quitarlo o dejarlo: el navegador reutiliza la misma URL desde caché.
 
 ## Uso básico
 
@@ -88,9 +87,9 @@ Los componentes como `DuiLabel` y `DuiNavbar` aceptan la prop `icon` con el nomb
     { icon: 'mdi-chevron-down', name: 'chevron-down' },
     { icon: 'mdi-calendar', name: 'calendar' },
   ].map(({ icon, name }) => (
-    <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '12px', border: '1px solid #e5e7eb', borderRadius: '8px' }}>
-      <i className={`mdi ${icon}`} style={{ fontSize: '24px' }} />
-      <span style={{ fontSize: '11px', color: '#6b7280', textAlign: 'center' }}>{name}</span>
+    <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '12px', border: '1px solid rgba(146, 152, 179, 0.25)', borderRadius: '10px' }}>
+      <i className={`mdi ${icon}`} style={{ fontSize: '24px', color: '#a175fd' }} />
+      <span style={{ fontSize: '11px', color: '#9298b3', textAlign: 'center' }}>{name}</span>
     </div>
   ))}
 </div>

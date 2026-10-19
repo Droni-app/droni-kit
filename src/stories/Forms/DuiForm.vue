@@ -86,7 +86,7 @@ const computedFormClasses = computed(() => {
 })
 
 const headerClasses = computed(() => {
-  return cn('dk:mb-5 dk:pb-4 dk:border-b dk:border-zinc-200 dk:dark:border-zinc-700')
+  return cn('dk:mb-5 dk:pb-4 dk:border-b dk:border-neutral-200 dk:dark:border-white/10')
 })
 
 const contentClasses = computed(() => {
@@ -95,7 +95,7 @@ const contentClasses = computed(() => {
 
 const footerClasses = computed(() => {
   return cn(
-    'dk:mt-6 dk:pt-4 dk:border-t dk:border-zinc-200 dk:dark:border-zinc-700',
+    'dk:mt-6 dk:pt-4 dk:border-t dk:border-neutral-200 dk:dark:border-white/10',
     'dk:flex dk:items-center dk:gap-3',
   )
 })
@@ -103,14 +103,14 @@ const footerClasses = computed(() => {
 const loadingOverlayClasses = computed(() => {
   return cn(
     'dk:absolute dk:inset-0 dk:flex dk:items-center dk:justify-center',
-    'dk:bg-white/60 dk:dark:bg-zinc-900/60 dk:rounded-lg dk:z-10',
+    'dk:bg-white/60 dk:dark:bg-neutral-950/60 dk:backdrop-blur-[2px] dk:rounded-lg dk:z-10',
   )
 })
 
 const spinnerClasses = computed(() => {
   return cn(
-    'dk:w-6 dk:h-6 dk:border-2 dk:border-zinc-300 dk:dark:border-zinc-600',
-    'dk:border-t-teal-600 dk:dark:border-t-teal-400 dk:rounded-full dk:animate-spin',
+    'dk:w-6 dk:h-6 dk:border-2 dk:border-neutral-300 dk:dark:border-white/15',
+    'dk:border-t-primary-600 dk:dark:border-t-primary-400 dk:rounded-full dk:animate-spin',
   )
 })
 </script>

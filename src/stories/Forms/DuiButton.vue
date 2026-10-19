@@ -4,7 +4,8 @@
     v-bind="componentProps"
     :class="computedClasses"
     :title="props.title"
-    :disabled="props.disabled || props.loading">
+    :disabled="props.disabled || props.loading"
+    :aria-busy="props.loading || undefined">
     <span v-if="props.loading" class="dk:inline-flex dk:items-center dk:gap-2" aria-hidden="true">
       <span class="dk:h-4 dk:w-4 dk:animate-spin dk:rounded-full dk:border-2 dk:border-current dk:border-t-transparent" />
       <slot name="loading"><slot /></slot>
@@ -16,7 +17,7 @@
 import { computed } from 'vue'
 import { getRouterComponentType, getRouterComponentProps } from '../../utils/router-detection'
 import { cn } from '../../utils/cn'
-import { variantColorClasses, controlSizeClasses, roundedCornerClasses } from '../../theme/tokens'
+import { variantColorClasses, controlSizeClasses, roundedCornerClasses, focusRingClasses } from '../../theme/tokens'
 import type { DuiColor, DuiVariant, DuiSize } from '../../theme/tokens'
 import type { RouteTo, DuiRounded } from '../../types'
 
@@ -35,7 +36,7 @@ export interface DuiButtonProps {
 
 const props = withDefaults(defineProps<DuiButtonProps>(), {
   variant: 'solid',
-  color: 'primary',
+  color: 'neutral',
   size: 'md',
   type: 'button',
   disabled: false,
@@ -57,13 +58,12 @@ const componentProps = computed(() => {
 })
 
 const baseClass = [
-  'dk:relative dk:inline-flex dk:items-center dk:justify-center dk:font-medium',
+  'dk:relative dk:inline-flex dk:items-center dk:justify-center dk:font-medium dk:tracking-[-0.01em]',
   'dk:transition-all dk:duration-150',
   'dk:cursor-pointer dk:select-none',
   'dk:whitespace-nowrap dk:overflow-hidden dk:text-ellipsis',
   'dk:disabled:opacity-50 dk:disabled:cursor-not-allowed dk:disabled:pointer-events-none',
-  'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-offset-2',
-  'dk:focus-visible:ring-teal-500/50 dk:dark:focus-visible:ring-teal-400/50',
+  focusRingClasses,
   'dk:active:scale-[0.98]',
   'dk:max-w-full',
 ].join(' ')

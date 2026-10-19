@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { cn } from '../../utils/cn'
-import { fieldBaseClasses, controlSizeClasses, roundedCornerClasses } from '../../theme/tokens'
+import { fieldBaseClasses, roundedCornerClasses } from '../../theme/tokens'
 import type { DuiSize } from '../../theme/tokens'
 import type { DuiRounded } from '../../types'
 
@@ -50,8 +50,15 @@ const resizeClasses: Record<string, string> = {
   vertical: 'dk:resize-y',
 }
 
+// Padding vertical en vez de altura fija: el textarea debe poder crecer
+const sizeClasses: Record<DuiSize, string> = {
+  sm: 'dk:min-h-16 dk:px-3 dk:py-1.5 dk:text-sm',
+  md: 'dk:min-h-20 dk:px-4 dk:py-2.5 dk:text-sm',
+  lg: 'dk:min-h-24 dk:px-5 dk:py-3 dk:text-base',
+}
+
 const computedClasses = computed(() => {
-  const size = controlSizeClasses[props.size] || controlSizeClasses.md
+  const size = sizeClasses[props.size] || sizeClasses.md
   const block = props.block ? 'dk:w-full' : ''
   const rounded = roundedCornerClasses[props.rounded] ?? roundedCornerClasses.all
   const resize = resizeClasses[props.resize] || ''

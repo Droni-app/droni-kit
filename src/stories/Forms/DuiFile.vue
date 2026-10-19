@@ -6,7 +6,7 @@
           <a
             href="#"
             @click.prevent="emit('open-file', props.modelValue ?? localFileName)"
-            class="dk:ml-2 dk:text-slate-600 dk:underline dk:transition-colors dk:hover:text-slate-700 dk:dark:text-slate-400 dk:dark:hover:text-slate-300">
+            class="dk:ml-2 dk:text-accent-700 dk:underline dk:decoration-accent-500/40 dk:underline-offset-2 dk:transition-colors dk:hover:text-accent-600 dk:dark:text-accent-400 dk:dark:hover:text-accent-300">
             {{ displayedFileName }}
           </a>
         </p>
@@ -100,8 +100,8 @@ const containerClasses = computed(() => {
   const sizeClass = sizeClasses[props.size] || sizeClasses.md
   const roundedClass = roundedCornerClasses[props.rounded] ?? roundedCornerClasses.all
   return cn(
-    'dk:flex dk:w-full dk:flex-col dk:items-stretch dk:justify-between dk:border dk:border-zinc-300 dk:bg-white dk:text-zinc-800 dk:shadow-sm dk:transition-colors',
-    'dk:dark:border-zinc-600 dk:dark:bg-zinc-900 dk:dark:text-zinc-100',
+    'dk:flex dk:w-full dk:flex-col dk:items-stretch dk:justify-between dk:border dk:border-dashed dk:border-neutral-300 dk:bg-white dk:text-neutral-800 dk:shadow-xs dk:transition-colors dk:hover:border-primary-400',
+    'dk:dark:border-white/15 dk:dark:bg-neutral-900/60 dk:dark:text-neutral-100 dk:dark:hover:border-primary-400/60',
     'dk:sm:flex-row dk:sm:items-center',
     sizeClass,
     roundedClass,
@@ -120,7 +120,7 @@ const actionsClasses = computed(() => {
 const fileNameClasses = computed(() => {
   return cn(
     'dk:mt-1 dk:max-w-full dk:overflow-hidden dk:text-ellipsis dk:whitespace-nowrap dk:text-sm',
-    props.modelValue || localFileName.value ? 'dk:text-zinc-900 dk:dark:text-zinc-100' : 'dk:text-zinc-500 dk:dark:text-zinc-400',
+    props.modelValue || localFileName.value ? 'dk:text-neutral-900 dk:dark:text-neutral-100' : 'dk:text-neutral-500 dk:dark:text-neutral-400',
   )
 })
 

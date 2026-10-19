@@ -8,14 +8,14 @@
       <div :class="computedLabelClasses">
         <i v-if="icon" :class="icon" class="dk:mr-2"></i>
         {{ title }}
-        <span v-if="required" class="dk:text-rose-500 dk:ml-1">*</span>
+        <span v-if="required" class="dk:text-danger-500 dk:ml-1">*</span>
       </div>
 
       <div
         v-show="showTooltip && helpText"
-        class="dk:absolute dk:bottom-full dk:left-0 dk:mb-2 dk:z-50 dk:min-w-[250px] dk:max-w-xs dk:rounded-lg dk:bg-zinc-900 dk:px-3 dk:py-2 dk:text-xs dk:text-white dk:shadow-lg dk:pointer-events-none dk:dark:bg-zinc-700 dk:dark:text-zinc-100">
+        class="dk:absolute dk:bottom-full dk:left-0 dk:mb-2 dk:z-50 dk:min-w-[250px] dk:max-w-xs dk:rounded-lg dk:bg-neutral-900 dk:px-3 dk:py-2 dk:text-xs dk:text-white dk:shadow-lg dk:pointer-events-none dk:dark:bg-neutral-800 dk:dark:text-neutral-100 dk:dark:ring-1 dk:dark:ring-white/10">
         {{ helpText }}
-        <span class="dk:absolute dk:left-4 dk:top-full dk:border-4 dk:border-transparent dk:border-t-zinc-900 dk:dark:border-t-zinc-700"></span>
+        <span class="dk:absolute dk:left-4 dk:top-full dk:border-4 dk:border-transparent dk:border-t-neutral-900 dk:dark:border-t-neutral-800"></span>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
     </div>
 
     <div v-if="error" :class="computedErrorClasses">
-      <span class="dk:inline-flex dk:items-center dk:justify-center dk:w-4 dk:h-4 dk:text-xs dk:bg-rose-500 dk:text-white dk:rounded-full dk:mr-2 dk:flex-shrink-0">
+      <span class="dk:inline-flex dk:items-center dk:justify-center dk:w-4 dk:h-4 dk:text-xs dk:bg-danger-500 dk:text-white dk:rounded-full dk:mr-2 dk:flex-shrink-0">
         !
       </span>
       {{ error }}
@@ -83,7 +83,7 @@ const computedWrapperClasses = computed(() => cn('dk:space-y-1'))
 
 const computedLabelClasses = computed(() => {
   const sizeClass = labelSizeClasses[normalizedSize.value] || labelSizeClasses.md
-  const baseClass = 'dk:block dk:font-medium dk:text-zinc-700 dk:dark:text-zinc-200 dk:flex dk:items-center'
+  const baseClass = 'dk:block dk:font-medium dk:text-neutral-800 dk:dark:text-neutral-200 dk:flex dk:items-center'
   const cursorClass = props.helpText ? 'dk:cursor-help' : ''
   return cn(baseClass, sizeClass, cursorClass)
 })
@@ -95,7 +95,7 @@ const computedFieldWrapperClasses = computed(() => {
 
 const computedErrorClasses = computed(() => {
   const sizeClass = errorSizeClasses[normalizedSize.value] || errorSizeClasses.md
-  const baseClass = 'dk:text-rose-600 dk:dark:text-rose-400 dk:flex dk:items-center dk:mt-1'
+  const baseClass = 'dk:text-danger-600 dk:dark:text-danger-400 dk:flex dk:items-center dk:mt-1'
   return cn(baseClass, sizeClass)
 })
 </script>

@@ -1,0 +1,4 @@
+/* Playground (npm run dev): estilos de la librería + clases de App.vue */
+@import "./style.css";
+@source "./App.vue";
+@source "./components";

@@ -28,6 +28,14 @@ Luego importa la hoja de estilos en tu archivo principal (`main.js` o `main.ts`)
 import '@dronico/droni-kit/dist/droni-kit.css';
 ```
 
+La hoja de estilos ya incluye la tipografía **Inter** y los iconos **Material Design Icons** (vía CDN), así que no hace falta ningún `<link>` extra en tu `index.html`.
+
+## 🎨 v2 — Tema "Neon Noir"
+
+- Paleta: `primary` violeta eléctrico, `secondary` magenta, `accent` cian (focus) y superficies navy en dark mode, con glow neón sutil.
+- Todos los colores son variables CSS (`--dk-color-primary-600`, `--dk-font-sans`, `--dk-shadow-glow-primary`…) que puedes sobrescribir en `:root`.
+- La API es compatible con v1.x. Los cambios visuales y cómo revertirlos están en la página **Migración v2** del Storybook (`src/stories/Migration.mdx`).
+
 ## 🎯 Uso Básico
 
 Una vez instalado, puedes usar los componentes en tu aplicación Vue:

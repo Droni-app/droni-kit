@@ -4,7 +4,6 @@ import DuiLabel from './DuiLabel.vue';
 import DuiInput from './DuiInput.vue';
 import DuiSelect from './DuiSelect.vue';
 import DuiTextarea from './DuiTextarea.vue';
-import '../../style.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -244,7 +243,7 @@ export const DarkMode: Story = {
       return { roles };
     },
     template: `
-      <div class="dark p-4 space-y-6 max-w-md bg-zinc-900 min-h-screen">
+      <div class="dark p-4 space-y-6 max-w-md bg-neutral-900 min-h-screen">
         <DuiLabel 
           title="Usuario"
           icon="mdi mdi-account"

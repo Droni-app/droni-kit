@@ -85,21 +85,21 @@ const sizeMap: Record<DuiSize, { radio: string; dot: string; label: string; desc
 }
 
 const ringColorMap: Record<DuiColor, string> = {
-  neutral: 'dk:peer-checked:border-zinc-600 dk:dark:peer-checked:border-zinc-400',
-  primary: 'dk:peer-checked:border-teal-600 dk:dark:peer-checked:border-teal-400',
-  secondary: 'dk:peer-checked:border-slate-600 dk:dark:peer-checked:border-slate-400',
-  success: 'dk:peer-checked:border-emerald-600 dk:dark:peer-checked:border-emerald-400',
-  warning: 'dk:peer-checked:border-amber-500 dk:dark:peer-checked:border-amber-400',
-  danger: 'dk:peer-checked:border-rose-600 dk:dark:peer-checked:border-rose-400',
+  neutral: 'dk:peer-checked:border-neutral-600 dk:dark:peer-checked:border-neutral-400',
+  primary: 'dk:peer-checked:border-primary-600 dk:dark:peer-checked:border-primary-400',
+  secondary: 'dk:peer-checked:border-secondary-600 dk:dark:peer-checked:border-secondary-400',
+  success: 'dk:peer-checked:border-success-600 dk:dark:peer-checked:border-success-400',
+  warning: 'dk:peer-checked:border-warning-500 dk:dark:peer-checked:border-warning-400',
+  danger: 'dk:peer-checked:border-danger-600 dk:dark:peer-checked:border-danger-400',
 }
 
 const dotColorMap: Record<DuiColor, string> = {
-  neutral: 'dk:peer-checked:bg-zinc-600 dk:dark:peer-checked:bg-zinc-400',
-  primary: 'dk:peer-checked:bg-teal-600 dk:dark:peer-checked:bg-teal-400',
-  secondary: 'dk:peer-checked:bg-slate-600 dk:dark:peer-checked:bg-slate-400',
-  success: 'dk:peer-checked:bg-emerald-600 dk:dark:peer-checked:bg-emerald-400',
-  warning: 'dk:peer-checked:bg-amber-500 dk:dark:peer-checked:bg-amber-400',
-  danger: 'dk:peer-checked:bg-rose-600 dk:dark:peer-checked:bg-rose-400',
+  neutral: 'dk:peer-checked:bg-neutral-600 dk:dark:peer-checked:bg-neutral-400',
+  primary: 'dk:peer-checked:bg-primary-600 dk:dark:peer-checked:bg-primary-400 dk:dark:peer-checked:shadow-[0_0_8px_var(--dk-color-primary-400)]',
+  secondary: 'dk:peer-checked:bg-secondary-600 dk:dark:peer-checked:bg-secondary-400 dk:dark:peer-checked:shadow-[0_0_8px_var(--dk-color-secondary-400)]',
+  success: 'dk:peer-checked:bg-success-600 dk:dark:peer-checked:bg-success-400 dk:dark:peer-checked:shadow-[0_0_8px_var(--dk-color-success-400)]',
+  warning: 'dk:peer-checked:bg-warning-500 dk:dark:peer-checked:bg-warning-400',
+  danger: 'dk:peer-checked:bg-danger-600 dk:dark:peer-checked:bg-danger-400 dk:dark:peer-checked:shadow-[0_0_8px_var(--dk-color-danger-400)]',
 }
 
 const groupClasses = computed(() => {
@@ -108,7 +108,7 @@ const groupClasses = computed(() => {
 })
 
 const groupLabelClasses = computed(() => {
-  return 'dk:block dk:text-xs dk:font-semibold dk:uppercase dk:tracking-wide dk:text-zinc-500 dk:dark:text-zinc-400 dk:mb-1'
+  return 'dk:block dk:text-xs dk:font-semibold dk:uppercase dk:tracking-wide dk:text-neutral-500 dk:dark:text-neutral-400 dk:mb-1'
 })
 
 function itemClasses(_value: string, optDisabled?: boolean) {
@@ -123,9 +123,9 @@ function radioTrackClasses(_value: string) {
   const ringColor = ringColorMap[props.color]
   return cn(
     'dk:rounded-full dk:border-2 dk:transition-colors dk:duration-150',
-    'dk:border-zinc-300 dk:dark:border-zinc-600',
-    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-teal-500/50 dk:dark:peer-focus-visible:ring-offset-zinc-900',
-    'dk:bg-white dk:dark:bg-zinc-900',
+    'dk:border-neutral-300 dk:dark:border-white/20',
+    'dk:peer-focus-visible:outline-none dk:peer-focus-visible:ring-2 dk:peer-focus-visible:ring-offset-2 dk:peer-focus-visible:ring-accent-500/70 dk:peer-focus-visible:ring-offset-white dk:dark:peer-focus-visible:ring-accent-400/80 dk:dark:peer-focus-visible:ring-offset-neutral-950',
+    'dk:bg-white dk:dark:bg-neutral-900',
     s.radio,
     ringColor,
   )
@@ -144,11 +144,11 @@ const radioDotClasses = computed(() => {
 const labelContainerClasses = computed(() => 'dk:flex dk:flex-col')
 
 const labelClasses = computed(() => {
-  return cn(sizeMap[props.size].label, 'dk:leading-snug dk:text-zinc-800 dk:dark:text-zinc-200')
+  return cn(sizeMap[props.size].label, 'dk:leading-snug dk:text-neutral-800 dk:dark:text-neutral-200')
 })
 
 const descriptionClasses = computed(() => {
-  return cn(sizeMap[props.size].description, 'dk:leading-snug dk:text-zinc-500 dk:dark:text-zinc-400 dk:mt-0.5')
+  return cn(sizeMap[props.size].description, 'dk:leading-snug dk:text-neutral-500 dk:dark:text-neutral-400 dk:mt-0.5')
 })
 </script>
 

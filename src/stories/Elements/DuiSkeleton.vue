@@ -37,7 +37,7 @@ const inlineStyles = computed(() => ({
 
 const animationClass = {
   pulse: 'dk:animate-pulse',
-  wave: 'dk:relative dk:overflow-hidden after:dk:absolute after:dk:inset-0 after:dk:translate-x-[-100%] after:dk:animate-[dui-shimmer_1.6s_linear_infinite] after:dk:bg-gradient-to-r after:dk:from-transparent after:dk:via-white/35 after:dk:to-transparent after:dk:dark:via-white/10',
+  wave: "dk:relative dk:overflow-hidden dk:after:absolute dk:after:inset-0 dk:after:content-[''] dk:after:-translate-x-full dk:after:animate-dui-shimmer dk:after:bg-linear-to-r dk:after:from-transparent dk:after:via-white/50 dk:after:to-transparent dk:dark:after:via-white/10",
   none: '',
 }
 
@@ -50,7 +50,7 @@ const variantClasses = {
 
 const skeletonClasses = computed(() => {
   return cn(
-    'dk:bg-zinc-200 dk:dark:bg-zinc-700',
+    'dk:bg-neutral-200/80 dk:dark:bg-white/[0.07]',
     variantClasses[props.variant],
     animationClass[props.animation],
   )

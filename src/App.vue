@@ -1,11 +1,11 @@
 <template>
-  <div class="dk:min-h-screen dk:bg-zinc-100 dk:dark:bg-zinc-950 dk:text-zinc-900 dk:dark:text-zinc-100">
+  <div class="dk:min-h-screen dk:bg-neutral-100 dk:dark:bg-neutral-950 dk:text-neutral-900 dk:dark:text-neutral-100">
     <DuiToast position="top-right" :max-toasts="5" />
 
     <DuiNavbar :items="navbarItems" size="m" items-alignment="center" underline-color="secondary">
       <template #brand>
         <div class="dk:flex dk:items-center dk:gap-3">
-          <div class="dk:h-9 dk:w-9 dk:rounded-xl dk:bg-slate-600 dk:text-white dk:flex dk:items-center dk:justify-center dk:font-semibold">
+          <div class="dk:h-9 dk:w-9 dk:rounded-xl dk:bg-secondary-600 dk:text-white dk:flex dk:items-center dk:justify-center dk:font-semibold">
             DK
           </div>
           <div>
@@ -26,12 +26,12 @@
     </DuiNavbar>
 
     <main class="dk:max-w-7xl dk:mx-auto dk:px-4 dk:py-6 dk:space-y-6">
-      <section class="dk:rounded-2xl dk:border dk:border-zinc-200 dk:dark:border-zinc-800 dk:bg-white dk:dark:bg-zinc-900 dk:p-6 dk:space-y-5">
+      <section class="dk:rounded-2xl dk:border dk:border-neutral-200 dk:dark:border-neutral-800 dk:bg-white dk:dark:bg-neutral-900 dk:p-6 dk:space-y-5">
         <TestCheckBox />
         <div class="dk:flex dk:flex-wrap dk:items-start dk:justify-between dk:gap-4">
           <div class="dk:space-y-2">
             <h1 class="dk:text-2xl dk:font-bold">Visual de componentes</h1>
-            <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+            <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
               Una pagina unica para revisar estados, variantes y composicion de layouts.
             </p>
           </div>
@@ -65,17 +65,17 @@
         </div>
       </section>
 
-      <section class="dk:rounded-2xl dk:border dk:border-zinc-200 dk:dark:border-zinc-800 dk:bg-white dk:dark:bg-zinc-900 dk:p-6">
+      <section class="dk:rounded-2xl dk:border dk:border-neutral-200 dk:dark:border-neutral-800 dk:bg-white dk:dark:bg-neutral-900 dk:p-6">
         <DuiTabs v-model="activeView" :tabs="viewTabs" variant="boxed" color="secondary" :full-width="true">
           <template #overview>
             <div class="dk:space-y-8">
 
               <!-- Buttons showcase -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Botones</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Botones</h3>
                 <div class="dk:space-y-2">
                   <div class="dk:flex dk:flex-wrap dk:gap-2 dk:items-center">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-14">solid</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-14">solid</span>
                     <DuiButton variant="solid" color="neutral" size="sm">Neutral</DuiButton>
                     <DuiButton variant="solid" color="primary" size="sm">Primary</DuiButton>
                     <DuiButton variant="solid" color="secondary" size="sm">Secondary</DuiButton>
@@ -86,7 +86,7 @@
                     <DuiButton variant="solid" color="neutral" size="sm" :disabled="true">Disabled</DuiButton>
                   </div>
                   <div class="dk:flex dk:flex-wrap dk:gap-2 dk:items-center">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-14">outline</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-14">outline</span>
                     <DuiButton variant="outline" color="neutral" size="sm">Neutral</DuiButton>
                     <DuiButton variant="outline" color="primary" size="sm">Primary</DuiButton>
                     <DuiButton variant="outline" color="secondary" size="sm">Secondary</DuiButton>
@@ -95,7 +95,7 @@
                     <DuiButton variant="outline" color="danger" size="sm">Danger</DuiButton>
                   </div>
                   <div class="dk:flex dk:flex-wrap dk:gap-2 dk:items-center">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-14">ghost</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-14">ghost</span>
                     <DuiButton variant="ghost" color="neutral" size="sm">Neutral</DuiButton>
                     <DuiButton variant="ghost" color="primary" size="sm">Primary</DuiButton>
                     <DuiButton variant="ghost" color="secondary" size="sm">Secondary</DuiButton>
@@ -104,7 +104,7 @@
                     <DuiButton variant="ghost" color="danger" size="sm">Danger</DuiButton>
                   </div>
                   <div class="dk:flex dk:flex-wrap dk:gap-2 dk:items-center">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-14">sizes</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-14">sizes</span>
                     <DuiButton color="secondary" size="sm">Small</DuiButton>
                     <DuiButton color="secondary" size="md">Medium</DuiButton>
                     <DuiButton color="secondary" size="lg">Large</DuiButton>
@@ -114,7 +114,7 @@
 
               <!-- Badges showcase -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Badges</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Badges</h3>
                 <div class="dk:space-y-2">
                   <div class="dk:flex dk:flex-wrap dk:gap-2">
                     <DuiBadge label="Neutral" color="neutral" variant="soft" />
@@ -145,7 +145,7 @@
 
               <!-- Alerts showcase -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Alerts</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Alerts</h3>
                 <div class="dk:space-y-2">
                   <DuiAlert color="neutral">Alerta neutral — información general del sistema.</DuiAlert>
                   <DuiAlert color="success">Alerta success — la operación se completó correctamente.</DuiAlert>
@@ -161,7 +161,7 @@
               <!-- Tooltips + Dropdown -->
               <div class="dk:grid dk:grid-cols-1 dk:md:grid-cols-2 dk:gap-6">
                 <div>
-                  <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Tooltips</h3>
+                  <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Tooltips</h3>
                   <div class="dk:flex dk:flex-wrap dk:gap-4 dk:pt-2">
                     <DuiTooltip text="Tooltip arriba" placement="top"><DuiButton size="sm" color="neutral">Top</DuiButton></DuiTooltip>
                     <DuiTooltip text="Tooltip abajo" placement="bottom"><DuiButton size="sm" color="neutral">Bottom</DuiButton></DuiTooltip>
@@ -171,7 +171,7 @@
                   </div>
                 </div>
                 <div>
-                  <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Dropdown</h3>
+                  <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Dropdown</h3>
                   <div class="dk:flex dk:flex-wrap dk:gap-3">
                     <DuiDropdown v-model="dropdownOpen" placement="bottom-start">
                       <template #trigger><DuiButton variant="outline" color="neutral">Acciones ▾</DuiButton></template>
@@ -193,27 +193,27 @@
 
               <!-- Tabs variants -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Tabs — variantes</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Tabs — variantes</h3>
                 <div class="dk:grid dk:grid-cols-1 dk:md:grid-cols-3 dk:gap-4">
                   <div>
-                    <p class="dk:text-xs dk:text-zinc-400 dk:mb-2">underline</p>
+                    <p class="dk:text-xs dk:text-neutral-400 dk:mb-2">underline</p>
                     <DuiTabs v-model="demoTabA" :tabs="demoTabItems" variant="underline" color="secondary">
-                      <template #t1><p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Contenido tab 1</p></template>
-                      <template #t2><p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Contenido tab 2</p></template>
+                      <template #t1><p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Contenido tab 1</p></template>
+                      <template #t2><p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Contenido tab 2</p></template>
                     </DuiTabs>
                   </div>
                   <div>
-                    <p class="dk:text-xs dk:text-zinc-400 dk:mb-2">pills</p>
+                    <p class="dk:text-xs dk:text-neutral-400 dk:mb-2">pills</p>
                     <DuiTabs v-model="demoTabB" :tabs="demoTabItems" variant="pills" color="primary">
-                      <template #t1><p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Contenido tab 1</p></template>
-                      <template #t2><p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Contenido tab 2</p></template>
+                      <template #t1><p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Contenido tab 1</p></template>
+                      <template #t2><p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Contenido tab 2</p></template>
                     </DuiTabs>
                   </div>
                   <div>
-                    <p class="dk:text-xs dk:text-zinc-400 dk:mb-2">boxed · full-width</p>
+                    <p class="dk:text-xs dk:text-neutral-400 dk:mb-2">boxed · full-width</p>
                     <DuiTabs v-model="demoTabC" :tabs="demoTabItems" variant="boxed" color="neutral" fullWidth>
-                      <template #t1><p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Contenido tab 1</p></template>
-                      <template #t2><p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">Contenido tab 2</p></template>
+                      <template #t1><p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Contenido tab 1</p></template>
+                      <template #t2><p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">Contenido tab 2</p></template>
                     </DuiTabs>
                   </div>
                 </div>
@@ -221,18 +221,18 @@
 
               <!-- Accordion variants -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Accordion</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Accordion</h3>
                 <div class="dk:grid dk:grid-cols-1 dk:md:grid-cols-3 dk:gap-4">
                   <div>
-                    <p class="dk:text-xs dk:text-zinc-400 dk:mb-2">bordered</p>
+                    <p class="dk:text-xs dk:text-neutral-400 dk:mb-2">bordered</p>
                     <DuiAccordion v-model="openFaq" :items="faqItems" variant="bordered" color="primary" />
                   </div>
                   <div>
-                    <p class="dk:text-xs dk:text-zinc-400 dk:mb-2">separated · multiple</p>
+                    <p class="dk:text-xs dk:text-neutral-400 dk:mb-2">separated · multiple</p>
                     <DuiAccordion :items="faqItems" variant="separated" color="secondary" multiple />
                   </div>
                   <div>
-                    <p class="dk:text-xs dk:text-zinc-400 dk:mb-2">ghost</p>
+                    <p class="dk:text-xs dk:text-neutral-400 dk:mb-2">ghost</p>
                     <DuiAccordion :items="faqItems" variant="ghost" color="success" />
                   </div>
                 </div>
@@ -240,10 +240,10 @@
 
               <!-- Skeleton variants -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Skeleton</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Skeleton</h3>
                 <div class="dk:grid dk:grid-cols-1 dk:md:grid-cols-2 dk:gap-4">
-                  <div class="dk:p-4 dk:rounded-xl dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:space-y-3">
-                    <p class="dk:text-xs dk:text-zinc-400">pulse</p>
+                  <div class="dk:p-4 dk:rounded-xl dk:border dk:border-neutral-200 dk:dark:border-neutral-700 dk:space-y-3">
+                    <p class="dk:text-xs dk:text-neutral-400">pulse</p>
                     <div class="dk:flex dk:items-center dk:gap-3">
                       <DuiSkeleton variant="circular" :width="40" :height="40" />
                       <div class="dk:flex-1 dk:space-y-2">
@@ -253,8 +253,8 @@
                     </div>
                     <DuiSkeleton variant="rounded" :height="80" />
                   </div>
-                  <div class="dk:p-4 dk:rounded-xl dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:space-y-3">
-                    <p class="dk:text-xs dk:text-zinc-400">wave</p>
+                  <div class="dk:p-4 dk:rounded-xl dk:border dk:border-neutral-200 dk:dark:border-neutral-700 dk:space-y-3">
+                    <p class="dk:text-xs dk:text-neutral-400">wave</p>
                     <div class="dk:flex dk:items-center dk:gap-3">
                       <DuiSkeleton variant="circular" :width="40" :height="40" animation="wave" />
                       <div class="dk:flex-1 dk:space-y-2">
@@ -269,18 +269,18 @@
 
               <!-- Pagination variants -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Paginación</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Paginación</h3>
                 <div class="dk:space-y-3">
                   <div class="dk:flex dk:items-center dk:gap-4">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-20">solid · md</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-20">solid · md</span>
                     <DuiPagination v-model="paginationDemo1" :total="200" :per-page="10" color="secondary" variant="solid" />
                   </div>
                   <div class="dk:flex dk:items-center dk:gap-4">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-20">outline · sm</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-20">outline · sm</span>
                     <DuiPagination v-model="paginationDemo2" :total="150" :per-page="10" color="primary" variant="outline" size="sm" rounded="full" />
                   </div>
                   <div class="dk:flex dk:items-center dk:gap-4">
-                    <span class="dk:text-xs dk:text-zinc-400 dk:w-20">ghost · labels</span>
+                    <span class="dk:text-xs dk:text-neutral-400 dk:w-20">ghost · labels</span>
                     <DuiPagination v-model="paginationDemo3" :total="100" :per-page="10" color="success" variant="ghost" showLabels />
                   </div>
                 </div>
@@ -288,7 +288,7 @@
 
               <!-- Cards showcase -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Cards</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Cards</h3>
                 <div class="dk:grid dk:grid-cols-1 dk:md:grid-cols-2 dk:xl:grid-cols-3 dk:gap-4">
                   <DuiCard title="Card pequeña" subtitle="Subtítulo descriptivo" size="s">
                     Contenido del card con texto de ejemplo.
@@ -302,7 +302,7 @@
                     subtitle="Foto incluida en el header"
                     image="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=800&h=400&fit=crop&q=80"
                     size="m">
-                    <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+                    <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
                       Puedes usar la card para catálogo, resúmenes o bloques de contenido.
                     </p>
                     <template #footer>
@@ -321,7 +321,7 @@
                         <DuiSkeleton variant="text" width="65%" animation="wave" />
                       </template>
                       <template v-else>
-                        <p class="dk:text-sm dk:text-zinc-600 dk:dark:text-zinc-400">
+                        <p class="dk:text-sm dk:text-neutral-600 dk:dark:text-neutral-400">
                           Contenido cargado correctamente.
                         </p>
                       </template>
@@ -337,7 +337,7 @@
 
               <!-- Table -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Tabla + paginación interna</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Tabla + paginación interna</h3>
                 <DuiTable
                   :columns="tableColumns"
                   :rows="visibleRows"
@@ -397,7 +397,7 @@
               </div>
 
               <div class="dk:space-y-5">
-                <div class="dk:rounded-xl dk:border dk:border-zinc-200 dk:dark:border-zinc-800 dk:p-4 dk:space-y-4">
+                <div class="dk:rounded-xl dk:border dk:border-neutral-200 dk:dark:border-neutral-800 dk:p-4 dk:space-y-4">
                   <h3 class="dk:font-semibold">Preferencias</h3>
 
                   <DuiSwitch
@@ -435,30 +435,30 @@
 
               <!-- Layout: Dashboard de estadísticas -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Layout: Dashboard de métricas</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Layout: Dashboard de métricas</h3>
                 <div class="dk:space-y-4">
                   <DuiAlert color="warning" variant="ghost">
                     <strong>Atención:</strong> Mantenimiento programado el viernes 27/06 a las 02:00 UTC.
                   </DuiAlert>
                   <div class="dk:grid dk:grid-cols-2 dk:md:grid-cols-4 dk:gap-3">
                     <DuiCard size="s">
-                      <p class="dk:text-xs dk:text-zinc-500 dk:dark:text-zinc-400">Usuarios activos</p>
-                      <p class="dk:text-2xl dk:font-bold dk:text-zinc-800 dk:dark:text-zinc-100">2,847</p>
+                      <p class="dk:text-xs dk:text-neutral-500 dk:dark:text-neutral-400">Usuarios activos</p>
+                      <p class="dk:text-2xl dk:font-bold dk:text-neutral-800 dk:dark:text-neutral-100">2,847</p>
                       <DuiBadge label="+12.4%" color="success" variant="soft" dot size="xs" />
                     </DuiCard>
                     <DuiCard size="s">
-                      <p class="dk:text-xs dk:text-zinc-500 dk:dark:text-zinc-400">Ingresos</p>
-                      <p class="dk:text-2xl dk:font-bold dk:text-zinc-800 dk:dark:text-zinc-100">$48,200</p>
+                      <p class="dk:text-xs dk:text-neutral-500 dk:dark:text-neutral-400">Ingresos</p>
+                      <p class="dk:text-2xl dk:font-bold dk:text-neutral-800 dk:dark:text-neutral-100">$48,200</p>
                       <DuiBadge label="+8.1%" color="success" variant="soft" dot size="xs" />
                     </DuiCard>
                     <DuiCard size="s">
-                      <p class="dk:text-xs dk:text-zinc-500 dk:dark:text-zinc-400">Órdenes</p>
-                      <p class="dk:text-2xl dk:font-bold dk:text-zinc-800 dk:dark:text-zinc-100">134</p>
+                      <p class="dk:text-xs dk:text-neutral-500 dk:dark:text-neutral-400">Órdenes</p>
+                      <p class="dk:text-2xl dk:font-bold dk:text-neutral-800 dk:dark:text-neutral-100">134</p>
                       <DuiBadge label="-3.2%" color="warning" variant="soft" dot size="xs" />
                     </DuiCard>
                     <DuiCard size="s">
-                      <p class="dk:text-xs dk:text-zinc-500 dk:dark:text-zinc-400">Errores</p>
-                      <p class="dk:text-2xl dk:font-bold dk:text-zinc-800 dk:dark:text-zinc-100">7</p>
+                      <p class="dk:text-xs dk:text-neutral-500 dk:dark:text-neutral-400">Errores</p>
+                      <p class="dk:text-2xl dk:font-bold dk:text-neutral-800 dk:dark:text-neutral-100">7</p>
                       <DuiBadge label="-85%" color="danger" variant="soft" dot size="xs" />
                     </DuiCard>
                   </div>
@@ -493,7 +493,7 @@
                               <DuiSkeleton variant="circular" :width="28" :height="28" animation="none" />
                               <div>
                                 <p class="dk:text-sm dk:font-medium">{{ u.name }}</p>
-                                <p class="dk:text-xs dk:text-zinc-500">{{ u.email }}</p>
+                                <p class="dk:text-xs dk:text-neutral-500">{{ u.email }}</p>
                               </div>
                             </div>
                             <DuiBadge :label="u.role" color="primary" variant="soft" size="xs" />
@@ -507,7 +507,7 @@
 
               <!-- Layout: Lista con filtros -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Layout: Lista con filtros</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Layout: Lista con filtros</h3>
                 <div class="dk:space-y-3">
                   <div class="dk:flex dk:flex-wrap dk:gap-3 dk:items-end">
                     <DuiLabel title="Buscar">
@@ -538,7 +538,7 @@
                     </template>
                   </DuiTable>
                   <div class="dk:flex dk:items-center dk:justify-between">
-                    <p class="dk:text-sm dk:text-zinc-500">{{ filteredLayoutRows.length }} registros</p>
+                    <p class="dk:text-sm dk:text-neutral-500">{{ filteredLayoutRows.length }} registros</p>
                     <DuiPagination v-model="layoutPage" :total="filteredLayoutRows.length" :per-page="10" color="secondary" size="sm" showLabels />
                   </div>
                 </div>
@@ -546,7 +546,7 @@
 
               <!-- Layout: Settings -->
               <div>
-                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-zinc-400 dk:mb-3">Layout: Página de configuración</h3>
+                <h3 class="dk:font-semibold dk:text-sm dk:uppercase dk:tracking-wide dk:text-neutral-400 dk:mb-3">Layout: Página de configuración</h3>
                 <div class="dk:grid dk:grid-cols-1 dk:md:grid-cols-3 dk:gap-4">
                   <DuiCard title="Notificaciones" subtitle="Controla qué alertas recibes." size="m">
                     <div class="dk:space-y-3">

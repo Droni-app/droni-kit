@@ -25,7 +25,7 @@
               </svg>
             </component>
 
-            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:py-2 dk:mt-1 dk:bg-white dk:dark:bg-zinc-900 dk:shadow-lg dk:border dk:border-zinc-200 dk:dark:border-zinc-700 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50 dk:rounded-lg">
+            <div class="dk:absolute dk:left-0 dk:top-full dk:min-w-56 dk:p-1 dk:mt-1 dk:bg-white dk:dark:bg-neutral-900 dk:shadow-elevated dk:dark:shadow-elevated-dark dk:border dk:border-neutral-200 dk:dark:border-white/10 dk:opacity-0 dk:invisible dk:group-hover:opacity-100 dk:group-hover:visible dk:transition-all dk:duration-200 dk:z-50 dk:rounded-xl">
               <component
                 v-for="child in item.children"
                 :key="child.label"
@@ -57,9 +57,9 @@
     <button
       type="button"
       @click="toggleMobileMenu"
-      class="dk:md:hidden dk:ml-auto dk:flex-shrink-0 dk:p-2 dk:rounded-md dk:hover:bg-zinc-100 dk:dark:hover:bg-zinc-800 dk:transition-colors">
+      class="dk:md:hidden dk:ml-auto dk:flex-shrink-0 dk:p-2 dk:rounded-lg dk:hover:bg-neutral-100 dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-accent-500/70 dk:dark:focus-visible:ring-accent-400/80 dk:dark:hover:bg-white/5 dk:transition-colors">
       <svg
-        class="dk:w-6 dk:h-6 dk:stroke-zinc-900 dk:dark:stroke-white"
+        class="dk:w-6 dk:h-6 dk:stroke-neutral-900 dk:dark:stroke-white"
         fill="none"
         viewBox="0 0 24 24">
         <path
@@ -72,7 +72,7 @@
 
     <div
       v-show="mobileMenuOpen"
-      class="dk:md:hidden dk:absolute dk:top-full dk:left-0 dk:w-full dk:bg-white dk:dark:bg-zinc-900 dk:border-t dk:border-zinc-200 dk:dark:border-zinc-800 dk:shadow-lg dk:z-40">
+      class="dk:md:hidden dk:absolute dk:top-full dk:left-0 dk:w-full dk:bg-white dk:dark:bg-neutral-950/95 dk:backdrop-blur-xl dk:border-t dk:border-neutral-200 dk:dark:border-white/10 dk:shadow-elevated dk:dark:shadow-elevated-dark dk:z-40">
       <div class="dk:px-4 dk:py-3 dk:space-y-2">
         <template v-for="item in items" :key="item.label">
           <div v-if="item.children && item.children.length > 0">
@@ -118,7 +118,7 @@
           </component>
         </template>
 
-        <div v-if="$slots.actions" class="dk:pt-3 dk:border-t dk:border-zinc-200 dk:dark:border-zinc-800">
+        <div v-if="$slots.actions" class="dk:pt-3 dk:border-t dk:border-neutral-200 dk:dark:border-white/10">
           <slot name="actions"></slot>
         </div>
       </div>
@@ -185,8 +185,8 @@ const navbarClasses = computed(() => {
   const config = sizeConfig[normalizedSize.value]
   return cn(
     'dk:relative dk:flex dk:items-center dk:w-full dk:gap-4',
-    'dk:bg-white/80 dk:dark:bg-zinc-900/80 dk:backdrop-blur-md',
-    'dk:border-b dk:border-zinc-200 dk:dark:border-zinc-800',
+    'dk:bg-white/80 dk:dark:bg-neutral-950/70 dk:backdrop-blur-xl dk:backdrop-saturate-150',
+    'dk:border-b dk:border-neutral-200 dk:dark:border-white/10',
     config.height,
     config.padding,
     config.text,
@@ -199,12 +199,12 @@ const desktopMenuClasses = computed(() => {
 })
 
 const underlineColors: Record<DuiColor, string> = {
-  neutral: 'dk:before:from-zinc-500 dk:before:to-zinc-600 dk:dark:before:from-zinc-400 dk:dark:before:to-zinc-500',
-  primary: 'dk:before:from-teal-600 dk:before:to-teal-700 dk:dark:before:from-teal-400 dk:dark:before:to-teal-500',
-  secondary: 'dk:before:from-slate-500 dk:before:to-slate-600 dk:dark:before:from-slate-400 dk:dark:before:to-slate-500',
-  success: 'dk:before:from-emerald-500 dk:before:to-emerald-600 dk:dark:before:from-emerald-400 dk:dark:before:to-emerald-500',
-  danger: 'dk:before:from-rose-500 dk:before:to-rose-600 dk:dark:before:from-rose-400 dk:dark:before:to-rose-500',
-  warning: 'dk:before:from-amber-500 dk:before:to-amber-600 dk:dark:before:from-amber-400 dk:dark:before:to-amber-500',
+  neutral: 'dk:before:from-neutral-700 dk:before:to-neutral-900 dk:dark:before:from-neutral-300 dk:dark:before:to-white',
+  primary: 'dk:before:from-primary-600 dk:before:to-secondary-500 dk:dark:before:from-primary-400 dk:dark:before:to-secondary-400 dk:dark:before:shadow-[0_0_10px_var(--dk-color-primary-400)]',
+  secondary: 'dk:before:from-secondary-500 dk:before:to-secondary-600 dk:dark:before:from-secondary-400 dk:dark:before:to-secondary-500 dk:dark:before:shadow-[0_0_10px_var(--dk-color-secondary-400)]',
+  success: 'dk:before:from-success-500 dk:before:to-success-600 dk:dark:before:from-success-400 dk:dark:before:to-success-500',
+  danger: 'dk:before:from-danger-500 dk:before:to-danger-600 dk:dark:before:from-danger-400 dk:dark:before:to-danger-500',
+  warning: 'dk:before:from-warning-500 dk:before:to-warning-600 dk:dark:before:from-warning-400 dk:dark:before:to-warning-500',
 }
 
 function itemClasses(item: NavbarItem, hasDropdown: boolean = true) {
@@ -214,13 +214,13 @@ function itemClasses(item: NavbarItem, hasDropdown: boolean = true) {
   const padding = hasDropdown ? 'dk:pl-3 dk:pr-3' : 'dk:pl-2 dk:pr-2'
   return cn(
     'dk:flex dk:items-center dk:relative dk:transition-all dk:duration-200',
-    'dk:text-zinc-600 dk:hover:text-zinc-900 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100',
-    'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-teal-500/50',
+    'dk:text-neutral-600 dk:hover:text-neutral-900 dk:dark:text-neutral-300 dk:dark:hover:text-neutral-100',
+    'dk:focus-visible:outline-none dk:focus-visible:ring-2 dk:focus-visible:ring-accent-500/70 dk:dark:focus-visible:ring-accent-400/80',
     'dk:no-underline',
-    'dk:before:absolute dk:before:bottom-0 dk:before:left-0 dk:before:h-0.5 dk:before:bg-gradient-to-r',
+    'dk:before:absolute dk:before:bottom-0 dk:before:left-0 dk:before:h-0.5 dk:before:rounded-full dk:before:bg-linear-to-r',
     underlineColorsStr,
     'dk:before:transition-all dk:before:duration-200',
-    isActive ? 'dk:before:w-full dk:text-zinc-900 dk:dark:text-zinc-100' : 'dk:before:w-0 dk:hover:before:w-full',
+    isActive ? 'dk:before:w-full dk:text-neutral-900 dk:dark:text-neutral-100' : 'dk:before:w-0 dk:hover:before:w-full',
     config.itemPadding,
     padding,
   )
@@ -228,8 +228,8 @@ function itemClasses(item: NavbarItem, hasDropdown: boolean = true) {
 
 const dropdownItemClasses = computed(() => {
   return cn(
-    'dk:block dk:w-full dk:text-left dk:px-4 dk:py-2 dk:text-sm dk:whitespace-nowrap',
-    'dk:text-zinc-700 dk:hover:text-zinc-900 dk:hover:bg-zinc-100 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100 dk:dark:hover:bg-zinc-800',
+    'dk:block dk:w-full dk:text-left dk:px-3 dk:py-2 dk:rounded-lg dk:text-sm dk:whitespace-nowrap',
+    'dk:text-neutral-700 dk:hover:text-neutral-900 dk:hover:bg-neutral-100 dk:dark:text-neutral-300 dk:dark:hover:text-neutral-100 dk:dark:hover:bg-white/5',
     'dk:transition-all dk:duration-150 dk:no-underline',
   )
 })
@@ -237,7 +237,7 @@ const dropdownItemClasses = computed(() => {
 const mobileItemClasses = computed(() => {
   return cn(
     'dk:flex dk:items-center dk:justify-start dk:w-full dk:text-left dk:px-3 dk:py-2 dk:rounded-lg',
-    'dk:text-zinc-700 dk:hover:text-zinc-900 dk:hover:bg-zinc-100 dk:dark:text-zinc-300 dk:dark:hover:text-zinc-100 dk:dark:hover:bg-zinc-800',
+    'dk:text-neutral-700 dk:hover:text-neutral-900 dk:hover:bg-neutral-100 dk:dark:text-neutral-300 dk:dark:hover:text-neutral-100 dk:dark:hover:bg-white/5',
     'dk:transition-all dk:duration-150 dk:no-underline',
   )
 })
@@ -245,7 +245,7 @@ const mobileItemClasses = computed(() => {
 const mobileSubItemClasses = computed(() => {
   return cn(
     'dk:block dk:w-full dk:text-left dk:px-3 dk:py-2 dk:text-sm dk:rounded-lg',
-    'dk:text-zinc-600 dk:hover:text-zinc-800 dk:hover:bg-zinc-100 dk:dark:text-zinc-400 dk:dark:hover:text-zinc-200 dk:dark:hover:bg-zinc-800',
+    'dk:text-neutral-600 dk:hover:text-neutral-800 dk:hover:bg-neutral-100 dk:dark:text-neutral-400 dk:dark:hover:text-neutral-200 dk:dark:hover:bg-white/5',
     'dk:transition-all dk:duration-150 dk:no-underline',
   )
 })

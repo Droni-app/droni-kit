@@ -12,6 +12,9 @@ const config: StorybookConfig = {
     "@storybook/addon-themes",
     "@storybook/addon-a11y"
   ],
+  "staticDirs": [
+    { "from": "../src/stories/assets/brand", "to": "/brand" }
+  ],
   "framework": {
     "name": "@storybook/vue3-vite",
     "options": {}

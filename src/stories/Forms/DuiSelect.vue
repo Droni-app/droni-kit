@@ -79,11 +79,17 @@ function onChange(event: Event) {
   }
 }
 
+const chevronClasses = [
+  'dk:cursor-pointer dk:appearance-none dk:pr-10',
+  'dk:bg-no-repeat dk:bg-[length:1rem] dk:bg-[position:right_0.75rem_center]',
+  'dk:bg-(image:--dk-select-chevron)',
+].join(' ')
+
 const computedClasses = computed(() => {
   const size = controlSizeClasses[props.size] || controlSizeClasses.md
   const block = props.block ? 'dk:w-full' : ''
   const rounded = roundedCornerClasses[props.rounded] ?? roundedCornerClasses.all
-  return cn(fieldBaseClasses, size, block, rounded, 'dk:cursor-pointer')
+  return cn(fieldBaseClasses, size, block, rounded, chevronClasses)
 })
 </script>
 

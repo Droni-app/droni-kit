@@ -1,0 +1,231 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Migración v2" />
+
+# Guía de migración: v1.x → v2.0
+
+DroniKit 2.0 trae un sistema visual nuevo, **Neon Noir**: violeta eléctrico, magenta y cian sobre superficies navy, con toques de neón sutiles (sobre todo en dark mode). Se diseñó para que la mayoría de las apps actualicen **sin tocar código**.
+
+> **Resumen rápido**
+> - ✅ **API 100 % compatible**: todos los componentes, props, eventos, slots y valores por defecto de v1.26 siguen funcionando igual.
+> - ✅ **Sin cambios de imports**: `import '@dronico/droni-kit/dist/droni-kit.css'` sigue siendo lo único necesario.
+> - ⚠️ **Cambia el aspecto visual**: colores, tipografía, radios y alturas. Más abajo se explica cómo ajustar o revertir cada cambio.
+
+---
+
+## 1. Actualizar el paquete
+
+```bash
+npm install @dronico/droni-kit@^2
+```
+
+No hace falta nada más para que la app compile y funcione.
+
+---
+
+## 2. Lo que sigue funcionando igual (retrocompatible)
+
+| Área | Estado en v2 |
+| --- | --- |
+| Componentes exportados | Los 28 componentes de v1 y `useToast` se exportan con el mismo nombre. |
+| Props, eventos y slots | Sin eliminaciones ni renombres. `v-model` funciona igual en todos los campos. |
+| Valores por defecto | Idénticos a v1.26 (p. ej. `DuiButton` sigue con `color="neutral"`). |
+| Tamaños legacy `s` / `m` / `l` | `DuiCard`, `DuiLabel` y `DuiNavbar` aceptan `s|m|l` **y** `sm|md|lg`. |
+| Prop `rounded` | Mismos valores: `all`, `top`, `bottom`, `left`, `right`, `none`. |
+| Navegación (`to`) | Detección automática de Vue Router / Nuxt / `<a>` sin cambios. |
+| Dark mode | Se sigue activando con la clase `.dark` en un ancestro (normalmente `<html>`). |
+| Iconos MDI | Las clases `mdi mdi-*` funcionan igual (ver punto 4). |
+
+### Novedades (opt-in, no rompen nada)
+
+- **Variante `soft`** en `DuiButton`, `DuiAction`, `DuiAlert` y `DuiConfirmation`: fondo tenue con texto de color.
+- **Slot `loading`** en `DuiButton` y `DuiAction`, para personalizar el contenido mientras carga.
+- **Slot `empty`** en `DuiTable`, para el estado sin registros.
+- **Tipos exportados**: `DuiColor`, `DuiVariant`, `DuiSize`, `DuiRounded`, `RouteTo`, `RouteLocationRaw` y las interfaces `DuiXxxProps` de cada componente.
+- **Tokens CSS personalizables** (ver punto 5).
+
+---
+
+## 3. Cambios visuales (no retrocompatibles)
+
+Estos cambios no rompen tu código, pero tu app **se verá distinta**. Revisa las pantallas clave después de actualizar.
+
+### 3.1 Paleta de colores
+
+| Rol | v1.x | v2.0 |
+| --- | --- | --- |
+| `primary` | Slate (gris azulado) | **Violeta eléctrico** `#7130eb` |
+| `secondary` | Pink | **Magenta neón** `#df1a6c` |
+| `neutral` | Zinc | **Gris con tinte navy** |
+| `success` | Emerald | Esmeralda (similar) |
+| `warning` | Amber | Ámbar (similar) |
+| `danger` | Rose | **Rojo** (para no confundirse con el magenta de `secondary`) |
+| Focus | Variable según el componente | **Anillo cian** unificado en todos los elementos interactivos |
+
+👉 Para volver a los colores de v1, usa el snippet del [punto 5.2](#52-restaurar-la-paleta-de-v1).
+
+### 3.2 Botones `solid`
+
+En v1 la variante `solid` era un fondo pastel (`*-200`) con borde inferior. En v2 es un **relleno saturado** con texto blanco y, en dark mode, un glow sutil.
+Si quieres el aspecto anterior, usa la nueva variante `soft`:
+
+```vue
+<!-- v1 -->
+<DuiButton color="primary">Guardar</DuiButton>
+
+<!-- v2: aspecto equivalente al solid de v1 -->
+<DuiButton color="primary" variant="soft">Guardar</DuiButton>
+```
+
+### 3.3 Dark mode
+
+Las superficies pasan de gris zinc a **navy profundo** (`#080a18` / `#11142a`), y los bordes son translúcidos (`white/10`). Si tu app tiene un fondo oscuro propio, puedes ajustar los tonos con los tokens `--dk-color-neutral-900` y `--dk-color-neutral-950`.
+
+### 3.4 Tipografía
+
+Los componentes usan **Inter**, que se carga automáticamente desde Google Fonts. Solo se aplica *dentro* de los componentes DroniKit; la tipografía del resto de tu app no cambia.
+
+Para usar tu propia fuente en los componentes:
+
+```css
+:root {
+  --dk-font-sans: "Tu Fuente", system-ui, sans-serif;
+}
+```
+
+### 3.5 Cambios por componente
+
+| Componente | Qué cambia |
+| --- | --- |
+| `DuiInput`, `DuiSelect`, `DuiTextarea` | De "subrayado" (solo borde inferior) a **caja con borde completo** y anillo de focus. Altura fija: `sm` 32 px, `md` 40 px, `lg` 48 px. El texto `md` pasa de `text-base` a `text-sm`. |
+| `DuiSelect` | Flecha propia, consistente en todos los navegadores (`appearance: none`). |
+| `DuiTextarea` | Altura mínima por tamaño; `autoheight` sigue funcionando. |
+| `DuiCheckbox` | Ahora se ve como una **casilla real** (en v1 se dibujaba como un switch). Si necesitas un interruptor, usa `DuiSwitch`. |
+| `DuiCard` | Sin efecto vidrio (*glassmorphism*): superficie sólida, borde fino y, en dark, una línea neón superior. |
+| `DuiAlert` | `solid` es un fondo tenue con borde. El radio pasa de 4 px a 8 px. |
+| `DuiToast` | De fondo de color sólido a **superficie neutra con acento lateral** del color. El contenido y la API no cambian. |
+| `DuiTooltip` | Los colores `solid` usan el tono `600` (en v1 eran `900`). |
+| `DuiTable` | Sin CSS *scoped*; cabecera tenue, filas con hover y padding adaptativo en móvil. |
+| `DuiModal`, `DuiDrawer`, `DuiDropdown` | Paneles con sombra profunda; en dark, los colores muestran un halo en vez de un fondo saturado. |
+| `DuiAction` | Se renderiza como `inline-flex` (o `flex` con `block`) en vez de `inline-block` / `block`, para centrar bien icono y texto. |
+
+### 3.6 Utilidades `dk:*`
+
+Las clases `dk:*` son **internas** de la librería. En v2, `droni-kit.css` solo incluye las utilidades que usan los componentes. Si tu app usaba alguna `dk:*` por su cuenta (p. ej. `dk:p-4`), reemplázala por las clases de tu propio Tailwind.
+
+---
+
+## 4. Iconos MDI: ya no hace falta el CDN en tu HTML
+
+`droni-kit.css` ahora importa **Material Design Icons 7.4.47** desde jsDelivr. Puedes quitar esta línea de tu `index.html` (o de `nuxt.config`):
+
+```html
+<!-- Ya no es necesario -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
+```
+
+Si la dejas no pasa nada: el navegador reutiliza la misma URL desde caché.
+
+> **Apps offline / con CSP estricta**: el CSS hace `@import` a `fonts.googleapis.com` y `cdn.jsdelivr.net`. Si tu política de seguridad los bloquea, añádelos a `style-src` y `font-src`, o sirve las fuentes tú mismo.
+
+---
+
+## 5. Personalización con tokens CSS
+
+Todos los colores son variables CSS con el prefijo `--dk-`. Puedes sobrescribirlas en tu CSS global, **después** de importar `droni-kit.css`:
+
+### 5.1 Cambiar un color
+
+```css
+:root {
+  --dk-color-primary-500: #2c47df;
+  --dk-color-primary-600: #1f37c4;
+  /* Glow que acompaña al color en dark mode */
+  --dk-shadow-glow-primary: 0 0 0 1px rgb(44 71 223 / 0.35), 0 6px 22px -4px rgb(44 71 223 / 0.55);
+}
+```
+
+Las escalas disponibles son `primary`, `secondary`, `accent`, `neutral`, `success`, `warning` y `danger`, cada una con tonos de `50` a `950`. Consulta la página **Tokens** para ver la paleta completa.
+
+### 5.2 Restaurar la paleta de v1
+
+Pega esto en tu CSS global para volver a los colores de v1 (slate / pink / zinc / rose):
+
+```css
+:root {
+  /* primary → slate */
+  --dk-color-primary-50: oklch(98.4% 0.003 247.858);
+  --dk-color-primary-100: oklch(96.8% 0.007 247.896);
+  --dk-color-primary-200: oklch(92.9% 0.013 255.508);
+  --dk-color-primary-300: oklch(86.9% 0.022 252.894);
+  --dk-color-primary-400: oklch(70.4% 0.04 256.788);
+  --dk-color-primary-500: oklch(55.4% 0.046 257.417);
+  --dk-color-primary-600: oklch(44.6% 0.043 257.281);
+  --dk-color-primary-700: oklch(37.2% 0.044 257.287);
+  --dk-color-primary-800: oklch(27.9% 0.041 260.031);
+  --dk-color-primary-900: oklch(20.8% 0.042 265.755);
+  --dk-color-primary-950: oklch(12.9% 0.042 264.695);
+
+  /* secondary → pink */
+  --dk-color-secondary-50: oklch(97.1% 0.014 343.198);
+  --dk-color-secondary-100: oklch(94.8% 0.028 342.258);
+  --dk-color-secondary-200: oklch(89.9% 0.061 343.231);
+  --dk-color-secondary-300: oklch(82.3% 0.12 346.018);
+  --dk-color-secondary-400: oklch(71.8% 0.202 349.761);
+  --dk-color-secondary-500: oklch(65.6% 0.241 354.308);
+  --dk-color-secondary-600: oklch(59.2% 0.249 0.584);
+  --dk-color-secondary-700: oklch(52.5% 0.223 3.958);
+  --dk-color-secondary-800: oklch(45.9% 0.187 3.815);
+  --dk-color-secondary-900: oklch(40.8% 0.153 2.432);
+  --dk-color-secondary-950: oklch(28.4% 0.109 3.907);
+
+  /* neutral → zinc */
+  --dk-color-neutral-50: oklch(98.5% 0 0);
+  --dk-color-neutral-100: oklch(96.7% 0.001 286.375);
+  --dk-color-neutral-200: oklch(92% 0.004 286.32);
+  --dk-color-neutral-300: oklch(87.1% 0.006 286.286);
+  --dk-color-neutral-400: oklch(70.5% 0.015 286.067);
+  --dk-color-neutral-500: oklch(55.2% 0.016 285.938);
+  --dk-color-neutral-600: oklch(44.2% 0.017 285.786);
+  --dk-color-neutral-700: oklch(37% 0.013 285.805);
+  --dk-color-neutral-800: oklch(27.4% 0.006 286.033);
+  --dk-color-neutral-900: oklch(21% 0.006 285.885);
+  --dk-color-neutral-950: oklch(14.1% 0.005 285.823);
+
+  /* danger → rose */
+  --dk-color-danger-50: oklch(96.9% 0.015 12.422);
+  --dk-color-danger-100: oklch(94.1% 0.03 12.58);
+  --dk-color-danger-200: oklch(89.2% 0.058 10.001);
+  --dk-color-danger-300: oklch(81% 0.117 11.638);
+  --dk-color-danger-400: oklch(71.2% 0.194 13.428);
+  --dk-color-danger-500: oklch(64.5% 0.246 16.439);
+  --dk-color-danger-600: oklch(58.6% 0.253 17.585);
+  --dk-color-danger-700: oklch(51.4% 0.222 16.935);
+  --dk-color-danger-800: oklch(45.5% 0.188 13.697);
+  --dk-color-danger-900: oklch(41% 0.159 10.272);
+  --dk-color-danger-950: oklch(27.1% 0.105 12.094);
+
+  /* Sin glow neón */
+  --dk-shadow-glow-neutral: none;
+  --dk-shadow-glow-primary: none;
+  --dk-shadow-glow-secondary: none;
+  --dk-shadow-glow-success: none;
+  --dk-shadow-glow-warning: none;
+  --dk-shadow-glow-danger: none;
+}
+```
+
+> Esto restaura los **colores**, no la forma de los componentes (alturas, radios, variante `solid` pastel). Para eso, combina el snippet con `variant="soft"` (ver 3.2).
+
+---
+
+## 6. Checklist de migración
+
+- [ ] Actualizar a `@dronico/droni-kit@^2`.
+- [ ] (Opcional) Quitar el `<link>` de MDI del `index.html` / `nuxt.config`.
+- [ ] Revisar en light **y** dark mode las pantallas con botones `solid`, formularios y toasts.
+- [ ] Cambiar a `variant="soft"` los botones que deban mantener el aspecto pastel de v1.
+- [ ] Revisar layouts que dependían de la altura de los inputs de v1.
+- [ ] Reemplazar cualquier uso de utilidades `dk:*` en el código de tu app.
+- [ ] Si tu CSP es estricta, permitir `fonts.googleapis.com`, `fonts.gstatic.com` y `cdn.jsdelivr.net`.
+- [ ] (Opcional) Ajustar la marca con los tokens `--dk-color-*`.

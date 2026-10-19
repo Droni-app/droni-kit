@@ -9,7 +9,7 @@
       {{ props.label }}
     </DuiButton>
 
-    <div v-else class="dk:flex dk:flex-col dk:gap-3 dk:p-3 dk:rounded-lg dk:border dk:border-zinc-200 dk:dark:border-zinc-700">
+    <div v-else class="dk:flex dk:flex-col dk:gap-3 dk:p-3 dk:rounded-xl dk:border dk:border-neutral-200 dk:bg-white dk:shadow-xs dk:dark:border-white/10 dk:dark:bg-neutral-900" role="group">
       <DuiSwitch
         v-model="checkConfirm"
         :label="props.checkLabel"
