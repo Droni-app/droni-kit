@@ -104,7 +104,7 @@ export const Persistent: Story = {
           message: 'Hay una nueva version de la aplicacion. Recarga para aplicarla.',
           color: 'primary',
           duration: 0,
-          icon: '🔄',
+          icon: 'mdi mdi-refresh',
         });
       }
       return { args, showPersistent };

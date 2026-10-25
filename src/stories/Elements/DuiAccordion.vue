@@ -12,7 +12,8 @@
         :aria-disabled="item.disabled || undefined"
         :class="summaryClasses(item.value ?? String(index), item.disabled)"
         @click.prevent="toggle(item.value ?? String(index), item.disabled)">
-        <span v-if="item.icon" aria-hidden="true" :class="iconClasses">{{ item.icon }}</span>
+        <i v-if="isIconClass(item.icon)" aria-hidden="true" :class="[item.icon, iconClasses]" />
+        <span v-else-if="item.icon" aria-hidden="true" :class="iconClasses">{{ item.icon }}</span>
         <span class="dui-acc-title">{{ item.title }}</span>
         <svg
           :class="chevronClasses(item.value ?? String(index))"
@@ -40,6 +41,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { isIconClass } from '../../utils/icon'
 
 export interface DuiAccordionItem {
   title: string

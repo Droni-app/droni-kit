@@ -7,7 +7,10 @@
     :aria-disabled="disabled"
     @click="onClick">
     <span v-if="$slots.icon || icon" :class="iconClasses" aria-hidden="true">
-      <slot name="icon">{{ icon }}</slot>
+      <slot name="icon">
+        <i v-if="isIconClass(icon)" :class="icon" />
+        <template v-else>{{ icon }}</template>
+      </slot>
     </span>
     <span class="dk:flex-1 dk:truncate">
       <slot>{{ label }}</slot>
@@ -20,6 +23,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { isIconClass } from '../../utils/icon'
 
 export interface DuiDropdownItemProps {
   label?: string

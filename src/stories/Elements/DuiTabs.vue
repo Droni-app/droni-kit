@@ -14,7 +14,8 @@
         :class="tabClasses(tab.value, tab.disabled)"
         @click="selectTab(tab.value, tab.disabled)"
         @keydown="onKeydown($event, tab.value)">
-        <span v-if="tab.icon" aria-hidden="true" class="dk:flex-shrink-0">{{ tab.icon }}</span>
+        <i v-if="isIconClass(tab.icon)" :class="tab.icon" aria-hidden="true" class="dk:flex-shrink-0" />
+        <span v-else-if="tab.icon" aria-hidden="true" class="dk:flex-shrink-0">{{ tab.icon }}</span>
         {{ tab.label }}
         <span v-if="tab.badge !== undefined" :class="badgeClasses">{{ tab.badge }}</span>
       </button>
@@ -37,6 +38,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { isIconClass } from '../../utils/icon'
 
 export interface DuiTab {
   label: string

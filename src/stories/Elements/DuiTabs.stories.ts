@@ -105,7 +105,7 @@ export const Pills: Story = {
       const tabs = [
         { value: 'overview', label: 'Resumen', icon: '📊' },
         { value: 'team', label: 'Equipo', icon: '👥', badge: 4 },
-        { value: 'docs', label: 'Documentos', icon: '📄' },
+        { value: 'docs', label: 'Documentos', icon: 'mdi mdi-file-document-outline' },
       ];
       return { active, tabs };
     },

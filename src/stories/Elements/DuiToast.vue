@@ -14,7 +14,8 @@
           :key="toast.id"
           role="alert"
           :class="toastClasses(toast.color)">
-          <span v-if="toast.icon" aria-hidden="true" class="dk:flex-shrink-0 dk:text-lg">{{ toast.icon }}</span>
+          <i v-if="isIconClass(toast.icon)" aria-hidden="true" :class="toast.icon" class="dk:flex-shrink-0 dk:text-lg dk:leading-none" />
+          <span v-else-if="toast.icon" aria-hidden="true" class="dk:flex-shrink-0 dk:text-lg">{{ toast.icon }}</span>
           <span v-else :class="dotClasses(toast.color)" aria-hidden="true" />
           <div class="dk:flex-1 dk:min-w-0">
             <p v-if="toast.title" class="dk:text-sm dk:font-semibold dk:leading-snug">{{ toast.title }}</p>
@@ -37,6 +38,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { cn } from '../../utils/cn'
+import { isIconClass } from '../../utils/icon'
 import { elevatedSurfaceClasses, dotColorClasses, focusRingClasses } from '../../theme/tokens'
 import { useToast } from './useToast'
 import type { ToastColor, ToastPosition } from './useToast'

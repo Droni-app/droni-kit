@@ -215,3 +215,36 @@ export const WithIcons: Story = {
     `,
   }),
 };
+
+export const WithIconClasses: Story = {
+  render: () => ({
+    components: { DuiDropdown, DuiDropdownItem, DuiDropdownSeparator, DuiButton },
+    setup() {
+      const open = ref(false);
+      return { open };
+    },
+    template: `
+      <div class="dk:p-12 dk:flex dk:justify-center">
+        <DuiDropdown v-model="open">
+          <template #trigger>
+            <DuiButton>Mi cuenta ▾</DuiButton>
+          </template>
+          <DuiDropdownItem label="Mi panel" icon="mdi mdi-view-dashboard-outline" />
+          <DuiDropdownItem label="Perfil" icon="mdi mdi-account-outline" />
+          <DuiDropdownItem label="Ajustes" icon="mdi mdi-cog-outline" />
+          <DuiDropdownSeparator />
+          <DuiDropdownItem label="Cerrar sesion" icon="mdi mdi-logout" danger />
+        </DuiDropdown>
+      </div>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: /Mi cuenta/i }));
+
+    const icon = canvasElement.querySelector('[role="menuitem"] i.mdi.mdi-view-dashboard-outline');
+    await expect(icon).not.toBeNull();
+    // La clase no debe filtrarse como texto visible del item
+    await expect(canvas.getByRole('menuitem', { name: /Mi panel/i }).textContent).not.toContain('mdi');
+  },
+};

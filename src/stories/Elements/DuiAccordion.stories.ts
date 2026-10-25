@@ -167,7 +167,7 @@ export const WithIcons: Story = {
       const items = [
         { value: 'shipping', title: 'Politica de envios', icon: '🚚', content: 'Envios gratis en pedidos mayores a $50. Tiempo de entrega: 3-5 dias habiles.' },
         { value: 'returns', title: 'Devoluciones y reembolsos', icon: '↩️', content: 'Tienes 30 dias para devolver cualquier producto en perfectas condiciones.' },
-        { value: 'privacy', title: 'Privacidad de datos', icon: '🔒', content: 'Tus datos personales nunca seran compartidos con terceros sin tu consentimiento.' },
+        { value: 'privacy', title: 'Privacidad de datos', icon: 'mdi mdi-lock-outline', content: 'Tus datos personales nunca seran compartidos con terceros sin tu consentimiento.' },
       ];
       return { open, items };
     },
