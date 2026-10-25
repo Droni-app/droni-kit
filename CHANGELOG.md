@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/Droni-app/droni-kit/compare/v2.0.0...v2.0.1) (2026-10-25)
+
+
+### Bug Fixes
+
+* renderizar la prop icon como clases CSS (mdi) en dropdown, tabs, accordion y toast ([8a6d8ae](https://github.com/Droni-app/droni-kit/commit/8a6d8ae361dcca8df40613a9559f098712336b17))
+
 # [2.0.0](https://github.com/Droni-app/droni-kit/compare/v1.26.0...v2.0.0) (2026-10-19)
 
 
