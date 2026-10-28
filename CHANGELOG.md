@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/Droni-app/droni-kit/compare/v2.0.1...v2.1.0) (2026-10-28)
+
+
+### Features
+
+* scrollbars finos con los colores de droni-kit ([0c823ce](https://github.com/Droni-app/droni-kit/commit/0c823ce73c1ed942d9c9d3ae4b111173cbb4972e))
+
 ## [2.0.1](https://github.com/Droni-app/droni-kit/compare/v2.0.0...v2.0.1) (2026-10-25)
 
 
