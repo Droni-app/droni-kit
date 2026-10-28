@@ -120,7 +120,7 @@ const activeColorClasses = {
 const rootClasses = computed(() => 'dk:w-full')
 
 const listClasses = computed(() => {
-  const base = 'dk:flex dk:items-center dk:gap-0.5 dk:max-w-full dk:overflow-x-auto dk:[scrollbar-width:none]'
+  const base = 'dk:flex dk:items-center dk:gap-0.5 dk:max-w-full dk:overflow-x-auto dk:[scrollbar-width:none] dk:[&::-webkit-scrollbar]:hidden'
   const width = props.fullWidth ? 'dk:w-full' : ''
   const variant = {
     underline: 'dk:border-b dk:border-neutral-200 dk:dark:border-white/10',

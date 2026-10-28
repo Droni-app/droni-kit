@@ -150,6 +150,71 @@
   font-size: 0.9em;
 }
 
+/* ── Scrollbars DroniKit ───────────────────────────────────────────────────
+   Finos y discretos: thumb neutral translúcido sobre track transparente que
+   se enciende con el degradado primary → secondary al pasar el cursor.
+   Aplica al scroll de la página y a cualquier elemento con overflow.
+   Re-temear = sobrescribir las variables --dk-scrollbar-* en :root / .dark.
+   ----------------------------------------------------------------------------- */
+:root {
+  --dk-scrollbar-size: 6px;
+  --dk-scrollbar-track: transparent;
+  --dk-scrollbar-thumb: rgb(146 152 179 / 0.45); /* neutral-400 */
+  --dk-scrollbar-thumb-hover: #8a4cf7; /* primary-500 */
+  --dk-scrollbar-thumb-hover-to: #f23282; /* secondary-500 */
+}
+
+.dark {
+  --dk-scrollbar-thumb: rgb(255 255 255 / 0.14);
+  --dk-scrollbar-thumb-hover: #a175fd; /* primary-400 */
+  --dk-scrollbar-thumb-hover-to: #fb5d9f; /* secondary-400 */
+}
+
+@layer base {
+  /* Firefox: solo propiedades estándar (sin radios ni degradados). Se limita a
+     navegadores sin ::-webkit-scrollbar porque en Chromium 121+ definir
+     scrollbar-color/width desactiva los pseudo-elementos de abajo. */
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--dk-scrollbar-thumb) var(--dk-scrollbar-track);
+    }
+    *:hover {
+      scrollbar-color: var(--dk-scrollbar-thumb-hover) var(--dk-scrollbar-track);
+    }
+  }
+
+  /* Chromium / Safari */
+  ::-webkit-scrollbar {
+    width: var(--dk-scrollbar-size);
+    height: var(--dk-scrollbar-size);
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: var(--dk-scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--dk-scrollbar-thumb);
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(
+      to bottom right,
+      var(--dk-scrollbar-thumb-hover),
+      var(--dk-scrollbar-thumb-hover-to)
+    );
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--dk-scrollbar-thumb-hover);
+    background-image: none;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+}
+
 /* ── Keyframes globales DroniKit (Skeleton shimmer) ─────────────────────── */
 @keyframes dui-shimmer {
   from { transform: translateX(-100%); }
